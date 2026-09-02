@@ -1,1107 +1,480 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AJ Fashion — Haryana's Plus Size Hub</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
-
-  :root{
-    --bg:#121212;
-    --panel:#1a1a1a;
-    --panel2:#1f1f1f;
-    --line:#333333;
-    --ink:#f5f1e8;
-    --ink-dim:#9a9a95;
-    --orange:#ff5722;
-    --orange-dim:#c8431a;
-    --yellow:#ffb300;
-  }
-
-  [data-theme="light"]{
-    --bg:#f5f1e8;
-    --panel:#ffffff;
-    --panel2:#efebe2;
-    --line:#ddd6c7;
-    --ink:#1a1a1a;
-    --ink-dim:#6b6b64;
-    --orange:#ff5722;
-    --orange-dim:#e04a1c;
-    --yellow:#e69500;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
-    transition:background 0.25s ease, color 0.25s ease;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
-  }
-
-  .display{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:0.5px;}
-  .cond{font-family:'Barlow Condensed',sans-serif;}
-
-  a{color:inherit; text-decoration:none;}
-  button{font-family:inherit; cursor:pointer; border:none;}
-
-  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
-
-  /* ---------- NAV ---------- */
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(18,18,18,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:1180px; margin:0 auto; padding:16px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .logo{
-    font-family:'Anton',sans-serif;
-    font-size:22px;
-    letter-spacing:0.5px;
-  }
-  .logo span{color:var(--orange);}
-  .nav-links{display:flex; gap:28px; font-size:15px; font-weight:500;}
-  .nav-links a{color:var(--ink-dim); transition:color 0.2s;}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-cta{
-    background:var(--orange);
-    color:#121212;
-    font-weight:700;
-    font-size:14px;
-    padding:10px 18px;
-    border-radius:2px;
-  }
-  .nav-mobile-links{display:none;}
-  .nav-actions{display:flex; align-items:center; gap:12px;}
-  .theme-toggle{
-    width:40px; height:40px;
-    border:1px solid var(--line);
-    background:var(--panel);
-    border-radius:2px;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--ink);
-    flex-shrink:0;
-    transition:border-color 0.2s;
-  }
-  .theme-toggle:hover{border-color:var(--orange);}
-  .theme-toggle svg{width:18px; height:18px;}
-  .theme-toggle .icon-sun{display:none;}
-  [data-theme="light"] .theme-toggle .icon-moon{display:none;}
-  [data-theme="light"] .theme-toggle .icon-sun{display:block;}
-  @media (max-width:760px){
-    .nav-links{display:none;}
-    .nav-cta{padding:9px 14px; font-size:13px;}
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:64px 0 40px;
-    border-bottom:1px solid var(--line);
-    position:relative;
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:end;
-  }
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr; gap:36px;}
-  }
-
-  .kicker{
-    color:var(--orange);
-    font-size:15px;
-    font-weight:700;
-    margin-bottom:18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .kicker::before{
-    content:"";
-    width:22px; height:2px;
-    background:var(--orange);
-    display:inline-block;
-  }
-
-  .hero h1{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(40px,6vw,68px);
-    line-height:0.98;
-    letter-spacing:0.5px;
-    margin-bottom:22px;
-  }
-  .hero h1 em{
-    font-style:normal;
-    color:var(--orange);
-  }
-
-  .hero p.sub{
-    font-size:17px;
-    color:var(--ink-dim);
-    max-width:480px;
-    line-height:1.6;
-    margin-bottom:32px;
-  }
-
-  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
-  .btn-primary{
-    background:var(--orange);
-    color:#121212;
-    padding:15px 26px;
-    font-weight:700;
-    font-size:15px;
-    border-radius:2px;
-    transition:background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover{background:var(--yellow); transform:translateY(-2px);}
-  .btn-secondary{
-    background:transparent;
-    color:var(--ink);
-    padding:15px 26px;
-    font-weight:600;
-    font-size:15px;
-    border:1px solid var(--line);
-    border-radius:2px;
-    transition:border-color 0.2s;
-  }
-  .btn-secondary:hover{border-color:var(--ink-dim);}
-
-  .hero-stats{display:flex; gap:36px;}
-  .hero-stats .stat-num{
-    font-family:'Anton',sans-serif;
-    font-size:30px;
-    color:var(--orange);
-    display:block;
-  }
-  .hero-stats .stat-label{
-    font-size:13px;
-    color:var(--ink-dim);
-  }
-
-  /* Size wall — the real hero visual */
-  .size-wall{
-    background:var(--panel);
-    border:1px solid var(--line);
-    padding:28px;
-    border-radius:4px;
-  }
-  .size-wall-head{
-    display:flex; justify-content:space-between; align-items:baseline;
-    margin-bottom:18px;
-  }
-  .size-wall-head h3{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:19px;
-  }
-  .size-wall-head span{
-    font-size:12px;
-    color:var(--ink-dim);
-  }
-  .size-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:8px;
-  }
-  .size-cell{
-    aspect-ratio:1;
-    border:1px solid var(--line);
-    background:var(--panel2);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:600;
-    font-size:15px;
-    color:var(--ink-dim);
-    border-radius:2px;
-    cursor:pointer;
-    transition:all 0.15s;
-  }
-  .size-cell:hover, .size-cell.active{
-    border-color:var(--orange);
-    color:var(--orange);
-    background:rgba(255,87,34,0.08);
-  }
-  .size-result{
-    margin-top:16px;
-    padding:14px;
-    background:var(--panel2);
-    border-left:3px solid var(--orange);
-    font-size:14px;
-    color:var(--ink-dim);
-    line-height:1.5;
-    border-radius:0 2px 2px 0;
-  }
-  .size-result strong{color:var(--ink); font-weight:600;}
-
-  /* ---------- COMBO STRIP ---------- */
-  .combo-strip{
-    border-bottom:1px solid var(--line);
-    background:var(--panel);
-    padding:36px 0;
-  }
-  .combo-row{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-  }
-  @media (max-width:760px){
-    .combo-row{grid-template-columns:1fr;}
-  }
-  .combo-card{
-    background:var(--bg);
-    padding:26px 24px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-  .combo-price{
-    font-family:'Anton',sans-serif;
-    font-size:32px;
-    color:var(--orange);
-  }
-  .combo-price sup{font-size:16px; top:-0.6em;}
-  .combo-desc{
-    font-size:14.5px;
-    color:var(--ink-dim);
-    line-height:1.5;
-  }
-
-  /* ---------- SECTION HEAD ---------- */
-  .section{padding:64px 0;}
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    margin-bottom:32px;
-    border-bottom:1px solid var(--line);
-    padding-bottom:20px;
-    gap:20px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{
-    font-family:'Anton',sans-serif;
-    font-size:clamp(26px,3.4vw,36px);
-  }
-  .section-head p{
-    color:var(--ink-dim);
-    font-size:14.5px;
-    max-width:340px;
-  }
-
-  /* ---------- CATALOGUE ---------- */
-  .cat-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-  }
-  @media (max-width:900px){
-    .cat-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:520px){
-    .cat-grid{grid-template-columns:1fr;}
-  }
-  .cat-card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 20px 24px;
-    transition:border-color 0.2s, transform 0.2s;
-  }
-  .cat-card:hover{border-color:var(--orange); transform:translateY(-3px);}
-  .cat-tag{
-    display:inline-block;
-    font-size:12px;
-    font-weight:700;
-    color:var(--orange);
-    background:rgba(255,87,34,0.1);
-    padding:4px 9px;
-    border-radius:2px;
-    margin-bottom:14px;
-  }
-  .cat-card h3{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:21px;
-    margin-bottom:10px;
-    line-height:1.15;
-  }
-  .cat-card p{
-    font-size:14px;
-    color:var(--ink-dim);
-    line-height:1.55;
-  }
-
-  /* ---------- PRODUCT CARDS (with images) ---------- */
-  .prod-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-  }
-  @media (max-width:900px){
-    .prod-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:520px){
-    .prod-grid{grid-template-columns:1fr;}
-  }
-  .prod-card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-    transition:border-color 0.2s, transform 0.2s;
-  }
-  .prod-card:hover{border-color:var(--orange); transform:translateY(-3px);}
-  .prod-img{
-    width:100%;
-    aspect-ratio:4/5;
-    overflow:hidden;
-    background:var(--panel2);
-    position:relative;
-  }
-  .prod-img img, .prod-img svg{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .prod-img img.img-fallback{
-    object-fit:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--panel2);
-  }
-  .prod-badge{
-    position:absolute;
-    top:10px; left:10px;
-    background:var(--orange);
-    color:#121212;
-    font-size:11px;
-    font-weight:700;
-    padding:4px 9px;
-    border-radius:2px;
-  }
-  .prod-body{padding:16px 16px 18px;}
-  .prod-body h4{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:18px;
-    margin-bottom:6px;
-    line-height:1.2;
-  }
-  .prod-body p{
-    font-size:13px;
-    color:var(--ink-dim);
-    line-height:1.5;
-    margin-bottom:10px;
-  }
-  .prod-price{
-    font-family:'Anton',sans-serif;
-    font-size:19px;
-    color:var(--orange);
-  }
-  .prod-price span{
-    font-family:'Inter',sans-serif;
-    font-size:12px;
-    color:var(--ink-dim);
-    font-weight:500;
-  }
-
-  /* ---------- OUTLET MAP CARDS ---------- */
-  .outlet-map-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-  }
-  @media (max-width:760px){
-    .outlet-map-grid{grid-template-columns:1fr;}
-  }
-  .outlet-map-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-    background:var(--panel);
-  }
-  .outlet-map-card iframe{
-    width:100%;
-    height:200px;
-    display:block;
-    border:0;
-    filter:grayscale(0.3) contrast(1.05);
-  }
-  .outlet-map-info{padding:18px 20px;}
-  .outlet-map-info .outlet-badge{margin-bottom:6px;}
-  .outlet-map-info h4{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:20px;
-    margin-bottom:8px;
-  }
-  .outlet-map-info p{
-    font-size:13.5px;
-    color:var(--ink-dim);
-    line-height:1.55;
-    margin-bottom:12px;
-  }
-  .outlet-map-link{
-    font-size:13px;
-    font-weight:700;
-    color:var(--orange);
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-  }
-
-  /* ---------- OUTLETS ---------- */
-  .outlet-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-  }
-  @media (max-width:900px){
-    .outlet-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:520px){
-    .outlet-grid{grid-template-columns:1fr;}
-  }
-  .outlet-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:20px;
-    position:relative;
-  }
-  .outlet-card.primary{border-color:var(--orange);}
-  .outlet-badge{
-    font-size:11px;
-    font-weight:700;
-    color:var(--yellow);
-    margin-bottom:8px;
-    display:block;
-  }
-  .outlet-card h4{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:19px;
-    margin-bottom:8px;
-  }
-  .outlet-card p{
-    font-size:13.5px;
-    color:var(--ink-dim);
-    line-height:1.5;
-  }
-
-  /* ---------- TRUST STRIP ---------- */
-  .trust{
-    background:var(--panel);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:28px 0;
-  }
-  .trust-row{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:20px;
-    font-size:14px;
-  }
-  .trust-item{display:flex; align-items:center; gap:10px; color:var(--ink-dim);}
-  .trust-item strong{color:var(--ink); font-weight:600;}
-  .dot{width:6px; height:6px; border-radius:50%; background:var(--orange); flex-shrink:0;}
-
-  /* ---------- FOOTER ---------- */
-  footer{padding:56px 0 32px;}
-  .footer-grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr 1fr;
-    gap:40px;
-    margin-bottom:40px;
-  }
-  @media (max-width:760px){
-    .footer-grid{grid-template-columns:1fr; gap:32px;}
-  }
-  .footer-grid h4{
-    font-size:13px;
-    color:var(--ink-dim);
-    margin-bottom:14px;
-    font-weight:600;
-  }
-  .footer-grid p, .footer-grid a{
-    font-size:14.5px;
-    line-height:1.9;
-    color:var(--ink);
-    display:block;
-  }
-  .footer-grid a:hover{color:var(--orange);}
-  .footer-bottom{
-    border-top:1px solid var(--line);
-    padding-top:24px;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:12px;
-    font-size:13px;
-    color:var(--ink-dim);
-  }
-
-  .wa-float{
-    position:fixed;
-    bottom:22px; right:22px;
-    background:#25D366;
-    width:58px; height:58px;
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    z-index:60;
-    box-shadow:0 4px 18px rgba(37,211,102,0.45);
-    transition:transform 0.2s;
-  }
-  .wa-float:hover{transform:scale(1.07);}
-  .wa-float svg{width:30px; height:30px;}
-
-  /* ---------- AI CHATBOT WIDGET ---------- */
-  .chat-float{
-    position:fixed;
-    bottom:92px; right:22px;
-    background:var(--orange);
-    width:58px; height:58px;
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    z-index:60;
-    box-shadow:0 4px 18px rgba(255,87,34,0.45);
-    transition:transform 0.2s;
-    color:#121212;
-  }
-  .chat-float:hover{transform:scale(1.07);}
-  .chat-float svg{width:26px; height:26px;}
-  .chat-float .chat-dot{
-    position:absolute;
-    top:2px; right:2px;
-    width:12px; height:12px;
-    background:#25D366;
-    border:2px solid var(--bg);
-    border-radius:50%;
-  }
-
-  .chat-panel{
-    position:fixed;
-    bottom:160px; right:22px;
-    width:320px;
-    max-width:calc(100vw - 44px);
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:10px;
-    box-shadow:0 12px 40px rgba(0,0,0,0.4);
-    z-index:61;
-    display:none;
-    flex-direction:column;
-    overflow:hidden;
-  }
-  .chat-panel.open{display:flex;}
-  .chat-header{
-    background:var(--orange);
-    color:#121212;
-    padding:14px 16px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .chat-header .chat-avatar{
-    width:34px; height:34px;
-    background:#121212;
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-  }
-  .chat-header .chat-avatar svg{width:18px; height:18px; color:var(--orange);}
-  .chat-header-text h5{font-size:14px; font-weight:700; font-family:'Barlow Condensed',sans-serif;}
-  .chat-header-text span{font-size:11px; opacity:0.8; display:flex; align-items:center; gap:4px;}
-  .chat-header-text .live-dot{width:6px; height:6px; background:#0b6b2c; border-radius:50%; display:inline-block;}
-  .chat-close{
-    margin-left:auto;
-    background:none;
-    color:#121212;
-    font-size:20px;
-    line-height:1;
-    opacity:0.7;
-    padding:4px;
-  }
-  .chat-close:hover{opacity:1;}
-  .chat-body{
-    padding:16px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    max-height:320px;
-    overflow-y:auto;
-    background:var(--bg);
-  }
-  .chat-msg{
-    max-width:85%;
-    padding:10px 13px;
-    border-radius:12px;
-    font-size:13.5px;
-    line-height:1.5;
-  }
-  .chat-msg.bot{
-    background:var(--panel2);
-    color:var(--ink);
-    border-bottom-left-radius:3px;
-    align-self:flex-start;
-  }
-  .chat-msg.user{
-    background:var(--orange);
-    color:#121212;
-    border-bottom-right-radius:3px;
-    align-self:flex-end;
-    font-weight:500;
-  }
-  .chat-quick{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    padding:0 16px 14px;
-    background:var(--bg);
-  }
-  .chat-quick button{
-    background:var(--panel2);
-    border:1px solid var(--line);
-    color:var(--ink-dim);
-    font-size:12px;
-    padding:7px 11px;
-    border-radius:20px;
-    transition:border-color 0.2s, color 0.2s;
-  }
-  .chat-quick button:hover{border-color:var(--orange); color:var(--orange);}
-  .chat-footer{
-    padding:12px 14px;
-    border-top:1px solid var(--line);
-    display:flex;
-    gap:8px;
-    background:var(--panel);
-  }
-  .chat-footer input{
-    flex:1;
-    background:var(--panel2);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:10px 14px;
-    font-size:13px;
-    color:var(--ink);
-    font-family:inherit;
-  }
-  .chat-footer input::placeholder{color:var(--ink-dim);}
-  .chat-footer input:focus{outline:none; border-color:var(--orange);}
-  .chat-footer button{
-    background:var(--orange);
-    width:38px; height:38px;
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-  }
-  .chat-footer button svg{width:16px; height:16px; color:#121212;}
-  .chat-note{
-    font-size:10.5px;
-    color:var(--ink-dim);
-    text-align:center;
-    padding:6px 0 10px;
-    background:var(--panel);
-  }
-</style>
+<title>Ghasi Ram Jewellers — Trust Transcending Generations Since 1920</title>
+<meta name="description" content="Rohtak's premier jewellers since 1920. 100% BIS Hallmark Gold, Bridal Trousseau, 92.5 Sterling Silver and certified Diamonds.">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<nav>
+<!-- ============ NAV ============ -->
+<header class="nav">
   <div class="nav-inner">
-    <div class="logo">AJ <span>FASHION</span></div>
-    <div class="nav-links">
-      <a href="#sizes">Sizes</a>
-      <a href="#combos">Combos</a>
-      <a href="#catalogue">Catalogue</a>
-      <a href="#outlets">Outlets</a>
-    </div>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <a href="index.html" class="brand">
+      <span class="brand-mark">Ghasi Ram</span>
+      <span class="brand-est">Jewellers · Est. 1920</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="catalogue.html?cat=bridal">Bridal Trousseau</a></li>
+        <li><a href="catalogue.html?cat=silver">Silver Line</a></li>
+        <li><a href="catalogue.html?cat=diamond">Diamond Lounge</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#" class="icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Admin Login</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark theme">
+        <span class="theme-toggle-knob">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3D0713" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </span>
       </button>
-      <a href="https://wa.me/919350151835" class="nav-cta">WhatsApp Order</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
-</nav>
 
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="catalogue.html?cat=bridal">Bridal Trousseau</a>
+    <a href="catalogue.html?cat=silver">Silver Line</a>
+    <a href="catalogue.html?cat=diamond">Diamond Lounge</a>
+    <a href="#services">Our Services</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#">Admin Login</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="kicker">HARYANA'S DEDICATED PLUS-SIZE HUB</div>
-        <h1>Big Sizes. <br>Bigger <em>Style.</em></h1>
-        <p class="sub">3XL से 10XL तक की सबसे बड़ी ट्रेंडी कलेक्शन — जो किसी और दुकान पर नहीं मिलती। जींस साइज 38 से 50+ तक भी उपलब्ध।</p>
-        <div class="hero-ctas">
-          <a href="#sizes" class="btn-primary">Shop Plus Size (3XL–10XL)</a>
-          <a href="#combos" class="btn-secondary">₹1000 Combo Deals</a>
-        </div>
-        <div class="hero-stats">
-          <div><span class="stat-num">4</span><span class="stat-label">Outlets in Haryana</span></div>
-          <div><span class="stat-num">10XL</span><span class="stat-label">Largest size stocked</span></div>
-          <div><span class="stat-num">7</span><span class="stat-label">Days open a week</span></div>
-        </div>
-      </div>
-
-      <div class="size-wall" id="sizes">
-        <div class="size-wall-head">
-          <h3>Select Your Size</h3>
-          <span>Live stock check</span>
-        </div>
-        <div class="size-grid" id="sizeGrid"></div>
-        <div class="size-result" id="sizeResult">कोई साइज चुनकर स्टॉक चेक करें।</div>
-      </div>
+  <div class="hero-frame">
+    <div class="hero-eyebrow">ROHTAK · HARYANA · SINCE 1920</div>
+    <h1>Trust Transcending Generations Since 1920.</h1>
+    <p class="hero-sub">Rohtak's premier destination for 100% Hallmark Gold, Diamond Elegance, and Haryana's finest 92.5 Sterling Silver.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold">Book a Showroom Visit</a>
+      <a href="catalogue.html?cat=bridal" class="btn btn-outline">View Latest Catalog</a>
     </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
   </div>
 </section>
 
-<section class="combo-strip" id="combos">
-  <div class="wrap">
-    <div class="combo-row">
-      <div class="combo-card">
-        <div class="combo-price">₹1000<sup> / 3pc</sup></div>
-        <div class="combo-desc">T-Shirts — Size M to XXL</div>
-      </div>
-      <div class="combo-card">
-        <div class="combo-price">₹1000<sup> / 3pc</sup></div>
-        <div class="combo-desc">Lowers — Premium fabric, designer pieces</div>
-      </div>
-      <div class="combo-card">
-        <div class="combo-price">₹1200<sup> / 2pc</sup></div>
-        <div class="combo-desc">Premium Lowers — 2 piece combo</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="catalogue">
-  <div class="wrap">
+<!-- ============ COLLECTIONS ============ -->
+<section class="section" id="collections">
+  <div class="container">
     <div class="section-head">
-      <h2>What's in store</h2>
-      <p>चार कैटेगरी, हर एक अपने आप में एक पूरी रेंज।</p>
+      <div class="section-label">Specialised Portfolios</div>
+      <h2>Three houses, one legacy</h2>
+      <p>Each collection is built around a different chapter of Ghasi Ram's craft — from bridal heritage to everyday silver to certified diamonds.</p>
     </div>
-    <div class="cat-grid">
-      <div class="cat-card">
-        <span class="cat-tag">3XL – 10XL</span>
-        <h3>The Big Size Zone</h3>
-        <p>ट्रेंडी ओवरसाइज्ड टी-शर्ट्स, पार्टी-वियर प्रिंटेड शर्ट्स और कम्फर्ट फिट ट्रैक पैंट्स।</p>
+
+    <div class="collections-grid-img">
+      <button class="collection-card-img" data-open-catalogue="bridal">
+        <div class="cci-media">
+          <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=75&auto=format&fit=crop" alt="Bridal gold necklace set" loading="lazy">
+        </div>
+        <div class="cci-body">
+          <h3>The Bridal Trousseau</h3>
+          <p>Heavy chokers, Polki & Meenakari fusion sets, signature Ram Darbar craft.</p>
+          <span class="cci-cta">
+            View all & search
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <button class="collection-card-img" data-open-catalogue="silver">
+        <div class="cci-media">
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=75&auto=format&fit=crop" alt="Sterling silver bangles" loading="lazy">
+        </div>
+        <div class="cci-body">
+          <h3>Ghasi Ram Silver Line</h3>
+          <p>92.5 Sterling Silver bangles, anklets, and contemporary giftware.</p>
+          <span class="cci-cta">
+            View all & search
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <button class="collection-card-img" data-open-catalogue="diamond">
+        <div class="cci-media">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=75&auto=format&fit=crop" alt="Certified diamond ring" loading="lazy">
+        </div>
+        <div class="cci-body">
+          <h3>The Diamond Lounge</h3>
+          <p>Engagement rings, daily wear pendants, certified solitaire bands.</p>
+          <span class="cci-cta">
+            View all & search
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <button class="collection-card-img" data-open-catalogue="heritage">
+        <div class="cci-media">
+          <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=75&auto=format&fit=crop" alt="Engraved gold kada" loading="lazy">
+        </div>
+        <div class="cci-body">
+          <h3>Heritage Bangles & Kadas</h3>
+          <p>Traditional craft bangles and kadas rooted in heritage design.</p>
+          <span class="cci-cta">
+            View all & search
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </button>
+    </div>
+    <p class="also-available">Also available: Pearl & Emerald Kundan sets, Amber dangle earrings, Moonstone spiral silver earrings</p>
+  </div>
+</section>
+
+<!-- ============ TRUST: HALLMARK ============ -->
+<section class="trust-banner" id="services">
+  <div class="container trust-grid">
+    <div class="trust-copy">
+      <h2>Every piece, independently hallmarked.</h2>
+      <p>We built our name on a simple promise: what we tell you is what you get. Every gold item leaving our showroom carries a 100% BIS Hallmark, verified against the day's certified purity standard — no exceptions, no shortcuts.</p>
+    </div>
+    <div class="hallmark-points">
+      <div class="hallmark-point">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5Z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="hallmark-point-text">
+          <b>BIS Hallmark on every gold piece</b>
+          <span>Purity certified and stamped, checked against current standards.</span>
+        </div>
       </div>
-      <div class="cat-card">
-        <span class="cat-tag">M – XXL</span>
-        <h3>Streetwear & Bottoms</h3>
-        <p>प्रीमियम कार्गो पैंट्स, स्ट्रेचेबल एम्ब्रॉयडरी जींस (साइज 38–50+) और कैजुअल शॉर्ट्स।</p>
+      <div class="hallmark-point">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        <div class="hallmark-point-text">
+          <b>Transparent making charges</b>
+          <span>Weight and making cost shown upfront — ask us on WhatsApp any time.</span>
+        </div>
       </div>
-      <div class="cat-card">
-        <span class="cat-tag">SEASONAL</span>
-        <h3>Co-ord Sets & Tracksuits</h3>
-        <p>फेस्टिव और सीजनल वियर के लिए कॉम्बो ट्रैकसूट्स और ट्रेंडी कॉर्ड-सेट्स।</p>
-      </div>
-      <div class="cat-card">
-        <span class="cat-tag">ACCESSORIES</span>
-        <h3>AJ Shoes & Accessories</h3>
-        <p>स्नीकर्स, फॉर्मल शूज, बेल्ट्स और प्रीमियम वॉलेट्स का कलेक्शन।</p>
+      <div class="hallmark-point">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M8 4v5"/></svg>
+        <div class="hallmark-point-text">
+          <b>Buy-back and exchange policy</b>
+          <span>Straightforward valuation on old gold, honoured across generations of customers.</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
+<!-- ============ LEGACY TIMELINE ============ -->
+<section class="section section-alt">
+  <div class="container">
     <div class="section-head">
-      <h2>Best sellers</h2>
-      <p>वो पीसेस जो सबसे ज़्यादा बिकते हैं — रील्स में भी यही सबसे ज़्यादा दिखे।</p>
+      <div class="section-label">Our Journey</div>
+      <h2>A century on Railway Road</h2>
+      <p>From a single counter in Old Anaj Mandi to one of North India's largest jewellery destinations — scroll to follow our story.</p>
     </div>
-    <div class="prod-grid">
-      <div class="prod-card">
-        <div class="prod-img">
-          <span class="prod-badge">3XL–10XL</span>
-          <img src="https://source.unsplash.com/400x500/?oversized,tshirt,men" alt="Oversized t-shirt" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x500/2a2a2a/ff5722?text=Oversized+Tee';">
+  </div>
+  <div class="container">
+    <div class="timeline-wrap">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">1920</div>
+          <p>Lala Ghasi Ram opens the first counter near Old Anaj Mandi Chowk, Rohtak, trading in gold ornaments for local families.</p>
         </div>
-        <div class="prod-body">
-          <h4>Oversized Back-Print Tee</h4>
-          <p>240 GSM cotton lycra, round neck</p>
-          <div class="prod-price">₹1000<span> / 3pc combo</span></div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">1948</div>
+          <p>The second generation takes over, expanding into bridal sets as Rohtak's wedding trade grows.</p>
         </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img">
-          <span class="prod-badge">STRETCHABLE</span>
-          <img src="https://source.unsplash.com/400x500/?joggers,trackpants,men" alt="Track pants lowers" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x500/2a2a2a/ff5722?text=Track+Lower';">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">1975</div>
+          <p>Introduction of fine Meenakari and Polki work, building the house's reputation for bridal craftsmanship.</p>
         </div>
-        <div class="prod-body">
-          <h4>Daily Wear Track Lower</h4>
-          <p>Premium fabric, elastic + drawstring waist</p>
-          <div class="prod-price">₹1000<span> / 3pc combo</span></div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">1998</div>
+          <p>Launch of the dedicated 92.5 Sterling Silver showroom — soon regarded as the finest in Haryana.</p>
         </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img">
-          <span class="prod-badge">SIZE 38–50+</span>
-          <img src="https://source.unsplash.com/400x500/?cargo,jeans,denim" alt="Cargo jeans men" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x500/2a2a2a/ff5722?text=Cargo+Jeans';">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">2010</div>
+          <p>Adoption of 100% BIS Hallmarking across all gold inventory, ahead of it becoming an industry norm.</p>
         </div>
-        <div class="prod-body">
-          <h4>Imported Cargo Jeans</h4>
-          <p>Flap pocket, straight fit denim</p>
-          <div class="prod-price">₹1500<span> / 2pc combo</span></div>
-        </div>
-      </div>
-      <div class="prod-card">
-        <div class="prod-img">
-          <span class="prod-badge">AJ SHOES</span>
-          <img src="https://source.unsplash.com/400x500/?sneakers,casual,shoes" alt="Casual sneakers men" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x500/2a2a2a/ff5722?text=AJ+Shoes';">
-        </div>
-        <div class="prod-body">
-          <h4>Casual Sneakers</h4>
-          <p>Everyday comfort fit, multiple colours</p>
-          <div class="prod-price">₹899<span> onwards</span></div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="t-year">Today</div>
+          <p>A multi-generational legacy and one of the oldest, largest jewellery destinations in North India.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="combo-strip">
-  <div class="wrap">
-    <div class="section-head" style="border-bottom:none; padding-bottom:0; margin-bottom:24px;">
-      <h2>More combo deals</h2>
-      <p>टी-शर्ट और लोअर के अलावा भी बहुत कुछ।</p>
-    </div>
-    <div class="combo-row">
-      <div class="combo-card">
-        <div class="combo-price">₹500<sup> / 3pc</sup></div>
-        <div class="combo-desc">Shorts Combo — casual & gym wear</div>
-      </div>
-      <div class="combo-card">
-        <div class="combo-price">₹500<sup> / 3pc</sup></div>
-        <div class="combo-desc">Sando Combo — summer & gym vests</div>
-      </div>
-      <div class="combo-card">
-        <div class="combo-price">₹1500<sup> / 2pc</sup></div>
-        <div class="combo-desc">Imported Jeans — size 38 to 50+</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="outlets" style="padding-top:0;">
-  <div class="wrap">
+<!-- ============ INTERACTIVE FEATURES ============ -->
+<section class="section">
+  <div class="container">
     <div class="section-head">
-      <h2>Find your outlet</h2>
-      <p>हरियाणा के 4 शहरों में — जहाँ भी हो, नज़दीक ही AJ Fashion।</p>
+      <div class="section-label">Shop Your Way</div>
+      <h2>Built for how you actually shop</h2>
+      <p>From live gold rates to a personal shopper on WhatsApp — everything you need before visiting the showroom.</p>
     </div>
-    <div class="outlet-map-grid">
-      <div class="outlet-map-card">
-        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Kharkhoda&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="outlet-map-info">
-          <span class="outlet-badge">MAIN BRANCH</span>
-          <h4>Kharkhoda</h4>
-          <p>Main Delhi Road, Near Bank of India / Opposite Union Bank, Shastri Nagar, Kharkhoda, Sonipat – 131402</p>
-          <a href="https://www.google.com/maps/search/AJ+Fashion+Kharkhoda" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
+
+    <div class="feature-row">
+      <div class="feature-card">
+        <span class="fc-tag">LIVE RATES</span>
+        <h3>Gold Rate Ticker</h3>
+        <p>Real-time 22K and 24K gold rates for Haryana, updated daily and shown right at the top of every page.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="fc-tag">COMING SOON</span>
+        <h3>Virtual Try-On</h3>
+        <p>See a bridal choker on yourself before you visit — our AR try-on experience is in development.</p>
+        <div class="ar-placeholder">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+          AR preview placeholder
         </div>
       </div>
-      <div class="outlet-map-card">
-        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Rohtak&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="outlet-map-info">
-          <span class="outlet-badge">2ND BRANCH</span>
-          <h4>Rohtak</h4>
-          <p>Main Gohana Road, Near Sukhpura Chowk, Rohtak, Haryana</p>
-          <a href="https://www.google.com/maps/search/AJ+Fashion+Rohtak" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
-        </div>
-      </div>
-      <div class="outlet-map-card">
-        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Sonipat&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="outlet-map-info">
-          <span class="outlet-badge">3RD BRANCH</span>
-          <h4>Sonipat</h4>
-          <p>Main Rathdhana Road, Opposite ITI (ITI Chowk), Sonipat, Haryana – 131001</p>
-          <a href="https://www.google.com/maps/search/AJ+Fashion+Sonipat" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
-        </div>
-      </div>
-      <div class="outlet-map-card">
-        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Panipat&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div class="outlet-map-info">
-          <span class="outlet-badge">4TH OUTLET · NEW</span>
-          <h4>Panipat</h4>
-          <p>Asandh Road, Opposite Pyramid Cafe, above Axis Bank, Panipat, Haryana</p>
-          <a href="https://www.google.com/maps/search/AJ+Fashion+Panipat" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
-        </div>
+
+      <div class="feature-card">
+        <span class="fc-tag">INSTANT REPLY</span>
+        <h3>WhatsApp Personal Shopper</h3>
+        <p>Ask about weight, price or availability directly on WhatsApp — tap the icon in the corner any time.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="trust">
-  <div class="wrap">
-    <div class="trust-row">
-      <div class="trust-item"><span class="dot"></span><strong>9 AM – 7 PM</strong> · सातों दिन खुला</div>
-      <div class="trust-item"><span class="dot"></span>Advance online payment या in-store pickup — <strong>COD उपलब्ध नहीं</strong></div>
-      <div class="trust-item"><span class="dot"></span>Support: <strong>+91 93063 62554</strong></div>
+<!-- ============ REVIEWS + FEEDBACK ============ -->
+<section class="section section-alt" id="reviews">
+  <div class="container">
+    <div class="section-head center">
+      <div class="section-label">Customer Love</div>
+      <h2>What our customers say</h2>
+    </div>
+
+    <div class="reviews-summary">
+      <span class="stars-static">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+      </span>
+      <span class="reviews-score">4.4 / 5</span>
+      <span class="reviews-count">Based on 139 reviews · Trusted by families across Rohtak</span>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <span class="stars-static">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        </span>
+        <p class="review-text">Bridal set banwaya tha yahan se, finishing bahut premium thi. Everyone at the wedding was asking where we got it made.</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div class="review-author-text"><b>Anita Malik</b><span>Rohtak</span></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <span class="stars-static">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        </span>
+        <p class="review-text">Silver collection is genuinely the finest in the city — staff explained the hallmark details patiently, felt very trustworthy.</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div class="review-author-text"><b>Vikas Sharma</b><span>Rohtak</span></div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <span class="stars-static">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+        </span>
+        <p class="review-text">Lightweight daily-wear collection is perfect for office. Bought a diamond pendant, delivery of certificate was quick too.</p>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div class="review-author-text"><b>Priya Chaudhary</b><span>Rohtak</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feedback-form-wrap">
+      <div class="section-head center" style="margin-bottom:28px;">
+        <div class="section-label">Share Your Experience</div>
+        <h2 style="font-size:26px;">Leave a review</h2>
+      </div>
+
+      <form id="feedbackForm">
+        <div class="form-row">
+          <label>Your rating</label>
+          <span class="star-picker" id="starPicker" data-rating="0">
+            <button type="button" aria-label="1 star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></button>
+            <button type="button" aria-label="2 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></button>
+            <button type="button" aria-label="3 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></button>
+            <button type="button" aria-label="4 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></button>
+            <button type="button" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></button>
+          </span>
+          <span class="star-picker-label" id="starPickerLabel"></span>
+        </div>
+        <div class="form-row">
+          <label for="fbName">Your name</label>
+          <input type="text" id="fbName" required placeholder="Enter your name">
+        </div>
+        <div class="form-row">
+          <label for="fbPhone">Phone number</label>
+          <input type="tel" id="fbPhone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-row">
+          <label for="fbMessage">Your review</label>
+          <textarea id="fbMessage" required placeholder="Tell us about your experience…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark" style="width:100%; justify-content:center;">Submit Review</button>
+        <p class="form-submit-note">This is a sample form — connect it to your backend or WhatsApp to receive real submissions.</p>
+      </form>
+
+      <div class="form-success" id="feedbackSuccess">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5Z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h4>Thank you for your feedback!</h4>
+        <p>We appreciate you taking the time to share your experience with us.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<footer>
-  <div class="wrap">
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="container">
     <div class="footer-grid">
-      <div>
-        <h4>AJ FASHION</h4>
-        <p style="color:var(--ink-dim); max-width:280px;">Haryana's ultimate premium & big size menswear store. 3XL से 10XL — trendy, comfortable, affordable.</p>
+      <div class="footer-brand">
+        <span class="brand-mark">Ghasi Ram</span>
+        <p>Lala Ghasi Ram Lajpat Rai Jain — Rohtak's premier jewellers since 1920. 100% BIS Hallmark Gold and Haryana's finest 92.5 Sterling Silver.</p>
       </div>
-      <div>
-        <h4>ORDER & SUPPORT</h4>
-        <a href="https://wa.me/919350151835">+91 93501 51835 — Kharkhoda Hotline</a>
-        <a href="tel:+917290906690">+91 72909 06690 — Plus Size Enquiry</a>
-        <a href="tel:+919306362554">+91 93063 62554 — Support</a>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <a href="catalogue.html?cat=bridal">Bridal Trousseau</a>
+        <a href="catalogue.html?cat=silver">Silver Line</a>
+        <a href="catalogue.html?cat=diamond">Diamond Lounge</a>
       </div>
-      <div>
-        <h4>MAIN STORE</h4>
-        <p>Main Delhi Road, Near Bank of India, Shastri Nagar, Kharkhoda, Sonipat, Haryana – 131402</p>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p>Railway Road, Opposite Old Anaj Mandi Gate, Old Anaj Mandi Chowk, Rohtak, Haryana – 124001</p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 AJ Fashion. All rights reserved.</span>
-      <span>Website mockup — for demo purposes</span>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+919992783722">+91-9992783722</a>
+        <a href="tel:+918749898981">+91-8749898981</a>
+        <a href="mailto:info.ghasiramjewellers@gmail.com">info.ghasiramjewellers@gmail.com</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- AI Chatbot Widget (static demo) -->
-<div class="chat-panel" id="chatPanel">
-  <div class="chat-header">
-    <div class="chat-avatar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
-    </div>
-    <div class="chat-header-text">
-      <h5>AJ Assistant</h5>
-      <span><i class="live-dot"></i> Online now</span>
-    </div>
-    <button class="chat-close" id="chatClose" aria-label="Close chat">×</button>
+<!-- ============ GOOGLE MAP ============ -->
+<section class="map-section">
+  <div class="map-frame-wrap">
+    <iframe
+      src="https://www.google.com/maps?q=Railway+Road,+Opposite+Old+Anaj+Mandi+Gate,+Rohtak,+Haryana+124001&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ghasi Ram Jewellers location on Railway Road, Rohtak">
+    </iframe>
   </div>
-  <div class="chat-body" id="chatBody">
-    <div class="chat-msg bot">नमस्ते! 👋 मैं AJ Assistant हूँ। साइज, कॉम्बो ऑफर्स या नज़दीकी स्टोर के बारे में पूछें।</div>
+</section>
+
+<div class="footer" style="padding: 20px 0;">
+  <div class="container footer-bottom">
+    <span>© 2026 Ghasi Ram Jewellers. Sample website mockup.</span>
+    <span>Design concept — not the live production site</span>
   </div>
-  <div class="chat-quick">
-    <button data-msg="मुझे 5XL साइज चाहिए">5XL साइज़?</button>
-    <button data-msg="₹1000 combo क्या है?">₹1000 combo?</button>
-    <button data-msg="नज़दीकी स्टोर कहाँ है?">नज़दीकी स्टोर</button>
-  </div>
-  <div class="chat-footer">
-    <input type="text" id="chatInput" placeholder="अपना सवाल लिखें...">
-    <button id="chatSend" aria-label="Send message">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
-    </button>
-  </div>
-  <div class="chat-note">Demo assistant — sample replies only</div>
 </div>
 
-<button class="chat-float" id="chatToggle" aria-label="Open AI chat assistant">
-  <span class="chat-dot"></span>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
-</button>
+<!-- ============ CATALOGUE OVERLAY ============ -->
+<div class="cat-overlay" id="catOverlay">
+  <div class="cat-overlay-header">
+    <div class="container">
+      <div class="cat-overlay-topbar">
+        <a href="index.html" class="brand"><span class="brand-mark">Ghasi Ram</span></a>
+        <button class="cat-close-btn" id="catOverlayClose" aria-label="Close catalogue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <h1 id="catOverlayTitle" style="font-family:var(--font-display); font-size:clamp(26px,4vw,38px); font-weight:600; margin:0 0 8px;">Collection</h1>
+      <p id="catOverlayTagline" style="color:var(--text-muted); font-size:15px; max-width:560px; margin:0 0 22px;">Loading…</p>
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="catOverlaySearch" placeholder="Search this collection — e.g. choker, kada, ring…">
+      </div>
+    </div>
+  </div>
+  <div class="container cat-overlay-body">
+    <div class="product-grid" id="catOverlayGrid"></div>
+    <div class="empty-state" id="catOverlayEmpty">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <p>No pieces match your search. Try a different keyword or clear the search box.</p>
+    </div>
+  </div>
+</div>
 
-<a href="https://wa.me/919350151835" class="wa-float" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
-  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.09-2.33A12.44 12.44 0 0 0 16 28.5c6.905 0 12.5-5.596 12.5-12.5S22.905 3 16.001 3zm0 22.77c-2.04 0-3.94-.6-5.54-1.63l-.397-.25-4.207 1.383 1.377-4.1-.26-.42a10.24 10.24 0 0 1-1.674-5.65c0-5.664 4.608-10.27 10.702-10.27 5.664 0 10.27 4.606 10.27 10.27 0 5.664-4.606 10.27-10.27 10.27zm5.633-7.693c-.309-.155-1.83-.902-2.113-1.005-.283-.103-.489-.155-.695.155-.206.31-.798 1.005-.978 1.212-.18.206-.36.232-.669.077-.309-.155-1.304-.48-2.484-1.531-.918-.818-1.538-1.83-1.718-2.14-.18-.31-.02-.477.136-.63.14-.14.31-.36.464-.54.155-.18.206-.31.31-.516.103-.206.051-.387-.026-.542-.077-.155-.695-1.674-.953-2.293-.251-.602-.506-.52-.695-.53-.18-.008-.386-.01-.592-.01-.206 0-.542.077-.825.387-.283.31-1.08 1.056-1.08 2.575 0 1.519 1.106 2.987 1.26 3.194.155.206 2.176 3.323 5.272 4.66.737.318 1.312.508 1.76.65.74.235 1.412.202 1.944.123.593-.089 1.83-.748 2.088-1.47.258-.723.258-1.343.18-1.47-.077-.129-.283-.206-.592-.36z"/></svg>
-</a>
+<!-- ============ FLOATING WIDGETS ============ -->
+<div class="float-stack">
+  <button class="fab fab-chat" id="chatFab" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 4.4-4 8-9 8-1.1 0-2.2-.16-3.2-.47L3 21l1.6-4.3A7.8 7.8 0 0 1 3 12c0-4.4 4-8 9-8s9 3.6 9 8Z"/></svg>
+  </button>
+  <a href="https://wa.me/919992783722" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.696 4.61 1.902 6.475L4 29l7.727-1.867A11.94 11.94 0 0 0 16.001 27C22.627 27 28 21.627 28 15S22.627 3 16.001 3Zm0 21.6c-1.925 0-3.71-.55-5.23-1.5l-.375-.223-4.59 1.108 1.13-4.47-.246-.394A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6Zm5.79-7.93c-.317-.159-1.874-.924-2.165-1.03-.29-.106-.502-.159-.713.159-.21.317-.816 1.03-1.002 1.24-.185.212-.37.238-.687.08-.317-.16-1.34-.494-2.552-1.573-.943-.84-1.58-1.878-1.765-2.195-.185-.318-.02-.49.139-.648.143-.142.318-.37.476-.556.16-.185.212-.317.318-.529.106-.211.053-.396-.026-.556-.08-.159-.713-1.717-.977-2.352-.257-.617-.518-.534-.713-.544-.185-.009-.396-.011-.607-.011s-.556.08-.847.397c-.29.318-1.108 1.083-1.108 2.642s1.134 3.064 1.292 3.275c.159.212 2.232 3.408 5.409 4.78.756.326 1.346.521 1.806.667.759.242 1.45.208 1.997.126.61-.091 1.874-.766 2.138-1.507.264-.74.264-1.375.185-1.507-.08-.132-.29-.211-.607-.37Z"/></svg>
+  </a>
+</div>
 
-<script>
-  const sizes = ["M","L","XL","XXL","3XL","4XL","5XL","6XL","7XL","8XL","9XL","10XL"];
-  const stockMap = {
-    "M":"All outlets", "L":"All outlets", "XL":"All outlets", "XXL":"All outlets",
-    "3XL":"Kharkhoda, Rohtak & Sonipat", "4XL":"Kharkhoda & Rohtak",
-    "5XL":"Kharkhoda & Rohtak", "6XL":"Kharkhoda only",
-    "7XL":"Kharkhoda only", "8XL":"Kharkhoda (limited stock)",
-    "9XL":"Kharkhoda (on order)", "10XL":"Kharkhoda (on order)"
-  };
-  const grid = document.getElementById('sizeGrid');
-  const result = document.getElementById('sizeResult');
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5Z"/></svg>
+    </div>
+    <div class="chat-header-text">
+      <b>Ghasi Ram Assistant</b>
+      <span>May I help u?</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Namaste! Ghasi Ram Jewellers mein aapka swagat hai. May I help u?</div>
+  </div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Type your message…" autocomplete="off">
+    <button type="submit" class="chat-send" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+    </button>
+  </form>
+</div>
 
-  // AI Chatbot widget (static demo)
-  const chatToggle = document.getElementById('chatToggle');
-  const chatPanel = document.getElementById('chatPanel');
-  const chatClose = document.getElementById('chatClose');
-  const chatBody = document.getElementById('chatBody');
-  const chatInput = document.getElementById('chatInput');
-  const chatSend = document.getElementById('chatSend');
-
-  chatToggle.addEventListener('click', () => chatPanel.classList.toggle('open'));
-  chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
-
-  const demoReplies = {
-    "मुझे 5XL साइज चाहिए": "5XL स्टॉक में है! Kharkhoda और Rohtak आउटलेट पर उपलब्ध है। WhatsApp पर ऑर्डर करें: +91 93501 51835",
-    "₹1000 combo क्या है?": "₹1000 में 3 T-Shirts (M–XXL) या 3 Lowers मिलते हैं। ₹500 में Shorts/Sando combo भी उपलब्ध है!",
-    "नज़दीकी स्टोर कहाँ है?": "हमारे 4 आउटलेट हैं — Kharkhoda, Rohtak, Sonipat और Panipat। नीचे 'Outlets' सेक्शन में पूरा पता और मैप मिलेगा।"
-  };
-
-  function addMsg(text, sender){
-    const div = document.createElement('div');
-    div.className = 'chat-msg ' + sender;
-    div.textContent = text;
-    chatBody.appendChild(div);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  function botReply(userText){
-    setTimeout(() => {
-      const reply = demoReplies[userText] || "यह एक डेमो असिस्टेंट है। असली ऑर्डर या सवाल के लिए हमें WhatsApp पर मैसेज करें: +91 93501 51835";
-      addMsg(reply, 'bot');
-    }, 500);
-  }
-
-  document.querySelectorAll('.chat-quick button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const msg = btn.getAttribute('data-msg');
-      addMsg(msg, 'user');
-      botReply(msg);
-    });
-  });
-
-  function sendUserMessage(){
-    const val = chatInput.value.trim();
-    if(!val) return;
-    addMsg(val, 'user');
-    chatInput.value = '';
-    botReply(val);
-  }
-  chatSend.addEventListener('click', sendUserMessage);
-  chatInput.addEventListener('keypress', (e) => {
-    if(e.key === 'Enter') sendUserMessage();
-  });
-
-  // Theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  const htmlEl = document.documentElement;
-  themeToggle.addEventListener('click', () => {
-    const isLight = htmlEl.getAttribute('data-theme') === 'light';
-    htmlEl.setAttribute('data-theme', isLight ? 'dark' : 'light');
-  });
-
-  sizes.forEach(s => {
-    const cell = document.createElement('div');
-    cell.className = 'size-cell';
-    cell.textContent = s;
-    cell.addEventListener('click', () => {
-      document.querySelectorAll('.size-cell').forEach(c => c.classList.remove('active'));
-      cell.classList.add('active');
-      result.innerHTML = `<strong>${s}</strong> stock available at: ${stockMap[s]}.`;
-    });
-    grid.appendChild(cell);
-  });
-</script>
-
+<script src="js/catalogue-data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/catalogue-overlay.js"></script>
 </body>
 </html>
