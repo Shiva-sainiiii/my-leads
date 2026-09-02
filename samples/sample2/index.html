@@ -1,16 +1,822 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<title>Sample 2</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJ Fashion — Haryana's Plus Size Hub</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --bg:#121212;
+    --panel:#1a1a1a;
+    --panel2:#1f1f1f;
+    --line:#333333;
+    --ink:#f5f1e8;
+    --ink-dim:#9a9a95;
+    --orange:#ff5722;
+    --orange-dim:#c8431a;
+    --yellow:#ffb300;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  .display{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:0.5px;}
+  .cond{font-family:'Barlow Condensed',sans-serif;}
+
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,18,18,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Anton',sans-serif;
+    font-size:22px;
+    letter-spacing:0.5px;
+  }
+  .logo span{color:var(--orange);}
+  .nav-links{display:flex; gap:28px; font-size:15px; font-weight:500;}
+  .nav-links a{color:var(--ink-dim); transition:color 0.2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    background:var(--orange);
+    color:#121212;
+    font-weight:700;
+    font-size:14px;
+    padding:10px 18px;
+    border-radius:2px;
+  }
+  .nav-mobile-links{display:none;}
+  @media (max-width:760px){
+    .nav-links{display:none;}
+    .nav-cta{padding:9px 14px; font-size:13px;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:end;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+  }
+
+  .kicker{
+    color:var(--orange);
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .kicker::before{
+    content:"";
+    width:22px; height:2px;
+    background:var(--orange);
+    display:inline-block;
+  }
+
+  .hero h1{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(40px,6vw,68px);
+    line-height:0.98;
+    letter-spacing:0.5px;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--orange);
+  }
+
+  .hero p.sub{
+    font-size:17px;
+    color:var(--ink-dim);
+    max-width:480px;
+    line-height:1.6;
+    margin-bottom:32px;
+  }
+
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn-primary{
+    background:var(--orange);
+    color:#121212;
+    padding:15px 26px;
+    font-weight:700;
+    font-size:15px;
+    border-radius:2px;
+    transition:background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover{background:var(--yellow); transform:translateY(-2px);}
+  .btn-secondary{
+    background:transparent;
+    color:var(--ink);
+    padding:15px 26px;
+    font-weight:600;
+    font-size:15px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    transition:border-color 0.2s;
+  }
+  .btn-secondary:hover{border-color:var(--ink-dim);}
+
+  .hero-stats{display:flex; gap:36px;}
+  .hero-stats .stat-num{
+    font-family:'Anton',sans-serif;
+    font-size:30px;
+    color:var(--orange);
+    display:block;
+  }
+  .hero-stats .stat-label{
+    font-size:13px;
+    color:var(--ink-dim);
+  }
+
+  /* Size wall — the real hero visual */
+  .size-wall{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:4px;
+  }
+  .size-wall-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:18px;
+  }
+  .size-wall-head h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:19px;
+  }
+  .size-wall-head span{
+    font-size:12px;
+    color:var(--ink-dim);
+  }
+  .size-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:8px;
+  }
+  .size-cell{
+    aspect-ratio:1;
+    border:1px solid var(--line);
+    background:var(--panel2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink-dim);
+    border-radius:2px;
+    cursor:pointer;
+    transition:all 0.15s;
+  }
+  .size-cell:hover, .size-cell.active{
+    border-color:var(--orange);
+    color:var(--orange);
+    background:rgba(255,87,34,0.08);
+  }
+  .size-result{
+    margin-top:16px;
+    padding:14px;
+    background:var(--panel2);
+    border-left:3px solid var(--orange);
+    font-size:14px;
+    color:var(--ink-dim);
+    line-height:1.5;
+    border-radius:0 2px 2px 0;
+  }
+  .size-result strong{color:var(--ink); font-weight:600;}
+
+  /* ---------- COMBO STRIP ---------- */
+  .combo-strip{
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    padding:36px 0;
+  }
+  .combo-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  @media (max-width:760px){
+    .combo-row{grid-template-columns:1fr;}
+  }
+  .combo-card{
+    background:var(--bg);
+    padding:26px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .combo-price{
+    font-family:'Anton',sans-serif;
+    font-size:32px;
+    color:var(--orange);
+  }
+  .combo-price sup{font-size:16px; top:-0.6em;}
+  .combo-desc{
+    font-size:14.5px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+
+  /* ---------- SECTION HEAD ---------- */
+  .section{padding:64px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:32px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:20px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(26px,3.4vw,36px);
+  }
+  .section-head p{
+    color:var(--ink-dim);
+    font-size:14.5px;
+    max-width:340px;
+  }
+
+  /* ---------- CATALOGUE ---------- */
+  .cat-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .cat-grid{grid-template-columns:1fr;}
+  }
+  .cat-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 20px 24px;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .cat-card:hover{border-color:var(--orange); transform:translateY(-3px);}
+  .cat-tag{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--orange);
+    background:rgba(255,87,34,0.1);
+    padding:4px 9px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  .cat-card h3{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:21px;
+    margin-bottom:10px;
+    line-height:1.15;
+  }
+  .cat-card p{
+    font-size:14px;
+    color:var(--ink-dim);
+    line-height:1.55;
+  }
+
+  /* ---------- PRODUCT CARDS (with images) ---------- */
+  .prod-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .prod-grid{grid-template-columns:1fr;}
+  }
+  .prod-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .prod-card:hover{border-color:var(--orange); transform:translateY(-3px);}
+  .prod-img{
+    width:100%;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:var(--panel2);
+    position:relative;
+  }
+  .prod-img img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .prod-badge{
+    position:absolute;
+    top:10px; left:10px;
+    background:var(--orange);
+    color:#121212;
+    font-size:11px;
+    font-weight:700;
+    padding:4px 9px;
+    border-radius:2px;
+  }
+  .prod-body{padding:16px 16px 18px;}
+  .prod-body h4{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    margin-bottom:6px;
+    line-height:1.2;
+  }
+  .prod-body p{
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.5;
+    margin-bottom:10px;
+  }
+  .prod-price{
+    font-family:'Anton',sans-serif;
+    font-size:19px;
+    color:var(--orange);
+  }
+  .prod-price span{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--ink-dim);
+    font-weight:500;
+  }
+
+  /* ---------- OUTLET MAP CARDS ---------- */
+  .outlet-map-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  @media (max-width:760px){
+    .outlet-map-grid{grid-template-columns:1fr;}
+  }
+  .outlet-map-card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--panel);
+  }
+  .outlet-map-card iframe{
+    width:100%;
+    height:200px;
+    display:block;
+    border:0;
+    filter:grayscale(0.3) contrast(1.05);
+  }
+  .outlet-map-info{padding:18px 20px;}
+  .outlet-map-info .outlet-badge{margin-bottom:6px;}
+  .outlet-map-info h4{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    margin-bottom:8px;
+  }
+  .outlet-map-info p{
+    font-size:13.5px;
+    color:var(--ink-dim);
+    line-height:1.55;
+    margin-bottom:12px;
+  }
+  .outlet-map-link{
+    font-size:13px;
+    font-weight:700;
+    color:var(--orange);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  /* ---------- OUTLETS ---------- */
+  .outlet-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  @media (max-width:900px){
+    .outlet-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .outlet-grid{grid-template-columns:1fr;}
+  }
+  .outlet-card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px;
+    position:relative;
+  }
+  .outlet-card.primary{border-color:var(--orange);}
+  .outlet-badge{
+    font-size:11px;
+    font-weight:700;
+    color:var(--yellow);
+    margin-bottom:8px;
+    display:block;
+  }
+  .outlet-card h4{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    margin-bottom:8px;
+  }
+  .outlet-card p{
+    font-size:13.5px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{
+    background:var(--panel);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .trust-row{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    font-size:14px;
+  }
+  .trust-item{display:flex; align-items:center; gap:10px; color:var(--ink-dim);}
+  .trust-item strong{color:var(--ink); font-weight:600;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--orange); flex-shrink:0;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 32px;}
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:40px;
+  }
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr; gap:32px;}
+  }
+  .footer-grid h4{
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-bottom:14px;
+    font-weight:600;
+  }
+  .footer-grid p, .footer-grid a{
+    font-size:14.5px;
+    line-height:1.9;
+    color:var(--ink);
+    display:block;
+  }
+  .footer-grid a:hover{color:var(--orange);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:13px;
+    color:var(--ink-dim);
+  }
+
+  .wa-float{
+    position:fixed;
+    bottom:22px; right:22px;
+    background:var(--orange);
+    color:#121212;
+    width:56px; height:56px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700;
+    font-size:12px;
+    z-index:60;
+    box-shadow:0 4px 18px rgba(255,87,34,0.4);
+    text-align:center;
+    line-height:1.1;
+  }
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>Sample 2</h1>
-    <p>Replace this file with your actual sample content.</p>
-    <a href="../../index.html">← back to index</a>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">AJ <span>FASHION</span></div>
+    <div class="nav-links">
+      <a href="#sizes">Sizes</a>
+      <a href="#combos">Combos</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#outlets">Outlets</a>
+    </div>
+    <a href="https://wa.me/919350151835" class="nav-cta">WhatsApp Order</a>
   </div>
-  <script src="script.js"></script>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">HARYANA'S DEDICATED PLUS-SIZE HUB</div>
+        <h1>Big Sizes. <br>Bigger <em>Style.</em></h1>
+        <p class="sub">3XL से 10XL तक की सबसे बड़ी ट्रेंडी कलेक्शन — जो किसी और दुकान पर नहीं मिलती। जींस साइज 38 से 50+ तक भी उपलब्ध।</p>
+        <div class="hero-ctas">
+          <a href="#sizes" class="btn-primary">Shop Plus Size (3XL–10XL)</a>
+          <a href="#combos" class="btn-secondary">₹1000 Combo Deals</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="stat-num">4</span><span class="stat-label">Outlets in Haryana</span></div>
+          <div><span class="stat-num">10XL</span><span class="stat-label">Largest size stocked</span></div>
+          <div><span class="stat-num">7</span><span class="stat-label">Days open a week</span></div>
+        </div>
+      </div>
+
+      <div class="size-wall" id="sizes">
+        <div class="size-wall-head">
+          <h3>Select Your Size</h3>
+          <span>Live stock check</span>
+        </div>
+        <div class="size-grid" id="sizeGrid"></div>
+        <div class="size-result" id="sizeResult">कोई साइज चुनकर स्टॉक चेक करें।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="combo-strip" id="combos">
+  <div class="wrap">
+    <div class="combo-row">
+      <div class="combo-card">
+        <div class="combo-price">₹1000<sup> / 3pc</sup></div>
+        <div class="combo-desc">T-Shirts — Size M to XXL</div>
+      </div>
+      <div class="combo-card">
+        <div class="combo-price">₹1000<sup> / 3pc</sup></div>
+        <div class="combo-desc">Lowers — Premium fabric, designer pieces</div>
+      </div>
+      <div class="combo-card">
+        <div class="combo-price">₹1200<sup> / 2pc</sup></div>
+        <div class="combo-desc">Premium Lowers — 2 piece combo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalogue">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's in store</h2>
+      <p>चार कैटेगरी, हर एक अपने आप में एक पूरी रेंज।</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <span class="cat-tag">3XL – 10XL</span>
+        <h3>The Big Size Zone</h3>
+        <p>ट्रेंडी ओवरसाइज्ड टी-शर्ट्स, पार्टी-वियर प्रिंटेड शर्ट्स और कम्फर्ट फिट ट्रैक पैंट्स।</p>
+      </div>
+      <div class="cat-card">
+        <span class="cat-tag">M – XXL</span>
+        <h3>Streetwear & Bottoms</h3>
+        <p>प्रीमियम कार्गो पैंट्स, स्ट्रेचेबल एम्ब्रॉयडरी जींस (साइज 38–50+) और कैजुअल शॉर्ट्स।</p>
+      </div>
+      <div class="cat-card">
+        <span class="cat-tag">SEASONAL</span>
+        <h3>Co-ord Sets & Tracksuits</h3>
+        <p>फेस्टिव और सीजनल वियर के लिए कॉम्बो ट्रैकसूट्स और ट्रेंडी कॉर्ड-सेट्स।</p>
+      </div>
+      <div class="cat-card">
+        <span class="cat-tag">ACCESSORIES</span>
+        <h3>AJ Shoes & Accessories</h3>
+        <p>स्नीकर्स, फॉर्मल शूज, बेल्ट्स और प्रीमियम वॉलेट्स का कलेक्शन।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Best sellers</h2>
+      <p>वो पीसेस जो सबसे ज़्यादा बिकते हैं — रील्स में भी यही सबसे ज़्यादा दिखे।</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge">3XL–10XL</span>
+          <img src="https://images.bewakoof.com/t1080/men-s-black-oversized-plus-size-acid-wash-t-shirt-644229-1717397119-1.jpg" alt="Oversized plus size t-shirt" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h4>Oversized Back-Print Tee</h4>
+          <p>240 GSM cotton lycra, round neck</p>
+          <div class="prod-price">₹1000<span> / 3pc combo</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge">STRETCHABLE</span>
+          <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/353930720/UY/YO/TR/17931470/mid-chain-zipper-track-pants-for-men-500x500.jpg" alt="Track pants lowers" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h4>Daily Wear Track Lower</h4>
+          <p>Premium fabric, elastic + drawstring waist</p>
+          <div class="prod-price">₹1000<span> / 3pc combo</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge">SIZE 38–50+</span>
+          <img src="https://i.pinimg.com/originals/8e/6a/9e/8e6a9e2f36c3e1e58e9e8ef67a7d92dc.jpg" alt="Cargo jeans men" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h4>Imported Cargo Jeans</h4>
+          <p>Flap pocket, straight fit denim</p>
+          <div class="prod-price">₹1500<span> / 2pc combo</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-badge">AJ SHOES</span>
+          <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/BC/YP/HU/154680590/red-tape-casual-sneaker-shoes-for-men-13-500x500.jpg" alt="Casual sneakers men" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h4>Casual Sneakers</h4>
+          <p>Everyday comfort fit, multiple colours</p>
+          <div class="prod-price">₹899<span> onwards</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="combo-strip">
+  <div class="wrap">
+    <div class="section-head" style="border-bottom:none; padding-bottom:0; margin-bottom:24px;">
+      <h2>More combo deals</h2>
+      <p>टी-शर्ट और लोअर के अलावा भी बहुत कुछ।</p>
+    </div>
+    <div class="combo-row">
+      <div class="combo-card">
+        <div class="combo-price">₹500<sup> / 3pc</sup></div>
+        <div class="combo-desc">Shorts Combo — casual & gym wear</div>
+      </div>
+      <div class="combo-card">
+        <div class="combo-price">₹500<sup> / 3pc</sup></div>
+        <div class="combo-desc">Sando Combo — summer & gym vests</div>
+      </div>
+      <div class="combo-card">
+        <div class="combo-price">₹1500<sup> / 2pc</sup></div>
+        <div class="combo-desc">Imported Jeans — size 38 to 50+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="outlets" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Find your outlet</h2>
+      <p>हरियाणा के 4 शहरों में — जहाँ भी हो, नज़दीक ही AJ Fashion।</p>
+    </div>
+    <div class="outlet-map-grid">
+      <div class="outlet-map-card">
+        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Kharkhoda&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="outlet-map-info">
+          <span class="outlet-badge">MAIN BRANCH</span>
+          <h4>Kharkhoda</h4>
+          <p>Main Delhi Road, Near Bank of India / Opposite Union Bank, Shastri Nagar, Kharkhoda, Sonipat – 131402</p>
+          <a href="https://www.google.com/maps/search/AJ+Fashion+Kharkhoda" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+      <div class="outlet-map-card">
+        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Rohtak&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="outlet-map-info">
+          <span class="outlet-badge">2ND BRANCH</span>
+          <h4>Rohtak</h4>
+          <p>Main Gohana Road, Near Sukhpura Chowk, Rohtak, Haryana</p>
+          <a href="https://www.google.com/maps/search/AJ+Fashion+Rohtak" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+      <div class="outlet-map-card">
+        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Sonipat&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="outlet-map-info">
+          <span class="outlet-badge">3RD BRANCH</span>
+          <h4>Sonipat</h4>
+          <p>Main Rathdhana Road, Opposite ITI (ITI Chowk), Sonipat, Haryana – 131001</p>
+          <a href="https://www.google.com/maps/search/AJ+Fashion+Sonipat" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+      <div class="outlet-map-card">
+        <iframe src="https://maps.google.com/maps?q=AJ+Fashion+Panipat&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="outlet-map-info">
+          <span class="outlet-badge">4TH OUTLET · NEW</span>
+          <h4>Panipat</h4>
+          <p>Asandh Road, Opposite Pyramid Cafe, above Axis Bank, Panipat, Haryana</p>
+          <a href="https://www.google.com/maps/search/AJ+Fashion+Panipat" class="outlet-map-link" target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-row">
+      <div class="trust-item"><span class="dot"></span><strong>9 AM – 7 PM</strong> · सातों दिन खुला</div>
+      <div class="trust-item"><span class="dot"></span>Advance online payment या in-store pickup — <strong>COD उपलब्ध नहीं</strong></div>
+      <div class="trust-item"><span class="dot"></span>Support: <strong>+91 93063 62554</strong></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>AJ FASHION</h4>
+        <p style="color:var(--ink-dim); max-width:280px;">Haryana's ultimate premium & big size menswear store. 3XL से 10XL — trendy, comfortable, affordable.</p>
+      </div>
+      <div>
+        <h4>ORDER & SUPPORT</h4>
+        <a href="https://wa.me/919350151835">+91 93501 51835 — Kharkhoda Hotline</a>
+        <a href="tel:+917290906690">+91 72909 06690 — Plus Size Enquiry</a>
+        <a href="tel:+919306362554">+91 93063 62554 — Support</a>
+      </div>
+      <div>
+        <h4>MAIN STORE</h4>
+        <p>Main Delhi Road, Near Bank of India, Shastri Nagar, Kharkhoda, Sonipat, Haryana – 131402</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AJ Fashion. All rights reserved.</span>
+      <span>Website mockup — for demo purposes</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919350151835" class="wa-float">WA<br>Order</a>
+
+<script>
+  const sizes = ["M","L","XL","XXL","3XL","4XL","5XL","6XL","7XL","8XL","9XL","10XL"];
+  const stockMap = {
+    "M":"All outlets", "L":"All outlets", "XL":"All outlets", "XXL":"All outlets",
+    "3XL":"Kharkhoda, Rohtak & Sonipat", "4XL":"Kharkhoda & Rohtak",
+    "5XL":"Kharkhoda & Rohtak", "6XL":"Kharkhoda only",
+    "7XL":"Kharkhoda only", "8XL":"Kharkhoda (limited stock)",
+    "9XL":"Kharkhoda (on order)", "10XL":"Kharkhoda (on order)"
+  };
+  const grid = document.getElementById('sizeGrid');
+  const result = document.getElementById('sizeResult');
+
+  sizes.forEach(s => {
+    const cell = document.createElement('div');
+    cell.className = 'size-cell';
+    cell.textContent = s;
+    cell.addEventListener('click', () => {
+      document.querySelectorAll('.size-cell').forEach(c => c.classList.remove('active'));
+      cell.classList.add('active');
+      result.innerHTML = `<strong>${s}</strong> stock available at: ${stockMap[s]}.`;
+    });
+    grid.appendChild(cell);
+  });
+</script>
+
 </body>
 </html>
