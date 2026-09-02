@@ -118,3 +118,39 @@
     initTicker();
   });
 })();
+
+// ---- Star-rating feedback form ----
+(function () {
+  function initFeedbackForm() {
+    const picker = document.getElementById('starPicker');
+    const form = document.getElementById('feedbackForm');
+    const successEl = document.getElementById('feedbackSuccess');
+    const label = document.getElementById('starPickerLabel');
+    if (!picker || !form) return;
+
+    const labels = ['', 'Poor', 'Fair', 'Good', 'Very good', 'Excellent'];
+    let rating = 0;
+
+    picker.querySelectorAll('button').forEach(function (btn, idx) {
+      const val = idx + 1;
+      btn.addEventListener('click', function () {
+        rating = val;
+        picker.className = 'star-picker rated-' + rating;
+        if (label) label.textContent = labels[rating];
+        picker.setAttribute('data-rating', rating);
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (rating === 0) {
+        if (label) { label.textContent = 'Please select a rating'; label.style.color = '#B8452F'; }
+        return;
+      }
+      form.style.display = 'none';
+      successEl.classList.add('show');
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFeedbackForm);
+})();
