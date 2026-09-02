@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Index</title>
+<style>
+  @font-face {
+    font-family: 'JetBrains Mono';
+    src: local('JetBrains Mono');
+  }
+
+  :root {
+    --bg: #0F1115;
+    --panel: #15171D;
+    --border: #262A33;
+    --text: #E8E6E1;
+    --text-dim: #8A8F9C;
+    --text-faint: #565B68;
+    --accent: #6C9BFF;
+    --accent-dim: #3A4B7A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  header {
+    margin-bottom: 48px;
+  }
+
+  .path {
+    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+
+  .sub {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.5;
+    max-width: 52ch;
+  }
+
+  .count {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: var(--text-faint);
+    font-size: 12.5px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  ol.index {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .row {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.15s ease;
+  }
+
+  .row:hover { background: var(--panel); }
+  .row:hover .go { opacity: 1; transform: translateX(0); }
+  .row:hover .name { color: var(--accent); }
+  .row:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .row-inner {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 18px 4px;
+  }
+
+  .num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    width: 22px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .name {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+
+  .filename {
+    color: var(--text-faint);
+    font-size: 12.5px;
+    margin-left: 10px;
+  }
+
+  .go {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .empty {
+    padding: 40px 4px;
+    color: var(--text-faint);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .empty code {
+    background: var(--panel);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 40px 18px 72px; }
+    h1 { font-size: 23px; }
+    .filename { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="path">index.html /</div>
+      <h1>Sample websites</h1>
+      <div class="sub">A running index of sample builds. Drop new files into <code>samples/</code> — this list picks them up automatically.</div>
+    </header>
+
+    <ol class="index" id="index-list"></ol>
+    <div class="count" id="count"></div>
+  </div>
+
+  <script>
+    // Ordered manifest — add an entry here whenever a new sample*.html file is added to /samples.
+    const samples = [
+      { file: 'sample1.html', label: 'Sample 1' },
+      { file: 'sample2.html', label: 'Sample 2' },
+      { file: 'sample3.html', label: 'Sample 3' },
+      { file: 'sample4.html', label: 'Sample 4' },
+      { file: 'sample5.html', label: 'Sample 5' },
+      { file: 'sample6.html', label: 'Sample 6' },
+    ];
+
+    const list = document.getElementById('index-list');
+    const count = document.getElementById('count');
+
+    async function checkExists(path) {
+      try {
+        const res = await fetch(path, { method: 'HEAD' });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    async function render() {
+      const results = await Promise.all(
+        samples.map(async (s) => ({ ...s, exists: await checkExists(`samples/${s.file}`) }))
+      );
+      const available = results.filter(r => r.exists);
+
+      if (available.length === 0) {
+        list.innerHTML = `<li class="empty">No sample files found yet.<br>Add files to <code>samples/</code> named <code>sample1.html</code>, <code>sample2.html</code>, etc.</li>`;
+        count.textContent = '';
+        return;
+      }
+
+      list.innerHTML = available.map((s, i) => `
+        <li>
+          <a class="row" href="samples/${s.file}">
+            <div class="row-inner">
+              <span class="num">${String(i + 1).padStart(2, '0')}</span>
+              <span class="name">${s.label}<span class="filename">${s.file}</span></span>
+              <span class="go">view →</span>
+            </div>
+          </a>
+        </li>
+      `).join('');
+
+      count.textContent = `${available.length} of ${samples.length} listed`;
+    }
+
+    render();
+  </script>
+</body>
+</html>
