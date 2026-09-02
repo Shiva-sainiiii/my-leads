@@ -163,7 +163,7 @@
     <header>
       <div class="path">index.html /</div>
       <h1>Sample websites</h1>
-      <div class="sub">A running index of sample builds. Drop new files into <code>samples/</code> — this list picks them up automatically.</div>
+      <div class="sub">A running index of sample builds. Each sample lives in its own folder under <code>samples/</code> — drop in a new folder and add one line below.</div>
     </header>
 
     <ol class="index" id="index-list"></ol>
@@ -171,14 +171,15 @@
   </div>
 
   <script>
-    // Ordered manifest — add an entry here whenever a new sample*.html file is added to /samples.
+    // Ordered manifest — add an entry here whenever a new samples/sampleN/ folder is added.
+    // Each sample folder is expected to contain its own index.html (and optionally style.css, script.js).
     const samples = [
-      { file: 'sample1.html', label: 'Sample 1' },
-      { file: 'sample2.html', label: 'Sample 2' },
-      { file: 'sample3.html', label: 'Sample 3' },
-      { file: 'sample4.html', label: 'Sample 4' },
-      { file: 'sample5.html', label: 'Sample 5' },
-      { file: 'sample6.html', label: 'Sample 6' },
+      { folder: 'sample1', label: 'Sample 1' },
+      { folder: 'sample2', label: 'Sample 2' },
+      { folder: 'sample3', label: 'Sample 3' },
+      { folder: 'sample4', label: 'Sample 4' },
+      { folder: 'sample5', label: 'Sample 5' },
+      { folder: 'sample6', label: 'Sample 6' },
     ];
 
     const list = document.getElementById('index-list');
@@ -195,22 +196,22 @@
 
     async function render() {
       const results = await Promise.all(
-        samples.map(async (s) => ({ ...s, exists: await checkExists(`samples/${s.file}`) }))
+        samples.map(async (s) => ({ ...s, exists: await checkExists(`samples/${s.folder}/index.html`) }))
       );
       const available = results.filter(r => r.exists);
 
       if (available.length === 0) {
-        list.innerHTML = `<li class="empty">No sample files found yet.<br>Add files to <code>samples/</code> named <code>sample1.html</code>, <code>sample2.html</code>, etc.</li>`;
+        list.innerHTML = `<li class="empty">No sample folders found yet.<br>Add folders under <code>samples/</code> like <code>samples/sample1/index.html</code>, <code>samples/sample2/index.html</code>, etc.</li>`;
         count.textContent = '';
         return;
       }
 
       list.innerHTML = available.map((s, i) => `
         <li>
-          <a class="row" href="samples/${s.file}">
+          <a class="row" href="samples/${s.folder}/index.html">
             <div class="row-inner">
               <span class="num">${String(i + 1).padStart(2, '0')}</span>
-              <span class="name">${s.label}<span class="filename">${s.file}</span></span>
+              <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
               <span class="go">view →</span>
             </div>
           </a>
