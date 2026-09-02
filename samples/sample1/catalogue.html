@@ -159,12 +159,10 @@
     const emptyState = document.getElementById('emptyState');
     const searchInput = document.getElementById('searchInput');
 
-    const productIcon = '<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5Z"/><path d="M9 12l2 2 4-4"/></svg>';
-
     function renderProducts(items) {
       grid.innerHTML = items.map(function (item) {
         return '<div class="product-card">' +
-          '<div class="product-media">' + productIcon + '</div>' +
+          '<div class="product-media"><img src="' + item.img + '" alt="' + item.name + '" loading="lazy"></div>' +
           '<div class="product-info">' +
             '<h4>' + item.name + '</h4>' +
             '<div class="p-meta">' + item.meta + '</div>' +
