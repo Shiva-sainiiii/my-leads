@@ -558,17 +558,164 @@
   .wa-float{
     position:fixed;
     bottom:22px; right:22px;
-    background:var(--orange);
-    color:#121212;
-    width:56px; height:56px;
+    background:#25D366;
+    width:58px; height:58px;
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    font-weight:700;
-    font-size:12px;
     z-index:60;
-    box-shadow:0 4px 18px rgba(255,87,34,0.4);
+    box-shadow:0 4px 18px rgba(37,211,102,0.45);
+    transition:transform 0.2s;
+  }
+  .wa-float:hover{transform:scale(1.07);}
+  .wa-float svg{width:30px; height:30px;}
+
+  /* ---------- AI CHATBOT WIDGET ---------- */
+  .chat-float{
+    position:fixed;
+    bottom:92px; right:22px;
+    background:var(--orange);
+    width:58px; height:58px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    z-index:60;
+    box-shadow:0 4px 18px rgba(255,87,34,0.45);
+    transition:transform 0.2s;
+    color:#121212;
+  }
+  .chat-float:hover{transform:scale(1.07);}
+  .chat-float svg{width:26px; height:26px;}
+  .chat-float .chat-dot{
+    position:absolute;
+    top:2px; right:2px;
+    width:12px; height:12px;
+    background:#25D366;
+    border:2px solid var(--bg);
+    border-radius:50%;
+  }
+
+  .chat-panel{
+    position:fixed;
+    bottom:160px; right:22px;
+    width:320px;
+    max-width:calc(100vw - 44px);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 12px 40px rgba(0,0,0,0.4);
+    z-index:61;
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .chat-panel.open{display:flex;}
+  .chat-header{
+    background:var(--orange);
+    color:#121212;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .chat-header .chat-avatar{
+    width:34px; height:34px;
+    background:#121212;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .chat-header .chat-avatar svg{width:18px; height:18px; color:var(--orange);}
+  .chat-header-text h5{font-size:14px; font-weight:700; font-family:'Barlow Condensed',sans-serif;}
+  .chat-header-text span{font-size:11px; opacity:0.8; display:flex; align-items:center; gap:4px;}
+  .chat-header-text .live-dot{width:6px; height:6px; background:#0b6b2c; border-radius:50%; display:inline-block;}
+  .chat-close{
+    margin-left:auto;
+    background:none;
+    color:#121212;
+    font-size:20px;
+    line-height:1;
+    opacity:0.7;
+    padding:4px;
+  }
+  .chat-close:hover{opacity:1;}
+  .chat-body{
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-height:320px;
+    overflow-y:auto;
+    background:var(--bg);
+  }
+  .chat-msg{
+    max-width:85%;
+    padding:10px 13px;
+    border-radius:12px;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .chat-msg.bot{
+    background:var(--panel2);
+    color:var(--ink);
+    border-bottom-left-radius:3px;
+    align-self:flex-start;
+  }
+  .chat-msg.user{
+    background:var(--orange);
+    color:#121212;
+    border-bottom-right-radius:3px;
+    align-self:flex-end;
+    font-weight:500;
+  }
+  .chat-quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:0 16px 14px;
+    background:var(--bg);
+  }
+  .chat-quick button{
+    background:var(--panel2);
+    border:1px solid var(--line);
+    color:var(--ink-dim);
+    font-size:12px;
+    padding:7px 11px;
+    border-radius:20px;
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .chat-quick button:hover{border-color:var(--orange); color:var(--orange);}
+  .chat-footer{
+    padding:12px 14px;
+    border-top:1px solid var(--line);
+    display:flex;
+    gap:8px;
+    background:var(--panel);
+  }
+  .chat-footer input{
+    flex:1;
+    background:var(--panel2);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:10px 14px;
+    font-size:13px;
+    color:var(--ink);
+    font-family:inherit;
+  }
+  .chat-footer input::placeholder{color:var(--ink-dim);}
+  .chat-footer input:focus{outline:none; border-color:var(--orange);}
+  .chat-footer button{
+    background:var(--orange);
+    width:38px; height:38px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .chat-footer button svg{width:16px; height:16px; color:#121212;}
+  .chat-note{
+    font-size:10.5px;
+    color:var(--ink-dim);
     text-align:center;
-    line-height:1.1;
+    padding:6px 0 10px;
+    background:var(--panel);
   }
 </style>
 </head>
@@ -833,7 +980,43 @@
   </div>
 </footer>
 
-<a href="https://wa.me/919350151835" class="wa-float">WA<br>Order</a>
+<!-- AI Chatbot Widget (static demo) -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+    </div>
+    <div class="chat-header-text">
+      <h5>AJ Assistant</h5>
+      <span><i class="live-dot"></i> Online now</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">नमस्ते! 👋 मैं AJ Assistant हूँ। साइज, कॉम्बो ऑफर्स या नज़दीकी स्टोर के बारे में पूछें।</div>
+  </div>
+  <div class="chat-quick">
+    <button data-msg="मुझे 5XL साइज चाहिए">5XL साइज़?</button>
+    <button data-msg="₹1000 combo क्या है?">₹1000 combo?</button>
+    <button data-msg="नज़दीकी स्टोर कहाँ है?">नज़दीकी स्टोर</button>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="chatInput" placeholder="अपना सवाल लिखें...">
+    <button id="chatSend" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+    </button>
+  </div>
+  <div class="chat-note">Demo assistant — sample replies only</div>
+</div>
+
+<button class="chat-float" id="chatToggle" aria-label="Open AI chat assistant">
+  <span class="chat-dot"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+</button>
+
+<a href="https://wa.me/919350151835" class="wa-float" aria-label="Order on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.09-2.33A12.44 12.44 0 0 0 16 28.5c6.905 0 12.5-5.596 12.5-12.5S22.905 3 16.001 3zm0 22.77c-2.04 0-3.94-.6-5.54-1.63l-.397-.25-4.207 1.383 1.377-4.1-.26-.42a10.24 10.24 0 0 1-1.674-5.65c0-5.664 4.608-10.27 10.702-10.27 5.664 0 10.27 4.606 10.27 10.27 0 5.664-4.606 10.27-10.27 10.27zm5.633-7.693c-.309-.155-1.83-.902-2.113-1.005-.283-.103-.489-.155-.695.155-.206.31-.798 1.005-.978 1.212-.18.206-.36.232-.669.077-.309-.155-1.304-.48-2.484-1.531-.918-.818-1.538-1.83-1.718-2.14-.18-.31-.02-.477.136-.63.14-.14.31-.36.464-.54.155-.18.206-.31.31-.516.103-.206.051-.387-.026-.542-.077-.155-.695-1.674-.953-2.293-.251-.602-.506-.52-.695-.53-.18-.008-.386-.01-.592-.01-.206 0-.542.077-.825.387-.283.31-1.08 1.056-1.08 2.575 0 1.519 1.106 2.987 1.26 3.194.155.206 2.176 3.323 5.272 4.66.737.318 1.312.508 1.76.65.74.235 1.412.202 1.944.123.593-.089 1.83-.748 2.088-1.47.258-.723.258-1.343.18-1.47-.077-.129-.283-.206-.592-.36z"/></svg>
+</a>
 
 <script>
   const sizes = ["M","L","XL","XXL","3XL","4XL","5XL","6XL","7XL","8XL","9XL","10XL"];
@@ -846,6 +1029,58 @@
   };
   const grid = document.getElementById('sizeGrid');
   const result = document.getElementById('sizeResult');
+
+  // AI Chatbot widget (static demo)
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatClose = document.getElementById('chatClose');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  chatToggle.addEventListener('click', () => chatPanel.classList.toggle('open'));
+  chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
+
+  const demoReplies = {
+    "मुझे 5XL साइज चाहिए": "5XL स्टॉक में है! Kharkhoda और Rohtak आउटलेट पर उपलब्ध है। WhatsApp पर ऑर्डर करें: +91 93501 51835",
+    "₹1000 combo क्या है?": "₹1000 में 3 T-Shirts (M–XXL) या 3 Lowers मिलते हैं। ₹500 में Shorts/Sando combo भी उपलब्ध है!",
+    "नज़दीकी स्टोर कहाँ है?": "हमारे 4 आउटलेट हैं — Kharkhoda, Rohtak, Sonipat और Panipat। नीचे 'Outlets' सेक्शन में पूरा पता और मैप मिलेगा।"
+  };
+
+  function addMsg(text, sender){
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + sender;
+    div.textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function botReply(userText){
+    setTimeout(() => {
+      const reply = demoReplies[userText] || "यह एक डेमो असिस्टेंट है। असली ऑर्डर या सवाल के लिए हमें WhatsApp पर मैसेज करें: +91 93501 51835";
+      addMsg(reply, 'bot');
+    }, 500);
+  }
+
+  document.querySelectorAll('.chat-quick button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const msg = btn.getAttribute('data-msg');
+      addMsg(msg, 'user');
+      botReply(msg);
+    });
+  });
+
+  function sendUserMessage(){
+    const val = chatInput.value.trim();
+    if(!val) return;
+    addMsg(val, 'user');
+    chatInput.value = '';
+    botReply(val);
+  }
+  chatSend.addEventListener('click', sendUserMessage);
+  chatInput.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') sendUserMessage();
+  });
 
   // Theme toggle
   const themeToggle = document.getElementById('themeToggle');
