@@ -208,6 +208,40 @@
   .dept-card h3{font-size:1.05rem;color:var(--blue-ink);}
   .dept-card p{font-size:0.88rem;color:var(--slate);}
 
+  /* ===== Our Doctors ===== */
+  .doctors{background:var(--white);}
+  .doc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
+  .doc-team-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-m);
+    overflow:hidden;display:flex;flex-direction:column;transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .doc-team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .doc-team-card.lead{grid-column:span 4;flex-direction:row;align-items:stretch;}
+  .doc-photo{
+    height:190px;width:100%;object-fit:cover;background:var(--teal-light);
+  }
+  .doc-team-card.lead .doc-photo{width:220px;height:auto;flex-shrink:0;}
+  .doc-team-body{padding:20px 22px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .doc-team-body h3{font-size:1.05rem;color:var(--blue-ink);}
+  .doc-team-body .doc-role{color:var(--teal);font-weight:600;font-size:0.82rem;}
+  .doc-team-body .doc-degree{color:var(--slate);font-size:0.8rem;font-weight:500;}
+  .doc-team-body p{color:var(--slate);font-size:0.86rem;margin-top:4px;}
+  .doc-book-btn{
+    margin-top:12px;align-self:flex-start;
+    background:var(--teal);color:#fff;border-radius:999px;
+    padding:8px 18px;font-size:0.82rem;font-weight:600;
+  }
+  .doc-book-btn:hover{background:var(--blue-deep);}
+  @media (max-width:860px){
+    .doc-grid{grid-template-columns:1fr 1fr;}
+    .doc-team-card.lead{grid-column:span 2;flex-direction:column;}
+    .doc-team-card.lead .doc-photo{width:100%;height:190px;}
+  }
+  @media (max-width:560px){
+    .doc-grid{grid-template-columns:1fr;}
+    .doc-team-card.lead{grid-column:span 1;}
+  }
+
   /* ===== Facilities ===== */
   .facilities{background:var(--blue-ink);color:#fff;}
   .facilities .eyebrow{color:#8FD8D6;}
@@ -287,8 +321,9 @@
   .chat-head{background:var(--blue-deep);color:#fff;padding:16px 18px;}
   .chat-head strong{display:block;font-size:0.95rem;}
   .chat-head span{font-size:0.76rem;color:#BFD6DF;}
-  .chat-body{padding:16px 18px;display:flex;flex-direction:column;gap:10px;}
-  .chat-msg{background:var(--teal-light);color:var(--blue-ink);padding:10px 14px;border-radius:10px 10px 10px 2px;font-size:0.86rem;max-width:90%;}
+  .chat-body{padding:16px 18px;display:flex;flex-direction:column;gap:10px;max-height:360px;overflow-y:auto;}
+  .chat-msg{background:var(--teal-light);color:var(--blue-ink);padding:10px 14px;border-radius:10px 10px 10px 2px;font-size:0.86rem;max-width:90%;align-self:flex-start;}
+  .chat-msg.from-user{background:var(--blue-deep);color:#fff;border-radius:10px 10px 2px 10px;align-self:flex-end;}
   .chat-opts{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
   .chat-opt{
     border:1.5px solid var(--line);background:#fff;border-radius:var(--radius-s);
@@ -297,6 +332,21 @@
     transition:border-color 0.15s ease, background 0.15s ease;
   }
   .chat-opt:hover{border-color:var(--teal);background:var(--teal-light);}
+  .chat-input-row{
+    display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line);background:#fff;
+  }
+  .chat-input-row input{
+    flex:1;border:1.5px solid var(--line);border-radius:999px;
+    padding:10px 16px;font-size:0.86rem;font-family:'Inter',sans-serif;color:var(--charcoal);
+    outline:none;transition:border-color 0.15s ease;
+  }
+  .chat-input-row input:focus{border-color:var(--teal);}
+  .chat-send-btn{
+    width:40px;height:40px;border-radius:50%;flex-shrink:0;border:none;cursor:pointer;
+    background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:1rem;transition:background 0.15s ease;
+  }
+  .chat-send-btn:hover{background:var(--blue-deep);}
 
   /* ===== Responsive ===== */
   @media (max-width:960px){
@@ -353,6 +403,7 @@
     <nav class="links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
+      <a href="#doctors">Our Doctors</a>
       <a href="#facilities">Facilities</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact Us</a>
@@ -479,6 +530,57 @@
         <div class="dept-ico">🔬</div>
         <h3>Diagnostics &amp; Lab</h3>
         <p>डिजिटल X-Ray और फुली ऑटोमेटेड पैथोलॉजी लैब।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doctors" id="doctors">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">हमारी टीम</span>
+      <h2>Meet Our Experts</h2>
+    </div>
+    <div class="doc-grid">
+      <div class="doc-team-card lead">
+        <img class="doc-photo" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Ravi Dabas, Chief Consultant">
+        <div class="doc-team-body">
+          <h3>डॉ. रवि डबास (Dr. Ravi Dabas)</h3>
+          <div class="doc-role">Chief Consultant &amp; Hospital Head</div>
+          <div class="doc-degree">General Medicine &amp; Critical Care Expert</div>
+          <p>खरखौदा और आस-पास के क्षेत्रों में मरीजों के बीच सबसे लोकप्रिय और भरोसेमंद नाम। क्रिटिकल केसेस, पुराना बुखार, शुगर, BP और लाइफस्टाइल से जुड़ी बीमारियों के इलाज में माहिर।</p>
+          <a href="#appointment" class="doc-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doc-team-card">
+        <img class="doc-photo" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=400&q=80" alt="Dr. Pawan Kumar, Orthopedic Surgeon">
+        <div class="doc-team-body">
+          <h3>डॉ. पवन कुमार</h3>
+          <div class="doc-role">Orthopedic Surgeon</div>
+          <div class="doc-degree">MBBS, MS (Orthopedics) | 8+ Years</div>
+          <p>घुटना व कूल्हा प्रत्यारोपण, फ्रैक्चर, स्पोर्ट्स इंजरी और गठिया का एडवांस इलाज।</p>
+          <a href="#appointment" class="doc-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doc-team-card">
+        <img class="doc-photo" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Rohit Virmani, Laparoscopic Surgeon">
+        <div class="doc-team-body">
+          <h3>डॉ. रोहित विरमानी</h3>
+          <div class="doc-role">General &amp; Laparoscopic Surgeon</div>
+          <div class="doc-degree">MBBS, MS (General Surgery)</div>
+          <p>हर्निया, अपेंडिक्स, पित्त की पथरी और ट्रॉमा/एक्सीडेंटल सर्जरी के एक्सपर्ट।</p>
+          <a href="#appointment" class="doc-book-btn">Book Appointment</a>
+        </div>
+      </div>
+      <div class="doc-team-card">
+        <img class="doc-photo" src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80" alt="Dr. Manish Agarwal, Urologist">
+        <div class="doc-team-body">
+          <h3>डॉ. मनीष अग्रवाल</h3>
+          <div class="doc-role">Consultant Urologist</div>
+          <div class="doc-degree">MBBS, MS, MCh (Urology)</div>
+          <p>किडनी स्टोन, प्रोस्टेट और यूरिन इन्फेक्शन से जुड़ी समस्याओं का लेजर व आधुनिक इलाज।</p>
+          <a href="#appointment" class="doc-book-btn">Book Appointment</a>
+        </div>
       </div>
     </div>
   </div>
@@ -615,23 +717,35 @@
     <strong>Keshav Hospital Assistant</strong>
     <span>आमतौर पर तुरंत जवाब मिलता है</span>
   </div>
-  <div class="chat-body">
+  <div class="chat-body" id="chatBody">
     <div class="chat-msg">नमस्ते 🙏 मैं आपकी कैसे मदद कर सकता हूं?</div>
-    <div class="chat-opts">
-      <button class="chat-opt" onclick="location.href='#appointment'">📅 Book OPD Appointment</button>
-      <button class="chat-opt" onclick="location.href='tel:+918816888814'">📞 Emergency Contact</button>
-      <button class="chat-opt" onclick="window.open('https://www.google.com/maps?q=Keshav+Multispeciality+Hospital+Kharkhoda','_blank')">📍 Get Directions</button>
-      <button class="chat-opt" onclick="location.href='#contact'">💳 Insurance / Ayushman Bharat Info</button>
+    <div class="chat-opts" id="chatOpts">
+      <button class="chat-opt" data-q="Book OPD Appointment">📅 Book OPD Appointment</button>
+      <button class="chat-opt" data-q="Emergency Contact">📞 Emergency Contact</button>
+      <button class="chat-opt" data-q="Get Directions">📍 Get Directions</button>
+      <button class="chat-opt" data-q="Insurance / Ayushman Bharat Info">💳 Insurance / Ayushman Bharat Info</button>
+      <button class="chat-opt" data-q="Doctors">👨‍⚕️ हमारे डॉक्टर्स</button>
+      <button class="chat-opt" data-q="OPD Timing">🕐 OPD Timing</button>
     </div>
   </div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="अपना सवाल टाइप करें..." autocomplete="off">
+    <button type="submit" class="chat-send-btn" aria-label="Send">➤</button>
+  </form>
 </div>
 
 <script>
   const fab = document.getElementById('chatFab');
   const panel = document.getElementById('chatPanel');
+  const chatBody = document.getElementById('chatBody');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const chatOpts = document.getElementById('chatOpts');
+
   fab.addEventListener('click', () => {
     panel.classList.toggle('open');
     fab.textContent = panel.classList.contains('open') ? '✕' : '💬';
+    if (panel.classList.contains('open')) chatInput.focus();
   });
 
   // close chat if clicking outside
@@ -640,6 +754,134 @@
       panel.classList.remove('open');
       fab.textContent = '💬';
     }
+  });
+
+  // ----- Simple keyword-based reply engine -----
+  const KB = [
+    {
+      test: /appointment|book|opd\b/i,
+      reply: 'आप OPD अपॉइंटमेंट बुक करने के लिए नीचे दिए गए बटन पर क्लिक करें, या सीधे कॉल करें: +91 88168 88814',
+      actions: [
+        { label: '📅 Appointment Section पर जाएं', href: '#appointment' },
+        { label: '📞 अभी कॉल करें', href: 'tel:+918816888814' }
+      ]
+    },
+    {
+      test: /emergency|इमरजेंसी|accident|एक्सीडेंट/i,
+      reply: 'हमारी इमरजेंसी सेवा 24x7 उपलब्ध है। तुरंत कॉल करें:',
+      actions: [
+        { label: '📞 +91 88168 88814', href: 'tel:+918816888814' },
+        { label: '📞 +91 88168 88815', href: 'tel:+918816888815' }
+      ]
+    },
+    {
+      test: /direction|location|पता|कहां|address|map/i,
+      reply: 'हम Delhi Road, Shastri Nagar, Kharkhoda, Sonipat, Haryana में स्थित हैं। दिशा-निर्देश के लिए नीचे क्लिक करें:',
+      actions: [
+        { label: '📍 Google Maps पर देखें', href: 'https://www.google.com/maps?q=Keshav+Multispeciality+Hospital+Kharkhoda', external: true }
+      ]
+    },
+    {
+      test: /insurance|ayushman|आयुष्मान|बीमा|cashless/i,
+      reply: 'हम Ayushman Bharat और प्रमुख इंश्योरेंस कंपनियों के साथ कैशलेस सुविधा देते हैं। ज़्यादा जानकारी के लिए संपर्क सेक्शन देखें या कॉल करें।',
+      actions: [
+        { label: '💳 Contact Details देखें', href: '#contact' }
+      ]
+    },
+    {
+      test: /doctor|डॉक्टर|specialist|expert/i,
+      reply: 'हमारी टीम में डॉ. रवि डबास (Chief Consultant), डॉ. पवन कुमार (Orthopedics), डॉ. रोहित विरमानी (Laparoscopic Surgery) और डॉ. मनीष अग्रवाल (Urology) शामिल हैं।',
+      actions: [
+        { label: '👨‍⚕️ पूरी टीम देखें', href: '#doctors' }
+      ]
+    },
+    {
+      test: /timing|time|समय|कब खुल|hours/i,
+      reply: 'OPD Timing: सुबह 9 बजे से रात 8 बजे तक। Emergency: 24 घंटे उपलब्ध।',
+      actions: []
+    },
+    {
+      test: /service|इलाज|treatment|department|स्पेशलिटी/i,
+      reply: 'हम Orthopedics, General Medicine, Trauma & Surgery, Gynecology, Urology, ICU/Critical Care और Diagnostics जैसी सेवाएं देते हैं।',
+      actions: [
+        { label: '🩺 सभी Services देखें', href: '#services' }
+      ]
+    },
+    {
+      test: /hi|hello|नमस्ते|hey|namaste/i,
+      reply: 'नमस्ते 🙏 आप अपॉइंटमेंट, डॉक्टर्स, टाइमिंग, इमरजेंसी या लोकेशन के बारे में पूछ सकते हैं।',
+      actions: []
+    }
+  ];
+
+  const FALLBACK = {
+    reply: 'माफ़ कीजिए, मुझे ये ठीक से समझ नहीं आया। आप नीचे दिए गए विकल्प चुन सकते हैं, या सीधे हमारी टीम से बात करें:',
+    actions: [
+      { label: '📞 Call Now', href: 'tel:+918816888814' },
+      { label: '💬 WhatsApp पर बात करें', href: 'https://wa.me/919728311010', external: true }
+    ]
+  };
+
+  function scrollChatToBottom(){
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addUserMsg(text){
+    const el = document.createElement('div');
+    el.className = 'chat-msg from-user';
+    el.textContent = text;
+    chatBody.appendChild(el);
+  }
+
+  function addBotMsg(text, actions){
+    const el = document.createElement('div');
+    el.className = 'chat-msg';
+    el.textContent = text;
+    chatBody.appendChild(el);
+
+    if (actions && actions.length){
+      const wrap = document.createElement('div');
+      wrap.className = 'chat-opts';
+      actions.forEach(a => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-opt';
+        btn.textContent = a.label;
+        btn.addEventListener('click', () => {
+          if (a.external) window.open(a.href, '_blank');
+          else location.href = a.href;
+        });
+        wrap.appendChild(btn);
+      });
+      chatBody.appendChild(wrap);
+    }
+  }
+
+  function handleUserQuery(text){
+    if (!text.trim()) return;
+    addUserMsg(text);
+
+    const match = KB.find(item => item.test.test(text));
+    setTimeout(() => {
+      if (match) addBotMsg(match.reply, match.actions);
+      else addBotMsg(FALLBACK.reply, FALLBACK.actions);
+      scrollChatToBottom();
+    }, 260);
+
+    scrollChatToBottom();
+  }
+
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = chatInput.value;
+    chatInput.value = '';
+    handleUserQuery(text);
+  });
+
+  // quick-option buttons feed into the same reply engine
+  chatOpts.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chat-opt');
+    if (!btn) return;
+    handleUserQuery(btn.dataset.q);
   });
 
   // mobile nav dropdown (class-based, no width/overflow side-effects)
