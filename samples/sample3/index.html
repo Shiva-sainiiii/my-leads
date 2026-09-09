@@ -1,16 +1,611 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<title>Sample 3</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshav Multispeciality Hospital & Trauma Centre | Kharkhoda</title>
+<meta name="description" content="Kharkhoda ka sabse bharosemand 24/7 trauma aur multispeciality hospital. Free Sunday OPD, Modular OT, ICU with Ventilator, 24x7 Ambulance.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --blue-deep:#0B4F6C;
+    --blue-ink:#083A50;
+    --teal:#0E7C7B;
+    --teal-light:#E4F1F0;
+    --paper:#F7F9FA;
+    --white:#FFFFFF;
+    --charcoal:#1C2B33;
+    --slate:#5C6B73;
+    --red:#D93B3B;
+    --red-dark:#B32E2E;
+    --line:#DCE4E7;
+    --radius-s:6px;
+    --radius-m:10px;
+    --shadow:0 10px 30px -12px rgba(11,79,108,0.25);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--charcoal);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;color:var(--blue-ink);line-height:1.15;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  section{padding:88px 24px;}
+  .wrap{max-width:1140px;margin:0 auto;}
+  .eyebrow{color:var(--teal);font-weight:600;font-size:0.95rem;margin-bottom:10px;display:block;}
+  .lede{color:var(--slate);font-size:1.08rem;max-width:640px;}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;top:0;z-index:500;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:40px;height:40px;border-radius:9px;
+    background:linear-gradient(155deg,var(--blue-deep),var(--teal));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;
+    flex-shrink:0;
+  }
+  .brand-text{line-height:1.2;}
+  .brand-text strong{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:1rem;color:var(--blue-ink);}
+  .brand-text span{font-size:0.72rem;color:var(--slate);letter-spacing:0.02em;}
+  nav.links{display:flex;gap:30px;}
+  nav.links a{font-weight:500;font-size:0.94rem;color:var(--charcoal);position:relative;padding:4px 0;}
+  nav.links a:hover{color:var(--blue-deep);}
+  .emg-btn{
+    background:var(--red);color:#fff;padding:10px 18px;border-radius:var(--radius-s);
+    font-weight:600;font-size:0.9rem;display:flex;align-items:center;gap:8px;white-space:nowrap;
+    transition:background 0.15s ease;
+  }
+  .emg-btn:hover{background:var(--red-dark);}
+  .emg-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse-dot 1.6s infinite;}
+  @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:24px;height:2px;background:var(--blue-ink);margin:5px 0;}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:0;position:relative;overflow:hidden;
+    background:var(--blue-ink);
+  }
+  .hero-grid{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 0.9fr;
+    align-items:stretch;min-height:600px;
+  }
+  .hero-copy{
+    padding:80px 40px 80px 24px;
+    display:flex;flex-direction:column;justify-content:center;
+    position:relative;z-index:2;
+  }
+  .hero-copy .eyebrow{color:#8FD8D6;}
+  .hero-copy h1{
+    color:#fff;font-size:clamp(2rem,4vw,3rem);
+    max-width:560px;margin-bottom:20px;
+  }
+  .hero-copy p.lede{color:#C7D9E0;font-size:1.05rem;margin-bottom:32px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn{
+    padding:14px 26px;border-radius:var(--radius-s);font-weight:600;font-size:0.95rem;
+    display:inline-flex;align-items:center;gap:8px;transition:transform 0.15s ease, box-shadow 0.15s ease;
+    border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--teal);color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px -6px rgba(14,124,123,0.55);}
+  .btn-emergency{background:var(--red);color:#fff;}
+  .btn-emergency:hover{transform:translateY(-2px);box-shadow:0 8px 20px -6px rgba(217,59,59,0.55);}
+  .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.45);}
+  .btn-outline:hover{background:rgba(255,255,255,0.1);}
+
+  .hero-media{
+    position:relative;
+    background-size:cover;background-position:center;
+    min-height:340px;
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, var(--blue-ink) 0%, rgba(8,58,80,0.15) 35%, transparent 60%);
+  }
+  .rating-float{
+    position:absolute;left:-30px;bottom:36px;z-index:3;
+    background:#fff;border-radius:var(--radius-m);padding:16px 20px;
+    box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;
+    min-width:230px;
+  }
+  .rating-num{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--blue-deep);line-height:1;}
+  .rating-stars{color:#F0A93A;font-size:0.85rem;letter-spacing:2px;margin:3px 0 2px;}
+  .rating-sub{font-size:0.78rem;color:var(--slate);}
+
+  /* ===== Quick info strip ===== */
+  .info-strip{
+    background:var(--blue-deep);
+    padding:0;
+  }
+  .info-strip .wrap{
+    display:grid;grid-template-columns:repeat(3,1fr);
+  }
+  .info-item{
+    padding:26px 24px;color:#fff;
+    border-right:1px solid rgba(255,255,255,0.16);
+    display:flex;align-items:center;gap:14px;
+  }
+  .info-item:last-child{border-right:none;}
+  .info-ico{
+    width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.15rem;
+  }
+  .info-item strong{display:block;font-size:0.95rem;font-weight:600;}
+  .info-item span{font-size:0.8rem;color:#BFD6DF;}
+
+  /* ===== About ===== */
+  .about{background:var(--white);}
+  .about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+  .about-media img{border-radius:var(--radius-m);box-shadow:var(--shadow);}
+  .about h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:18px;}
+  .about p{color:var(--slate);margin-bottom:16px;max-width:560px;}
+  .about-points{margin-top:22px;display:flex;flex-direction:column;gap:12px;}
+  .about-points li{display:flex;gap:10px;align-items:flex-start;color:var(--charcoal);font-weight:500;font-size:0.95rem;}
+  .about-points li .tick{
+    width:20px;height:20px;border-radius:50%;background:var(--teal-light);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;font-size:0.72rem;flex-shrink:0;margin-top:2px;
+  }
+
+  /* ===== Departments ===== */
+  .dept{background:var(--paper);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .dept-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;}
+  .dept-card{background:#fff;padding:34px 26px;display:flex;flex-direction:column;gap:14px;}
+  .dept-ico{font-size:1.7rem;}
+  .dept-card h3{font-size:1.05rem;color:var(--blue-ink);}
+  .dept-card p{font-size:0.88rem;color:var(--slate);}
+
+  /* ===== Facilities ===== */
+  .facilities{background:var(--blue-ink);color:#fff;}
+  .facilities .eyebrow{color:#8FD8D6;}
+  .facilities h2{color:#fff;}
+  .fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
+  .fac-card{
+    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius-m);overflow:hidden;
+  }
+  .fac-card img{height:150px;width:100%;object-fit:cover;}
+  .fac-card .fac-body{padding:18px 20px;}
+  .fac-card h3{color:#fff;font-size:1rem;margin-bottom:6px;}
+  .fac-card p{color:#B9CFD8;font-size:0.85rem;}
+
+  /* ===== Testimonials ===== */
+  .testi{background:var(--white);}
+  .testi-top{display:flex;align-items:center;gap:22px;margin-bottom:44px;flex-wrap:wrap;}
+  .g-badge{
+    background:var(--teal-light);border-radius:var(--radius-m);padding:18px 26px;
+    display:flex;align-items:center;gap:16px;
+  }
+  .g-badge .num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:700;color:var(--blue-deep);}
+  .g-badge .stars{color:#F0A93A;letter-spacing:2px;}
+  .g-badge .cnt{font-size:0.8rem;color:var(--slate);}
+  .testi-grid{display:grid;grid-template-columns:1fr 1fr 0.85fr;gap:24px;}
+  .testi-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-m);padding:26px;}
+  .testi-card p{color:var(--charcoal);font-size:0.94rem;margin-bottom:14px;}
+  .testi-card .who{font-size:0.82rem;color:var(--slate);font-weight:600;}
+  .doc-card{background:var(--blue-deep);color:#fff;}
+  .doc-card h3{color:#fff;font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:4px;}
+  .doc-card .role{color:#9FD3D1;font-size:0.82rem;margin-bottom:14px;}
+  .doc-card p{color:#D8E7EC;}
+
+  /* ===== CTA band ===== */
+  .cta-band{
+    background:var(--teal);color:#fff;padding:56px 24px;text-align:center;
+  }
+  .cta-band h2{color:#fff;font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:10px;}
+  .cta-band p{color:#DFF4F3;margin-bottom:26px;}
+  .cta-band .hero-ctas{justify-content:center;}
+  .cta-band .btn-outline{border-color:rgba(255,255,255,0.6);}
+
+  /* ===== Footer ===== */
+  footer{background:var(--blue-ink);color:#B9CFD8;padding:64px 24px 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:40px;margin-bottom:48px;}
+  .foot-brand .brand-text strong{color:#fff;}
+  .foot-brand p{margin-top:14px;font-size:0.88rem;color:#93ADB8;max-width:280px;}
+  footer h4{color:#fff;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:600;margin-bottom:16px;}
+  footer ul li{margin-bottom:10px;font-size:0.88rem;}
+  footer ul li a:hover{color:#fff;}
+  .foot-map iframe{width:100%;height:150px;border:0;border-radius:var(--radius-s);margin-bottom:12px;filter:grayscale(0.15);}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);padding-top:22px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:#7D99A4;
+  }
+
+  /* ===== Chatbot widget ===== */
+  .chat-fab{
+    position:fixed;bottom:24px;right:24px;z-index:900;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--teal);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+    box-shadow:0 10px 26px -8px rgba(14,124,123,0.6);
+    transition:transform 0.15s ease;
+  }
+  .chat-fab:hover{transform:scale(1.06);}
+  .chat-panel{
+    position:fixed;bottom:94px;right:24px;z-index:900;
+    width:320px;max-width:calc(100vw - 40px);
+    background:#fff;border-radius:var(--radius-m);
+    box-shadow:0 24px 60px -16px rgba(8,58,80,0.4);
+    overflow:hidden;
+    opacity:0;transform:translateY(16px) scale(0.98);pointer-events:none;
+    transition:opacity 0.18s ease, transform 0.18s ease;
+  }
+  .chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .chat-head{background:var(--blue-deep);color:#fff;padding:16px 18px;}
+  .chat-head strong{display:block;font-size:0.95rem;}
+  .chat-head span{font-size:0.76rem;color:#BFD6DF;}
+  .chat-body{padding:16px 18px;display:flex;flex-direction:column;gap:10px;}
+  .chat-msg{background:var(--teal-light);color:var(--blue-ink);padding:10px 14px;border-radius:10px 10px 10px 2px;font-size:0.86rem;max-width:90%;}
+  .chat-opts{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+  .chat-opt{
+    border:1.5px solid var(--line);background:#fff;border-radius:var(--radius-s);
+    padding:11px 14px;font-size:0.86rem;text-align:left;cursor:pointer;
+    display:flex;align-items:center;gap:10px;font-weight:500;color:var(--charcoal);
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .chat-opt:hover{border-color:var(--teal);background:var(--teal-light);}
+
+  /* ===== Responsive ===== */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-media{min-height:280px;order:-1;}
+    .rating-float{left:20px;bottom:-30px;}
+    .hero-copy{padding:50px 24px 64px;}
+    .about-grid{grid-template-columns:1fr;gap:36px;}
+    .about-media{order:2;}
+    .dept-grid{grid-template-columns:repeat(2,1fr);}
+    .fac-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .info-strip .wrap{grid-template-columns:1fr;}
+    .info-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.16);}
+    .info-item:last-child{border-bottom:none;}
+  }
+  @media (max-width:720px){
+    nav.links{display:none;}
+    .burger{display:block;}
+    .nav-inner .emg-btn span.emg-text{display:none;}
+    .emg-btn{padding:10px 12px;}
+    section{padding:60px 20px;}
+    .dept-grid{grid-template-columns:1fr;}
+    .fac-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:30px;}
+    .chat-panel{right:16px;left:16px;width:auto;}
+    .chat-fab{right:16px;bottom:16px;}
+  }
+</style>
 </head>
 <body>
-  <div class="box">
-    <h1>Sample 3</h1>
-    <p>Replace this file with your actual sample content.</p>
-    <a href="../../index.html">← back to index</a>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div class="brand-text">
+        <strong>Keshav Hospital</strong>
+        <span>Multispeciality &amp; Trauma Centre</span>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+    <a href="tel:+918816888814" class="emg-btn">
+      <span class="emg-dot"></span>
+      <span class="emg-text">24x7 Emergency:</span> +91 88168 88814
+    </a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('nav.links').style.display = document.querySelector('nav.links').style.display==='flex'?'none':'flex'">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <script src="script.js"></script>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Shastri Nagar, Delhi Road, Kharkhoda</span>
+      <h1>खरखौदा का सबसे भरोसेमंद 24/7 ट्रॉमा एवं मल्टीस्पेशलिटी अस्पताल</h1>
+      <p class="lede">एडवांस मेडिकल टेक्नोलॉजी, अनुभवी डॉक्टर्स और 430+ संतुष्ट मरीजों का भरोसा — इमरजेंसी से लेकर सर्जरी तक, हर इलाज एक ही छत के नीचे।</p>
+      <div class="hero-ctas">
+        <a href="#appointment" class="btn btn-primary">Book Free Sunday OPD</a>
+        <a href="tel:+918816888814" class="btn btn-emergency">Call Emergency Room</a>
+      </div>
+    </div>
+    <div class="hero-media" id="heroMedia" style="background-image:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80');">
+      <div class="rating-float">
+        <div>
+          <div class="rating-num">4.9</div>
+          <div class="rating-stars">★★★★★</div>
+        </div>
+        <div class="rating-sub">430+ Google Reviews<br>Kharkhoda's #1 rated hospital</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="wrap">
+    <div class="info-item">
+      <div class="info-ico">🚑</div>
+      <div><strong>24x7 Emergency Room</strong><span>Open always, no exceptions</span></div>
+    </div>
+    <div class="info-item">
+      <div class="info-ico">🗓️</div>
+      <div><strong>Free Sunday OPD</strong><span>09:00 AM – 08:00 PM</span></div>
+    </div>
+    <div class="info-item">
+      <div class="info-ico">💊</div>
+      <div><strong>In-house Pharmacy &amp; Lab</strong><span>Dawaiyan aur test ek hi jagah</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img id="aboutImg" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=900&q=80" alt="Keshav Multispeciality Hospital building">
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About the Hospital</span>
+      <h2>पूरे परिवार के लिए, पूरी देखभाल — एक ही अस्पताल में</h2>
+      <p>Keshav Multispeciality Hospital &amp; Trauma Centre, Kharkhoda और आस-पास के इलाकों में 24/7 क्रिटिकल केयर देने वाला एक प्रीमियर हेल्थकेयर इंस्टीट्यूशन है। एडवांस टेक्नोलॉजी, हाई-ग्रेड हाइजीन और अनुभवी डॉक्टर्स की टीम के साथ, हम हर मरीज को वो इलाज देते हैं जिसके वो हकदार हैं।</p>
+      <ul class="about-points">
+        <li><span class="tick">✓</span> हर हफ्ते 430+ परिवार हम पर भरोसा करते हैं</li>
+        <li><span class="tick">✓</span> ट्रॉमा से लेकर जनरल सर्जरी तक, इमरजेंसी हमेशा तैयार</li>
+        <li><span class="tick">✓</span> रविवार को OPD बिल्कुल मुफ्त — जांच का इंतज़ार खत्म</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="dept" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">हमारी स्पेशलिटीज़</span>
+      <h2>हर तरह की बीमारी का इलाज, एक ही छत के नीचे</h2>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dept-ico">🦴</div>
+        <h3>Orthopedics</h3>
+        <p>हड्डी रोग, स्पोर्ट्स इंजरी और बोन हेल्थ केयर।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">🩺</div>
+        <h3>General Medicine</h3>
+        <p>बुखार, खांसी, BP, डायबिटीज, थायराइड, अस्थमा का इलाज।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">✂️</div>
+        <h3>Trauma &amp; Surgery</h3>
+        <p>हर्निया, अपेंडिक्स और एक्सीडेंटल सर्जरी।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">🤰</div>
+        <h3>Gynecology &amp; Obstetrics</h3>
+        <p>महिला एवं प्रसूति संबंधी स्वास्थ्य सेवाएं।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">💧</div>
+        <h3>Urology</h3>
+        <p>यूरिन इन्फेक्शन, प्रोस्टेट और पुरुष स्वास्थ्य समस्याएं।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">🚑</div>
+        <h3>Emergency &amp; Trauma Care</h3>
+        <p>एक्सीडेंट व क्रिटिकल केसेस के लिए इंस्टेंट ट्रीटमेंट, 24x7।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">🫁</div>
+        <h3>ICU &amp; Critical Care</h3>
+        <p>वेंटिलेटर सपोर्ट के साथ कॉन्स्टेंट मॉनिटरिंग।</p>
+      </div>
+      <div class="dept-card">
+        <div class="dept-ico">🔬</div>
+        <h3>Diagnostics &amp; Lab</h3>
+        <p>डिजिटल X-Ray और फुली ऑटोमेटेड पैथोलॉजी लैब।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facilities" id="facilities">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">एडवांस सुविधाएं</span>
+      <h2>हॉस्पिटल की ताकत — जो हमें अलग बनाती है</h2>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card">
+        <img id="facImg1" src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=500&q=80" alt="Modular Operation Theatre">
+        <div class="fac-body">
+          <h3>Modular Operation Theatre</h3>
+          <p>इन्फेक्शन-फ्री सर्जरी के लिए हाई-ग्रेड स्टेराइल एनवायरनमेंट।</p>
+        </div>
+      </div>
+      <div class="fac-card">
+        <img id="facImg2" src="https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?auto=format&fit=crop&w=500&q=80" alt="ICU with ventilator support">
+        <div class="fac-body">
+          <h3>ICU &amp; Critical Care</h3>
+          <p>वेंटिलेटर सपोर्ट और 24 घंटे मॉनिटरिंग सिस्टम।</p>
+        </div>
+      </div>
+      <div class="fac-card">
+        <img id="facImg3" src="https://images.unsplash.com/photo-1587745416684-47953f16f02f?auto=format&fit=crop&w=500&q=80" alt="24x7 Ambulance service">
+        <div class="fac-body">
+          <h3>24x7 Ambulance Service</h3>
+          <p>बेसिक लाइफ सपोर्ट सिस्टम से लैस एम्बुलेंस, हमेशा तैयार।</p>
+        </div>
+      </div>
+      <div class="fac-card">
+        <img id="facImg4" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=500&q=80" alt="Digital X-Ray and lab">
+        <div class="fac-body">
+          <h3>Digital X-Ray &amp; Lab</h3>
+          <p>सटीक डायग्नोसिस के लिए लो-रेडिएशन इमेजिंग और कंप्यूटराइज्ड लैब।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="reviews">
+  <div class="wrap">
+    <div class="testi-top">
+      <div class="g-badge">
+        <div class="num">4.9</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="cnt">430+ Google Reviews</div>
+        </div>
+      </div>
+      <div class="section-head" style="margin:0;">
+        <span class="eyebrow">मरीजों की राय</span>
+        <h2 style="font-size:1.5rem;">जो हमारे पास आए, उन्होंने क्या कहा</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"डॉक्टर और स्टाफ बेहतरीन थे। मेरी हर्निया सर्जरी यहीं हुई। बढ़िया इलाज के लिए मैं Keshav Hospital को रिकमंड करता हूं।"</p>
+        <div class="who">— Patient Review, Google</div>
+      </div>
+      <div class="testi-card">
+        <p>"हरियाणा के सबसे बेहतरीन अस्पतालों में से एक। बहुत साफ-सुथरा, सहयोगी स्टाफ और नॉलेजेबल डॉक्टर्स।"</p>
+        <div class="who">— Patient Review, Google</div>
+      </div>
+      <div class="testi-card doc-card">
+        <h3>डॉ. रवि डबास</h3>
+        <div class="role">Dr. Ravi Dabas</div>
+        <p>हॉस्पिटल के सबसे पॉपुलर और नॉलेजेबल डॉक्टर्स में से एक, मरीजों के बीच भरोसे का नाम।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="appointment">
+  <div class="wrap">
+    <h2>अभी अपॉइंटमेंट बुक करें या सीधे कॉल करें</h2>
+    <p>इमरजेंसी हो या रूटीन चेकअप — हमारी टीम आपकी मदद के लिए हमेशा तैयार है।</p>
+    <div class="hero-ctas">
+      <a href="tel:+918816888814" class="btn btn-emergency">📞 Call Now: +91 88168 88814</a>
+      <a href="https://wa.me/919728311010" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp पर बात करें</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-text">
+          <strong>Keshav Multispeciality Hospital &amp; Trauma Centre</strong>
+        </div>
+        <p>One Hospital, Complete Care for You &amp; Your Family. Delhi Road, Shastri Nagar, Kharkhoda, Sonipat, Haryana – 131402.</p>
+      </div>
+      <div class="foot-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+        </ul>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <ul>
+          <li>+91 88168 88814</li>
+          <li>+91 88168 88815</li>
+          <li>+91 97283 11010</li>
+          <li>OPD: 9 AM – 8 PM</li>
+          <li>Emergency: 24 Hours</li>
+        </ul>
+      </div>
+      <div class="foot-map">
+        <h4>Location</h4>
+        <iframe src="https://www.google.com/maps?q=Keshav+Multispeciality+Hospital+Kharkhoda&output=embed" loading="lazy" allowfullscreen title="Hospital location map"></iframe>
+        <a href="https://www.google.com/maps?q=Keshav+Multispeciality+Hospital+Kharkhoda" target="_blank" rel="noopener" style="font-size:0.85rem;color:#8FD8D6;font-weight:600;">Get Directions →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Keshav Multispeciality Hospital &amp; Trauma Centre, Kharkhoda. All rights reserved.</span>
+      <span>Designed by Shiva Saini</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Chatbot Widget -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat assistant">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <strong>Keshav Hospital Assistant</strong>
+    <span>आमतौर पर तुरंत जवाब मिलता है</span>
+  </div>
+  <div class="chat-body">
+    <div class="chat-msg">नमस्ते 🙏 मैं आपकी कैसे मदद कर सकता हूं?</div>
+    <div class="chat-opts">
+      <button class="chat-opt" onclick="location.href='#appointment'">📅 Book OPD Appointment</button>
+      <button class="chat-opt" onclick="location.href='tel:+918816888814'">📞 Emergency Contact</button>
+      <button class="chat-opt" onclick="window.open('https://www.google.com/maps?q=Keshav+Multispeciality+Hospital+Kharkhoda','_blank')">📍 Get Directions</button>
+      <button class="chat-opt" onclick="location.href='#contact'">💳 Insurance / Ayushman Bharat Info</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fab = document.getElementById('chatFab');
+  const panel = document.getElementById('chatPanel');
+  fab.addEventListener('click', () => {
+    panel.classList.toggle('open');
+    fab.textContent = panel.classList.contains('open') ? '✕' : '💬';
+  });
+
+  // close chat if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && !fab.contains(e.target) && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      fab.textContent = '💬';
+    }
+  });
+
+  // collapse mobile nav on link click
+  document.querySelectorAll('nav.links a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      if(window.innerWidth<=720){ document.querySelector('nav.links').style.display='none'; }
+    });
+  });
+</script>
+
 </body>
 </html>
