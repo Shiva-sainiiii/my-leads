@@ -419,6 +419,9 @@
   }
   .chat-fab:hover{transform:scale(1.06);}
   .chat-fab svg{width:26px;height:26px;}
+  .chat-fab .chat-fab-close{display:none;}
+  .chat-fab.is-open .chat-fab-icon{display:none;}
+  .chat-fab.is-open .chat-fab-close{display:block;}
   .chat-panel{
     position:fixed;bottom:94px;right:24px;z-index:900;
     width:320px;max-width:calc(100vw - 40px);
@@ -941,7 +944,8 @@
 
 <!-- Chatbot Widget -->
 <button class="chat-fab" id="chatFab" aria-label="Open chat assistant">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3C6.98 3 3 6.58 3 11c0 2.44 1.23 4.62 3.16 6.07-.1.98-.42 2.2-1.16 3.43 1.6-.24 3.02-.87 4.13-1.6.9.2 1.86.3 2.87.3 5.02 0 9-3.58 9-8s-3.98-8-9-8z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.2" cy="11" r="1.1" fill="#fff"/><circle cx="12" cy="11" r="1.1" fill="#fff"/><circle cx="15.8" cy="11" r="1.1" fill="#fff"/></svg>
+  <svg class="chat-fab-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3C6.98 3 3 6.58 3 11c0 2.44 1.23 4.62 3.16 6.07-.1.98-.42 2.2-1.16 3.43 1.6-.24 3.02-.87 4.13-1.6.9.2 1.86.3 2.87.3 5.02 0 9-3.58 9-8s-3.98-8-9-8z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.2" cy="11" r="1.1" fill="#fff"/><circle cx="12" cy="11" r="1.1" fill="#fff"/><circle cx="15.8" cy="11" r="1.1" fill="#fff"/></svg>
+  <svg class="chat-fab-close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
 </button>
 <div class="chat-panel" id="chatPanel">
   <div class="chat-head">
@@ -974,16 +978,18 @@
   const chatOpts = document.getElementById('chatOpts');
 
   fab.addEventListener('click', () => {
-    panel.classList.toggle('open');
-    fab.textContent = panel.classList.contains('open') ? '✕' : '💬';
-    if (panel.classList.contains('open')) chatInput.focus();
+    const isOpen = panel.classList.toggle('open');
+    fab.classList.toggle('is-open', isOpen);
+    fab.setAttribute('aria-label', isOpen ? 'Close chat assistant' : 'Open chat assistant');
+    if (isOpen) chatInput.focus();
   });
 
   // close chat if clicking outside
   document.addEventListener('click', (e) => {
     if (!panel.contains(e.target) && !fab.contains(e.target) && panel.classList.contains('open')) {
       panel.classList.remove('open');
-      fab.textContent = '💬';
+      fab.classList.remove('is-open');
+      fab.setAttribute('aria-label', 'Open chat assistant');
     }
   });
 
