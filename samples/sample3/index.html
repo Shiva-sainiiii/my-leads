@@ -94,7 +94,7 @@
   nav.links a:hover{color:var(--blue-deep);background:var(--paper);}
   .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;}
   .emg-btn{
-    display:none;
+    display:flex;
     background:#fff;color:var(--red);border:1.5px solid var(--red);
     padding:8px 14px;border-radius:999px;
     font-weight:600;font-size:0.82rem;align-items:center;gap:7px;white-space:nowrap;
@@ -107,7 +107,7 @@
   .emg-btn:hover .emg-dot{background:#fff;}
   @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:0.35;}}
   .call-fab-btn{
-    display:flex;
+    display:none;
     width:42px;height:42px;border-radius:50%;
     background:var(--red);color:#fff;
     align-items:center;justify-content:center;
@@ -376,6 +376,8 @@
   @media (max-width:880px){
     .brand-text strong{font-size:0.88rem;white-space:normal;}
     .brand-text span{font-size:0.64rem;white-space:normal;}
+    .emg-btn{display:none;}
+    .call-fab-btn{display:flex;}
     section{padding:60px 20px;}
     .dept-grid{grid-template-columns:1fr;}
     .fac-grid{grid-template-columns:1fr;}
