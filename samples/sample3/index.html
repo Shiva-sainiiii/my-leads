@@ -293,6 +293,90 @@
   .cta-band .hero-ctas{justify-content:center;}
   .cta-band .btn-outline{border-color:rgba(255,255,255,0.6);}
 
+  /* ===== Contact / Feedback Form ===== */
+  .contact-form-section{background:var(--paper);}
+  .cf-wrap{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;
+  }
+  .cf-info h3{font-size:1.3rem;color:var(--blue-ink);margin-bottom:12px;}
+  .cf-info p{color:var(--slate);font-size:0.92rem;margin-bottom:22px;}
+  .cf-info-list{display:flex;flex-direction:column;gap:16px;}
+  .cf-info-item{display:flex;gap:12px;align-items:flex-start;}
+  .cf-info-icon{
+    width:38px;height:38px;border-radius:50%;background:var(--teal-light);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.05rem;
+  }
+  .cf-info-item strong{display:block;color:var(--charcoal);font-size:0.9rem;}
+  .cf-info-item span{color:var(--slate);font-size:0.85rem;}
+
+  .cf-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-m);
+    padding:32px;box-shadow:var(--shadow);
+  }
+  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .cf-field{margin-bottom:18px;}
+  .cf-field label{
+    display:block;font-size:0.82rem;font-weight:600;color:var(--charcoal);margin-bottom:6px;
+  }
+  .cf-field input,
+  .cf-field select,
+  .cf-field textarea{
+    width:100%;border:1.5px solid var(--line);border-radius:var(--radius-s);
+    padding:11px 14px;font-size:0.9rem;font-family:'Inter',sans-serif;color:var(--charcoal);
+    outline:none;transition:border-color 0.15s ease;background:#fff;
+  }
+  .cf-field input:focus,
+  .cf-field select:focus,
+  .cf-field textarea:focus{border-color:var(--teal);}
+  .cf-field textarea{resize:vertical;min-height:100px;}
+  .cf-field.cf-error input,
+  .cf-field.cf-error select,
+  .cf-field.cf-error textarea{border-color:var(--red);}
+  .cf-error-msg{display:none;color:var(--red);font-size:0.78rem;margin-top:5px;}
+  .cf-field.cf-error .cf-error-msg{display:block;}
+
+  .cf-rating{display:flex;gap:6px;}
+  .cf-rating button{
+    width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;
+    font-size:1.1rem;cursor:pointer;transition:all 0.15s ease;
+  }
+  .cf-rating button.active{background:var(--teal);border-color:var(--teal);}
+  .cf-rating button.active span{filter:grayscale(0);}
+
+  .cf-submit-btn{
+    width:100%;background:var(--teal);color:#fff;border:none;border-radius:var(--radius-s);
+    padding:14px;font-weight:600;font-size:0.95rem;cursor:pointer;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .cf-submit-btn:hover{background:var(--blue-deep);transform:translateY(-1px);}
+
+  .cf-success{
+    display:none;background:var(--teal-light);border:1px solid var(--teal);border-radius:var(--radius-s);
+    padding:16px 18px;margin-bottom:18px;color:var(--blue-ink);font-size:0.88rem;font-weight:500;
+    align-items:center;gap:10px;
+  }
+  .cf-success.show{display:flex;}
+
+  .cf-recent{margin-top:20px;}
+  .cf-recent h4{font-size:0.85rem;color:var(--slate);font-weight:600;margin-bottom:10px;}
+  .cf-recent-list{display:flex;flex-direction:column;gap:10px;max-height:180px;overflow-y:auto;}
+  .cf-recent-item{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-s);
+    padding:10px 14px;font-size:0.82rem;color:var(--charcoal);
+  }
+  .cf-recent-item .cf-recent-meta{color:var(--slate);font-size:0.74rem;margin-top:3px;}
+  .cf-clear-btn{
+    background:none;border:none;color:var(--red);font-size:0.78rem;font-weight:600;
+    cursor:pointer;margin-top:8px;padding:0;
+  }
+  .cf-clear-btn:hover{text-decoration:underline;}
+
+  @media (max-width:880px){
+    .cf-wrap{grid-template-columns:1fr;gap:32px;}
+    .cf-row{grid-template-columns:1fr;gap:0;}
+    .cf-card{padding:24px 20px;}
+  }
+
   /* ===== Footer ===== */
   footer{background:var(--blue-ink);color:#B9CFD8;padding:64px 24px 26px;}
   .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:40px;margin-bottom:48px;}
@@ -404,7 +488,7 @@
       <a href="#doctors">Our Doctors</a>
       <a href="#facilities">Facilities</a>
       <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact Us</a>
+      <a href="#contact-form">Contact Us</a>
     </nav>
     <div class="header-actions">
       <a href="tel:+918816888814" class="emg-btn">
@@ -667,6 +751,106 @@
   </div>
 </section>
 
+<section class="contact-form-section" id="contact-form">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">संपर्क करें</span>
+      <h2>Contact &amp; Feedback Form</h2>
+      <p style="color:var(--slate);font-size:0.92rem;margin-top:8px;">कोई सवाल है, अपॉइंटमेंट चाहिए, या अपना अनुभव शेयर करना चाहते हैं? नीचे फॉर्म भरें।</p>
+    </div>
+    <div class="cf-wrap">
+      <div class="cf-info">
+        <h3>हमसे जुड़ें</h3>
+        <p>हमारी टीम आपके सवालों का जवाब देने और आपकी मदद करने के लिए हमेशा तैयार है।</p>
+        <div class="cf-info-list">
+          <div class="cf-info-item">
+            <div class="cf-info-icon">📞</div>
+            <div>
+              <strong>कॉल करें</strong>
+              <span>+91 88168 88814 / +91 88168 88815</span>
+            </div>
+          </div>
+          <div class="cf-info-item">
+            <div class="cf-info-icon">📍</div>
+            <div>
+              <strong>पता</strong>
+              <span>Delhi Road, Shastri Nagar, Kharkhoda, Sonipat, Haryana – 131402</span>
+            </div>
+          </div>
+          <div class="cf-info-item">
+            <div class="cf-info-icon">🕐</div>
+            <div>
+              <strong>OPD Timing</strong>
+              <span>सुबह 9 बजे – रात 8 बजे | Emergency: 24x7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cf-recent" id="cfRecentWrap" style="display:none;">
+          <h4>आपकी हाल की सबमिशन (सिर्फ आपके डिवाइस पर सेव)</h4>
+          <div class="cf-recent-list" id="cfRecentList"></div>
+          <button type="button" class="cf-clear-btn" id="cfClearBtn">सारी एंट्रीज़ हटाएं</button>
+        </div>
+      </div>
+
+      <div class="cf-card">
+        <div class="cf-success" id="cfSuccess">✅ धन्यवाद! आपका मैसेज सेव हो गया है — हम जल्द संपर्क करेंगे।</div>
+        <form id="cfForm" novalidate>
+          <div class="cf-row">
+            <div class="cf-field" id="cfNameField">
+              <label for="cfName">पूरा नाम *</label>
+              <input type="text" id="cfName" name="name" placeholder="आपका नाम">
+              <div class="cf-error-msg">कृपया अपना नाम डालें।</div>
+            </div>
+            <div class="cf-field" id="cfPhoneField">
+              <label for="cfPhone">मोबाइल नंबर *</label>
+              <input type="tel" id="cfPhone" name="phone" placeholder="10-अंकों का नंबर">
+              <div class="cf-error-msg">कृपया सही 10-अंकों का मोबाइल नंबर डालें।</div>
+            </div>
+          </div>
+
+          <div class="cf-field" id="cfEmailField">
+            <label for="cfEmail">ईमेल (वैकल्पिक)</label>
+            <input type="email" id="cfEmail" name="email" placeholder="you@example.com">
+            <div class="cf-error-msg">कृपया सही ईमेल फॉर्मेट डालें।</div>
+          </div>
+
+          <div class="cf-field" id="cfTypeField">
+            <label for="cfType">विषय *</label>
+            <select id="cfType" name="type">
+              <option value="">चुनें...</option>
+              <option value="Appointment Query">अपॉइंटमेंट के बारे में</option>
+              <option value="General Query">सामान्य सवाल</option>
+              <option value="Feedback">फीडबैक / सुझाव</option>
+              <option value="Complaint">शिकायत</option>
+            </select>
+            <div class="cf-error-msg">कृपया एक विषय चुनें।</div>
+          </div>
+
+          <div class="cf-field" id="cfRatingField">
+            <label>आपका अनुभव कैसा रहा? (वैकल्पिक)</label>
+            <div class="cf-rating" id="cfRating">
+              <button type="button" data-val="1">😞</button>
+              <button type="button" data-val="2">😐</button>
+              <button type="button" data-val="3">🙂</button>
+              <button type="button" data-val="4">😃</button>
+              <button type="button" data-val="5">🤩</button>
+            </div>
+          </div>
+
+          <div class="cf-field" id="cfMsgField">
+            <label for="cfMsg">मैसेज *</label>
+            <textarea id="cfMsg" name="message" placeholder="अपना सवाल या फीडबैक यहां लिखें..."></textarea>
+            <div class="cf-error-msg">कृपया अपना मैसेज लिखें (कम से कम 10 अक्षर)।</div>
+          </div>
+
+          <button type="submit" class="cf-submit-btn">Submit करें</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="contact">
   <div class="wrap">
     <div class="foot-grid">
@@ -904,6 +1088,123 @@
       burger.setAttribute('aria-expanded','false');
     }
   });
+
+  // ===== Contact / Feedback Form =====
+  const CF_STORAGE_KEY = 'keshavHospitalContactSubmissions';
+
+  const cfForm = document.getElementById('cfForm');
+  const cfSuccess = document.getElementById('cfSuccess');
+  const cfRating = document.getElementById('cfRating');
+  const cfRecentWrap = document.getElementById('cfRecentWrap');
+  const cfRecentList = document.getElementById('cfRecentList');
+  const cfClearBtn = document.getElementById('cfClearBtn');
+
+  let cfSelectedRating = 0;
+
+  cfRating.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    cfSelectedRating = parseInt(btn.dataset.val, 10);
+    [...cfRating.children].forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.val, 10) <= cfSelectedRating);
+    });
+  });
+
+  function cfGetSubmissions(){
+    try {
+      return JSON.parse(localStorage.getItem(CF_STORAGE_KEY)) || [];
+    } catch (err) {
+      return [];
+    }
+  }
+
+  function cfSaveSubmission(entry){
+    const list = cfGetSubmissions();
+    list.unshift(entry);
+    localStorage.setItem(CF_STORAGE_KEY, JSON.stringify(list.slice(0, 20)));
+  }
+
+  function cfRenderRecent(){
+    const list = cfGetSubmissions();
+    if (!list.length){
+      cfRecentWrap.style.display = 'none';
+      return;
+    }
+    cfRecentWrap.style.display = 'block';
+    cfRecentList.innerHTML = '';
+    list.slice(0, 5).forEach(entry => {
+      const div = document.createElement('div');
+      div.className = 'cf-recent-item';
+      const ratingText = entry.rating ? ' ' + '⭐'.repeat(entry.rating) : '';
+      div.innerHTML = `<strong>${entry.name}</strong> — ${entry.type}${ratingText}<div class="cf-recent-meta">${entry.date}</div>`;
+      cfRecentList.appendChild(div);
+    });
+  }
+
+  cfClearBtn.addEventListener('click', () => {
+    localStorage.removeItem(CF_STORAGE_KEY);
+    cfRenderRecent();
+  });
+
+  function cfSetError(fieldId, hasError){
+    const field = document.getElementById(fieldId);
+    field.classList.toggle('cf-error', hasError);
+  }
+
+  function cfValidate(){
+    let valid = true;
+    const name = document.getElementById('cfName').value.trim();
+    const phone = document.getElementById('cfPhone').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const type = document.getElementById('cfType').value;
+    const msg = document.getElementById('cfMsg').value.trim();
+
+    const phoneOk = /^[6-9]\d{9}$/.test(phone);
+    const emailOk = email === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    cfSetError('cfNameField', name.length === 0);
+    cfSetError('cfPhoneField', !phoneOk);
+    cfSetError('cfEmailField', !emailOk);
+    cfSetError('cfTypeField', type === '');
+    cfSetError('cfMsgField', msg.length < 10);
+
+    if (name.length === 0) valid = false;
+    if (!phoneOk) valid = false;
+    if (!emailOk) valid = false;
+    if (type === '') valid = false;
+    if (msg.length < 10) valid = false;
+
+    return valid;
+  }
+
+  cfForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!cfValidate()) return;
+
+    const entry = {
+      name: document.getElementById('cfName').value.trim(),
+      phone: document.getElementById('cfPhone').value.trim(),
+      email: document.getElementById('cfEmail').value.trim(),
+      type: document.getElementById('cfType').value,
+      message: document.getElementById('cfMsg').value.trim(),
+      rating: cfSelectedRating,
+      date: new Date().toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+    };
+
+    cfSaveSubmission(entry);
+    cfRenderRecent();
+
+    cfSuccess.classList.add('show');
+    cfForm.reset();
+    cfSelectedRating = 0;
+    [...cfRating.children].forEach(b => b.classList.remove('active'));
+    ['cfNameField','cfPhoneField','cfEmailField','cfTypeField','cfMsgField'].forEach(id => cfSetError(id, false));
+
+    setTimeout(() => cfSuccess.classList.remove('show'), 5000);
+    cfSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  cfRenderRecent();
 </script>
 
 </body>
