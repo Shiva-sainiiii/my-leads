@@ -100,7 +100,8 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: clamp(8px, 1.5vw, 24px);
+  overflow: visible;
 }
 
 .brand {
@@ -215,6 +216,13 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ink);
 }
 .icon-link svg { width: 16px; height: 16px; stroke: var(--ink); }
+
+@media (max-width: 1180px) {
+  .nav-inner { padding: 0 16px; gap: 12px; }
+  .nav-links { gap: 12px; }
+  .nav-right { gap: 10px; }
+  .icon-link span { display: none; }
+}
 
 @media (max-width: 880px) {
   .nav-links { display: none; }

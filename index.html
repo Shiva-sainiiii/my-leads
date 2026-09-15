@@ -13,6 +13,7 @@
   :root {
     --bg: #0F1115;
     --panel: #15171D;
+    --panel-hover: #1B1E26;
     --border: #262A33;
     --text: #E8E6E1;
     --text-dim: #8A8F9C;
@@ -32,13 +33,13 @@
   }
 
   .wrap {
-    max-width: 760px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 64px 24px 96px;
+    padding: 56px 24px 96px;
   }
 
   header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .path {
@@ -60,79 +61,114 @@
     color: var(--text-dim);
     font-size: 14.5px;
     line-height: 1.5;
-    max-width: 52ch;
+    max-width: 56ch;
   }
 
   .count {
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     color: var(--text-faint);
     font-size: 12.5px;
-    margin-top: 18px;
+    margin-top: 22px;
     padding-top: 18px;
     border-top: 1px solid var(--border);
   }
 
-  ol.index {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid var(--border);
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
   }
 
-  .row {
-    display: block;
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-decoration: none;
     color: inherit;
-    border-bottom: 1px solid var(--border);
-    transition: background-color 0.15s ease;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    min-height: 118px;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
   }
 
-  .row:hover { background: var(--panel); }
-  .row:hover .go { opacity: 1; transform: translateX(0); }
-  .row:hover .name { color: var(--accent); }
-  .row:focus-visible {
+  .card:hover {
+    background: var(--panel-hover);
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+  }
+
+  .card:hover .name { color: var(--accent); }
+  .card:hover .go { opacity: 1; transform: translateX(0); }
+
+  .card:focus-visible {
     outline: 2px solid var(--accent);
-    outline-offset: -2px;
+    outline-offset: 2px;
   }
 
-  .row-inner {
+  .card-top {
     display: flex;
-    align-items: baseline;
-    gap: 18px;
-    padding: 18px 4px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
   }
 
   .num {
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-faint);
-    width: 22px;
-    flex-shrink: 0;
-    text-align: right;
   }
 
   .name {
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     font-size: 15px;
     color: var(--text);
+    margin-top: 10px;
     transition: color 0.15s ease;
   }
 
   .filename {
+    display: block;
     color: var(--text-faint);
-    font-size: 12.5px;
-    margin-left: 10px;
+    font-size: 11.5px;
+    margin-top: 4px;
   }
 
   .go {
-    margin-left: auto;
+    margin-top: 14px;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 12.5px;
+    font-size: 12px;
     color: var(--accent);
     opacity: 0;
     transform: translateX(-4px);
     transition: opacity 0.15s ease, transform 0.15s ease;
-    white-space: nowrap;
+  }
+
+  /* Placeholder cards for slots not yet built */
+  .card.pending {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .card.pending:hover {
+    background: var(--panel);
+    border-color: var(--border);
+    transform: none;
+  }
+
+  .card.pending .name { color: var(--text-faint); }
+
+  .badge {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 6px;
   }
 
   .empty {
@@ -141,7 +177,8 @@
     font-size: 14px;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
     line-height: 1.7;
-    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    grid-column: 1 / -1;
   }
 
   .empty code {
@@ -154,7 +191,8 @@
   @media (max-width: 520px) {
     .wrap { padding: 40px 18px 72px; }
     h1 { font-size: 23px; }
-    .filename { display: none; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .card { padding: 14px; min-height: 100px; }
   }
 </style>
 </head>
@@ -166,13 +204,15 @@
       <div class="sub">A running index of sample builds. Each sample lives in its own folder under <code>samples/</code> — drop in a new folder and add one line below.</div>
     </header>
 
-    <ol class="index" id="index-list"></ol>
+    <div class="grid" id="index-grid"></div>
     <div class="count" id="count"></div>
   </div>
 
   <script>
     // Ordered manifest — add an entry here whenever a new samples/sampleN/ folder is added.
     // Each sample folder is expected to contain its own index.html (and optionally style.css, script.js).
+    // Slots with no folder yet are still listed here (up to 20) so the grid always shows
+    // the full card set — unbuilt ones render as "pending" placeholders instead of disappearing.
     const samples = [
       { folder: 'sample1', label: 'Sample 1' },
       { folder: 'sample2', label: 'Sample 2' },
@@ -180,9 +220,22 @@
       { folder: 'sample4', label: 'Sample 4' },
       { folder: 'sample5', label: 'Sample 5' },
       { folder: 'sample6', label: 'Sample 6' },
+      { folder: 'sample8', label: 'Sample 8' },
+      { folder: 'sample9', label: 'Sample 9' },
+      { folder: 'sample10', label: 'Sample 10' },
+      { folder: 'sample11', label: 'Sample 11' },
+      { folder: 'sample12', label: 'Sample 12' },
+      { folder: 'sample13', label: 'Sample 13' },
+      { folder: 'sample14', label: 'Sample 14' },
+      { folder: 'sample15', label: 'Sample 15' },
+      { folder: 'sample16', label: 'Sample 16' },
+      { folder: 'sample17', label: 'Sample 17' },
+      { folder: 'sample18', label: 'Sample 18' },
+      { folder: 'sample19', label: 'Sample 19' },
+      { folder: 'sample20', label: 'Sample 20' },
     ];
 
-    const list = document.getElementById('index-list');
+    const grid = document.getElementById('index-grid');
     const count = document.getElementById('count');
 
     async function checkExists(path) {
@@ -198,27 +251,43 @@
       const results = await Promise.all(
         samples.map(async (s) => ({ ...s, exists: await checkExists(`samples/${s.folder}/index.html`) }))
       );
-      const available = results.filter(r => r.exists);
 
-      if (available.length === 0) {
-        list.innerHTML = `<li class="empty">No sample folders found yet.<br>Add folders under <code>samples/</code> like <code>samples/sample1/index.html</code>, <code>samples/sample2/index.html</code>, etc.</li>`;
+      if (results.length === 0) {
+        grid.innerHTML = `<div class="empty">No sample folders found yet.<br>Add folders under <code>samples/</code> like <code>samples/sample1/index.html</code>, <code>samples/sample2/index.html</code>, etc.</div>`;
         count.textContent = '';
         return;
       }
 
-      list.innerHTML = available.map((s, i) => `
-        <li>
-          <a class="row" href="samples/${s.folder}/index.html">
-            <div class="row-inner">
-              <span class="num">${String(i + 1).padStart(2, '0')}</span>
-              <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
-              <span class="go">view →</span>
+      grid.innerHTML = results.map((s, i) => {
+        const n = String(i + 1).padStart(2, '0');
+        if (s.exists) {
+          return `
+            <a class="card" href="samples/${s.folder}/index.html">
+              <div class="card-top">
+                <span class="num">${n}</span>
+              </div>
+              <div>
+                <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
+                <div class="go">view →</div>
+              </div>
+            </a>
+          `;
+        }
+        return `
+          <div class="card pending">
+            <div class="card-top">
+              <span class="num">${n}</span>
+              <span class="badge">pending</span>
             </div>
-          </a>
-        </li>
-      `).join('');
+            <div>
+              <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
+            </div>
+          </div>
+        `;
+      }).join('');
 
-      count.textContent = `${available.length} of ${samples.length} listed`;
+      const built = results.filter(r => r.exists).length;
+      count.textContent = `${built} of ${results.length} built`;
     }
 
     render();
