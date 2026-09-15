@@ -141,6 +141,8 @@
   function updateWishlistBadge() {
     const badge = document.getElementById('wishlistCount');
     if (badge) badge.textContent = String(getWishlist().length);
+    const badgeMobile = document.getElementById('wishlistCountMobile');
+    if (badgeMobile) badgeMobile.textContent = String(getWishlist().length);
   }
 
   function escapeHtml(str) {
@@ -186,6 +188,16 @@
     const navBtn = document.getElementById('wishlistNavBtn');
     if (navBtn) {
       navBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const count = getWishlist().length;
+        alert(count === 0
+          ? 'Your wishlist is empty — tap the heart icon on any piece to save it here.'
+          : 'You have ' + count + ' saved piece' + (count === 1 ? '' : 's') + ' in your wishlist. (Sample demo — connect this to your backend to show the full list.)');
+      });
+    }
+    const navBtnMobile = document.getElementById('wishlistNavBtnMobile');
+    if (navBtnMobile) {
+      navBtnMobile.addEventListener('click', function (e) {
         e.preventDefault();
         const count = getWishlist().length;
         alert(count === 0

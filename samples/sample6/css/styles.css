@@ -227,7 +227,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 880px) {
   .nav-links { display: none; }
   .nav-menu-btn { display: flex; }
-  .icon-link span { display: none; }
+  .icon-link { display: none; }
 }
 
 /* Mobile dropdown */
