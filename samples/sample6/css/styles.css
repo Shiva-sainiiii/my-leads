@@ -1343,15 +1343,16 @@ button { font-family: inherit; cursor: pointer; }
   z-index: 800;
   background: var(--surface);
   overflow-y: auto;
-  transform: translateY(24px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 .cat-overlay.open {
-  transform: translateY(0);
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
 
 .cat-overlay-header {
