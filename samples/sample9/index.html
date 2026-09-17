@@ -195,6 +195,43 @@
     margin-top:8px; flex-shrink:0;
   }
 
+  /* ---------- Why an Endodontist ---------- */
+  .why-endo{background:var(--porcelain);}
+  .why-endo .section-head{max-width:62ch;}
+  .compare-wrap{
+    border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    background:var(--porcelain);
+  }
+  .compare-row{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .compare-row:last-child{border-bottom:none;}
+  .compare-row.head-row{background:var(--teal-deep); color:#fff;}
+  .compare-row.head-row .compare-cell{padding:20px 22px;}
+  .compare-row.head-row .compare-cell:first-child{font-family:"Fraunces",serif; font-size:1.05rem; font-weight:600;}
+  .compare-row.head-row .compare-cell:not(:first-child) strong{display:block; font-size:1rem;}
+  .compare-row.head-row .compare-cell:not(:first-child) span{font-size:0.76rem; opacity:0.8; font-weight:500;}
+  .compare-cell{
+    padding:16px 22px; font-size:0.92rem; display:flex; align-items:center; gap:8px;
+    border-left:1px solid var(--line);
+  }
+  .compare-cell:first-child{border-left:none; font-weight:600; color:var(--ink); opacity:0.92;}
+  .compare-row:nth-child(even):not(.head-row){background:var(--tint);}
+  .compare-icon{flex-shrink:0; font-size:1rem;}
+  .compare-icon.yes{color:var(--teal);}
+  .compare-icon.partial{color:var(--coral-deep);}
+  .endo-note{
+    margin-top:28px; display:flex; gap:16px; align-items:flex-start;
+    background:var(--tint); border-radius:12px; padding:20px 24px;
+  }
+  .endo-note .badge-icon{
+    width:40px; height:40px; border-radius:50%; background:var(--coral); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0;
+  }
+  .endo-note p{font-size:0.94rem; opacity:0.85; line-height:1.6;}
+  .endo-note strong{color:var(--teal-deep);}
+
   /* ---------- Services ---------- */
   .services{background:var(--tint);}
   .service-grid{
@@ -364,31 +401,74 @@
   }
   .ai-preview-card{
     position:fixed; right:22px; bottom:160px; z-index:61;
-    width:280px; background:#fff; border-radius:14px;
+    width:300px; background:#fff; border-radius:16px;
     box-shadow:0 20px 44px rgba(11,43,44,0.24);
-    padding:18px; display:none;
+    display:none; flex-direction:column; overflow:hidden;
     border:1px solid var(--line);
+    max-height:min(440px, calc(100vh - 200px));
   }
-  .ai-preview-card.open{display:block;}
-  .ai-preview-card .ai-head{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .ai-preview-card.open{display:flex;}
+  .ai-preview-card .ai-head{
+    display:flex; align-items:center; gap:10px;
+    padding:16px 44px 14px 16px; position:relative; flex-shrink:0;
+    background:var(--teal-deep); color:#fff;
+  }
   .ai-preview-card .ai-avatar{
-    width:34px; height:34px; border-radius:50%; background:var(--teal-deep);
+    width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.16);
     color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .ai-preview-card .ai-avatar svg{width:18px; height:18px;}
-  .ai-preview-card .ai-title{font-weight:700; font-size:0.92rem; color:var(--teal-deep);}
-  .ai-preview-card .ai-status{font-size:0.74rem; color:var(--coral-deep); font-weight:600;}
-  .ai-preview-card .ai-msg{
-    background:var(--tint); border-radius:10px; padding:10px 12px;
-    font-size:0.85rem; color:var(--ink); opacity:0.85; line-height:1.5;
-  }
-  .ai-preview-card .ai-note{
-    margin-top:10px; font-size:0.75rem; opacity:0.6; line-height:1.5;
-  }
+  .ai-preview-card .ai-title{font-weight:700; font-size:0.92rem; color:#fff;}
+  .ai-preview-card .ai-status{font-size:0.74rem; color:var(--tint); opacity:0.85; font-weight:500;}
   .ai-preview-card .ai-close{
-    position:absolute; top:10px; right:12px; background:none; border:none;
-    font-size:1.1rem; color:var(--ink); opacity:0.5; cursor:pointer; padding:2px;
+    position:absolute; top:14px; right:14px; background:none; border:none;
+    font-size:1.1rem; color:#fff; opacity:0.75; cursor:pointer; padding:2px;
   }
+  .ai-messages{
+    padding:14px 16px; overflow-y:auto; flex:1;
+    display:flex; flex-direction:column; gap:10px;
+    background:var(--porcelain);
+  }
+  .ai-msg-row{display:flex;}
+  .ai-msg-row.bot{justify-content:flex-start;}
+  .ai-msg-row.user{justify-content:flex-end;}
+  .ai-msg{
+    max-width:82%;
+    border-radius:12px; padding:9px 12px;
+    font-size:0.85rem; line-height:1.5;
+  }
+  .ai-msg-row.bot .ai-msg{background:var(--tint); color:var(--ink);}
+  .ai-msg-row.user .ai-msg{background:var(--teal-deep); color:#fff;}
+  .ai-note{
+    padding:8px 16px; font-size:0.7rem; opacity:0.55; line-height:1.5;
+    border-top:1px solid var(--line); flex-shrink:0; background:#fff;
+  }
+  .ai-input-row{
+    display:flex; gap:8px; padding:12px 14px; border-top:1px solid var(--line);
+    flex-shrink:0; background:#fff;
+  }
+  .ai-input-row input{
+    flex:1; border:1px solid var(--line); border-radius:20px;
+    padding:9px 14px; font-family:inherit; font-size:0.85rem;
+    background:var(--porcelain); color:var(--ink);
+  }
+  .ai-input-row input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .ai-input-row button{
+    width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+    background:var(--coral); color:#fff; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ai-input-row button:hover{background:var(--coral-deep);}
+  .ai-input-row button svg{width:16px; height:16px;}
+  .ai-quick-replies{
+    display:flex; gap:6px; flex-wrap:wrap; padding:0 16px 10px; flex-shrink:0; background:var(--porcelain);
+  }
+  .ai-quick-replies button{
+    border:1px solid var(--line); background:#fff; color:var(--teal-deep);
+    border-radius:100px; padding:6px 12px; font-size:0.76rem; font-weight:600;
+    cursor:pointer; font-family:inherit;
+  }
+  .ai-quick-replies button:hover{background:var(--tint);}
 
   /* ---------- Sticky mobile call bar ---------- */
   .sticky-call{display:none;}
@@ -427,6 +507,18 @@
     .hero-photo .rating-chip{left:12px; bottom:-18px;}
     .about .wrap{grid-template-columns:1fr;}
     .about-photos{max-width:360px;}
+    .compare-row{grid-template-columns:1fr;}
+    .compare-row.head-row{display:none;}
+    .compare-row:not(.head-row){
+      display:grid; grid-template-columns:1fr; padding:14px 18px; gap:6px;
+      border-left:none;
+    }
+    .compare-cell{border-left:none; padding:2px 0; font-size:0.88rem;}
+    .compare-cell:not(:first-child)::before{
+      content:attr(data-label); display:block; font-size:0.72rem; font-weight:700;
+      color:var(--teal-deep); opacity:0.7; margin-top:6px;
+    }
+    .endo-note{padding:16px 18px; gap:12px;}
     .service-grid{grid-template-columns:1fr 1fr;}
     .gallery-strip{grid-template-columns:1fr 1fr;}
     .review-row{grid-template-columns:1fr; gap:32px;}
@@ -448,7 +540,7 @@
     }
     .wa-float{bottom:76px;}
     .ai-float{bottom:146px;}
-    .ai-preview-card{bottom:214px; right:16px; width:240px;}
+    .ai-preview-card{bottom:0; right:0; left:0; width:auto; border-radius:16px 16px 0 0; max-height:78vh;}
     body{padding-bottom:58px;}
   }
 </style>
@@ -543,6 +635,52 @@
         <li><span class="dot"></span><span>Smile Designing &amp; Veneers</span></li>
         <li><span class="dot"></span><span>Micro-Endodontics — Microscope द्वारा सटीक इलाज</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="why-endo" id="why-endodontist">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Know the Difference</span>
+      <h2>Why choose an MDS Endodontist for your root canal?</h2>
+      <p>ज्यादातर लोगों को नहीं पता कि एक सामान्य डेंटिस्ट (BDS) और एक एंडोडोंटिस्ट (MDS — Root Canal Specialist) में क्या फर्क है। यह फर्क आपके इलाज की सफलता और आराम को सीधे प्रभावित करता है।</p>
+    </div>
+    <div class="compare-wrap">
+      <div class="compare-row head-row">
+        <div class="compare-cell">What matters in RCT</div>
+        <div class="compare-cell"><strong>General Dentist</strong><span>BDS</span></div>
+        <div class="compare-cell"><strong>Dr. Deepanshi Garg</strong><span>BDS, MDS — Endodontist</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Root canal training</div>
+        <div class="compare-cell" data-label="General Dentist"><span class="compare-icon partial">◐</span>Basic, general course</div>
+        <div class="compare-cell" data-label="Dr. Deepanshi"><span class="compare-icon yes">●</span>3 years' specialised study, RCT only</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Handles complex/curved canals</div>
+        <div class="compare-cell" data-label="General Dentist"><span class="compare-icon partial">◐</span>Often refers out</div>
+        <div class="compare-cell" data-label="Dr. Deepanshi"><span class="compare-icon yes">●</span>Trained specifically for these cases</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Microscope-guided treatment</div>
+        <div class="compare-cell" data-label="General Dentist"><span class="compare-icon partial">◐</span>Usually not available</div>
+        <div class="compare-cell" data-label="Dr. Deepanshi"><span class="compare-icon yes">●</span>Micro-Endodontics for precision</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Pain management &amp; comfort</div>
+        <div class="compare-cell" data-label="General Dentist"><span class="compare-icon partial">◐</span>Standard approach</div>
+        <div class="compare-cell" data-label="Dr. Deepanshi"><span class="compare-icon yes">●</span>Single-sitting, painless protocol</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Focus of practice</div>
+        <div class="compare-cell" data-label="General Dentist"><span class="compare-icon partial">◐</span>All-round dental care</div>
+        <div class="compare-cell" data-label="Dr. Deepanshi"><span class="compare-icon yes">●</span>Saving natural teeth — root canal is the specialty</div>
+      </div>
+    </div>
+    <div class="endo-note">
+      <div class="badge-icon">🎓</div>
+      <p><strong>Simply put:</strong> a general dentist can perform a root canal, but an Endodontist (MDS) has 3 extra years of specialised training focused only on saving teeth through root canal treatment — meaning fewer sittings, higher precision, and a much more comfortable experience for complex cases.</p>
     </div>
   </div>
 </section>
@@ -778,7 +916,6 @@
 </button>
 
 <div class="ai-preview-card" id="aiPreviewCard">
-  <button class="ai-close" id="aiCloseBtn" aria-label="Close">✕</button>
   <div class="ai-head">
     <div class="ai-avatar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a1 1 0 0 1 1 1v1.06a7 7 0 0 1 6 6.94v1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 7 7 0 0 1-14 0 2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2v-1a7 7 0 0 1 6-6.94V3a1 1 0 0 1 1-1Z"/></svg>
@@ -787,9 +924,23 @@
       <div class="ai-title">Ramaya AI Assistant</div>
       <div class="ai-status">● Demo preview</div>
     </div>
+    <button class="ai-close" id="aiCloseBtn" aria-label="Close">✕</button>
   </div>
-  <div class="ai-msg">Hi! I can help you check treatment options, clinic timings, or book an appointment — 24x7.</div>
-  <div class="ai-note">This is a sample static preview. In the full version, this connects to a real AI assistant trained on your clinic's info.</div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg-row bot"><div class="ai-msg">Hi! I can help with treatment info, clinic timings, or booking an appointment. Try a question below 👇</div></div>
+  </div>
+  <div class="ai-quick-replies">
+    <button type="button" data-q="timings">Clinic timings?</button>
+    <button type="button" data-q="rct">Does RCT hurt?</button>
+    <button type="button" data-q="book">Book appointment</button>
+  </div>
+  <div class="ai-input-row">
+    <input type="text" id="aiInput" placeholder="Type your question…" autocomplete="off">
+    <button type="button" id="aiSendBtn" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div class="ai-note">Sample static preview — replies are pre-written. The full version connects to a real AI trained on your clinic's info.</div>
 </div>
 
 <div class="sticky-call">
@@ -819,12 +970,87 @@
   const aiFloatBtn = document.getElementById('aiFloatBtn');
   const aiPreviewCard = document.getElementById('aiPreviewCard');
   const aiCloseBtn = document.getElementById('aiCloseBtn');
+  const aiMessages = document.getElementById('aiMessages');
+  const aiInput = document.getElementById('aiInput');
+  const aiSendBtn = document.getElementById('aiSendBtn');
+  const aiQuickReplies = document.querySelectorAll('.ai-quick-replies button');
 
   aiFloatBtn.addEventListener('click', () => {
     aiPreviewCard.classList.toggle('open');
+    if (aiPreviewCard.classList.contains('open')) aiInput.focus();
   });
   aiCloseBtn.addEventListener('click', () => {
     aiPreviewCard.classList.remove('open');
+  });
+
+  function addAiMessage(text, sender){
+    const row = document.createElement('div');
+    row.className = 'ai-msg-row ' + sender;
+    const bubble = document.createElement('div');
+    bubble.className = 'ai-msg';
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    aiMessages.appendChild(row);
+    aiMessages.scrollTop = aiMessages.scrollHeight;
+  }
+
+  const aiReplies = [
+    { keys: ['timing', 'time', 'open', 'hour', 'kab khulta', 'kab khulte'],
+      reply: "We're open Mon–Sat, 9:00 AM to 7:00 PM, and Sunday 9:00 AM to 2:30 PM." },
+    { keys: ['rct', 'root canal', 'pain', 'hurt', 'dard'],
+      reply: "Our single-sitting RCT is done with a painless protocol — most patients feel little to no discomfort." },
+    { keys: ['book', 'appointment', 'slot', 'schedule'],
+      reply: "You can book by calling +91 98963 77906, or fill the appointment form further down this page." },
+    { keys: ['location', 'address', 'where', 'kaha'],
+      reply: "We're at SCF-41, Ground Floor, HUDA Commercial Complex, Rohtak, near SBI." },
+    { keys: ['price', 'cost', 'fee', 'charge', 'kitna'],
+      reply: "Costs vary by treatment — call us at +91 98963 77906 and our team will guide you." },
+    { keys: ['implant'],
+      reply: "Yes, we offer dental implants for missing or broken teeth. Dr. Deepanshi can advise the best option after a checkup." },
+    { keys: ['veneer', 'smile design', 'makeover'],
+      reply: "Smile makeover and veneers are one of our specialities — including the 'Smile Test Drive' preview." },
+    { keys: ['kid', 'child', 'baccha'],
+      reply: "We have a child-friendly setup for kids' dental checkups and treatment." },
+    { keys: ['doctor', 'deepanshi', 'endodontist'],
+      reply: "Dr. Deepanshi Garg is a BDS, MDS Endodontist — a root canal specialist focused on saving natural teeth." },
+    { keys: ['thank', 'thanks', 'dhanyawad'],
+      reply: "You're welcome! Feel free to ask anything else, or call us at +91 98963 77906." },
+    { keys: ['hi', 'hello', 'hey', 'namaste'],
+      reply: "Hello! Ask me about treatments, timings, or booking an appointment." }
+  ];
+
+  function getAiReply(userText){
+    const t = userText.toLowerCase();
+    for (const entry of aiReplies){
+      if (entry.keys.some(k => t.includes(k))) return entry.reply;
+    }
+    return "Thanks for your message! For a detailed answer, please call us at +91 98963 77906 — our team will be happy to help.";
+  }
+
+  function handleAiSend(text){
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    addAiMessage(trimmed, 'user');
+    aiInput.value = '';
+    setTimeout(() => {
+      addAiMessage(getAiReply(trimmed), 'bot');
+    }, 450);
+  }
+
+  aiSendBtn.addEventListener('click', () => handleAiSend(aiInput.value));
+  aiInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleAiSend(aiInput.value);
+  });
+
+  const aiQuickMap = {
+    timings: 'What are your clinic timings?',
+    rct: 'Does root canal treatment hurt?',
+    book: 'How do I book an appointment?'
+  };
+  aiQuickReplies.forEach(btn => {
+    btn.addEventListener('click', () => {
+      handleAiSend(aiQuickMap[btn.dataset.q] || btn.textContent);
+    });
   });
 
   const feedbackForm = document.getElementById('feedbackForm');
