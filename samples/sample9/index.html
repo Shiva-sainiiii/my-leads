@@ -358,6 +358,24 @@
   .cta-band .btn-secondary{border-color:#fff; color:#fff;}
   .cta-band .btn-secondary:hover{background:#fff; color:var(--coral-deep);}
 
+  /* ---------- Map ---------- */
+  .map-section{background:var(--porcelain); padding-top:0;}
+  .map-wrap{
+    border-radius:16px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 14px 34px rgba(11,43,44,0.1);
+  }
+  .map-wrap iframe{width:100%; height:380px; border:0; display:block;}
+  .map-header{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:16px; margin-bottom:24px;
+  }
+  .map-header .addr{font-size:0.95rem; opacity:0.78; margin-top:8px;}
+  .map-directions{
+    background:var(--teal); color:#fff; padding:12px 22px;
+    border-radius:7px; font-weight:600; font-size:0.92rem; white-space:nowrap;
+  }
+  .map-directions:hover{background:var(--teal-deep);}
+
   /* ---------- Footer ---------- */
   footer{background:var(--ink); color:var(--tint); padding:56px 0 24px;}
   .footer-grid{
@@ -529,6 +547,9 @@
     .contact-grid{grid-template-columns:1fr; gap:36px;}
     .contact-form{padding:26px 22px;}
     .contact-form .row-2{grid-template-columns:1fr;}
+    .map-wrap iframe{height:280px;}
+    .map-header{flex-direction:column; align-items:flex-start;}
+    .map-directions{width:100%; text-align:center;}
     .footer-grid{grid-template-columns:1fr; gap:28px;}
     .topbar .wrap{font-size:0.78rem;}
     section{padding:56px 0;}
@@ -864,6 +885,28 @@
     <div class="hero-ctas">
       <a class="btn-primary" href="tel:+919896377906">Call Now: 98963 77906</a>
       <a class="btn-secondary" href="https://wa.me/919896377906" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="wrap">
+    <div class="map-header">
+      <div>
+        <span class="section-head kicker" style="margin-bottom:6px; display:inline-block;">Find Us</span>
+        <h2 style="font-family:'Fraunces',serif; font-size:1.7rem; color:var(--teal-deep); margin:0;">Visit Ramaya Dentals</h2>
+        <p class="addr">SCF-41, Ground Floor, Near SBI, HUDA Commercial Complex, Rohtak, Haryana - 124001</p>
+      </div>
+      <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=Ramaya+Dental+Clinic+HUDA+Complex+Rohtak" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=Ramaya+Dental+Clinic+HUDA+Complex+Rohtak+Haryana&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ramaya Dentals location map">
+      </iframe>
     </div>
   </div>
 </section>
