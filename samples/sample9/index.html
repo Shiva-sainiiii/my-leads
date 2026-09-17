@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramaya Dentals — Rohtak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2B2C;
+    --teal:#0F6E6A;
+    --teal-deep:#0A4F4C;
+    --porcelain:#FBFAF7;
+    --tint:#E4F0EE;
+    --coral:#E2704F;
+    --coral-deep:#C85A3C;
+    --line: rgba(11,43,44,0.12);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Public Sans", sans-serif;
+    color:var(--ink);
+    background:var(--porcelain);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    margin:0;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background:var(--ink);
+    color:var(--tint);
+    font-size:0.85rem;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 28px; gap:16px; flex-wrap:wrap;
+  }
+  .topbar-left{display:flex; gap:22px; flex-wrap:wrap; opacity:0.92;}
+  .topbar a.call{color:#fff; font-weight:600;}
+
+  /* ---------- Header ---------- */
+  header.site{
+    background:var(--porcelain);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{
+    width:46px; height:46px; border-radius:50%;
+    background:var(--teal); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem;
+    flex-shrink:0;
+  }
+  .brand-text .name{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem;}
+  .brand-text .tag{font-size:0.78rem; color:var(--teal-deep); letter-spacing:0.01em;}
+  nav.main{display:flex; gap:32px;}
+  nav.main a{font-size:0.95rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0;}
+  nav.main a:hover{color:var(--teal);}
+  .header-cta{
+    background:var(--coral); color:#fff; padding:10px 20px;
+    border-radius:6px; font-weight:600; font-size:0.9rem; white-space:nowrap;
+  }
+  .header-cta:hover{background:var(--coral-deep);}
+  .nav-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--tint);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    align-items:center;
+    gap:56px;
+    padding-top:64px;
+    padding-bottom:64px;
+  }
+  .hero-badges{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;
+  }
+  .badge{
+    background:#fff; border:1px solid var(--line);
+    padding:6px 13px; border-radius:100px;
+    font-size:0.8rem; font-weight:600; color:var(--teal-deep);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .hero h1{
+    font-size:2.85rem;
+    color:var(--teal-deep);
+    max-width:11.5ch;
+  }
+  .hero .sub{
+    margin-top:20px; font-size:1.1rem; color:var(--ink);
+    max-width:44ch; opacity:0.88;
+  }
+  .hero-ctas{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--coral); color:#fff; padding:15px 26px;
+    border-radius:7px; font-weight:700; font-size:0.98rem;
+    box-shadow:0 8px 20px rgba(226,112,79,0.28);
+  }
+  .btn-primary:hover{background:var(--coral-deep);}
+  .btn-secondary{
+    background:transparent; color:var(--teal-deep);
+    border:1.5px solid var(--teal-deep);
+    padding:15px 26px; border-radius:7px; font-weight:700; font-size:0.98rem;
+  }
+  .btn-secondary:hover{background:var(--teal-deep); color:#fff;}
+  .hero-photo{
+    position:relative;
+  }
+  .hero-photo .frame{
+    aspect-ratio:4/3.1;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 24px 48px -20px rgba(10,79,76,0.35);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+  .hero-photo .rating-chip{
+    position:absolute; left:-18px; bottom:-22px;
+    background:#fff; border-radius:12px; padding:14px 18px;
+    box-shadow:0 14px 30px rgba(11,43,44,0.16);
+    display:flex; align-items:center; gap:12px;
+  }
+  .rating-chip .stars{color:#E9A93B; font-size:1.05rem; letter-spacing:1px;}
+  .rating-chip .num{font-family:"Fraunces",serif; font-weight:600; font-size:1.3rem; color:var(--teal-deep);}
+  .rating-chip .lbl{font-size:0.72rem; color:var(--ink); opacity:0.7;}
+
+  /* ---------- Section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{max-width:56ch; margin-bottom:44px;}
+  .section-head .kicker{
+    color:var(--coral-deep); font-weight:700; font-size:0.92rem; margin-bottom:10px; display:block;
+  }
+  .section-head h2{font-size:2.1rem; color:var(--teal-deep);}
+  .section-head p{margin-top:14px; font-size:1.02rem; opacity:0.82;}
+
+  /* ---------- About doctor ---------- */
+  .about{background:var(--porcelain);}
+  .about .wrap{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center;
+  }
+  .about-photos{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:14px;
+  }
+  .about-photos .tall{grid-row:span 2; aspect-ratio:0.72/1;}
+  .about-photos .short{aspect-ratio:1/0.95;}
+  .about-photos div{border-radius:12px; overflow:hidden;}
+  .about-photos img{width:100%; height:100%; object-fit:cover;}
+  .doctor-name{font-size:2rem; color:var(--teal-deep);}
+  .doctor-qual{
+    margin-top:8px; font-weight:600; color:var(--coral-deep); font-size:0.98rem;
+  }
+  .doctor-desc{margin-top:20px; font-size:1.04rem; opacity:0.88; max-width:56ch;}
+  .expertise-list{
+    margin-top:26px; padding:0; list-style:none;
+    display:grid; gap:12px;
+  }
+  .expertise-list li{
+    display:flex; gap:12px; align-items:flex-start; font-size:0.98rem;
+  }
+  .expertise-list .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--teal);
+    margin-top:8px; flex-shrink:0;
+  }
+
+  /* ---------- Services ---------- */
+  .services{background:var(--tint);}
+  .service-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  }
+  .service-item{
+    background:var(--porcelain); padding:30px 26px;
+  }
+  .service-item .icon{font-size:1.7rem;}
+  .service-item h3{font-size:1.12rem; margin-top:14px; color:var(--teal-deep);}
+  .service-item p{margin-top:8px; font-size:0.92rem; opacity:0.78;}
+
+  /* ---------- Gallery strip ---------- */
+  .gallery{background:var(--porcelain);}
+  .gallery-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  }
+  .gallery-strip div{aspect-ratio:1/1.05; border-radius:10px; overflow:hidden;}
+  .gallery-strip img{width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;}
+  .gallery-strip div:hover img{transform:scale(1.06);}
+
+  /* ---------- Reviews ---------- */
+  .reviews{background:var(--teal-deep); color:var(--porcelain);}
+  .reviews .section-head h2{color:var(--porcelain);}
+  .reviews .section-head p{color:var(--tint); opacity:0.85;}
+  .reviews .section-head .kicker{color:#F0B69A;}
+  .review-row{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .review-card{
+    border-left:3px solid var(--coral);
+    padding-left:20px;
+  }
+  .review-card .stars{color:#F0B69A; font-size:0.95rem; margin-bottom:12px;}
+  .review-card p.quote{font-size:1.02rem; line-height:1.6; opacity:0.95;}
+  .review-card .who{margin-top:16px; font-size:0.85rem; opacity:0.65;}
+
+  /* ---------- Facilities ---------- */
+  .facilities .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
+  }
+  .fact-list{list-style:none; padding:0; margin-top:24px; display:grid; gap:18px;}
+  .fact-list li{display:flex; gap:14px; align-items:flex-start;}
+  .fact-list .num{
+    font-family:"Fraunces",serif; font-weight:600; color:var(--coral-deep);
+    font-size:1rem; width:28px; flex-shrink:0;
+  }
+  .fact-list .txt strong{display:block; font-size:1rem; color:var(--teal-deep); margin-bottom:3px;}
+  .fact-list .txt span{font-size:0.92rem; opacity:0.78;}
+  .facilities-photo{aspect-ratio:4/3.3; border-radius:14px; overflow:hidden;}
+  .facilities-photo img{width:100%; height:100%; object-fit:cover;}
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--coral); color:#fff; text-align:center;
+  }
+  .cta-band h2{color:#fff; font-size:2rem; max-width:20ch; margin:0 auto;}
+  .cta-band p{margin-top:14px; opacity:0.92; font-size:1.02rem;}
+  .cta-band .hero-ctas{justify-content:center; margin-top:28px;}
+  .cta-band .btn-primary{background:#fff; color:var(--coral-deep); box-shadow:none;}
+  .cta-band .btn-primary:hover{background:var(--ink); color:#fff;}
+  .cta-band .btn-secondary{border-color:#fff; color:#fff;}
+  .cta-band .btn-secondary:hover{background:#fff; color:var(--coral-deep);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:var(--tint); padding:56px 0 24px;}
+  .footer-grid{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px;
+    padding-bottom:36px; border-bottom:1px solid rgba(228,240,238,0.15);
+  }
+  footer h4{font-family:"Fraunces",serif; font-weight:600; color:#fff; font-size:1.05rem; margin-bottom:16px;}
+  footer address{font-style:normal; font-size:0.92rem; line-height:1.7; opacity:0.85;}
+  footer ul{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  footer ul a{font-size:0.92rem; opacity:0.85;}
+  footer ul a:hover{opacity:1; color:#F0B69A;}
+  .footer-bottom{
+    padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:0.82rem; opacity:0.6;
+  }
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background:#25D366; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(37,211,102,0.4);
+  }
+  .wa-float svg{width:28px; height:28px;}
+
+  /* ---------- Sticky mobile call bar ---------- */
+  .sticky-call{display:none;}
+
+  @media (max-width: 900px){
+    nav.main{display:none;}
+    .header-cta{display:none;}
+    .nav-toggle{display:block; font-size:1.6rem; background:none; border:none; color:var(--ink); cursor:pointer;}
+    .hero .wrap{grid-template-columns:1fr; padding-top:36px; padding-bottom:52px;}
+    .hero h1{font-size:2.1rem; max-width:none;}
+    .hero-photo{order:-1;}
+    .hero-photo .rating-chip{left:12px; bottom:-18px;}
+    .about .wrap{grid-template-columns:1fr;}
+    .about-photos{max-width:360px;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .gallery-strip{grid-template-columns:1fr 1fr;}
+    .review-row{grid-template-columns:1fr; gap:32px;}
+    .facilities .wrap{grid-template-columns:1fr;}
+    .facilities-photo{order:-1;}
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+    .topbar .wrap{font-size:0.78rem;}
+    section{padding:56px 0;}
+    .sticky-call{
+      display:flex; position:fixed; bottom:0; left:0; right:0; z-index:55;
+      background:var(--coral); color:#fff; text-align:center;
+      padding:14px; font-weight:700; justify-content:center; gap:8px;
+      box-shadow:0 -6px 18px rgba(0,0,0,0.15);
+    }
+    .wa-float{bottom:76px;}
+    body{padding-bottom:58px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>📍 HUDA Complex, Rohtak</span>
+      <span>🕒 Mon–Sat 9AM–7PM · Sun 9AM–2:30PM</span>
+    </div>
+    <a class="call" href="tel:+919896377906">📞 +91 98963 77906</a>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">RD</div>
+      <div class="brand-text">
+        <div class="name">Ramaya Dentals</div>
+        <div class="tag">The Multi Speciality Dental Clinic</div>
+      </div>
+    </div>
+    <nav class="main">
+      <a href="#about">About Dr. Deepanshi</a>
+      <a href="#services">Treatments</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="tel:+919896377906">Book Appointment</a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="badge">🌟 4.9/5 Google Rating</span>
+        <span class="badge">✅ Painless RCT Specialist</span>
+      </div>
+      <h1>Transform your smile, transform your confidence</h1>
+      <p class="sub">रोहतक का सबसे भरोसेमंद डेंटल क्लीनिक – जहाँ मिले दर्द रहित इलाज और मुस्कुराहट की गारंटी।</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#contact">Book Your Smile Test Drive</a>
+        <a class="btn-secondary" href="tel:+919896377906">Call Now: 98963 77906</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="img/hero-banner.jpg" alt="Ramaya Dentals clinic banner">
+      </div>
+      <div class="rating-chip">
+        <div class="stars">★★★★★</div>
+        <div>
+          <div class="num">4.9/5</div>
+          <div class="lbl">300+ Reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photos">
+      <div class="tall"><img src="img/doctor-treatment-1.jpg" alt="Dr. Deepanshi Garg performing dental treatment"></div>
+      <div class="short"><img src="img/doctor-portrait-2.jpg" alt="Dr. Deepanshi Garg portrait"></div>
+      <div class="short"><img src="img/doctor-team.jpg" alt="Dr. Deepanshi Garg with clinic staff"></div>
+    </div>
+    <div class="about-text">
+      <span class="section-head kicker">About the Doctor</span>
+      <h2 class="doctor-name">Dr. Deepanshi Garg</h2>
+      <p class="doctor-qual">BDS, MDS — Endodontist &amp; Root Canal Specialist</p>
+      <p class="doctor-desc">डॉ. दीपांशी गर्ग रोहतक की एक प्रमुख एंडोडोंटिस्ट हैं, जो दांतों को निकालने के बजाय उन्हें बचाने में विश्वास रखती हैं। उनका व्यवहार बेहद विनम्र है और वह मरीजों को पूरा समय देकर इलाज समझाती हैं।</p>
+      <ul class="expertise-list">
+        <li><span class="dot"></span><span>Single Sitting Painless RCT — एक बार में बिना दर्द के नसों का इलाज</span></li>
+        <li><span class="dot"></span><span>Smile Designing &amp; Veneers</span></li>
+        <li><span class="dot"></span><span>Micro-Endodontics — Microscope द्वारा सटीक इलाज</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Treatments</span>
+      <h2>Everything your smile needs, under one roof</h2>
+      <p>Best Dentist in HUDA Complex — RCT Specialist in Rohtak.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-item">
+        <div class="icon">🦷</div>
+        <h3>General Dentistry</h3>
+        <p>दांतों की सफाई (Scaling), फिलिंग और नियमित चेकअप।</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">💉</div>
+        <h3>Painless Root Canal (RCT)</h3>
+        <p>सड़े हुए दांतों का पक्का इलाज, बिना दर्द के।</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">😁</div>
+        <h3>Smile Makeover &amp; Veneers</h3>
+        <p>गैप भरना, टेढ़े-मेढ़े दांत ठीक करना और Smile Test Drive।</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">🔩</div>
+        <h3>Dental Implants</h3>
+        <p>टूटे या निकले हुए दांतों की जगह फिक्स दांत लगाना।</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">👶</div>
+        <h3>Kids Dentistry</h3>
+        <p>बच्चों के दांतों का इलाज एक Child-friendly माहौल में।</p>
+      </div>
+      <div class="service-item">
+        <div class="icon">🛡️</div>
+        <h3>Gum Surgeries &amp; Laser</h3>
+        <p>मसूड़ों से खून आने या पायरिया का लेजर द्वारा इलाज।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Inside the Clinic</span>
+      <h2>Modern equipment, calm environment</h2>
+    </div>
+    <div class="gallery-strip">
+      <div><img src="img/clinic-chair.jpg" alt="Dental treatment chair"></div>
+      <div><img src="img/doctor-treatment-2.jpg" alt="Treatment in progress"></div>
+      <div><img src="img/patient-smile-1.png" alt="Patient smile check"></div>
+      <div><img src="img/patient-smile-2.png" alt="Patient healthy smile result"></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Patient Reviews</span>
+      <h2>What patients say after their visit</h2>
+    </div>
+    <div class="review-row">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">I had multiple crowns and laminates done — absolutely painless, and I'm loving my new teeth.</p>
+        <div class="who">Cosmetic Patient</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Best dental clinic for wisdom tooth extraction. Very reasonably priced, and Dr. Deepanshi is very polite.</p>
+        <div class="who">Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Treatment done painlessly. Hygienic place and cooperative staff.</p>
+        <div class="who">Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="facilities">
+  <div class="wrap">
+    <div class="facilities-photo">
+      <img src="img/doctor-portrait-1.jpg" alt="Ramaya Dentals clinic staff">
+    </div>
+    <div class="facilities-text">
+      <span class="section-head kicker">Why Ramaya Dentals</span>
+      <h2 class="section-head" style="margin-bottom:0; display:block;">Built for comfort, equipped for precision</h2>
+      <ul class="fact-list">
+        <li><span class="num">01</span><span class="txt"><strong>Wheelchair Accessible</strong><span>बुजुर्गों और दिव्यांगों के लिए रैंप की सुविधा।</span></span></li>
+        <li><span class="num">02</span><span class="txt"><strong>Latest Technology</strong><span>Digital X-Ray (RVG), Intraoral Camera, Rotary Endodontics।</span></span></li>
+        <li><span class="num">03</span><span class="txt"><strong>Easy Payments</strong><span>Google Pay, PhonePe, Cards और Cash — सभी स्वीकार।</span></span></li>
+        <li><span class="num">04</span><span class="txt"><strong>Convenient Location</strong><span>हुडा कॉम्प्लेक्स के शांत वातावरण में, पार्किंग की कोई दिक्कत नहीं।</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Ready for a painless, confident smile?</h2>
+    <p>Call, WhatsApp, or walk in — HUDA Complex, Rohtak.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="tel:+919896377906">Call Now: 98963 77906</a>
+      <a class="btn-secondary" href="https://wa.me/919896377906" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Ramaya Dentals</h4>
+        <address>
+          SCF-41, Ground Floor,<br>
+          Near State Bank of India (SBI),<br>
+          HUDA Commercial Complex,<br>
+          Rohtak, Haryana - 124001
+        </address>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Dr. Deepanshi</a></li>
+          <li><a href="#services">Treatments</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:+919896377906">+91 98963 77906</a></li>
+          <li><a href="https://www.instagram.com/ramayadentals/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">Facebook — Ramaya Dentals Rohtak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ramaya Dentals. All rights reserved.</span>
+      <span>Sample concept — for review only</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919896377906" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 8.24 8.24c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.24 8.25-8.24M8.53 6.7c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.7 4.14 3.7 2.03.84 2.44.67 2.88.63.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.75-1.8-.2-.47-.4-.4-.55-.41z"/></svg>
+</a>
+
+<div class="sticky-call">
+  <a href="tel:+919896377906">📞 Call Now: 98963 77906</a>
+</div>
+
+</body>
+</html>
