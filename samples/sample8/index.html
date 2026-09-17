@@ -392,6 +392,37 @@
   .form-submit:hover{background:var(--navy-deep);}
   .form-note{font-size:11.5px;color:var(--stone);margin-top:12px;text-align:center;}
 
+  /* ---------- map ---------- */
+  .map-panel{
+    margin-top:56px;
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .map-panel-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 24px;border-bottom:1px solid var(--paper-line);
+    flex-wrap:wrap;gap:10px;
+  }
+  .map-panel-head h3{font-size:17px;color:var(--navy);font-weight:600;}
+  .map-panel-head p{font-size:13px;color:var(--stone);margin-top:3px;}
+  .map-directions-link{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--navy);color:#fff;
+    padding:9px 16px;border-radius:2px;
+    font-size:13px;font-weight:600;white-space:nowrap;
+  }
+  .map-directions-link:hover{background:var(--navy-deep);}
+  .map-directions-link svg{width:15px;height:15px;}
+  .map-frame-wrap{position:relative;width:100%;height:340px;background:#EDEAE0;}
+  .map-frame-wrap iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+  }
+  @media (max-width:600px){
+    .map-frame-wrap{height:280px;}
+  }
+
   /* ---------- WhatsApp float button ---------- */
   .wa-float{
     position:fixed;
@@ -803,6 +834,27 @@
             <button class="form-submit" type="submit">Request Callback</button>
           </form>
           <div class="form-note">This is a sample layout — form will connect to WhatsApp/call on the live site.</div>
+        </div>
+      </div>
+
+      <div class="map-panel">
+        <div class="map-panel-head">
+          <div>
+            <h3>Find us at Pacific Mall, Model Town</h3>
+            <p>SCO No. 114, Ground Floor, Delhi Road, Near Jaat Bhawan, Rohtak</p>
+          </div>
+          <a class="map-directions-link" href="https://www.google.com/maps/dir/?api=1&destination=BTN+Overseas+Pacific+Mall+Model+Town+Rohtak+Haryana+124001" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
+        </div>
+        <div class="map-frame-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=BTN+Overseas,+SCO+No.+114,+Ground+Floor,+Pacific+Mall,+Delhi+Road,+Near+Jaat+Bhawan,+Model+Town,+Rohtak,+Haryana+124001&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="BTN Overseas location map">
+          </iframe>
         </div>
       </div>
     </div>
