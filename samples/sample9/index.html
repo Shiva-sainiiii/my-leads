@@ -63,8 +63,9 @@
   header.site .wrap{
     display:flex; align-items:center; justify-content:space-between;
     padding-top:16px; padding-bottom:16px;
+    gap:20px;
   }
-  .brand{display:flex; align-items:center; gap:12px;}
+  .brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
   .brand-mark{
     width:46px; height:46px; border-radius:50%;
     background:var(--teal); color:#fff;
@@ -72,17 +73,25 @@
     font-family:"Fraunces",serif; font-weight:600; font-size:1.15rem;
     flex-shrink:0;
   }
-  .brand-text .name{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem;}
-  .brand-text .tag{font-size:0.78rem; color:var(--teal-deep); letter-spacing:0.01em;}
-  nav.main{display:flex; gap:32px;}
-  nav.main a{font-size:0.95rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0;}
+  .brand-text .name{font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; white-space:nowrap;}
+  .brand-text .tag{font-size:0.78rem; color:var(--teal-deep); letter-spacing:0.01em; white-space:nowrap;}
+  nav.main{display:flex; gap:22px; flex-wrap:nowrap;}
+  nav.main a{font-size:0.92rem; font-weight:500; color:var(--ink); position:relative; padding:4px 0; white-space:nowrap;}
   nav.main a:hover{color:var(--teal);}
   .header-cta{
     background:var(--coral); color:#fff; padding:10px 20px;
     border-radius:6px; font-weight:600; font-size:0.9rem; white-space:nowrap;
+    flex-shrink:0;
   }
   .header-cta:hover{background:var(--coral-deep);}
   .nav-toggle{display:none;}
+
+  @media (max-width: 1080px) and (min-width: 901px){
+    header.site .wrap{padding-left:20px; padding-right:20px;}
+    nav.main{gap:16px;}
+    nav.main a{font-size:0.86rem;}
+    .brand-text .tag{display:none;}
+  }
 
   /* ---------- Hero ---------- */
   .hero{
@@ -239,6 +248,67 @@
   .facilities-photo{aspect-ratio:4/3.3; border-radius:14px; overflow:hidden;}
   .facilities-photo img{width:100%; height:100%; object-fit:cover;}
 
+  /* ---------- Feedback (star rating) ---------- */
+  .feedback{background:var(--tint);}
+  .feedback-box{
+    max-width:640px; margin:0 auto; background:var(--porcelain);
+    border-radius:16px; padding:44px 40px; text-align:center;
+    border:1px solid var(--line);
+  }
+  .feedback-box h2{font-size:1.7rem; color:var(--teal-deep);}
+  .feedback-box p.lead{margin-top:10px; font-size:0.98rem; opacity:0.78;}
+  .star-picker{
+    display:flex; flex-direction:row-reverse; justify-content:center; gap:8px; margin-top:26px;
+  }
+  .star-picker input{display:none;}
+  .star-picker label{
+    font-size:2.2rem; color:var(--line); cursor:pointer; transition:color 0.15s ease, transform 0.15s ease;
+    line-height:1;
+  }
+  .star-picker label:hover,
+  .star-picker label:hover ~ label,
+  .star-picker input:checked ~ label{color:#E9A93B;}
+  .feedback-form textarea{
+    width:100%; margin-top:24px; border:1px solid var(--line); border-radius:10px;
+    padding:13px 14px; font-family:inherit; font-size:0.95rem; resize:vertical; min-height:90px;
+    background:#fff; color:var(--ink);
+  }
+  .feedback-form textarea:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .feedback-form .btn-primary{margin-top:18px; width:100%; border:none; cursor:pointer; font-family:inherit;}
+  .feedback-thanks{display:none; margin-top:20px; color:var(--teal-deep); font-weight:600;}
+  .feedback-thanks.show{display:block;}
+
+  /* ---------- Contact form ---------- */
+  .contact-form-section{background:var(--porcelain);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:flex-start;}
+  .contact-info-list{list-style:none; margin:24px 0 0; padding:0; display:grid; gap:20px;}
+  .contact-info-list li{display:flex; gap:14px; align-items:flex-start;}
+  .contact-info-list .ic{font-size:1.3rem; flex-shrink:0;}
+  .contact-info-list strong{display:block; font-size:0.98rem; color:var(--teal-deep); margin-bottom:2px;}
+  .contact-info-list span{font-size:0.92rem; opacity:0.78;}
+  .contact-form{
+    background:var(--tint); border-radius:16px; padding:34px;
+    display:grid; gap:16px;
+  }
+  .contact-form .field{display:grid; gap:6px;}
+  .contact-form label{font-size:0.85rem; font-weight:600; color:var(--teal-deep);}
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    border:1px solid var(--line); border-radius:9px; padding:12px 13px;
+    font-family:inherit; font-size:0.95rem; background:#fff; color:var(--ink); width:100%;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .contact-form textarea{min-height:100px; resize:vertical;}
+  .contact-form .row-2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .contact-form button{
+    border:none; cursor:pointer; font-family:inherit; margin-top:4px;
+  }
+  .contact-thanks{display:none; margin-top:4px; color:var(--teal-deep); font-weight:600; font-size:0.92rem;}
+  .contact-thanks.show{display:block;}
+
   /* ---------- CTA band ---------- */
   .cta-band{
     background:var(--coral); color:#fff; text-align:center;
@@ -277,13 +347,80 @@
   }
   .wa-float svg{width:28px; height:28px;}
 
+  /* ---------- AI chat widget (static demo) ---------- */
+  .ai-float{
+    position:fixed; right:22px; bottom:92px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--teal-deep); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(10,79,76,0.4);
+    border:none; cursor:pointer;
+  }
+  .ai-float svg{width:26px; height:26px;}
+  .ai-float .pulse-dot{
+    position:absolute; top:2px; right:2px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--coral); border:2px solid var(--porcelain);
+  }
+  .ai-preview-card{
+    position:fixed; right:22px; bottom:160px; z-index:61;
+    width:280px; background:#fff; border-radius:14px;
+    box-shadow:0 20px 44px rgba(11,43,44,0.24);
+    padding:18px; display:none;
+    border:1px solid var(--line);
+  }
+  .ai-preview-card.open{display:block;}
+  .ai-preview-card .ai-head{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .ai-preview-card .ai-avatar{
+    width:34px; height:34px; border-radius:50%; background:var(--teal-deep);
+    color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ai-preview-card .ai-avatar svg{width:18px; height:18px;}
+  .ai-preview-card .ai-title{font-weight:700; font-size:0.92rem; color:var(--teal-deep);}
+  .ai-preview-card .ai-status{font-size:0.74rem; color:var(--coral-deep); font-weight:600;}
+  .ai-preview-card .ai-msg{
+    background:var(--tint); border-radius:10px; padding:10px 12px;
+    font-size:0.85rem; color:var(--ink); opacity:0.85; line-height:1.5;
+  }
+  .ai-preview-card .ai-note{
+    margin-top:10px; font-size:0.75rem; opacity:0.6; line-height:1.5;
+  }
+  .ai-preview-card .ai-close{
+    position:absolute; top:10px; right:12px; background:none; border:none;
+    font-size:1.1rem; color:var(--ink); opacity:0.5; cursor:pointer; padding:2px;
+  }
+
   /* ---------- Sticky mobile call bar ---------- */
   .sticky-call{display:none;}
+
+  /* ---------- Mobile nav dropdown ---------- */
+  .mobile-nav{
+    display:none;
+    background:var(--porcelain);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    max-height:0;
+    transition:max-height 0.3s ease;
+  }
+  .mobile-nav.open{max-height:420px;}
+  .mobile-nav ul{list-style:none; margin:0; padding:8px 28px 18px; display:grid; gap:2px;}
+  .mobile-nav a{
+    display:block; padding:12px 4px; font-size:1rem; font-weight:500;
+    color:var(--ink); border-bottom:1px solid var(--line);
+  }
+  .mobile-nav li:last-child a{border-bottom:none;}
+  .mobile-nav .mobile-book{
+    margin-top:10px; text-align:center; background:var(--coral); color:#fff;
+    border-radius:7px; font-weight:700; padding:13px;
+  }
+  .nav-toggle{transition:transform 0.2s ease;}
+  .nav-toggle.open{transform:rotate(90deg);}
 
   @media (max-width: 900px){
     nav.main{display:none;}
     .header-cta{display:none;}
     .nav-toggle{display:block; font-size:1.6rem; background:none; border:none; color:var(--ink); cursor:pointer;}
+    .mobile-nav{display:block;}
     .hero .wrap{grid-template-columns:1fr; padding-top:36px; padding-bottom:52px;}
     .hero h1{font-size:2.1rem; max-width:none;}
     .hero-photo{order:-1;}
@@ -295,6 +432,11 @@
     .review-row{grid-template-columns:1fr; gap:32px;}
     .facilities .wrap{grid-template-columns:1fr;}
     .facilities-photo{order:-1;}
+    .feedback-box{padding:32px 22px;}
+    .star-picker label{font-size:1.8rem;}
+    .contact-grid{grid-template-columns:1fr; gap:36px;}
+    .contact-form{padding:26px 22px;}
+    .contact-form .row-2{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr; gap:28px;}
     .topbar .wrap{font-size:0.78rem;}
     section{padding:56px 0;}
@@ -305,6 +447,8 @@
       box-shadow:0 -6px 18px rgba(0,0,0,0.15);
     }
     .wa-float{bottom:76px;}
+    .ai-float{bottom:146px;}
+    .ai-preview-card{bottom:214px; right:16px; width:240px;}
     body{padding-bottom:58px;}
   }
 </style>
@@ -338,7 +482,18 @@
       <a href="#contact">Contact</a>
     </nav>
     <a class="header-cta" href="tel:+919896377906">Book Appointment</a>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#about">About Dr. Deepanshi</a></li>
+      <li><a href="#services">Treatments</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#feedback">Give Feedback</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="mobile-book" href="tel:+919896377906">Book Appointment</a>
   </div>
 </header>
 
@@ -475,6 +630,27 @@
   </div>
 </section>
 
+<section class="feedback" id="feedback">
+  <div class="wrap">
+    <div class="feedback-box">
+      <h2>How was your visit?</h2>
+      <p class="lead">आपकी राय हमें बेहतर बनाती है — कृपया अपना अनुभव साझा करें।</p>
+      <form class="feedback-form" id="feedbackForm">
+        <div class="star-picker">
+          <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">★</label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label>
+        </div>
+        <textarea placeholder="Tell us about your experience (optional)"></textarea>
+        <button type="submit" class="btn-primary">Submit Feedback</button>
+        <p class="feedback-thanks" id="feedbackThanks">Thank you! Your feedback means a lot to us. 🙏</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="facilities">
   <div class="wrap">
     <div class="facilities-photo">
@@ -493,7 +669,57 @@
   </div>
 </section>
 
-<section class="cta-band" id="contact">
+<section class="contact-form-section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Get in Touch</span>
+      <h2>Book your appointment</h2>
+      <p>Fill the form and our team will call you back to confirm a slot.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <ul class="contact-info-list">
+          <li><span class="ic">📍</span><span><strong>Clinic Address</strong><span>SCF-41, Ground Floor, Near SBI, HUDA Commercial Complex, Rohtak, Haryana - 124001</span></span></li>
+          <li><span class="ic">📞</span><span><strong>Phone</strong><span>+91 98963 77906</span></span></li>
+          <li><span class="ic">🕒</span><span><strong>Timings</strong><span>Mon–Sat: 9:00 AM – 7:00 PM · Sun: 9:00 AM – 2:30 PM</span></span></li>
+          <li><span class="ic">💳</span><span><strong>Payments</strong><span>Google Pay, PhonePe, Cards, Cash</span></span></li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="row-2">
+          <div class="field">
+            <label for="cf-name">Full Name</label>
+            <input type="text" id="cf-name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone Number</label>
+            <input type="tel" id="cf-phone" placeholder="10-digit mobile" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-treatment">Treatment Interested In</label>
+          <select id="cf-treatment">
+            <option>General Checkup</option>
+            <option>Root Canal Treatment (RCT)</option>
+            <option>Smile Makeover / Veneers</option>
+            <option>Dental Implants</option>
+            <option>Kids Dentistry</option>
+            <option>Gum Surgery / Laser</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" placeholder="Preferred date/time or any details"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Request Appointment</button>
+        <p class="contact-thanks" id="contactThanks">Thanks! We've received your request and will call you shortly.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
   <div class="wrap">
     <h2>Ready for a painless, confident smile?</h2>
     <p>Call, WhatsApp, or walk in — HUDA Complex, Rohtak.</p>
@@ -522,6 +748,7 @@
           <li><a href="#about">About Dr. Deepanshi</a></li>
           <li><a href="#services">Treatments</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#feedback">Give Feedback</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -545,9 +772,77 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67a8.2 8.2 0 0 1 8.24 8.24c0 4.55-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.24 8.25-8.24M8.53 6.7c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02s.87 2.34 1 2.5c.12.16 1.7 2.7 4.14 3.7 2.03.84 2.44.67 2.88.63.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.75-1.8-.2-.47-.4-.4-.55-.41z"/></svg>
 </a>
 
+<button class="ai-float" id="aiFloatBtn" aria-label="Ask AI Assistant">
+  <span class="pulse-dot"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a1 1 0 0 1 1 1v1.06a7 7 0 0 1 6 6.94v1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 7 7 0 0 1-14 0 2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2v-1a7 7 0 0 1 6-6.94V3a1 1 0 0 1 1-1Z"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M9 17h6"/></svg>
+</button>
+
+<div class="ai-preview-card" id="aiPreviewCard">
+  <button class="ai-close" id="aiCloseBtn" aria-label="Close">✕</button>
+  <div class="ai-head">
+    <div class="ai-avatar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a1 1 0 0 1 1 1v1.06a7 7 0 0 1 6 6.94v1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 7 7 0 0 1-14 0 2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2v-1a7 7 0 0 1 6-6.94V3a1 1 0 0 1 1-1Z"/></svg>
+    </div>
+    <div>
+      <div class="ai-title">Ramaya AI Assistant</div>
+      <div class="ai-status">● Demo preview</div>
+    </div>
+  </div>
+  <div class="ai-msg">Hi! I can help you check treatment options, clinic timings, or book an appointment — 24x7.</div>
+  <div class="ai-note">This is a sample static preview. In the full version, this connects to a real AI assistant trained on your clinic's info.</div>
+</div>
+
 <div class="sticky-call">
   <a href="tel:+919896377906">📞 Call Now: 98963 77906</a>
 </div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
+    });
+  });
+
+  const aiFloatBtn = document.getElementById('aiFloatBtn');
+  const aiPreviewCard = document.getElementById('aiPreviewCard');
+  const aiCloseBtn = document.getElementById('aiCloseBtn');
+
+  aiFloatBtn.addEventListener('click', () => {
+    aiPreviewCard.classList.toggle('open');
+  });
+  aiCloseBtn.addEventListener('click', () => {
+    aiPreviewCard.classList.remove('open');
+  });
+
+  const feedbackForm = document.getElementById('feedbackForm');
+  const feedbackThanks = document.getElementById('feedbackThanks');
+  feedbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    feedbackThanks.classList.add('show');
+    feedbackForm.reset();
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const contactThanks = document.getElementById('contactThanks');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    contactThanks.classList.add('show');
+    contactForm.reset();
+  });
+</script>
 
 </body>
 </html>
