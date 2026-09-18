@@ -883,6 +883,53 @@ footer{
   gap:10px;
 }
 
+/* ---------- WHATSAPP FLOATING WIDGET ---------- */
+.whatsapp-float{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:58px;
+  height:58px;
+  background:#25D366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  z-index:200;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:#25D366;
+  animation:wa-pulse 2.4s ease-out infinite;
+  z-index:-1;
+}
+@keyframes wa-pulse{
+  0%{ transform:scale(1); opacity:0.55; }
+  100%{ transform:scale(1.7); opacity:0; }
+}
+.whatsapp-float:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+@media (prefers-reduced-motion: reduce){
+  .whatsapp-float::before{ animation:none; }
+}
+@media (max-width: 680px){
+  .whatsapp-float{
+    width:52px;
+    height:52px;
+    bottom:18px;
+    right:18px;
+  }
+  .whatsapp-float svg{ width:26px; height:26px; }
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns:1fr; gap:70px; }
