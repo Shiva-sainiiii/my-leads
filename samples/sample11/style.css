@@ -47,7 +47,7 @@ img { max-width: 100%; display: block; }
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 28px;
 }
 
 .section { padding: 72px 0; }
@@ -99,7 +99,7 @@ header.site-header {
   gap: 20px;
   flex-wrap: nowrap;
 }
-.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0; flex-shrink: 0; }
 .brand img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
 .brand-text { min-width: 0; }
 .brand-text .name,
@@ -120,7 +120,7 @@ header.site-header {
 nav.main-nav ul {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 22px;
   margin: 0;
   padding: 0;
 }
@@ -560,7 +560,7 @@ footer.site-footer {
 .whatsapp-float svg { width: 30px; height: 30px; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1020px) {
+@media (max-width: 1180px) {
   nav.main-nav {
     position: absolute;
     top: 100%;
