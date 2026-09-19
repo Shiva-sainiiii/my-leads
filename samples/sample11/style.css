@@ -95,7 +95,7 @@ header.site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 14px 8px;
   gap: 20px;
   flex-wrap: nowrap;
 }
@@ -162,7 +162,7 @@ nav.main-nav a:hover { color: var(--maroon); border-color: var(--gold); }
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 40px;
-  padding: 64px 0 56px;
+  padding: 64px 8px 56px;
 }
 .hero-eyebrow {
   font-family: 'Fraunces', serif;
@@ -578,7 +578,7 @@ footer.site-footer {
 }
 
 @media (max-width: 860px) {
-  .wrap { padding: 0 24px; }
+  .wrap { padding: 0 28px; }
   .hero-grid { grid-template-columns: 1fr; padding-top: 40px; }
   .hero-photo { order: -1; }
   .about-grid,
