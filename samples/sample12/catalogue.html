@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Catalogue — Premsons Jewellers</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">Premsons</span>
+      <span class="brand-est">Jewellers · Railway Road</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="catalogue.html?cat=bridal">Bridal Suite</a></li>
+        <li><a href="catalogue.html?cat=everyday">Everyday Luxury</a></li>
+        <li><a href="catalogue.html?cat=diamonds">Diamonds</a></li>
+        <li><a href="index.html#scheme">12+One Plan</a></li>
+        <li><a href="index.html#services">Our Services</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#" class="icon-link" id="wishlistNavBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        <span>Wishlist</span>
+        <span class="wishlist-badge" id="wishlistCount">0</span>
+      </a>
+      <a href="#" class="icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Admin Login</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark theme">
+        <span class="theme-toggle-knob">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3D0713" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </span>
+      </button>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="catalogue.html?cat=bridal">Bridal Suite</a>
+    <a href="catalogue.html?cat=everyday">Everyday Luxury</a>
+    <a href="catalogue.html?cat=diamonds">Diamonds</a>
+    <a href="index.html#scheme">12+One Plan</a>
+    <a href="index.html#services">Our Services</a>
+    <a href="index.html#contact">Contact Us</a>
+    <a href="#">Admin Login</a>
+  </div>
+</header>
+
+<!-- ============ CATALOGUE HERO ============ -->
+<section class="catalogue-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span id="crumbCurrent">Collection</span></div>
+    <h1 id="catTitle">Collection</h1>
+    <p id="catTagline">Loading collection…</p>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Search this collection — e.g. choker, kada, ring…">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOGUE BODY ============ -->
+<section class="catalogue-body">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-chips" id="filterChips"></div>
+      <select class="sort-select" id="sortSelect">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+      </select>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="empty-state" id="emptyState">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <p>No pieces match your search. Try a different keyword or clear the search box.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark">Premsons</span>
+        <p>PSJ - Premsons Jewellers — Railway Road, Rohtak's most prestigious &amp; premium showroom. 100% BIS Hallmark Gold and certified diamonds.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <a href="catalogue.html?cat=bridal">Bridal Suite</a>
+        <a href="catalogue.html?cat=everyday">Everyday Luxury</a>
+        <a href="catalogue.html?cat=diamonds">Diamonds</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p>Shop No. 1389/5, Besides Regal Shoes, Railway Road, Station Diary Mohalla, Rohtak, Haryana – 124001</p>
+        <p>Mon – Sat: 10:00 AM – 8:30 PM · Sun: Closed</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+918603335000">+91-86033-35000 (Hotline)</a>
+        <a href="tel:+919034889977">+91-90348-89977</a>
+        <a href="tel:+919896277167">+91-98962-77167</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PSJ - Premsons Jewellers. Sample website mockup.</span>
+      <span>Design concept — not the live production site</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WIDGETS ============ -->
+<div class="float-stack">
+  <button class="fab fab-chat" id="chatFab" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 4.4-4 8-9 8-1.1 0-2.2-.16-3.2-.47L3 21l1.6-4.3A7.8 7.8 0 0 1 3 12c0-4.4 4-8 9-8s9 3.6 9 8Z"/></svg>
+  </button>
+  <a href="https://wa.me/918603335000" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.696 4.61 1.902 6.475L4 29l7.727-1.867A11.94 11.94 0 0 0 16.001 27C22.627 27 28 21.627 28 15S22.627 3 16.001 3Zm0 21.6c-1.925 0-3.71-.55-5.23-1.5l-.375-.223-4.59 1.108 1.13-4.47-.246-.394A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6Zm5.79-7.93c-.317-.159-1.874-.924-2.165-1.03-.29-.106-.502-.159-.713.159-.21.317-.816 1.03-1.002 1.24-.185.212-.37.238-.687.08-.317-.16-1.34-.494-2.552-1.573-.943-.84-1.58-1.878-1.765-2.195-.185-.318-.02-.49.139-.648.143-.142.318-.37.476-.556.16-.185.212-.317.318-.529.106-.211.053-.396-.026-.556-.08-.159-.713-1.717-.977-2.352-.257-.617-.518-.534-.713-.544-.185-.009-.396-.011-.607-.011s-.556.08-.847.397c-.29.318-1.108 1.083-1.108 2.642s1.134 3.064 1.292 3.275c.159.212 2.232 3.408 5.409 4.78.756.326 1.346.521 1.806.667.759.242 1.45.208 1.997.126.61-.091 1.874-.766 2.138-1.507.264-.74.264-1.375.185-1.507-.08-.132-.29-.211-.607-.37Z"/></svg>
+  </a>
+</div>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-5Z"/></svg>
+    </div>
+    <div class="chat-header-text">
+      <b>Premsons Assistant</b>
+      <span>May I help u?</span>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Namaste! Premsons Jewellers mein aapka swagat hai. May I help u?</div>
+  </div>
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Type your message…" autocomplete="off">
+    <button type="submit" class="chat-send" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
+    </button>
+  </form>
+</div>
+
+<script src="js/catalogue-data.js"></script>
+<script src="js/app.js"></script>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat') || 'bridal';
+    const data = CATALOGUE_DATA[cat] || CATALOGUE_DATA.bridal;
+
+    document.getElementById('pageTitle').textContent = data.title + ' — Premsons Jewellers';
+    document.getElementById('catTitle').textContent = data.title;
+    document.getElementById('catTagline').textContent = data.tagline;
+    document.getElementById('crumbCurrent').textContent = data.title;
+
+    const grid = document.getElementById('productGrid');
+    const emptyState = document.getElementById('emptyState');
+    const searchInput = document.getElementById('searchInput');
+    const chipsWrap = document.getElementById('filterChips');
+    const sortSelect = document.getElementById('sortSelect');
+
+    let activeType = 'All';
+
+    function priceToNumber(price) {
+      return parseInt(String(price).replace(/[₹,]/g, ''), 10) || 0;
+    }
+
+    function renderProducts(items) {
+      const sorted = items.slice();
+      if (sortSelect.value === 'price-low') sorted.sort(function (a, b) { return priceToNumber(a.price) - priceToNumber(b.price); });
+      if (sortSelect.value === 'price-high') sorted.sort(function (a, b) { return priceToNumber(b.price) - priceToNumber(a.price); });
+
+      grid.innerHTML = sorted.map(function (item) {
+        return window.GRJ.renderProductCard(item);
+      }).join('');
+      emptyState.classList.toggle('show', sorted.length === 0);
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = data.items.filter(function (item) {
+        const matchesType = activeType === 'All' || item.type === activeType;
+        const matchesQuery = !q || item.name.toLowerCase().includes(q) || item.meta.toLowerCase().includes(q);
+        return matchesType && matchesQuery;
+      });
+      renderProducts(filtered);
+    }
+
+    function renderChips() {
+      const types = ['All'].concat(Array.from(new Set(data.items.map(function (i) { return i.type; }).filter(Boolean))));
+      chipsWrap.innerHTML = types.map(function (t) {
+        return '<button class="filter-chip' + (t === activeType ? ' active' : '') + '" data-type="' + t + '">' + t + '</button>';
+      }).join('');
+      chipsWrap.querySelectorAll('.filter-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeType = chip.getAttribute('data-type');
+          chipsWrap.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+          applyFilters();
+        });
+      });
+    }
+
+    renderChips();
+    applyFilters();
+
+    searchInput.addEventListener('input', applyFilters);
+    sortSelect.addEventListener('change', applyFilters);
+  })();
+</script>
+</body>
+</html>
