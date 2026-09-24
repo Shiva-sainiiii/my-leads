@@ -66,3 +66,22 @@ chat.onclick = () => {
   if (!panel.hidden) input.focus();
 };
 $('.ask').onsubmit = e => { e.preventDefault(); const q = input.value.trim(); if (q) { input.value = ''; ask(q); } };
+
+// Header shadow on scroll
+const header = $('header');
+addEventListener('scroll', () => header.classList.toggle('sc', scrollY > 20), { passive: true });
+
+// Reveal-on-scroll (added by JS, so the page still works without it)
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(list => list.forEach(x => {
+    if (!x.isIntersecting) return;
+    x.target.classList.add('in');
+    io.unobserve(x.target);
+    setTimeout(() => x.target.style.setProperty('--d', '0s'), 1800);
+  }), { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.sec h2,.lead,.sec .arch,.list>div,.chips,#dining .grid3>img,.menucols>div,.food figure,.pair img,.gal img,.hl .grid4>div,.grid2>form,.split>div>p').forEach(el => {
+    el.classList.add('rv');
+    el.style.setProperty('--d', Math.min([...el.parentNode.children].indexOf(el), 4) * 90 + 'ms');
+    io.observe(el);
+  });
+}
