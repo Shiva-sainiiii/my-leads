@@ -27,6 +27,23 @@
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 
+  /* ---------- Scroll-reveal ---------- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    var revealTargets = document.querySelectorAll(".reveal, .reveal-group");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    revealTargets.forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal, .reveal-group").forEach(function (el) { el.classList.add("is-in"); });
+  }
+
   /* ---------- Pre-select room in the form from "Ask about this room" buttons ---------- */
   var roomSelect = document.getElementById("cRoom");
   document.querySelectorAll("[data-room]").forEach(function (btn) {
