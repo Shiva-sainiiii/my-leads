@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var chatReplies = {
     charges: "हमारा making charge हमेशा flat 3.5% रहता है — चाहे कोई भी design हो, कोई hidden fee नहीं। 😊",
     hours: "हम Monday–Saturday, सुबह 9:30 AM से शाम 7:30 PM तक खुले रहते हैं। Sunday को कृपया कॉल करके confirm कर लें।",
-    location: "हम स्थित हैं Shop No. 33, RK Misthan Bhandar / Bikaner Sweets के पास, Delhi Road, Pacca Bagh, Kharkhoda, Sonipat — 131402।",
+    location: "हमारी 2 दुकानें हैं Kharkhoda में — 1️⃣ Radha Jewellers: Delhi Road, Pacca Bagh (Near Mola Ki Dukan / RK Misthan Bhandar)। 2️⃣ Jyoleri: Main Sonipat Road, Shop No. 33 (Near Bikaner Sweets)। दोनों जगह से आप हमें +91-8881188856 पर संपर्क कर सकते हैं।",
     gold: "आज के सटीक gold rate के लिए कृपया हमें +91-8881188856 पर कॉल करें या showroom विज़िट करें — rates रोज़ बदलते हैं।",
     default: "धन्यवाद आपके सवाल के लिए! सटीक जानकारी के लिए कृपया हमें +91-8881188856 पर कॉल करें, या नीचे दिए गए buttons में से चुनें।"
   };
