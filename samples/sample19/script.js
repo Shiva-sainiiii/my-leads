@@ -4,25 +4,38 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* ---------- Mobile nav toggle (with overlay) ---------- */
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
+  let navOverlay = document.getElementById('navOverlay');
   if (navToggle && mainNav) {
+    if (!navOverlay) {
+      navOverlay = document.createElement('div');
+      navOverlay.className = 'nav-overlay';
+      navOverlay.id = 'navOverlay';
+      document.body.appendChild(navOverlay);
+    }
+    const closeNav = () => {
+      mainNav.classList.remove('is-open');
+      navOverlay.classList.remove('is-open');
+      navToggle.classList.remove('is-active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    const openNav = () => {
+      mainNav.classList.add('is-open');
+      navOverlay.classList.add('is-open');
+      navToggle.classList.add('is-active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
     navToggle.addEventListener('click', () => {
-      const isOpen = mainNav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if (isOpen) {
-        mainNav.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#F7F3EC;padding:1.2rem 1.3rem;gap:1rem;border-bottom:1px solid #EFE9DD;';
-      } else {
-        mainNav.removeAttribute('style');
-      }
+      const isOpen = mainNav.classList.contains('is-open');
+      isOpen ? closeNav() : openNav();
     });
+    navOverlay.addEventListener('click', closeNav);
     mainNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mainNav.classList.remove('is-open');
-        mainNav.removeAttribute('style');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', closeNav);
     });
   }
 
@@ -122,8 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('siteHeader');
   if (header) {
     window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.scrollY > 20 ? '0 2px 12px rgba(0,0,0,0.06)' : 'none';
+      header.style.boxShadow = window.scrollY > 20 ? '0 8px 24px rgba(18,17,16,0.1)' : 'none';
     }, { passive: true });
+  }
+
+  /* ---------- Scroll-reveal animations ---------- */
+  const revealTargets = document.querySelectorAll(
+    '.about-text, .about-media, .rooms-head, .room-filmstrip, ' +
+    '.amenities-media, .amenities-list, .dining-media, .dining-copy, ' +
+    '.location > .section-kicker, .location > .section-title, .location > .section-sub, ' +
+    '.transit-strip, .map-embed, .reviews > .section-kicker, .reviews > .section-title, ' +
+    '.review-grid, .feedback-box, .book-copy, .book-form'
+  );
+
+  if ('IntersectionObserver' in window) {
+    revealTargets.forEach(el => el.classList.add('reveal'));
+    document.querySelectorAll('.review-grid, .transit-strip, .amenity-grid').forEach(el => el.classList.add('reveal-stagger'));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealTargets.forEach(el => io.observe(el));
   }
 
 });
