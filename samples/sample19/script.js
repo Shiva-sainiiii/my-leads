@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
   if (navToggle && mainNav) {
-    const mobileMQ = window.matchMedia('(max-width: 720px)');
+    const mobileMQ = window.matchMedia('(max-width: 1100px)');
 
     // Overlay
     let navOverlay = document.getElementById('navOverlay');
