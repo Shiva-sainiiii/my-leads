@@ -646,3 +646,47 @@ body.nav-open { overflow: hidden; }
   .hero-arches .a1 { width: min(260px, 74%); }
   .about-arches { height: 340px; }
 }
+
+
+/* ==========================================================
+   CHAT ASSISTANT: clear icon + label, right side, tidy panel
+   MOBILE DRAWER: full-screen, brand and close stay on top
+   ========================================================== */
+.fab-chat { left: auto; right: 96px; bottom: 24px; height: 52px; padding: 0 20px 0 6px; gap: 12px; background: var(--ink-2); }
+.fab-chat .ic, .chat-head .av { position: relative; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: #1a1207; flex: none; }
+.fab-chat .ic { width: 40px; height: 40px; }
+.fab-chat .ic::after {
+  content: ""; position: absolute; right: -1px; bottom: -1px; width: 11px; height: 11px; border-radius: 50%;
+  background: #4fd082; border: 2px solid var(--ink-2);
+}
+.fab-chat .ic svg, .chat-head .av svg, .dock-chat svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.fab-chat .label { font-size: .95rem; font-weight: 500; }
+
+.chat { left: auto; right: 20px; width: min(390px, calc(100vw - 40px)); }
+.chat-head { padding: 14px 16px; gap: 12px; }
+.chat-head .av { width: 42px; height: 42px; font-size: 0; }
+.chat-head strong { font-size: 1.02rem; font-weight: 600; }
+.chat-head span { display: flex; align-items: center; gap: 7px; }
+.chat-head .online { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #4fd082; flex: none; }
+.chat-head .av { display: grid; }
+.chips { padding-top: 4px; }
+.chat-form input::placeholder { color: #7b8b80; }
+
+@media (max-width: 820px) {
+  /* drawer: full screen, fades in, so it never slides in from behind the brand */
+  .nav-links {
+    inset: 0; width: auto; transform: none; border-left: 0; padding: 112px 28px 40px;
+    opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility 0s .3s;
+  }
+  .nav-links.open { opacity: 1; visibility: visible; transition: opacity .3s var(--ease); }
+  .site-header.open::before { opacity: 1; background: var(--ink-2); }
+
+  /* dock: labelled chat button */
+  .dock-chat {
+    height: 48px; flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px 0 14px;
+    border-radius: 999px; border: 1px solid rgba(200, 164, 100, .6); background: rgba(200, 164, 100, .12);
+    color: var(--gold); font-weight: 500; font-size: .98rem;
+  }
+  .dock-chat svg { width: 22px; height: 22px; }
+  .chat { right: 12px; left: auto; bottom: 84px; width: min(420px, calc(100vw - 24px)); height: min(560px, calc(100dvh - 150px)); }
+}

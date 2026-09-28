@@ -321,7 +321,7 @@
   function openChat() {
     chat.classList.add("open"); chatOpenBtn.setAttribute("aria-expanded", "true");
     if (!greeted) { greeted = true; setTimeout(function () { addMsg("Hi! I am the Qaenat assistant. Ask me about timings, live music, menu, prices or booking.", "bot"); }, 250); }
-    setTimeout(function () { chatInput.focus(); }, 300);
+    if (!window.matchMedia("(pointer: coarse)").matches) setTimeout(function () { chatInput.focus(); }, 300);
   }
   function closeChat() { chat.classList.remove("open"); chatOpenBtn.setAttribute("aria-expanded", "false"); }
   chatOpenBtn.addEventListener("click", function () { chat.classList.contains("open") ? closeChat() : openChat(); });
