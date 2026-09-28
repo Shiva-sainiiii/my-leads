@@ -4,17 +4,46 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Mobile nav toggle (with overlay) ---------- */
+  /* ---------- Mobile nav drawer (overlay + close button) ---------- */
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
-  let navOverlay = document.getElementById('navOverlay');
   if (navToggle && mainNav) {
+    const mobileMQ = window.matchMedia('(max-width: 720px)');
+
+    // Overlay
+    let navOverlay = document.getElementById('navOverlay');
     if (!navOverlay) {
       navOverlay = document.createElement('div');
       navOverlay.className = 'nav-overlay';
       navOverlay.id = 'navOverlay';
       document.body.appendChild(navOverlay);
     }
+
+    // Close (X) button inside the drawer
+    let navClose = mainNav.querySelector('.nav-close');
+    if (!navClose) {
+      navClose = document.createElement('button');
+      navClose.className = 'nav-close';
+      navClose.type = 'button';
+      navClose.setAttribute('aria-label', 'Close menu');
+      navClose.innerHTML = '&#10005;';
+      mainNav.prepend(navClose);
+    }
+
+    // Keep the drawer as a direct child of <body> on mobile so it always
+    // stacks above the overlay (and is never trapped in the header's stacking context).
+    const navHome = mainNav.parentElement;
+    const navMarker = document.createComment('main-nav-home');
+    navHome.insertBefore(navMarker, mainNav);
+    const placeNav = () => {
+      if (mobileMQ.matches) {
+        if (mainNav.parentElement !== document.body) document.body.appendChild(mainNav);
+      } else if (mainNav.parentElement === document.body) {
+        navMarker.parentNode.insertBefore(mainNav, navMarker.nextSibling);
+      }
+    };
+    placeNav();
+
     const closeNav = () => {
       mainNav.classList.remove('is-open');
       navOverlay.classList.remove('is-open');
@@ -29,14 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     };
+
     navToggle.addEventListener('click', () => {
-      const isOpen = mainNav.classList.contains('is-open');
-      isOpen ? closeNav() : openNav();
+      mainNav.classList.contains('is-open') ? closeNav() : openNav();
     });
+    navClose.addEventListener('click', closeNav);
     navOverlay.addEventListener('click', closeNav);
-    mainNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', closeNav);
+    mainNav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) closeNav();
     });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+    const onMQChange = () => { closeNav(); placeNav(); };
+    mobileMQ.addEventListener ? mobileMQ.addEventListener('change', onMQChange) : mobileMQ.addListener(onMQChange);
   }
 
   /* ---------- Star rating input ---------- */
