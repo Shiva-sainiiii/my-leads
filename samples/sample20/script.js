@@ -15,16 +15,16 @@
   onScroll();
 
   var burger = $("#burger"), navlinks = $("#navlinks");
-  burger.addEventListener("click", function () {
-    var open = navlinks.classList.toggle("open");
+  function setNav(open) {
+    navlinks.classList.toggle("open", open);
+    header.classList.toggle("open", open);
+    document.body.classList.toggle("nav-open", open);
     burger.setAttribute("aria-expanded", open);
-  });
-  $$("#navlinks a").forEach(function (a) {
-    a.addEventListener("click", function () {
-      navlinks.classList.remove("open");
-      burger.setAttribute("aria-expanded", "false");
-    });
-  });
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+  burger.addEventListener("click", function () { setNav(!navlinks.classList.contains("open")); });
+  $$("#navlinks a").forEach(function (a) { a.addEventListener("click", function () { setNav(false); }); });
+  header.addEventListener("click", function (e) { if (e.target === header) setNav(false); });
 
   /* ---------- Hero stars ---------- */
   var starBox = $("#stars");
@@ -175,7 +175,7 @@
   $("#lbClose").addEventListener("click", closeLb);
   lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") { if (lb.classList.contains("open")) closeLb(); closeChat(); }
+    if (e.key === "Escape") { if (lb.classList.contains("open")) closeLb(); closeChat(); setNav(false); }
   });
 
   /* ---------- Scroll reveal ---------- */
@@ -326,6 +326,7 @@
   function closeChat() { chat.classList.remove("open"); chatOpenBtn.setAttribute("aria-expanded", "false"); }
   chatOpenBtn.addEventListener("click", function () { chat.classList.contains("open") ? closeChat() : openChat(); });
   $("#chatClose").addEventListener("click", closeChat);
+  $("#dockChat").addEventListener("click", function () { chatOpenBtn.click(); });
   chatForm.addEventListener("submit", function (e) {
     e.preventDefault();
     var v = chatInput.value.trim(); chatInput.value = ""; ask(v);
