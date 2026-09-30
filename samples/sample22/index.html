@@ -100,6 +100,8 @@ section{padding:60px 0}.bg{display:block}
 .hg,.ab,.fb,.ct,.g3{grid-template-columns:1fr}.pan{aspect-ratio:1;max-width:460px}
 .st{grid-template-columns:1fr 1fr;row-gap:16px;margin-inline:20px}.st div:nth-child(2){border:0}
 .gal{grid-template-columns:1fr 1fr}.gal div:last-child{display:none}iframe{height:340px}.top .w{justify-content:center;text-align:center}}
+.tabs .btn{padding:10px 20px;font-size:15px;margin-left:auto}
+@media(max-width:860px){.tabs .btn{margin-left:0;width:100%;justify-content:center}}
 @media(max-width:420px){.logo strong{font-size:27px}.logo small{font-size:10.5px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.r{opacity:1;transform:none}}
 </style></head><body>
@@ -170,7 +172,7 @@ section{padding:60px 0}.bg{display:block}
 
 <section class="tm" id="contact"><div class="w ct">
 <div class="r"><h2>Book your appointment</h2><p class="sub">Fill in the form and it opens WhatsApp with your details ready to send.</p>
-<div class="ci"><i>📍</i><div><b>Main branch</b><span>715 W, Opposite Gali Suvidha Mall, Near Scholar Rosery School, Jhang Colony, Mansarover Colony, Rohtak 124001</span></div></div>
+<div class="ci"><i>📍</i><div><b>Main branch</b><span>715 W, Opposite Gali Suvidha Mall, Near Schollar Rosery School, Jhang Colony, Mansarover Colony, Rohtak, Haryana 124001</span></div></div>
 <div class="ci"><i>📍</i><div><b>Branch 2</b><span>1903, Housing Board Colony, Sector-1, Rohtak 124001</span></div></div>
 <div class="ci"><i>☎</i><div><b>Call or WhatsApp</b><a href="tel:+919729818225">+91 97298 18225</a></div></div>
 <div class="ci"><i>✉</i><div><b>Email</b><a href="mailto:pkdahiyanilauthi@gmail.com">pkdahiyanilauthi@gmail.com</a></div></div>
@@ -182,8 +184,8 @@ section{padding:60px 0}.bg{display:block}
 <button class="btn by" type="submit" style="width:100%;justify-content:center">Send on WhatsApp</button></form></div></section>
 
 <section class="mp"><div class="w"><h2 class="r">Find us in Rohtak</h2>
-<div class="tabs"><button class="on" data-k="a">Main branch, Jhang Colony</button><button data-k="b">Branch 2, Sector-1</button></div>
-<iframe id="mf" title="Clinic location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=715+W+Jhang+Colony+Mansarover+Colony+Rohtak+124001&z=16&output=embed"></iframe></div></section>
+<div class="tabs"><button class="on" data-k="a">Main branch, Jhang Colony</button><button data-k="b">Branch 2, Sector-1</button><a class="btn by" id="dr" target="_blank" rel="noopener">🧭 Get directions</a></div>
+<iframe id="mf" title="Clinic location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></section>
 
 <footer><div class="w"><p><b style="color:#fff">Sanjivani Chiropractic &amp; Neurotherapy Center</b>, Rohtak, Haryana</p>
 <p>Treatment outcomes vary from person to person. Please consult a qualified doctor for any serious medical condition.</p>
@@ -210,8 +212,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return
 e.target.querySelectorAll('[data-n]').forEach(c=>{const n=+c.dataset.n,d=+c.dataset.d||0,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1500,1);c.textContent=(n*(1-Math.pow(1-p,3))).toFixed(d)+(p==1&&c.dataset.s||'');if(p<1)requestAnimationFrame(f)})(t0)})}),{threshold:.15});
 $$('.r').forEach(e=>io.observe(e));
 // map tabs
-const M={a:'715+W+Jhang+Colony+Mansarover+Colony+Rohtak+124001',b:'28.890519,76.630412'};
-$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#mf').src='https://maps.google.com/maps?q='+M[b.dataset.k]+'&z=16&output=embed'});
+const A='Sanjivani chiropractic & neurotherapy Center - Best Cervical Pain Treatment | Back Pain best knee Treatment Centre in Rohtak, 715 W, opposite Gali Suvidha Mall, near Schollar Rosery School, Jhang Colony, Mansarover Colony, Rohtak, Haryana 124001, India',M={a:A,b:'28.890519,76.630412'},
+go=k=>{$('#mf').src='https://maps.google.com/maps?q='+encodeURIComponent(M[k])+'&z=17&output=embed';$('#dr').href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(M[k])};go('a');
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');go(b.dataset.k)});
 // contact form -> WhatsApp
 $('#cf').onsubmit=e=>{e.preventDefault();const f=e.target;
 const t=`Hello Dr. Dahiya, I would like to book an appointment.\nName: ${f.n.value}\nPhone: ${f.p.value}\nProblem: ${f.c.value}\nMessage: ${f.m.value}`;
