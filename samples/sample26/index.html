@@ -97,6 +97,26 @@ footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px 
 .sr{position:relative;margin-bottom:1.2rem}.sr input{padding-left:2.9rem;border-radius:99px}.sr .ic{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%)}
 .nores{grid-column:1/-1;color:var(--mut);display:flex;gap:.6rem;align-items:center}
 .stars{gap:.3rem}.cb{color:#1a1204}.it i{color:var(--gold)}.chip .ic{margin-top:-2px}
+/* animated gradient backgrounds */
+.g1,.g2,.g3,.g4,.g5,.g6,.stats{background-size:300% 300%;animation:gs 26s ease-in-out infinite}
+.g1{background-image:linear-gradient(135deg,#050c18,#0b2748,#0e3a5f,#071a31,#050c18)}
+.g2{background-image:linear-gradient(135deg,#0a1c33,#12385f,#0c4a6e,#0a2a4a,#0a1c33)}
+.g3{background-image:linear-gradient(135deg,#050c18,#0f2744,#1f2f4d,#0c2140,#050c18)}
+.g4{background-image:linear-gradient(135deg,#0a1c33,#0f3358,#13527a,#0c2b4c,#0a1c33)}
+.g5{background-image:linear-gradient(135deg,#050c18,#0a2a4a,#0d4d6b,#0a2a4a,#050c18)}
+.g6{background-image:linear-gradient(135deg,#050c18,#0a2a4a,#050c18)}
+.stats{background-image:linear-gradient(90deg,#12385f,#1c6396,#12385f,#1c6396,#12385f);background-size:200% 100%;animation:gx 14s linear infinite}
+@keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes gx{to{background-position:-200% 0}}
+.fx{overflow:hidden}.fx>*{position:relative;z-index:1}
+.fx::before,.fx::after{content:"";position:absolute;width:55vmax;height:55vmax;border-radius:50%;pointer-events:none;z-index:0;animation:orb 24s ease-in-out infinite alternate}
+.fx::before{top:-20vmax;left:-15vmax;background:radial-gradient(circle,#d9b45a40,transparent 62%)}
+.fx::after{bottom:-22vmax;right:-18vmax;background:radial-gradient(circle,#2f8fd855,transparent 62%);animation-duration:31s;animation-direction:alternate-reverse}
+@keyframes orb{to{transform:translate(12vmax,8vmax) scale(1.2)}}
+.fx:not(.vis),.fx:not(.vis)::before,.fx:not(.vis)::after,.stats:not(.vis){animation-play-state:paused}
+.fl,details{background:#0a1c33a6}.fl article{background:transparent}
+.it{background:linear-gradient(145deg,#0a1c33d0,#081425d0)}#rv .rw{background:#0a1c33b0}
+input,textarea,select{background:#0a1c33cc}
 </style>
 </head>
 <body>
@@ -113,35 +133,35 @@ footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px 
 
 <div class="stats"><div class="in"><div><b>4.7 <i class="ic" data-i="star" data-s="22"></i></b><small>Aggregator rating</small></div><div><b>2 floors</b><small>Cafe and party hall</small></div><div><b>10 AM – 9 PM</b><small>Open all 7 days</small></div><div><b>Jat College</b><small>Steps from campus</small></div></div></div>
 
-<section id="venue"><div class="in"><h2 class="rv">Two floors, two moods</h2><p class="sub rv">Sit down for a pizza downstairs, or take the stairs up when the whole class is coming.</p>
+<section id="venue" class="fx g1"><div class="in"><h2 class="rv">Two floors, two moods</h2><p class="sub rv">Sit down for a pizza downstairs, or take the stairs up when the whole class is coming.</p>
 <div class="two">
 <div class="fl rv"><div style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=70')"></div><article><h3>Ground &amp; first floor</h3><p>Wood-themed seating, a busy kitchen counter and cozy semi-private pockets for couples.</p></article></div>
 <div class="fl rv"><div style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=70')"></div><article><h3>Upper floor party hall</h3><p>Air-conditioned hall with event lights, a sound system and modular seating for birthdays and college events.</p></article></div>
 </div></div></section>
 
-<section id="menu" style="background:var(--deep)"><div class="in"><h2 class="rv">What's on the table</h2><p class="sub rv">Student favourites, made fresh. Prices shown where confirmed; the full card has everything else.</p>
+<section id="menu" class="fx g2"><div class="in"><h2 class="rv">What's on the table</h2><p class="sub rv">Student favourites, made fresh. Prices shown where confirmed; the full card has everything else.</p>
 <div class="sr"><i class="ic" data-i="search"></i><input id="q" type="search" placeholder="Search pizza, shake, burger…" aria-label="Search menu"></div><div class="tabs" id="tabs"></div><div id="grid"></div>
 <p style="margin-top:2rem"><button class="btn p" id="mc">View the full menu card</button></p></div>
 <div class="mq"><div id="mq"></div></div></section>
 
-<section class="party" id="hall"><div class="in"><h2 class="rv">Book the party hall</h2><p class="sub rv">The upper floor is where birthdays, farewells and society get-togethers happen.</p>
+<section class="party fx" id="hall"><div class="in"><h2 class="rv">Book the party hall</h2><p class="sub rv">The upper floor is where birthdays, farewells and society get-togethers happen.</p>
 <ul class="rv"><li>Fully air-conditioned</li><li>Event lights and sound system</li><li>Custom modular seating</li><li>Decorated for birthdays</li></ul>
 <a class="btn p" id="bk" href="#contact">Check availability</a></div></section>
 
-<section id="invest"><div class="in"><h2 class="rv">Why this cafe is a strong buy</h2><p class="sub rv">The business is listed for sale as a turnkey operation.</p>
+<section id="invest" class="fx g3"><div class="in"><h2 class="rv">Why this cafe is a strong buy</h2><p class="sub rv">The business is listed for sale as a turnkey operation.</p>
 <details open class="rv"><summary>Less dependence on delivery apps</summary><p>Most revenue comes from on-premise birthday parties and hall bookings, which protects margins from Swiggy and Zomato commissions.</p></details>
 <details class="rv"><summary>A loyal student base</summary><p>Reviews praise the budget pricing, privacy for couples, party decor and wood interior, with steady footfall from Jat College.</p></details>
 <details class="rv"><summary>Everything is included</summary><p>Kitchen lines, custom wood furniture, billing systems and the decorated upper-floor hall come with the sale.</p></details>
 <p style="margin-top:1.5rem"><a class="btn" href="https://wa.me/918221819822?text=Hi%2C%20I%20am%20interested%20in%20buying%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener">Sale enquiries: +91 82218 19822</a></p></div></section>
 
-<section id="reviews" style="background:var(--deep)"><div class="in cols"><div><h2 class="rv">What guests love</h2><div class="love rv"><span>Best party hall for students</span><span>Budget-friendly</span><span>Privacy for couples</span><span>Wood aesthetic</span></div><div id="rv"></div></div>
+<section id="reviews" class="fx g4"><div class="in cols"><div><h2 class="rv">What guests love</h2><div class="love rv"><span>Best party hall for students</span><span>Budget-friendly</span><span>Privacy for couples</span><span>Wood aesthetic</span></div><div id="rv"></div></div>
 <div class="rv"><h2>Rate your visit</h2><div class="fm"><div class="stars" id="st" role="radiogroup" aria-label="Rating"></div><input id="rn" placeholder="Your name"><textarea id="rt" placeholder="Tell us how it went"></textarea><button class="btn p" id="rs">Post feedback</button></div></div></div></section>
 
-<section id="contact"><div class="in cols"><div class="rv"><h2>Plan your visit</h2><p class="sub">Send your party details and we'll reply on WhatsApp.</p>
+<section id="contact" class="fx g5"><div class="in cols"><div class="rv"><h2>Plan your visit</h2><p class="sub">Send your party details and we'll reply on WhatsApp.</p>
 <p class="cl"><i class="ic" data-i="pin"></i><span>9, Gali No.2, Near Jat College, Dev Colony, Rohtak, Haryana 124001</span></p><p class="cl"><i class="ic" data-i="phone"></i><span>Bookings: <a href="tel:+917056040137">+91 70560 40137</a></span></p><p class="cl"><i class="ic" data-i="clock"></i><span>10 AM – 9 PM, every day</span></p><p class="cl"><i class="ic" data-i="insta"></i><span>@cafeoceanblue_official</span></p></div>
 <form class="fm rv" id="cf2"><input id="cn" placeholder="Your name" required><input id="cph" type="tel" placeholder="Phone number" required><select id="ce"><option>Birthday party</option><option>College event</option><option>Dining in</option><option>Buying the business</option></select><textarea id="cmsg" placeholder="Date, guests, anything else"></textarea><button class="btn p">Send on WhatsApp</button></form></div></section>
 
-<section style="padding-top:0"><div class="in"><iframe title="Cafe Ocean Blue on Google Maps" loading="lazy" src="https://www.google.com/maps?q=Cafe+Ocean+Blue,+Dev+Colony,+Rohtak,+Haryana&output=embed"></iframe></div></section>
+<section class="fx g6" style="padding-top:0"><div class="in"><iframe title="Cafe Ocean Blue on Google Maps" loading="lazy" src="https://www.google.com/maps?q=Cafe+Ocean+Blue,+Dev+Colony,+Rohtak,+Haryana&output=embed"></iframe></div></section>
 <footer>© Café Ocean Blue, Rohtak · Good food, good mood, great view</footer>
 
 <a class="wa" href="https://wa.me/917056040137?text=Hi%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="ic" data-i="wa" data-s="30" style="color:#fff"></i></a>
@@ -157,6 +177,7 @@ const F={star:'<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7
 const ic=(n,z=20)=>F[n]?`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="currentColor" aria-hidden="true">${F[n]}</svg>`:`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IP[n]}</svg>`;
 document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=ic(e.dataset.i,+e.dataset.s||20));
 function fb(e){e.outerHTML='<i>'+ic("utensils",32)+'</i>'}
+const vo=new IntersectionObserver(e=>e.forEach(x=>x.target.classList.toggle("vis",x.isIntersecting)));document.querySelectorAll(".fx,.stats").forEach(e=>vo.observe(e));
 /* hero headline: letters rise once on load */
 let d=0;$("#h1").innerHTML=["Café","Ocean","Blue"].map((w,i)=>`<span class="${i==2?"g":""}" style="animation-delay:${.35+i*.18}s">${w}</span>`).join(" ");
 for(let i=0;i<14;i++){const b=document.createElement("i");b.className="bub";const s=6+Math.random()*16;b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${9+Math.random()*10}s;animation-delay:${Math.random()*8}s`;$("#top").appendChild(b)}
