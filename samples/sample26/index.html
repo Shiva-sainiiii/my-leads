@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--abyss:#050c18;--deep:#0a1c33;--tide:#12385f;--gold:#d9b45a;--foam:#f3ecdc;--mut:#9fb2c8;--r:18px}
-*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}html,body{max-width:100%;overflow-x:hidden}
 body{background:var(--abyss);color:var(--foam);font:400 16px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
 h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;line-height:1.1}
 h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.6rem}
@@ -26,7 +26,7 @@ nav.s{background:#050c18d9;backdrop-filter:blur(14px);padding:10px 6vw;border-bo
 .logo{font:700 1.5rem "Cormorant Garamond",serif;color:var(--gold)}
 nav ul{display:flex;gap:1.8rem;list-style:none}nav ul a{font-size:.95rem;opacity:.85}nav ul a:hover{color:var(--gold)}
 #bg{display:none;background:none;border:0;color:var(--foam);font-size:1.7rem;cursor:pointer}
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding-top:90px}
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding-top:90px}
 .hbg{position:absolute;inset:-8% 0;background:linear-gradient(#050c18cc,#0a1c33e6),url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=70") center/cover,var(--deep);will-change:transform}
 .hero .in{position:relative;z-index:2}
 .hero h1{font-size:clamp(3.2rem,12vw,8rem);letter-spacing:.01em}
@@ -42,8 +42,8 @@ nav ul{display:flex;gap:1.8rem;list-style:none}nav ul a{font-size:.95rem;opacity
 .bub{position:absolute;bottom:-20px;border-radius:50%;border:1px solid #d9b45a55;animation:fl linear infinite;z-index:1}
 @keyframes fl{to{transform:translateY(-110vh) translateX(30px);opacity:0}}
 .stats{background:var(--tide);padding:34px 6vw}
-.stats .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;text-align:center}
-.stats b{display:block;font:700 2.2rem "Cormorant Garamond",serif;color:var(--gold)}.stats small{color:var(--mut)}
+.stats .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem;text-align:center}
+.stats b{display:block;font:700 clamp(1.45rem,6vw,2.2rem) "Cormorant Garamond",serif;color:var(--gold);white-space:nowrap}.stats small{color:var(--mut)}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .fl{border-radius:var(--r);overflow:hidden;background:var(--deep);border:1px solid #d9b45a22;transition:.4s}
 .fl:hover{transform:translateY(-6px);border-color:var(--gold)}
@@ -92,21 +92,26 @@ footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px 
 #lb{position:fixed;inset:0;background:#000d;z-index:90;display:none;place-items:center;padding:4vw;cursor:zoom-out}#lb.on{display:grid}#lb img{max-height:90vh;border-radius:12px}
 @media(max-width:760px){nav ul{position:fixed;inset:60px 0 auto;flex-direction:column;background:#050c18f5;padding:1.5rem 6vw;gap:1.2rem;display:none}nav ul.on{display:flex}#bg{display:block}.party{background-attachment:scroll}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}.rv{opacity:1;transform:none}}
+.ic{display:inline-flex;vertical-align:middle;color:var(--gold)}.ic svg{display:block}
+.cl{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.5rem}.cl .ic{margin-top:.2rem}
+.sr{position:relative;margin-bottom:1.2rem}.sr input{padding-left:2.9rem;border-radius:99px}.sr .ic{position:absolute;left:1.1rem;top:50%;transform:translateY(-50%)}
+.nores{grid-column:1/-1;color:var(--mut);display:flex;gap:.6rem;align-items:center}
+.stars{gap:.3rem}.cb{color:#1a1204}.it i{color:var(--gold)}.chip .ic{margin-top:-2px}
 </style>
 </head>
 <body>
-<nav id="nv"><a class="logo" href="#top">Café Ocean Blue</a><button id="bg" aria-label="Menu">☰</button>
+<nav id="nv"><a class="logo" href="#top">Café Ocean Blue</a><button id="bg" aria-label="Menu"><i class="ic" data-i="menu" data-s="28" style="color:inherit"></i></button>
 <ul id="ul"><li><a href="#venue">Venue</a></li><li><a href="#menu">Menu</a></li><li><a href="#hall">Party Hall</a></li><li><a href="#invest">Why Buy</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></nav>
 
 <header class="hero" id="top"><div class="hbg" id="hb"></div>
-<div class="in"><span class="chip">★ 4.7 on Zomato &amp; Swiggy · Near Jat College, Rohtak</span>
+<div class="in"><span class="chip"><i class="ic" data-i="star" data-s="14"></i> 4.7 on Zomato &amp; Swiggy · Near Jat College, Rohtak</span>
 <h1 id="h1"></h1>
 <p>Wood-toned corners for quiet dates, a full AC hall for birthdays, and a menu built around student budgets.</p>
 <div class="btns"><a class="btn p" href="#menu">Explore the menu</a><a class="btn" href="#hall">See the party hall</a></div></div>
 <svg class="wv b" viewBox="0 0 2880 120" preserveAspectRatio="none"><path fill="#12385f" d="M0 60Q180 10 360 60T720 60T1080 60T1440 60T1800 60T2160 60T2520 60T2880 60V120H0Z"/></svg>
 <svg class="wv" viewBox="0 0 2880 120" preserveAspectRatio="none"><path fill="#0a1c33" d="M0 70Q180 20 360 70T720 70T1080 70T1440 70T1800 70T2160 70T2520 70T2880 70V120H0Z"/></svg></header>
 
-<div class="stats"><div class="in"><div><b>4.7★</b><small>Aggregator rating</small></div><div><b>2 floors</b><small>Cafe and party hall</small></div><div><b>10 AM – 9 PM</b><small>Open all 7 days</small></div><div><b>Jat College</b><small>Steps from campus</small></div></div></div>
+<div class="stats"><div class="in"><div><b>4.7 <i class="ic" data-i="star" data-s="22"></i></b><small>Aggregator rating</small></div><div><b>2 floors</b><small>Cafe and party hall</small></div><div><b>10 AM – 9 PM</b><small>Open all 7 days</small></div><div><b>Jat College</b><small>Steps from campus</small></div></div></div>
 
 <section id="venue"><div class="in"><h2 class="rv">Two floors, two moods</h2><p class="sub rv">Sit down for a pizza downstairs, or take the stairs up when the whole class is coming.</p>
 <div class="two">
@@ -115,7 +120,7 @@ footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px 
 </div></div></section>
 
 <section id="menu" style="background:var(--deep)"><div class="in"><h2 class="rv">What's on the table</h2><p class="sub rv">Student favourites, made fresh. Prices shown where confirmed; the full card has everything else.</p>
-<div class="tabs" id="tabs"></div><div id="grid"></div>
+<div class="sr"><i class="ic" data-i="search"></i><input id="q" type="search" placeholder="Search pizza, shake, burger…" aria-label="Search menu"></div><div class="tabs" id="tabs"></div><div id="grid"></div>
 <p style="margin-top:2rem"><button class="btn p" id="mc">View the full menu card</button></p></div>
 <div class="mq"><div id="mq"></div></div></section>
 
@@ -133,21 +138,25 @@ footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px 
 <div class="rv"><h2>Rate your visit</h2><div class="fm"><div class="stars" id="st" role="radiogroup" aria-label="Rating"></div><input id="rn" placeholder="Your name"><textarea id="rt" placeholder="Tell us how it went"></textarea><button class="btn p" id="rs">Post feedback</button></div></div></div></section>
 
 <section id="contact"><div class="in cols"><div class="rv"><h2>Plan your visit</h2><p class="sub">Send your party details and we'll reply on WhatsApp.</p>
-<p>📍 9, Gali No.2, Near Jat College, Dev Colony, Rohtak, Haryana 124001</p><p>📞 Bookings: <a href="tel:+917056040137">+91 70560 40137</a></p><p>🕙 10 AM – 9 PM, every day</p><p>📸 @cafeoceanblue_official</p></div>
+<p class="cl"><i class="ic" data-i="pin"></i><span>9, Gali No.2, Near Jat College, Dev Colony, Rohtak, Haryana 124001</span></p><p class="cl"><i class="ic" data-i="phone"></i><span>Bookings: <a href="tel:+917056040137">+91 70560 40137</a></span></p><p class="cl"><i class="ic" data-i="clock"></i><span>10 AM – 9 PM, every day</span></p><p class="cl"><i class="ic" data-i="insta"></i><span>@cafeoceanblue_official</span></p></div>
 <form class="fm rv" id="cf2"><input id="cn" placeholder="Your name" required><input id="cph" type="tel" placeholder="Phone number" required><select id="ce"><option>Birthday party</option><option>College event</option><option>Dining in</option><option>Buying the business</option></select><textarea id="cmsg" placeholder="Date, guests, anything else"></textarea><button class="btn p">Send on WhatsApp</button></form></div></section>
 
 <section style="padding-top:0"><div class="in"><iframe title="Cafe Ocean Blue on Google Maps" loading="lazy" src="https://www.google.com/maps?q=Cafe+Ocean+Blue,+Dev+Colony,+Rohtak,+Haryana&output=embed"></iframe></div></section>
 <footer>© Café Ocean Blue, Rohtak · Good food, good mood, great view</footer>
 
-<a class="wa" href="https://wa.me/917056040137?text=Hi%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
-<button class="cb" id="cbt" aria-label="Open chat assistant">🤖</button>
-<div id="cp"><header>Ocean Blue Assistant <button id="cx" style="background:none;border:0;color:inherit;cursor:pointer;font-size:1.2rem">✕</button></header><div id="cm"></div>
+<a class="wa" href="https://wa.me/917056040137?text=Hi%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="ic" data-i="wa" data-s="30" style="color:#fff"></i></a>
+<button class="cb" id="cbt" aria-label="Open chat assistant"><i class="ic" data-i="chat" data-s="26" style="color:#1a1204"></i></button>
+<div id="cp"><header>Ocean Blue Assistant <button id="cx" style="background:none;border:0;color:inherit;cursor:pointer;font-size:1.2rem" aria-label="Close chat"><i class="ic" data-i="x" data-s="20" style="color:inherit"></i></button></header><div id="cm"></div>
 <div class="qk"><button>Menu</button><button>Party hall</button><button>Timings</button><button>Location</button></div>
 <form id="cf"><input id="ci" placeholder="Ask me anything…" autocomplete="off"><button class="btn p" style="padding:.5rem 1rem">Send</button></form></div>
 <div id="lb"><img src="img/menu-card.webp" alt="Cafe Ocean Blue full menu card"></div>
 
 <script>
 const $=s=>document.querySelector(s),U="https://images.unsplash.com/photo-";
+const F={star:'<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>',wa:'<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.52.146-.181.194-.301.297-.497.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.18 2.095 3.195 5.076 4.483.714.306 1.27.487 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>'},IP={staro:'<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>',utensils:'<path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M17 3c-2 1-3 4-3 8h3v10"/>',bowl:'<path d="M3 12h18a9 9 0 0 1-18 0zM8 8c0-2 2-2 2-4M13 8c0-2 2-2 2-4"/>',burger:'<path d="M4 10a8 6 0 0 1 16 0zM3 13.5h18M4 17h16a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/>',dumpling:'<path d="M3 18a9 9 0 0 1 18 0zM8 18l1-4M12 18v-5M16 18l-1-4"/>',glass:'<path d="M6 3h12l-1.5 17a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1zM6.5 9h11M14 3l2-2"/>',pin:'<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',insta:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',chat:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>'};
+const ic=(n,z=20)=>F[n]?`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="currentColor" aria-hidden="true">${F[n]}</svg>`:`<svg viewBox="0 0 24 24" width="${z}" height="${z}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IP[n]}</svg>`;
+document.querySelectorAll("[data-i]").forEach(e=>e.innerHTML=ic(e.dataset.i,+e.dataset.s||20));
+function fb(e){e.outerHTML='<i>'+ic("utensils",32)+'</i>'}
 /* hero headline: letters rise once on load */
 let d=0;$("#h1").innerHTML=["Café","Ocean","Blue"].map((w,i)=>`<span class="${i==2?"g":""}" style="animation-delay:${.35+i*.18}s">${w}</span>`).join(" ");
 for(let i=0;i<14;i++){const b=document.createElement("i");b.className="bub";const s=6+Math.random()*16;b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${9+Math.random()*10}s;animation-delay:${Math.random()*8}s`;$("#top").appendChild(b)}
@@ -158,18 +167,20 @@ document.querySelectorAll(".rv").forEach(e=>io.observe(e));
 /* menu */
 const M={"Bestsellers":[["Farm House Pizza","Paneer, olives, corn, mushrooms and garden veggies","","Must try","img/pizza-farmhouse.jpg"],["Grill Tandoori Sandwich","Grilled bread with tandoori-spiced filling",108,"Top rated","img/sandwich.jpg"],["Veg Paneer Wrap","Paneer chunks and crunchy salad in a soft tortilla",120,"","img/wrap.jpg"]],
 "Pizza":[["Tomato Fresh Pizza","Juicy tomatoes and mozzarella",120,"","img/pizza-tomato.jpg"],["Double Topping Supreme","Pick two: onion, capsicum or corn",168,"","img/pizza-farmhouse.jpg"],["Margherita Pizza","Mozzarella and fresh basil","","","img/pizza-margherita.jpg"]],
-"Pasta & Noodles":[["Alfredo White Sauce Pasta","Penne in creamy garlic butter sauce","","",U+"1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=300&q=70"],["Mix Sauce Pasta","Tangy red and rich white sauce, together","","","🍝"],["Hakka Street Noodles","Wok-tossed with greens and light soy","","","img/noodles.jpg"],["Spicy Schezwan Noodles","Garlic-chilli schezwan heat","","","🌶️"]],
-"Quick Bites":[["King Kong Burger","Double patty, extra cheese, house sauces",168,"Chef special",U+"1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=70"],["Aloo Tikki Burger","Spiced potato patty, onion, tomato, sweet mayo","","","🍔"],["Honey Chilli Potato","Crisp potato fingers in sticky chilli glaze","","","img/fries.jpg"],["Veg Momos","Steamed, packed with minced vegetables","","","🥟"]],
-"Drinks":[["Golden Mango Bliss","Thick chilled seasonal mango blend","","Trending","🥭"],["Kit-Kat Shake","Chocolate shake with crushed Kit-Kat","","","img/kitkat-shake.jpg"],["Vanilla Shake","Classic, thick and cold","","","img/vanilla-shake.jpg"],["Mint Mojito","Fresh mint, lime and ice","","","img/mojito.jpg"],["Blueberry Iced Tea","Also in peach and lemon","","","🧊"]]};
+"Pasta & Noodles":[["Alfredo White Sauce Pasta","Penne in creamy garlic butter sauce","","",U+"1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=300&q=70"],["Mix Sauce Pasta","Tangy red and rich white sauce, together","","","bowl"],["Hakka Street Noodles","Wok-tossed with greens and light soy","","","img/noodles.jpg"],["Spicy Schezwan Noodles","Garlic-chilli schezwan heat","","","bowl"]],
+"Quick Bites":[["King Kong Burger","Double patty, extra cheese, house sauces",168,"Chef special",U+"1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=70"],["Aloo Tikki Burger","Spiced potato patty, onion, tomato, sweet mayo","","","burger"],["Honey Chilli Potato","Crisp potato fingers in sticky chilli glaze","","","img/fries.jpg"],["Veg Momos","Steamed, packed with minced vegetables","","","dumpling"]],
+"Drinks":[["Golden Mango Bliss","Thick chilled seasonal mango blend","","Trending","glass"],["Kit-Kat Shake","Chocolate shake with crushed Kit-Kat","","","img/kitkat-shake.jpg"],["Vanilla Shake","Classic, thick and cold","","","img/vanilla-shake.jpg"],["Mint Mojito","Fresh mint, lime and ice","","","img/mojito.jpg"],["Blueberry Iced Tea","Also in peach and lemon","","","glass"]]};
 const P=$("#grid"),T=$("#tabs");
-function show(c){[...T.children].forEach(b=>b.classList.toggle("on",b.textContent==c));P.innerHTML=M[c].map((x,i)=>`<div class="it" style="animation-delay:${i*.07}s">${x[4].length>3?`<img src="${x[4]}" alt="${x[0]}" loading="lazy" onerror="this.outerHTML='<i>🍽️</i>'">`:`<i>${x[4]}</i>`}<div><h3>${x[0]}${x[3]?`<span class="tg">${x[3]}</span>`:""}</h3><p>${x[1]}</p>${x[2]?`<em>₹${x[2]}</em>`:""}</div></div>`).join("")}
+let cur="Bestsellers";const card=(x,i)=>`<div class="it" style="animation-delay:${i*.06}s">${/^(img\/|http)/.test(x[4])?`<img src="${x[4]}" alt="${x[0]}" loading="lazy" onerror="fb(this)">`:`<i>${ic(x[4],32)}</i>`}<div><h3>${x[0]}${x[3]?`<span class="tg">${x[3]}</span>`:""}</h3><p>${x[1]}</p>${x[2]?`<em>₹${x[2]}</em>`:""}</div></div>`;
+function show(c){cur=c;$("#q").value="";[...T.children].forEach(b=>b.classList.toggle("on",b.textContent==c));P.innerHTML=M[c].map(card).join("")}
+$("#q").oninput=e=>{const q=e.target.value.trim().toLowerCase();if(!q){show(cur);return}[...T.children].forEach(b=>b.classList.remove("on"));const r=Object.values(M).flat().filter(x=>(x[0]+" "+x[1]+" "+x[3]).toLowerCase().includes(q));P.innerHTML=r.length?r.map(card).join(""):`<p class="nores">${ic("search",20)} Nothing matches "${q.replace(/</g,"&lt;")}". Try pizza, shake or noodles.</p>`};
 Object.keys(M).forEach(c=>{const b=document.createElement("button");b.textContent=c;b.onclick=()=>show(c);T.appendChild(b)});show("Bestsellers");
 const L=["pizza-farmhouse","kitkat-shake","wrap","fries","sandwich","mojito","pizza-tomato","vanilla-shake","noodles","pizza-margherita"].map(n=>`<img src="img/${n}.jpg" alt="" loading="lazy">`).join("");$("#mq").innerHTML=L+L;
 $("#mc").onclick=()=>$("#lb").classList.add("on");$("#lb").onclick=()=>$("#lb").classList.remove("on");
 /* reviews */
-let rate=0;const S=$("#st");for(let i=1;i<=5;i++){const s=document.createElement("span");s.textContent="★";s.setAttribute("role","radio");s.tabIndex=0;s.onclick=()=>{rate=i;[...S.children].forEach((c,j)=>c.classList.toggle("on",j<i))};s.onkeydown=e=>e.key=="Enter"&&s.click();S.appendChild(s)}
+let rate=0;const S=$("#st");for(let i=1;i<=5;i++){const s=document.createElement("span");s.innerHTML=ic("star",34);s.setAttribute("role","radio");s.tabIndex=0;s.onclick=()=>{rate=i;[...S.children].forEach((c,j)=>c.classList.toggle("on",j<i))};s.onkeydown=e=>e.key=="Enter"&&s.click();S.appendChild(s)}
 $("#rs").onclick=()=>{const n=$("#rn").value.trim()||"A guest",t=$("#rt").value.trim();if(!rate||!t){alert("Please pick a star rating and write a short note.");return}
-$("#rv").insertAdjacentHTML("afterbegin",`<div class="rw"><b>${n.replace(/</g,"&lt;")}</b> <span style="color:var(--gold)">${"★".repeat(rate)}${"☆".repeat(5-rate)}</span><p>${t.replace(/</g,"&lt;")}</p></div>`);$("#rn").value=$("#rt").value="";rate=0;[...S.children].forEach(c=>c.classList.remove("on"))};
+$("#rv").insertAdjacentHTML("afterbegin",`<div class="rw"><b>${n.replace(/</g,"&lt;")}</b> <span style="color:var(--gold)">${[1,2,3,4,5].map(i=>ic(i<=rate?"star":"staro",16)).join("")}</span><p>${t.replace(/</g,"&lt;")}</p></div>`);$("#rn").value=$("#rt").value="";rate=0;[...S.children].forEach(c=>c.classList.remove("on"))};
 /* contact -> WhatsApp */
 $("#cf2").onsubmit=e=>{e.preventDefault();const m=`Hi Cafe Ocean Blue! I'm ${$("#cn").value} (${$("#cph").value}). Enquiry: ${$("#ce").value}. ${$("#cmsg").value}`;open("https://wa.me/"+($("#ce").value=="Buying the business"?"918221819822":"917056040137")+"?text="+encodeURIComponent(m),"_blank")};
 /* static chatbot with preset replies */
