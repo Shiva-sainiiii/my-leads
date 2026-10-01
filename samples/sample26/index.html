@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cafe Ocean Blue | Student Hangout & Party Hall, Rohtak</title>
+<meta name="description" content="Cafe Ocean Blue near Jat College, Rohtak: wood-themed cafe, pizzas, shakes and an AC party hall for birthdays and college events.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--abyss:#050c18;--deep:#0a1c33;--tide:#12385f;--gold:#d9b45a;--foam:#f3ecdc;--mut:#9fb2c8;--r:18px}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--abyss);color:var(--foam);font:400 16px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;line-height:1.1}
+h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:.6rem}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section{padding:clamp(64px,10vw,120px) 6vw;position:relative}.in{max-width:1100px;margin:auto}
+.sub{color:var(--mut);max-width:56ch;margin-bottom:2rem}
+.btn{display:inline-block;padding:.85rem 1.6rem;border-radius:99px;font-weight:700;border:1px solid var(--gold);cursor:pointer;transition:.3s;background:none;color:var(--foam);font-size:1rem}
+.btn.p{background:linear-gradient(120deg,#f0d78a,var(--gold));color:#1a1204;box-shadow:0 8px 28px #d9b45a40}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 34px #d9b45a50}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}.rv.on{opacity:1;transform:none}
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 6vw;transition:.4s}
+nav.s{background:#050c18d9;backdrop-filter:blur(14px);padding:10px 6vw;border-bottom:1px solid #d9b45a30}
+.logo{font:700 1.5rem "Cormorant Garamond",serif;color:var(--gold)}
+nav ul{display:flex;gap:1.8rem;list-style:none}nav ul a{font-size:.95rem;opacity:.85}nav ul a:hover{color:var(--gold)}
+#bg{display:none;background:none;border:0;color:var(--foam);font-size:1.7rem;cursor:pointer}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding-top:90px}
+.hbg{position:absolute;inset:-8% 0;background:linear-gradient(#050c18cc,#0a1c33e6),url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=70") center/cover,var(--deep);will-change:transform}
+.hero .in{position:relative;z-index:2}
+.hero h1{font-size:clamp(3.2rem,12vw,8rem);letter-spacing:.01em}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .g{color:var(--gold);font-style:italic}
+@keyframes up{to{opacity:1;transform:none}}
+.hero p{max-width:50ch;margin:1.2rem auto 2rem;color:#d6e0ec;opacity:0;animation:up 1s 1.1s forwards}
+.hero .btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:up 1s 1.4s forwards}
+.chip{display:inline-block;border:1px solid #d9b45a60;border-radius:99px;padding:.3rem 1rem;margin-bottom:1.2rem;color:var(--gold);font-size:.9rem;background:#050c1880;opacity:0;animation:up 1s .2s forwards}
+.wv{position:absolute;bottom:-2px;left:0;width:200%;height:110px;animation:wv 14s linear infinite;z-index:1}
+.wv.b{height:90px;animation-duration:9s;animation-direction:reverse;opacity:.6}
+@keyframes wv{to{transform:translateX(-50%)}}
+.bub{position:absolute;bottom:-20px;border-radius:50%;border:1px solid #d9b45a55;animation:fl linear infinite;z-index:1}
+@keyframes fl{to{transform:translateY(-110vh) translateX(30px);opacity:0}}
+.stats{background:var(--tide);padding:34px 6vw}
+.stats .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;text-align:center}
+.stats b{display:block;font:700 2.2rem "Cormorant Garamond",serif;color:var(--gold)}.stats small{color:var(--mut)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.fl{border-radius:var(--r);overflow:hidden;background:var(--deep);border:1px solid #d9b45a22;transition:.4s}
+.fl:hover{transform:translateY(-6px);border-color:var(--gold)}
+.fl div{height:240px;background:var(--tide) center/cover;transition:transform .8s}.fl:hover div{transform:scale(1.06)}
+.fl article{padding:1.4rem;position:relative;background:var(--deep)}.fl p{color:var(--mut)}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.tabs button{padding:.5rem 1.1rem;border-radius:99px;border:1px solid #d9b45a50;background:none;color:var(--foam);cursor:pointer;font:inherit;transition:.3s}
+.tabs button.on{background:var(--gold);color:#1a1204;border-color:var(--gold)}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem}
+.it{display:flex;gap:1rem;align-items:center;padding:1rem;border-radius:var(--r);background:linear-gradient(145deg,var(--deep),#081425);border:1px solid #d9b45a1f;animation:pop .5s backwards;transition:.3s}
+.it:hover{border-color:var(--gold);transform:translateY(-4px)}
+@keyframes pop{from{opacity:0;transform:scale(.92)}}
+.it img,.it i{width:82px;height:82px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--gold);background:var(--tide)}
+.it i{display:grid;place-items:center;font-size:2rem;font-style:normal}
+.it h3{font-size:1.25rem}.it p{font-size:.85rem;color:var(--mut);line-height:1.4}
+.it em{font-style:normal;color:var(--gold);font-weight:700}.tg{font-size:.72rem;background:#d9b45a26;color:var(--gold);padding:.1rem .6rem;border-radius:99px;margin-left:.4rem}
+.mq{overflow:hidden;margin:3rem -6vw 0}.mq div{display:flex;gap:1rem;width:max-content;animation:mq 40s linear infinite}
+.mq img{width:150px;height:150px;border-radius:var(--r);object-fit:cover}@keyframes mq{to{transform:translateX(-50%)}}
+.party{background:linear-gradient(#050c18d9,#050c18f2),url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=70") center/cover fixed,var(--deep)}
+.party ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin:1.5rem 0 2rem}
+.party li{padding:.9rem 1.1rem;border-left:3px solid var(--gold);background:#12385f66;border-radius:0 12px 12px 0}
+details{border:1px solid #d9b45a30;border-radius:var(--r);margin-bottom:.9rem;background:var(--deep);overflow:hidden}
+summary{padding:1.1rem 1.4rem;font:700 1.35rem "Cormorant Garamond",serif;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--gold);transition:.3s}details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 1.4rem 1.2rem;color:var(--mut);animation:pop .4s}
+.love{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2rem}.love span{padding:.5rem 1.1rem;border-radius:99px;background:var(--tide)}
+.fm{display:grid;gap:.9rem}
+input,textarea,select{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid #d9b45a40;background:var(--deep);color:var(--foam);font:inherit}
+textarea{min-height:110px;resize:vertical}
+.stars{display:flex;gap:.2rem;font-size:2.2rem;cursor:pointer;color:#3a4a60}.stars span{transition:.2s}.stars span.on{color:var(--gold);transform:scale(1.12)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2rem,5vw,4rem)}
+#rv .rw{padding:1rem;border-radius:12px;background:var(--deep);margin-top:.8rem;animation:pop .5s}
+iframe{width:100%;height:380px;border:0;border-radius:var(--r);filter:saturate(.85) contrast(1.05)}
+footer{padding:2rem 6vw 100px;text-align:center;color:var(--mut);border-top:1px solid #d9b45a22}
+.wa,.cb{position:fixed;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;border:0;cursor:pointer;font-size:1.6rem;box-shadow:0 8px 24px #0008}
+.wa{right:18px;background:#25d366;color:#fff}.wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;animation:pl 2s infinite;z-index:-1}
+@keyframes pl{to{transform:scale(1.8);opacity:0}}
+.cb{left:18px;background:linear-gradient(120deg,#f0d78a,var(--gold))}
+#cp{position:fixed;left:18px;bottom:88px;z-index:60;width:min(340px,calc(100vw - 36px));height:420px;display:none;flex-direction:column;background:var(--deep);border:1px solid var(--gold);border-radius:var(--r);overflow:hidden;box-shadow:0 20px 50px #000a}
+#cp.on{display:flex;animation:pop .35s}
+#cp header{padding:.9rem 1rem;background:var(--tide);font-weight:700;display:flex;justify-content:space-between}
+#cm{flex:1;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem;font-size:.9rem}
+.m{max-width:85%;padding:.6rem .9rem;border-radius:14px;animation:pop .3s}.m.b{background:var(--tide);border-bottom-left-radius:4px}.m.u{background:var(--gold);color:#1a1204;align-self:flex-end;border-bottom-right-radius:4px}
+.qk{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 1rem .6rem}.qk button{font:inherit;font-size:.78rem;padding:.25rem .7rem;border-radius:99px;border:1px solid var(--gold);background:none;color:var(--gold);cursor:pointer}
+#cf{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid #d9b45a30}#cf input{padding:.6rem .8rem}
+#lb{position:fixed;inset:0;background:#000d;z-index:90;display:none;place-items:center;padding:4vw;cursor:zoom-out}#lb.on{display:grid}#lb img{max-height:90vh;border-radius:12px}
+@media(max-width:760px){nav ul{position:fixed;inset:60px 0 auto;flex-direction:column;background:#050c18f5;padding:1.5rem 6vw;gap:1.2rem;display:none}nav ul.on{display:flex}#bg{display:block}.party{background-attachment:scroll}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nv"><a class="logo" href="#top">Café Ocean Blue</a><button id="bg" aria-label="Menu">☰</button>
+<ul id="ul"><li><a href="#venue">Venue</a></li><li><a href="#menu">Menu</a></li><li><a href="#hall">Party Hall</a></li><li><a href="#invest">Why Buy</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+
+<header class="hero" id="top"><div class="hbg" id="hb"></div>
+<div class="in"><span class="chip">★ 4.7 on Zomato &amp; Swiggy · Near Jat College, Rohtak</span>
+<h1 id="h1"></h1>
+<p>Wood-toned corners for quiet dates, a full AC hall for birthdays, and a menu built around student budgets.</p>
+<div class="btns"><a class="btn p" href="#menu">Explore the menu</a><a class="btn" href="#hall">See the party hall</a></div></div>
+<svg class="wv b" viewBox="0 0 2880 120" preserveAspectRatio="none"><path fill="#12385f" d="M0 60Q180 10 360 60T720 60T1080 60T1440 60T1800 60T2160 60T2520 60T2880 60V120H0Z"/></svg>
+<svg class="wv" viewBox="0 0 2880 120" preserveAspectRatio="none"><path fill="#0a1c33" d="M0 70Q180 20 360 70T720 70T1080 70T1440 70T1800 70T2160 70T2520 70T2880 70V120H0Z"/></svg></header>
+
+<div class="stats"><div class="in"><div><b>4.7★</b><small>Aggregator rating</small></div><div><b>2 floors</b><small>Cafe and party hall</small></div><div><b>10 AM – 9 PM</b><small>Open all 7 days</small></div><div><b>Jat College</b><small>Steps from campus</small></div></div></div>
+
+<section id="venue"><div class="in"><h2 class="rv">Two floors, two moods</h2><p class="sub rv">Sit down for a pizza downstairs, or take the stairs up when the whole class is coming.</p>
+<div class="two">
+<div class="fl rv"><div style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=70')"></div><article><h3>Ground &amp; first floor</h3><p>Wood-themed seating, a busy kitchen counter and cozy semi-private pockets for couples.</p></article></div>
+<div class="fl rv"><div style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=70')"></div><article><h3>Upper floor party hall</h3><p>Air-conditioned hall with event lights, a sound system and modular seating for birthdays and college events.</p></article></div>
+</div></div></section>
+
+<section id="menu" style="background:var(--deep)"><div class="in"><h2 class="rv">What's on the table</h2><p class="sub rv">Student favourites, made fresh. Prices shown where confirmed; the full card has everything else.</p>
+<div class="tabs" id="tabs"></div><div id="grid"></div>
+<p style="margin-top:2rem"><button class="btn p" id="mc">View the full menu card</button></p></div>
+<div class="mq"><div id="mq"></div></div></section>
+
+<section class="party" id="hall"><div class="in"><h2 class="rv">Book the party hall</h2><p class="sub rv">The upper floor is where birthdays, farewells and society get-togethers happen.</p>
+<ul class="rv"><li>Fully air-conditioned</li><li>Event lights and sound system</li><li>Custom modular seating</li><li>Decorated for birthdays</li></ul>
+<a class="btn p" id="bk" href="#contact">Check availability</a></div></section>
+
+<section id="invest"><div class="in"><h2 class="rv">Why this cafe is a strong buy</h2><p class="sub rv">The business is listed for sale as a turnkey operation.</p>
+<details open class="rv"><summary>Less dependence on delivery apps</summary><p>Most revenue comes from on-premise birthday parties and hall bookings, which protects margins from Swiggy and Zomato commissions.</p></details>
+<details class="rv"><summary>A loyal student base</summary><p>Reviews praise the budget pricing, privacy for couples, party decor and wood interior, with steady footfall from Jat College.</p></details>
+<details class="rv"><summary>Everything is included</summary><p>Kitchen lines, custom wood furniture, billing systems and the decorated upper-floor hall come with the sale.</p></details>
+<p style="margin-top:1.5rem"><a class="btn" href="https://wa.me/918221819822?text=Hi%2C%20I%20am%20interested%20in%20buying%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener">Sale enquiries: +91 82218 19822</a></p></div></section>
+
+<section id="reviews" style="background:var(--deep)"><div class="in cols"><div><h2 class="rv">What guests love</h2><div class="love rv"><span>Best party hall for students</span><span>Budget-friendly</span><span>Privacy for couples</span><span>Wood aesthetic</span></div><div id="rv"></div></div>
+<div class="rv"><h2>Rate your visit</h2><div class="fm"><div class="stars" id="st" role="radiogroup" aria-label="Rating"></div><input id="rn" placeholder="Your name"><textarea id="rt" placeholder="Tell us how it went"></textarea><button class="btn p" id="rs">Post feedback</button></div></div></div></section>
+
+<section id="contact"><div class="in cols"><div class="rv"><h2>Plan your visit</h2><p class="sub">Send your party details and we'll reply on WhatsApp.</p>
+<p>📍 9, Gali No.2, Near Jat College, Dev Colony, Rohtak, Haryana 124001</p><p>📞 Bookings: <a href="tel:+917056040137">+91 70560 40137</a></p><p>🕙 10 AM – 9 PM, every day</p><p>📸 @cafeoceanblue_official</p></div>
+<form class="fm rv" id="cf2"><input id="cn" placeholder="Your name" required><input id="cph" type="tel" placeholder="Phone number" required><select id="ce"><option>Birthday party</option><option>College event</option><option>Dining in</option><option>Buying the business</option></select><textarea id="cmsg" placeholder="Date, guests, anything else"></textarea><button class="btn p">Send on WhatsApp</button></form></div></section>
+
+<section style="padding-top:0"><div class="in"><iframe title="Cafe Ocean Blue on Google Maps" loading="lazy" src="https://www.google.com/maps?q=Cafe+Ocean+Blue,+Dev+Colony,+Rohtak,+Haryana&output=embed"></iframe></div></section>
+<footer>© Café Ocean Blue, Rohtak · Good food, good mood, great view</footer>
+
+<a class="wa" href="https://wa.me/917056040137?text=Hi%20Cafe%20Ocean%20Blue" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<button class="cb" id="cbt" aria-label="Open chat assistant">🤖</button>
+<div id="cp"><header>Ocean Blue Assistant <button id="cx" style="background:none;border:0;color:inherit;cursor:pointer;font-size:1.2rem">✕</button></header><div id="cm"></div>
+<div class="qk"><button>Menu</button><button>Party hall</button><button>Timings</button><button>Location</button></div>
+<form id="cf"><input id="ci" placeholder="Ask me anything…" autocomplete="off"><button class="btn p" style="padding:.5rem 1rem">Send</button></form></div>
+<div id="lb"><img src="img/menu-card.webp" alt="Cafe Ocean Blue full menu card"></div>
+
+<script>
+const $=s=>document.querySelector(s),U="https://images.unsplash.com/photo-";
+/* hero headline: letters rise once on load */
+let d=0;$("#h1").innerHTML=["Café","Ocean","Blue"].map((w,i)=>`<span class="${i==2?"g":""}" style="animation-delay:${.35+i*.18}s">${w}</span>`).join(" ");
+for(let i=0;i<14;i++){const b=document.createElement("i");b.className="bub";const s=6+Math.random()*16;b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${9+Math.random()*10}s;animation-delay:${Math.random()*8}s`;$("#top").appendChild(b)}
+addEventListener("scroll",()=>{$("#nv").classList.toggle("s",scrollY>40);if(scrollY<innerHeight)$("#hb").style.transform=`translateY(${scrollY*.25}px)`},{passive:true});
+$("#bg").onclick=()=>$("#ul").classList.toggle("on");$("#ul").onclick=()=>$("#ul").classList.remove("on");
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("on");io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+/* menu */
+const M={"Bestsellers":[["Farm House Pizza","Paneer, olives, corn, mushrooms and garden veggies","","Must try","img/pizza-farmhouse.jpg"],["Grill Tandoori Sandwich","Grilled bread with tandoori-spiced filling",108,"Top rated","img/sandwich.jpg"],["Veg Paneer Wrap","Paneer chunks and crunchy salad in a soft tortilla",120,"","img/wrap.jpg"]],
+"Pizza":[["Tomato Fresh Pizza","Juicy tomatoes and mozzarella",120,"","img/pizza-tomato.jpg"],["Double Topping Supreme","Pick two: onion, capsicum or corn",168,"","img/pizza-farmhouse.jpg"],["Margherita Pizza","Mozzarella and fresh basil","","","img/pizza-margherita.jpg"]],
+"Pasta & Noodles":[["Alfredo White Sauce Pasta","Penne in creamy garlic butter sauce","","",U+"1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=300&q=70"],["Mix Sauce Pasta","Tangy red and rich white sauce, together","","","🍝"],["Hakka Street Noodles","Wok-tossed with greens and light soy","","","img/noodles.jpg"],["Spicy Schezwan Noodles","Garlic-chilli schezwan heat","","","🌶️"]],
+"Quick Bites":[["King Kong Burger","Double patty, extra cheese, house sauces",168,"Chef special",U+"1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=70"],["Aloo Tikki Burger","Spiced potato patty, onion, tomato, sweet mayo","","","🍔"],["Honey Chilli Potato","Crisp potato fingers in sticky chilli glaze","","","img/fries.jpg"],["Veg Momos","Steamed, packed with minced vegetables","","","🥟"]],
+"Drinks":[["Golden Mango Bliss","Thick chilled seasonal mango blend","","Trending","🥭"],["Kit-Kat Shake","Chocolate shake with crushed Kit-Kat","","","img/kitkat-shake.jpg"],["Vanilla Shake","Classic, thick and cold","","","img/vanilla-shake.jpg"],["Mint Mojito","Fresh mint, lime and ice","","","img/mojito.jpg"],["Blueberry Iced Tea","Also in peach and lemon","","","🧊"]]};
+const P=$("#grid"),T=$("#tabs");
+function show(c){[...T.children].forEach(b=>b.classList.toggle("on",b.textContent==c));P.innerHTML=M[c].map((x,i)=>`<div class="it" style="animation-delay:${i*.07}s">${x[4].length>3?`<img src="${x[4]}" alt="${x[0]}" loading="lazy" onerror="this.outerHTML='<i>🍽️</i>'">`:`<i>${x[4]}</i>`}<div><h3>${x[0]}${x[3]?`<span class="tg">${x[3]}</span>`:""}</h3><p>${x[1]}</p>${x[2]?`<em>₹${x[2]}</em>`:""}</div></div>`).join("")}
+Object.keys(M).forEach(c=>{const b=document.createElement("button");b.textContent=c;b.onclick=()=>show(c);T.appendChild(b)});show("Bestsellers");
+const L=["pizza-farmhouse","kitkat-shake","wrap","fries","sandwich","mojito","pizza-tomato","vanilla-shake","noodles","pizza-margherita"].map(n=>`<img src="img/${n}.jpg" alt="" loading="lazy">`).join("");$("#mq").innerHTML=L+L;
+$("#mc").onclick=()=>$("#lb").classList.add("on");$("#lb").onclick=()=>$("#lb").classList.remove("on");
+/* reviews */
+let rate=0;const S=$("#st");for(let i=1;i<=5;i++){const s=document.createElement("span");s.textContent="★";s.setAttribute("role","radio");s.tabIndex=0;s.onclick=()=>{rate=i;[...S.children].forEach((c,j)=>c.classList.toggle("on",j<i))};s.onkeydown=e=>e.key=="Enter"&&s.click();S.appendChild(s)}
+$("#rs").onclick=()=>{const n=$("#rn").value.trim()||"A guest",t=$("#rt").value.trim();if(!rate||!t){alert("Please pick a star rating and write a short note.");return}
+$("#rv").insertAdjacentHTML("afterbegin",`<div class="rw"><b>${n.replace(/</g,"&lt;")}</b> <span style="color:var(--gold)">${"★".repeat(rate)}${"☆".repeat(5-rate)}</span><p>${t.replace(/</g,"&lt;")}</p></div>`);$("#rn").value=$("#rt").value="";rate=0;[...S.children].forEach(c=>c.classList.remove("on"))};
+/* contact -> WhatsApp */
+$("#cf2").onsubmit=e=>{e.preventDefault();const m=`Hi Cafe Ocean Blue! I'm ${$("#cn").value} (${$("#cph").value}). Enquiry: ${$("#ce").value}. ${$("#cmsg").value}`;open("https://wa.me/"+($("#ce").value=="Buying the business"?"918221819822":"917056040137")+"?text="+encodeURIComponent(m),"_blank")};
+/* static chatbot with preset replies */
+const R=[[/hi|hello|hey/,"Hi! I can tell you about our menu, party hall, timings or location."],[/menu|food|pizza|burger|eat|price|cost/,"Try the Farm House Pizza, Grill Tandoori Sandwich (₹108), Veg Paneer Wrap (₹120) or King Kong Burger (₹168). Tap 'View the full menu card' in the menu section for everything."],[/party|birthday|hall|event|book/,"Our upper-floor party hall is fully AC with event lights, sound and modular seating. Call +91 70560 40137 or use the contact form to book."],[/time|open|hour|close/,"We're open 10 AM to 9 PM, Monday to Sunday."],[/where|location|address|map|parking/,"We're at 9, Gali No.2, Near Jat College, Dev Colony, Rohtak, next to Jobby Pizza. Parking is on the street. The map is at the bottom of this page."],[/sale|buy|invest|sell/,"The cafe is listed for sale as a turnkey business. For enquiries, call +91 82218 19822."],[/contact|phone|call|number|whatsapp/,"Bookings: +91 70560 40137. You can also tap the green WhatsApp button."]];
+const cm=$("#cm"),add=(t,c)=>{cm.insertAdjacentHTML("beforeend",`<div class="m ${c}"></div>`);cm.lastChild.textContent=t;cm.scrollTop=1e5};
+function ask(q){add(q,"u");const l=q.toLowerCase(),r=(R.find(x=>x[0].test(l))||[0,"I'm not sure about that one. Please call +91 70560 40137 and the team will help."])[1];setTimeout(()=>add(r,"b"),500)}
+add("Hi! Welcome to Cafe Ocean Blue. What would you like to know?","b");
+$("#cbt").onclick=()=>$("#cp").classList.toggle("on");$("#cx").onclick=()=>$("#cp").classList.remove("on");
+$("#cf").onsubmit=e=>{e.preventDefault();const v=$("#ci").value.trim();if(v){ask(v);$("#ci").value=""}};
+document.querySelectorAll(".qk button").forEach(b=>b.onclick=()=>ask(b.textContent));
+</script>
+</body>
+</html>
