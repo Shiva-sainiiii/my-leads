@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Cafe Name | Coffee, Bakery & Brunch</title>
+<meta name="description" content="Small-batch coffee, fresh bakes and a table that is always yours. Reserve a table today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+/* ====== Design tokens ====== */
+:root{--pine:#17382f;--pine2:#102a23;--pine3:#24493f;--mist:#eef1ea;--crema:#eadfc8;--caramel:#d29b4d;--roast:#261c16;--soft:#5b665f;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Figtree',system-ui,sans-serif;background:var(--mist);color:var(--roast);line-height:1.6;font-size:17px;overflow-x:hidden}
+h1,h2,h3{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height:1.12}
+img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+a{color:inherit}
+.wrap{width:min(1160px,92%);margin-inline:auto}
+section{padding:96px 0}
+:focus-visible{outline:3px solid var(--caramel);outline-offset:3px}
+.btn{display:inline-block;padding:.85rem 1.7rem;border-radius:99px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.gold{background:var(--caramel);color:var(--roast)}
+.btn.line{border-color:rgba(255,255,255,.4);color:#fff}
+.btn.line:hover{background:rgba(255,255,255,.1)}
+.btn.dark{background:var(--pine);color:#fff}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:.6rem}
+.sub{color:var(--soft);max-width:52ch}
+.photo{background:var(--pine3);overflow:hidden}
+
+/* ====== Nav ====== */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+nav.sc{background:rgba(16,42,35,.94);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;color:#fff}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:'Young Serif',serif;font-size:1.2rem}
+.logo i{width:34px;height:40px;border-radius:99px 99px 6px 6px;background:var(--caramel);color:var(--roast);display:grid;place-items:center;font-style:normal;font-size:1.05rem}
+.links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.links a{text-decoration:none;font-weight:500;opacity:.9}
+.links a:hover{color:var(--caramel)}
+.links .btn{padding:.55rem 1.2rem}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer}
+
+/* ====== Hero ====== */
+.hero{background:var(--pine);color:#fff;padding:130px 0 80px;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);margin-bottom:1.2rem}
+.hero p.lead{font-size:1.15rem;opacity:.85;max-width:46ch;margin-bottom:2rem}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.status{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.4rem;padding:.5rem 1rem;border-radius:99px;background:rgba(255,255,255,.08);font-size:.95rem}
+.status b{width:9px;height:9px;border-radius:50%;background:#6fd08c;box-shadow:0 0 0 4px rgba(111,208,140,.25)}
+.status.off b{background:#e0866b;box-shadow:0 0 0 4px rgba(224,134,107,.25)}
+.arch{border-radius:999px 999px 20px 20px;aspect-ratio:3/4;overflow:hidden;background:var(--pine3)}
+.hero .arch{max-height:640px;margin-left:auto;width:100%}
+/* ek hi orchestrated entrance, bas hero pe */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes open{from{clip-path:inset(40% 20% 0 20% round 999px)}to{clip-path:inset(0 0 0 0 round 999px 999px 20px 20px)}}
+.hero .in{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .in:nth-child(2){animation-delay:.12s}.hero .in:nth-child(3){animation-delay:.24s}.hero .in:nth-child(4){animation-delay:.36s}
+.hero .arch{animation:open 1.3s cubic-bezier(.2,.7,.2,1) .15s both}
+
+/* ====== About ====== */
+.about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.about .arch{max-width:420px}
+.facts{list-style:none;margin-top:1.8rem}
+.facts li{padding:1rem 0;border-top:1px solid rgba(38,28,22,.15);display:flex;gap:.9rem}
+.facts li:last-child{border-bottom:1px solid rgba(38,28,22,.15)}
+.facts svg{flex:none;width:22px;height:22px;margin-top:3px;color:var(--pine)}
+
+/* ====== Menu ====== */
+.menu{background:var(--pine);color:#fff}
+.menu .sub{color:rgba(255,255,255,.7)}
+.menu .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:start}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.6rem 0 1rem}
+.tabs button{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:.5rem 1.2rem;border-radius:99px;font:inherit;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--caramel);border-color:var(--caramel);color:var(--roast);font-weight:600}
+#list{animation:rise .45s both}
+.it{padding:.95rem 0}
+.it div{display:flex;align-items:baseline;gap:.7rem;font-weight:600;font-size:1.08rem}
+.it div::after{content:"";order:1;flex:1;border-bottom:1.5px dotted rgba(255,255,255,.35);transform:translateY(-4px)}
+.it div span:last-child{order:2;color:var(--caramel)}
+.it p{font-size:.93rem;color:rgba(255,255,255,.65)}
+.menu .arch{position:sticky;top:100px}
+
+/* ====== Gallery ====== */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:2.4rem}
+.gal .photo{border-radius:14px}
+.gal .g1{grid-row:span 2;border-radius:999px 999px 14px 14px}
+.gal .g4{grid-column:span 2}
+.gal img{transition:transform .6s,opacity .4s}
+.gal .photo:hover img{transform:scale(1.06)}
+
+/* ====== Reviews ====== */
+.reviews{background:var(--crema)}
+.reviews .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.avg{display:flex;align-items:center;gap:.8rem;margin:.4rem 0 1.4rem;font-weight:600}
+.avg .s{color:var(--caramel);font-size:1.4rem;letter-spacing:2px}
+.rv{padding:1.2rem 0;border-top:1px solid rgba(38,28,22,.18);animation:rise .5s both}
+.rv .s{color:#b97d2c;letter-spacing:2px}
+.rv p{margin:.25rem 0}
+.rv small{color:var(--soft);font-weight:600}
+.panel{background:#fff;border-radius:22px;padding:2rem;box-shadow:0 18px 50px rgba(38,28,22,.1)}
+.panel h3{font-size:1.5rem;margin-bottom:1rem}
+.stars{display:flex;gap:.2rem;margin-bottom:.3rem}
+.stars button{background:none;border:0;font-size:2.2rem;line-height:1;color:#cfc8bb;cursor:pointer;transition:transform .15s,color .15s}
+.stars button.on{color:var(--caramel)}
+.stars button:hover{transform:scale(1.18)}
+#rl{display:block;min-height:1.4em;color:var(--soft);font-size:.92rem;margin-bottom:1rem}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+input,select,textarea{width:100%;padding:.8rem 1rem;border:1.5px solid #d4d9d0;border-radius:12px;font:inherit;background:#fff;color:var(--roast);margin-bottom:1rem}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px rgba(23,56,47,.15)}
+textarea{resize:vertical;min-height:96px}
+.msg{margin-top:.9rem;font-weight:600;color:var(--pine);display:none}
+.msg.show{display:block;animation:rise .4s both}
+
+/* ====== Reserve ====== */
+.reserve{background:var(--pine);color:#fff}
+.reserve .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.reserve .sub{color:rgba(255,255,255,.75);margin-bottom:1.6rem}
+.reach{list-style:none}
+.reach li{padding:.55rem 0;display:flex;gap:.8rem}
+.reach a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.reserve .panel{color:var(--roast)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+.reserve .msg{color:var(--pine)}
+
+/* ====== Visit ====== */
+.visit .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:stretch}
+.map{border-radius:22px;overflow:hidden;min-height:420px;background:var(--pine3)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+.info h3{font-size:1.2rem;margin:1.4rem 0 .3rem}
+.info h3:first-of-type{margin-top:1.6rem}
+.info p{color:var(--soft)}
+.info .cta{margin-top:1.8rem}
+
+/* ====== Footer ====== */
+footer{background:var(--pine2);color:rgba(255,255,255,.75);padding:42px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+footer a{text-decoration:none;margin-left:1.4rem}
+footer a:hover{color:var(--caramel)}
+
+/* ====== Floating widgets ====== */
+.fabs{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.fab{width:58px;height:58px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .2s,opacity .25s}
+.fab:hover{transform:scale(1.07)}
+.fab svg{width:28px;height:28px}
+.fab.wa{background:#25d366;color:#fff}
+.fab.chat{background:var(--caramel);color:var(--roast)}
+body.co .fab.wa{opacity:0;pointer-events:none}
+.box{position:fixed;right:20px;bottom:92px;width:min(370px,calc(100vw - 32px));height:min(520px,calc(100svh - 120px));background:var(--mist);border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.35);display:none;flex-direction:column;overflow:hidden;z-index:61}
+.box.open{display:flex;animation:rise .35s both}
+.bh{background:var(--pine);color:#fff;padding:1rem 1.2rem;display:flex;align-items:center;gap:.8rem}
+.bh i{width:38px;height:44px;border-radius:99px 99px 6px 6px;background:var(--caramel);color:var(--roast);display:grid;place-items:center;font-style:normal;font-family:'Young Serif',serif}
+.bh small{display:block;opacity:.7;font-size:.8rem}
+.bh button{margin-left:auto;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+#msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.b{max-width:84%;padding:.65rem .95rem;border-radius:16px;font-size:.95rem;line-height:1.45;animation:rise .3s both}
+.b.bot{background:#fff;border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--pine);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 1rem .6rem}
+.chips button{background:#fff;border:1px solid #cfd6cc;border-radius:99px;padding:.35rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
+.chips button:hover{background:var(--crema)}
+.bf{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid #d9ded5;background:#fff}
+.bf input{margin:0;border-radius:99px;padding:.65rem 1rem}
+.bf button{flex:none;width:44px;border:0;border-radius:50%;background:var(--pine);color:#fff;cursor:pointer;font-size:1.1rem}
+.dots span{display:inline-block;width:6px;height:6px;margin:0 2px;border-radius:50%;background:#999;animation:bn 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes bn{0%,60%,100%{transform:none}30%{transform:translateY(-5px)}}
+
+/* ====== Responsive ====== */
+@media(max-width:900px){
+ section{padding:72px 0}
+ .burger{display:block}
+ .links{position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--pine2);padding:1.4rem 0 1.8rem;gap:1.2rem;display:none}
+ .links.open{display:flex}
+ .hero{padding-top:110px;min-height:auto}
+ .hero .wrap,.about .wrap,.menu .wrap,.reviews .wrap,.reserve .wrap,.visit .wrap{grid-template-columns:1fr;gap:40px}
+ .hero .arch{max-width:360px;margin:0 auto}
+ .about .arch{margin:0 auto}
+ .menu .arch{display:none}
+ .gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+ .gal .g4{grid-column:span 2}
+ .row{grid-template-columns:1fr}
+ .map,.map iframe{min-height:320px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+ <div class="wrap nav">
+  <a href="#top" class="logo"><i data-b="initial">Y</i><span data-b="name">Your Cafe Name</span></a>
+  <ul class="links" id="links">
+   <li><a href="#about">About</a></li>
+   <li><a href="#menu">Menu</a></li>
+   <li><a href="#gallery">Gallery</a></li>
+   <li><a href="#reviews">Reviews</a></li>
+   <li><a href="#visit">Find us</a></li>
+   <li><a href="#reserve" class="btn gold">Book a table</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <h1 class="in">Slow mornings, strong coffee, good company.</h1>
+   <p class="lead in">Small-batch coffee, fresh bakes from our own oven, and a table that is yours for as long as you like.</p>
+   <div class="cta in">
+    <a href="#reserve" class="btn gold">Book a table</a>
+    <a href="#menu" class="btn line">See the menu</a>
+   </div>
+   <div class="status in" id="status"><b></b><span>Checking hours...</span></div>
+  </div>
+  <div class="arch photo"><img data-u="photo-1554118811-1e0d58224f24|900" alt="Warm cafe interior with wooden tables and hanging lights"></div>
+ </div>
+</header>
+
+<section class="about" id="about">
+ <div class="wrap">
+  <div class="arch photo"><img data-u="photo-1495474472287-4d71bcdd2085|800" alt="Cup of coffee on a cafe table" loading="lazy"></div>
+  <div>
+   <h2>A neighbourhood cafe that takes its coffee seriously.</h2>
+   <p class="sub">We started with one espresso machine and a simple idea: make the cup you would want to drink every morning. Today the idea is the same, the menu is just bigger.</p>
+   <ul class="facts">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg><span>Beans roasted in small batches and ground fresh for every cup.</span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg><span>Bakes, sandwiches and desserts made in our kitchen each morning.</span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5 9-10"/></svg><span>Quiet corners, fast Wi-Fi and a charging point at every second table.</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section class="menu" id="menu">
+ <div class="wrap">
+  <div>
+   <h2>Our menu</h2>
+   <p class="sub">Everything is made to order. Ask us about today's specials.</p>
+   <div class="tabs" role="tablist" id="tabs"></div>
+   <div id="list" role="tabpanel"></div>
+  </div>
+  <div class="arch photo"><img id="mimg" alt="Featured item from the menu" loading="lazy"></div>
+ </div>
+</section>
+
+<section id="gallery">
+ <div class="wrap">
+  <h2>A look inside</h2>
+  <p class="sub">Good light, good music and plenty of corners to settle into.</p>
+  <div class="gal">
+   <div class="photo g1"><img data-u="photo-1559496417-e7f25cb247f3|700" alt="Barista at the coffee bar" loading="lazy"></div>
+   <div class="photo"><img data-u="photo-1551024601-bec78aea704b|600" alt="Fresh glazed donuts" loading="lazy"></div>
+   <div class="photo"><img data-u="photo-1572442388796-11668a67e53d|600" alt="Iced coffee in a tall glass" loading="lazy"></div>
+   <div class="photo g4"><img data-u="photo-1501339847302-ac426a4a7cbb|1000" alt="Cafe seating area with plants" loading="lazy"></div>
+   <div class="photo"><img data-u="photo-1509440159596-0249088772ff|600" alt="Freshly baked bread" loading="lazy"></div>
+   <div class="photo"><img data-u="photo-1514432324607-a09d9b4aefdd|600" alt="Latte art in a ceramic cup" loading="lazy"></div>
+  </div>
+ </div>
+</section>
+
+<section class="reviews" id="reviews">
+ <div class="wrap">
+  <div>
+   <h2>What our guests say</h2>
+   <div class="avg"><span class="s">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span id="avg">4.8 out of 5</span></div>
+   <div id="rvs"></div>
+  </div>
+  <form class="panel" id="rform" novalidate>
+   <h3>Rate your visit</h3>
+   <div class="stars" id="stars" role="radiogroup" aria-label="Rating"></div>
+   <span id="rl">Tap a star to rate</span>
+   <label for="rn">Your name</label>
+   <input id="rn" autocomplete="name" placeholder="Name">
+   <label for="rc">Your feedback</label>
+   <textarea id="rc" placeholder="Tell us what you liked"></textarea>
+   <button class="btn dark" type="submit">Submit feedback</button>
+   <p class="msg" id="rmsg"></p>
+  </form>
+ </div>
+</section>
+
+<section class="reserve" id="reserve">
+ <div class="wrap">
+  <div>
+   <h2>Book a table or send us a question</h2>
+   <p class="sub">Tell us when you are coming and how many of you there will be. We will confirm by phone or WhatsApp.</p>
+   <ul class="reach">
+    <li>Call <a data-tel data-b="phone" href="#">+91 98XXX XXXXX</a></li>
+    <li>Email <a data-mail data-b="email" href="#">hello@yourcafe.com</a></li>
+   </ul>
+  </div>
+  <form class="panel" id="eform" novalidate>
+   <div class="row">
+    <div><label for="en">Name</label><input id="en" autocomplete="name" placeholder="Your name"></div>
+    <div><label for="ep">Phone</label><input id="ep" type="tel" autocomplete="tel" placeholder="10-digit mobile number"></div>
+   </div>
+   <div class="row">
+    <div><label for="ed">Date</label><input id="ed" type="date"></div>
+    <div><label for="eg">Guests</label>
+     <select id="eg"><option>1 to 2 guests</option><option>3 to 4 guests</option><option>5 to 8 guests</option><option>9 or more</option></select></div>
+   </div>
+   <label for="em">Message</label>
+   <textarea id="em" placeholder="Birthday, party, special request or any question"></textarea>
+   <button class="btn dark" type="submit">Send enquiry</button>
+   <p class="msg" id="emsg"></p>
+  </form>
+ </div>
+</section>
+
+<section class="visit" id="visit">
+ <div class="wrap">
+  <div class="map"><iframe id="map" title="Map showing our location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  <div class="info">
+   <h2>Find us</h2>
+   <h3>Address</h3>
+   <p data-b="address">Your Street Address, Your City</p>
+   <h3>Opening hours</h3>
+   <p data-b="hours">Daily, 9:00 AM to 11:00 PM</p>
+   <h3>Phone</h3>
+   <p><a data-tel data-b="phone" href="#">+91 98XXX XXXXX</a></p>
+   <div class="cta">
+    <a class="btn dark" data-dir target="_blank" rel="noopener" href="#">Get directions</a>
+    <a class="btn line" style="color:var(--pine);border-color:var(--pine)" data-tel href="#">Call us</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <span>&copy; <span data-b="name">Your Cafe Name</span>. All rights reserved.</span>
+  <span><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#reserve">Book a table</a></span>
+ </div>
+</footer>
+
+<!-- Floating widgets: WhatsApp + Chatbot -->
+<div class="fabs">
+ <a class="fab wa" data-wa target="_blank" rel="noopener" aria-label="Chat on WhatsApp" href="#">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ </a>
+ <button class="fab chat" id="chatBtn" aria-label="Open chat" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+ </button>
+</div>
+
+<div class="box" id="box" role="dialog" aria-label="Chat with us">
+ <div class="bh"><i data-b="initial">Y</i><div><strong data-b="name">Your Cafe Name</strong><small>Replies instantly</small></div><button id="chatX" aria-label="Close chat">&times;</button></div>
+ <div id="msgs" aria-live="polite"></div>
+ <div class="chips" id="chips"></div>
+ <form class="bf" id="cform"><input id="ci" placeholder="Type your question..." autocomplete="off" aria-label="Your message"><button aria-label="Send">&#10148;</button></form>
+</div>
+
+<script>
+/* ====== CONFIG: har client ke liye bas yahi badalna hai ====== */
+const C={
+ name:'Your Cafe Name',
+ phone:'+91 98XXX XXXXX', tel:'919800000000',   // tel = country code ke saath, bina + ke
+ email:'hello@yourcafe.com',
+ address:'Your Street Address, Your City - 000000',
+ mapQuery:'Connaught Place, New Delhi',          // client ka asli address ya Google Maps naam
+ open:9, close:23, hours:'Daily, 9:00 AM to 11:00 PM'
+};
+C.initial=C.name.trim().charAt(0).toUpperCase();
+
+/* ====== Menu data (services/products yahan badlo) ====== */
+const MENU={
+ 'Coffee':{img:'photo-1461023058943-07fcbe16d735',items:[
+  ['Signature Cappuccino','Double shot, silky steamed milk',149],['Hazelnut Latte','Roasted hazelnut, smooth espresso',189],
+  ['Cold Brew','Steeped for 18 hours, served over ice',179],['Caramel Macchiato','Vanilla milk, espresso, caramel drizzle',199],
+  ['South Indian Filter Coffee','Frothy, strong and traditional',99],['Espresso Tonic','Bright, bubbly and citrusy',189]]},
+ 'Bites':{img:'photo-1525351484163-7529414344d8',items:[
+  ['Avocado Toast','Sourdough, poached egg, chilli flakes',249],['Grilled Club Sandwich','Three layers, house mayo, fries',229],
+  ['Creamy Pasta','Choice of white or red sauce',279],['Paneer Tikka Wrap','Mint chutney, pickled onion',219],
+  ['Peri Peri Fries','Crisp, dusted, with a cheese dip',169],['Garlic Bread','Toasted with herb butter',149]]},
+ 'Desserts':{img:'photo-1578985545062-69928b1d9587',items:[
+  ['Belgian Chocolate Cake','Dark, moist, and rich',199],['Blueberry Cheesecake','Baked, with a berry compote',229],
+  ['Waffle and Ice Cream','Warm waffle, two scoops, syrup',249],['Butter Croissant','Flaky, baked every morning',129],
+  ['Brownie Sundae','Hot brownie, vanilla, fudge',219],['Glazed Donut','Soft, fresh, lightly sweet',99]]}
+};
+
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const img=(id,w)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
+
+/* brand values har jagah fill karo */
+document.title=C.name+' | Coffee, Bakery & Brunch';
+$$('[data-b]').forEach(e=>e.textContent=C[e.dataset.b]);
+$$('[data-tel]').forEach(e=>e.href='tel:+'+C.tel);
+$$('[data-mail]').forEach(e=>e.href='mailto:'+C.email);
+$$('[data-wa]').forEach(e=>e.href='https://wa.me/'+C.tel+'?text='+encodeURIComponent('Hi '+C.name+', I would like to know more.'));
+$$('[data-dir]').forEach(e=>e.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(C.mapQuery));
+$('#map').src='https://maps.google.com/maps?q='+encodeURIComponent(C.mapQuery)+'&z=15&output=embed';
+
+/* Unsplash images; load na ho to gradient background dikhega */
+$$('img[data-u]').forEach(i=>{const[id,w]=i.dataset.u.split('|');i.src=img(id,w)});
+document.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.style.opacity=0},true);
+
+/* nav */
+const nav=$('#nav'),links=$('#links'),burger=$('#burger');
+addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>30),{passive:true});
+burger.onclick=()=>{const o=links.classList.toggle('open');burger.setAttribute('aria-expanded',o)};
+links.onclick=e=>{if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded',false)}};
+
+/* open/closed status */
+const fmt=h=>((h+11)%12+1)+(h<12||h===24?' AM':' PM');
+const h=new Date().getHours(),isOpen=h>=C.open&&h<C.close,st=$('#status');
+st.classList.toggle('off',!isOpen);
+st.lastElementChild.textContent=isOpen?`Open now, until ${fmt(C.close)}`:`Closed now, opens at ${fmt(C.open)}`;
+
+/* menu tabs */
+const tabs=$('#tabs'),list=$('#list'),mimg=$('#mimg');
+function showTab(k){
+ $$('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.textContent===k));
+ list.innerHTML='';list.style.animation='none';list.offsetWidth;list.style.animation='';
+ MENU[k].items.forEach(([n,d,p])=>{
+  const el=document.createElement('div');el.className='it';
+  el.innerHTML=`<div><span></span><span>&#8377;${p}</span></div><p></p>`;
+  el.querySelector('span').textContent=n;el.querySelector('p').textContent=d;list.appendChild(el);
+ });
+ mimg.style.opacity=1;mimg.src=img(MENU[k].img,800);
+}
+Object.keys(MENU).forEach(k=>{
+ const b=document.createElement('button');b.textContent=k;b.setAttribute('role','tab');b.onclick=()=>showTab(k);tabs.appendChild(b);
+});
+showTab('Coffee');
+
+/* reviews + star rating */
+const REV=[[5,'Aarav','Best cold brew around. The staff remember your order by the second visit.'],
+ [5,'Neha','Quiet corners, fast Wi-Fi and a brownie that deserves its own review.'],
+ [4,'Rohit','Came for a quick coffee, stayed three hours. A great place for meetings.']];
+const rvs=$('#rvs');
+const star=n=>'\u2605'.repeat(n)+'\u2606'.repeat(5-n);
+function addRev([n,who,txt],top){
+ const a=document.createElement('article');a.className='rv';
+ a.innerHTML='<div class="s"></div><p></p><small></small>';
+ a.children[0].textContent=star(n);a.children[1].textContent=txt;a.children[2].textContent=who;
+ top?rvs.prepend(a):rvs.appendChild(a);
+}
+REV.forEach(r=>addRev(r));
+const LAB=['','Poor','Could be better','Good','Really good','Loved it'];
+let rate=0;const sb=$('#stars'),rl=$('#rl');
+for(let i=1;i<=5;i++){
+ const b=document.createElement('button');b.type='button';b.textContent='\u2605';
+ b.setAttribute('role','radio');b.setAttribute('aria-label',i+' star'+(i>1?'s':''));
+ b.onmouseenter=()=>paint(i,LAB[i]);b.onmouseleave=()=>paint(rate,LAB[rate]||'Tap a star to rate');
+ b.onclick=()=>{rate=i;paint(i,LAB[i])};sb.appendChild(b);
+}
+function paint(n,t){[...sb.children].forEach((b,i)=>{b.classList.toggle('on',i<n);b.setAttribute('aria-checked',i+1===rate)});rl.textContent=t}
+$('#rform').onsubmit=e=>{
+ e.preventDefault();const m=$('#rmsg');m.classList.add('show');
+ if(!rate){m.textContent='Please choose a star rating first.';return}
+ addRev([rate,$('#rn').value.trim()||'Guest',$('#rc').value.trim()||'Lovely experience.'],true);
+ m.textContent='Thank you for your feedback!';e.target.reset();rate=0;paint(0,'Tap a star to rate');
+};
+
+/* enquiry form */
+const ed=$('#ed');ed.min=new Date().toISOString().split('T')[0];
+$('#eform').onsubmit=e=>{
+ e.preventDefault();const m=$('#emsg'),n=$('#en').value.trim(),p=$('#ep').value.replace(/\D/g,'');
+ m.classList.add('show');
+ if(!n||p.length<10){m.textContent='Please enter your name and a valid 10-digit phone number.';return}
+ m.textContent=`Thanks ${n}! We will call you on ${p} to confirm.`;e.target.reset();
+};
+
+/* chatbot */
+const box=$('#box'),cb=$('#chatBtn'),ms=$('#msgs'),ci=$('#ci');
+const R=[
+ [/hi|hello|hey|namaste/,()=>`Hello! Welcome to ${C.name}. How can I help you today?`],
+ [/menu|food|coffee|eat|drink|dish|item/,()=>'We serve small-batch coffee, fresh bites and desserts. Browse the full menu in the Menu section above. Our Cold Brew and Belgian Chocolate Cake are guest favourites.'],
+ [/price|cost|rate|budget/,()=>'Coffees start at Rs 99 and most meals are between Rs 149 and Rs 279. Full prices are in the Menu section.'],
+ [/time|timing|open|close|hour/,()=>`We are open ${C.hours}.`],
+ [/where|location|address|direction|map|reach/,()=>`You will find us at ${C.address}. Tap "Get directions" in the Find us section to open the map.`],
+ [/book|reserve|table|party|birthday|event/,()=>'You can reserve a table using the booking form on this page. Tell us the date and number of guests, and we will confirm shortly.'],
+ [/offer|discount|deal|coupon/,()=>'We run weekday combo offers and free dessert on birthdays. Message us on WhatsApp for today\'s offer.'],
+ [/wifi|wi-fi|parking|ac|pet/,()=>'Yes, we have free Wi-Fi and air conditioning. Parking is available nearby.'],
+ [/phone|call|contact|number|whatsapp|email/,()=>`Call us on ${C.phone} or WhatsApp us using the green button on this page.`],
+ [/thank|thanks|ok|great|nice/,()=>'You are welcome! See you at the cafe soon.']
+];
+const add=(t,who)=>{const d=document.createElement('div');d.className='b '+who;d.textContent=t;ms.appendChild(d);ms.scrollTop=ms.scrollHeight;return d};
+function ask(q){
+ add(q,'me');const t=document.createElement('div');t.className='b bot dots';t.innerHTML='<span></span><span></span><span></span>';ms.appendChild(t);ms.scrollTop=ms.scrollHeight;
+ const l=q.toLowerCase(),hit=R.find(([re])=>re.test(l));
+ setTimeout(()=>{t.remove();add(hit?hit[1]():'I can help with the menu, timings, booking and location. You can also tap the WhatsApp button to talk to our team.','bot')},650);
+}
+['Menu','Timings','Book a table','Location'].forEach(c=>{const b=document.createElement('button');b.textContent=c;b.onclick=()=>ask(c);$('#chips').appendChild(b)});
+let greeted=false;
+function toggle(o){box.classList.toggle('open',o);document.body.classList.toggle('co',o);cb.setAttribute('aria-expanded',o);
+ if(o&&!greeted){greeted=true;add(`Hi! I'm the ${C.name} assistant. Ask me about our menu, timings, booking or location.`,'bot')}
+ if(o)ci.focus()}
+cb.onclick=()=>toggle(!box.classList.contains('open'));$('#chatX').onclick=()=>toggle(false);
+$('#cform').onsubmit=e=>{e.preventDefault();const v=ci.value.trim();if(v){ask(v);ci.value=''}};
+})();
+</script>
+</body>
+</html>
