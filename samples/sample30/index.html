@@ -88,7 +88,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:o
 .mi{display:inline-flex;align-items:center;gap:.6rem;padding-right:3rem;white-space:nowrap;font-size:.95rem}
 .mi .ic{color:#e07a92;width:.95em;height:.95em}
 .mi b{font:400 .85rem 'Geist Mono';color:#a8a199}
-.bl{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 2rem 0 max(20px,calc((100vw - 1180px)/2));background:linear-gradient(90deg,var(--dk) 78%,transparent);font-weight:500;font-size:.9rem;color:#fff;z-index:2}
+.bl{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 2rem 0 max(20px,calc((100vw - 1180px)/2));background:var(--dk);box-shadow:16px 0 14px -2px var(--dk);font-weight:500;font-size:.9rem;color:#fff;z-index:2}
 
 /* ====== About ====== */
 .ab{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,9vw,130px);align-items:center}
@@ -186,8 +186,8 @@ img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:o
 .stars button .ic{width:2rem;height:2rem}
 .stars button.on{color:var(--ac)}
 .stars button:hover{transform:scale(1.15)}
-.ok{display:flex;gap:.7rem;align-items:flex-start;padding:1rem 1.1rem;border-radius:1.1rem;background:#e7f1ea;color:#27553a;margin-top:1rem;animation:up .5s var(--ease) both}
-.ok .ic{margin-top:.2rem}
+.done{display:flex;gap:.7rem;align-items:flex-start;padding:1rem 1.1rem;border-radius:1.1rem;background:#e7f1ea;color:#27553a;margin-top:1rem;animation:up .5s var(--ease) both}
+.done .ic{margin-top:.2rem}
 
 /* ====== Reserve (dark) ====== */
 .rsv{background:var(--dk);color:#ece8e0}
@@ -301,8 +301,9 @@ body.co .fab.wa{opacity:0;pointer-events:none}
  .links.open{display:flex}
  .links a,.links button{padding:.8rem 1rem}
  .links a.btn{margin:.3rem 0 0;justify-content:center}
- .hero{display:block;min-height:auto;padding:104px 0 0}
- .hero-img{position:relative;width:100%;height:50dvh;margin-top:2rem;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 32%);mask-image:linear-gradient(180deg,transparent 0,#000 32%)}
+ .hero{display:flex;flex-direction:column;align-items:stretch;min-height:auto;padding:104px 0 0}
+ .hero .wrap{order:1}
+ .hero-img{order:2;position:relative;width:100%;height:50dvh;margin-top:2rem;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 32%);mask-image:linear-gradient(180deg,transparent 0,#000 32%)}
  .chip{left:20px;right:auto;bottom:24px}
  .ab,.mg,.rg,.rsv-g,.vg{grid-template-columns:1fr;gap:44px}
  .ab-i{max-width:380px;margin-bottom:6%}
@@ -447,7 +448,7 @@ body.co .fab.wa{opacity:0;pointer-events:none}
    <div class="fd"><label for="rn">Your name</label><input id="rn" autocomplete="name" placeholder="Optional"></div>
    <div class="fd"><label for="rc">Your feedback</label><textarea id="rc" placeholder="What did you enjoy most?"></textarea></div>
    <button class="btn dk" type="submit">Submit feedback</button>
-   <div class="ok" id="rok" hidden><svg class="ic"><use href="#i-check"/></svg><span>Thank you. Your review is now on the list.</span></div>
+   <div class="done" id="rok" hidden><svg class="ic"><use href="#i-check"/></svg><span>Thank you. Your review is now on the list.</span></div>
   </form>
  </div>
 </section>
@@ -473,7 +474,7 @@ body.co .fab.wa{opacity:0;pointer-events:none}
    </div>
    <div class="fd"><label for="em">Message</label><textarea id="em" placeholder="Birthday, small party, or any question"></textarea></div>
    <button class="btn dk" type="submit">Send enquiry</button>
-   <div class="ok" id="eok" hidden><svg class="ic"><use href="#i-check"/></svg><span id="eokt"></span></div>
+   <div class="done" id="eok" hidden><svg class="ic"><use href="#i-check"/></svg><span id="eokt"></span></div>
   </form>
  </div>
 </section>
