@@ -1,6 +1,6 @@
 // Add a new sample: copy its folder to samples/<category>/<slug>/ and add ONE line below.
 // template:true  = placeholder name (safe to show anyone)   template:false = real business name
-window.CATEGORIES = [{"id": "jewellery", "label": "Jewellery"}, {"id": "dental", "label": "Dental"}, {"id": "real-estate", "label": "Real Estate"}, {"id": "food-cafe", "label": "Food & Cafe"}, {"id": "hotels", "label": "Hotels"}, {"id": "healthcare", "label": "Healthcare"}, {"id": "education", "label": "Education"}, {"id": "other", "label": "Other"}];
+window.CATEGORIES = [{"id": "jewellery", "label": "Jewellery"}, {"id": "dental", "label": "Dental"}, {"id": "real-estate", "label": "Real Estate"}, {"id": "food-cafe", "label": "Food & Cafe"}, {"id": "hotels", "label": "Hotels"}, {"id": "healthcare", "label": "Healthcare"}, {"id": "education", "label": "Education"}, {"id": "gym", "label": "Gym & Fitness"},{"id": "other", "label": "Other"}];
 window.SAMPLES = [
   {"name": "Fine Jewellery · Cream & Gold", "cat": "jewellery", "template": true, "path": "jewellery/template-cream-gold"},
   {"name": "Ghasi Ram Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/ghasi-ram-jewellers"},
@@ -36,4 +36,5 @@ window.SAMPLES = [
   {"name": "AJ Fashion", "cat": "other", "template": false, "path": "other/aj-fashion"},
   {"name": "BTN Overseas", "cat": "other", "template": false, "path": "other/btn-overseas"},
   {"name": "Rudransh Modular Kitchens", "cat": "other", "template": false, "path": "other/rudransh-modular-kitchens"},
+  {"name": "Gym · Dark Bold", "cat": "gym", "template": true, "path": "gym/template-dark-bold"},
 ];
