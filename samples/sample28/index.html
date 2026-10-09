@@ -104,6 +104,15 @@ footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem calc(6rem + env(s
 .ty{display:flex;gap:.25rem;padding:.8rem 1rem}.ty i{width:.4rem;height:.4rem;border-radius:50%;background:var(--mut);animation:pu2 1s infinite}.ty i:nth-child(2){animation-delay:.15s}.ty i:nth-child(3){animation-delay:.3s}@keyframes pu2{50%{transform:translateY(-4px);opacity:.4}}
 .qr{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .8rem}.qr button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:.4rem .8rem;font:inherit;font-size:.8rem;cursor:pointer;transition:.25s}.qr button:hover{background:var(--ink);color:#fff}
 .ci{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--line)}.ci input{flex:1;min-width:0;border:0;background:var(--bg);border-radius:99px;padding:.7rem 1rem;font:inherit;font-size:.92rem;outline:0}.ci button{width:2.7rem;border:0;border-radius:50%;background:var(--acc);color:#fff;cursor:pointer;display:grid;place-items:center}
+.pg{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--acc);transform-origin:0;transform:scaleX(0);z-index:40}
+.mq{display:flex;overflow:hidden;border-block:1px solid var(--line);padding:1.1rem 0;font:500 1.15rem Outfit,sans-serif;color:var(--mut);white-space:nowrap}
+.mq div{flex:none;display:flex;gap:3rem;padding-right:3rem;animation:mq 34s linear infinite}.mq span:after{content:"";display:inline-block;width:.4rem;height:.4rem;border-radius:50%;background:var(--acc);margin-left:3rem;vertical-align:middle}@keyframes mq{to{transform:translateX(-100%)}}
+.hs{position:absolute;top:.8rem;right:.8rem;width:2.5rem;height:2.5rem;border-radius:50%;border:0;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);display:grid;place-items:center;cursor:pointer;transition:transform .3s var(--sp)}.hs:hover{transform:scale(1.1)}.hs:active{transform:scale(.9)}.hs.on{background:var(--acc);color:#fff}.hs.on svg{fill:currentColor}
+.sv{border:1px solid var(--line);background:#fff;border-radius:99px;padding:.55rem 1rem;font:inherit;font-size:.85rem;cursor:pointer;display:inline-flex;gap:.4rem;align-items:center}.sv[hidden]{display:none}.sv b{color:var(--acc)}
+.ring{position:relative;width:12rem;margin:0 auto 1.8rem}#rg2{transition:stroke-dashoffset .6s var(--sp)}.ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.ring small{color:var(--mut);font-size:.75rem}.ring b{font:500 1.5rem Outfit,sans-serif;letter-spacing:-.03em}
+.f1 label.sl{display:flex;justify-content:space-between}.f1 label b{font-family:Outfit;color:var(--acc)}.f1 input[type=range]{padding:0;border:0;background:none;accent-color:var(--acc);box-shadow:none}
+.sr{display:flex;justify-content:space-between;padding:.8rem 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--mut)}.sr b{color:var(--ink);font-family:Outfit}
+.faq details{border-top:1px solid var(--line);padding:1.3rem 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;font:500 1.2rem Outfit,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:1rem}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";color:var(--acc);font-size:1.5rem;line-height:1;transition:transform .3s}.faq details[open] summary:after{transform:rotate(45deg)}.faq p{color:var(--mut);margin-top:.8rem;max-width:56ch}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -120,12 +129,12 @@ footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem calc(6rem + env(s
 <symbol id="bd" viewBox="0 0 24 24"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/></symbol>
 <symbol id="ar2" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 12h8M12 4v8"/></symbol>
 <symbol id="ml" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 7 9-7"/></symbol>
-</defs></svg>
+<symbol id="hr" viewBox="0 0 24 24"><path d="M12 20s-8-4.8-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.2 12 20 12 20z"/></symbol></defs></svg><div class="pg" id="pg"></div>
 
 <header class="nav">
 <a class="logo" href="#top"><span class="mk"><svg class="i"><use href="#home"/></svg></span><span data-biz="name">Your Business Name</span></a>
-<nav><a href="#listings">Properties</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
-<a class="btn sm" href="#enquiry">Book a visit</a>
+<nav><a href="#listings">Properties</a><a href="#services">Services</a><a href="#emi">EMI</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+<div style="display:flex;gap:.6rem;align-items:center"><button class="sv" id="sv" hidden><svg class="i"><use href="#hr"/></svg>Saved <b id="sn">0</b></button><a class="btn sm" href="#enquiry">Book a visit</a></div>
 </header>
 
 <main>
@@ -148,6 +157,7 @@ footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem calc(6rem + env(s
 </div>
 </section>
 
+<div class="mq" aria-hidden="true"><div><span>Verified listings</span><span>Clear title checks</span><span>Free site visits</span><span>Home loan assistance</span><span>Registry support</span><span>After-sale care</span></div></div>
 <section class="wrap" id="listings">
 <div class="head"><div><p class="eyebrow">Featured properties</p><h2>Current<br>opportunities.</h2></div>
 <div class="tabs" id="tabs"><button class="on" data-f="all">All</button><button data-f="res">Residential</button><button data-f="plot">Plots</button><button data-f="com">Commercial</button></div></div>
@@ -181,6 +191,15 @@ footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem calc(6rem + env(s
 </ul></div>
 </section>
 
+<section class="wrap" id="emi" style="padding-top:0"><div class="split" style="align-items:center">
+<div class="rv"><p class="eyebrow">Plan smart</p><h2>Know your EMI before you visit.</h2><p class="lead" style="margin-top:1.2rem">Move the sliders and see your monthly payment instantly. Our team helps you secure the best rate from partner banks.</p></div>
+<div class="panel rv" style="--i:1"><div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="#e8e3d6" stroke-width="12"/><circle id="rg2" cx="60" cy="60" r="50" fill="none" stroke="#a67c3d" stroke-width="12" stroke-linecap="round" stroke-dasharray="314" transform="rotate(-90 60 60)"/></svg><div><small>Monthly EMI</small><b id="eo"></b></div></div>
+<div class="f1"><label class="sl" for="ea">Loan amount <b id="la"></b></label><input type="range" id="ea" min="10" max="300" value="60"></div>
+<div class="f1"><label class="sl" for="er">Interest rate <b id="lr"></b></label><input type="range" id="er" min="6" max="14" step=".1" value="8.5"></div>
+<div class="f1"><label class="sl" for="et">Tenure <b id="lt"></b></label><input type="range" id="et" min="5" max="30" value="20"></div>
+<div class="sr"><span>Total interest</span><b id="ti"></b></div><div class="sr"><span>Total payable</span><b id="tp"></b></div>
+<a class="btn" href="#enquiry" style="margin-top:1rem">Get best loan offers <svg class="i"><use href="#ar"/></svg></a></div></div></section>
+
 <section class="wrap" id="reviews" style="padding-top:0">
 <div class="split">
 <div><p class="eyebrow">Client stories</p><h2 style="margin-bottom:1.5rem">Trust, earned one home at a time.</h2>
@@ -199,6 +218,15 @@ footer{border-top:1px solid var(--line);padding:1.8rem 1.25rem calc(6rem + env(s
 <div class="ok" id="rok" hidden><span class="mk"><svg class="i"><use href="#ck"/></svg></span><h3>Thank you</h3><p>Your feedback has been received.</p></div>
 </div></div>
 </section>
+
+<section class="wrap" id="faq" style="padding-top:0"><div class="split"><div class="rv"><p class="eyebrow">Good to know</p><h2>Questions, answered.</h2></div>
+<div class="faq rv" style="--i:1">
+<details><summary>How do you verify a property before listing it?</summary><p>Every listing goes through ownership, title and approval checks before it reaches you, so you only see properties we would buy ourselves.</p></details>
+<details><summary>Do you charge brokerage?</summary><p>Brokerage applies only on a successful deal and is always shared upfront. There are no hidden charges.</p></details>
+<details><summary>Can you help me get a home loan?</summary><p>Yes. We work with leading banks, compare offers for you and handle the paperwork until disbursal.</p></details>
+<details><summary>How soon can I schedule a site visit?</summary><p>Usually within 24 hours, seven days a week. Request a visit above and an advisor will confirm a time.</p></details>
+<details><summary>Do you help with registry and documents?</summary><p>Yes. From agreement drafting to registry and mutation, our team supports you till the keys are in your hand.</p></details>
+</div></div></section>
 
 <section class="dark" id="enquiry"><div class="wrap"><div class="split">
 <div><p class="eyebrow">Book a site visit</p><h2>Let us find your next address.</h2>
@@ -267,12 +295,34 @@ const R=[[/price|cost|budget|rate|lakh|crore/,"Our listings start from around 40
 [/call|phone|contact|number|whatsapp/,"You can call us or tap the WhatsApp button for an instant reply during office hours, 10 am to 7 pm."],
 [/hi|hello|hey/,"Hello! How can we help you find your property today?"]];
 const cm=$('#cm'),cp=$('#cp'),add=(t,c)=>{const d=document.createElement('div');d.className='m '+c;d.textContent=t;cm.append(d);cm.scrollTop=cm.scrollHeight;return d};
-function ask(t){add(t,'u');const y=document.createElement('div');y.className='m b ty';y.innerHTML='<i></i><i></i><i></i>';cm.append(y);cm.scrollTop=cm.scrollHeight;
-setTimeout(()=>{y.remove();const q=t.toLowerCase(),r=R.find(x=>x[0].test(q));add(r?r[1]:"Thanks for your message. For the best answer, leave your number in the enquiry form or tap WhatsApp and our team will reply shortly.",'b')},700)}
-["Property prices","Book a site visit","Rental homes","Loan help"].forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>ask(t);$('#qr').append(b)});
+let ls=0,lq={};
+function bot(t){const y=document.createElement('div');y.className='m b ty';y.innerHTML='<i></i><i></i><i></i>';cm.append(y);cm.scrollTop=cm.scrollHeight;setTimeout(()=>{y.remove();add(t,'b')},700)}
+function ask(t){add(t,'u');
+if(ls==1){lq.n=t;ls=2;return bot("Nice to meet you, "+t+". What is your phone number?")}
+if(ls==2){if(!/^[+\d\s-]{10,15}$/.test(t))return bot("That number does not look right. Please enter your 10-digit mobile number.");ls=0;return bot("Thank you "+lq.n+". An advisor will call you shortly. For a faster reply, tap the green WhatsApp button.")}
+if(/callback|call me|advisor/i.test(t)){ls=1;return bot("Happy to arrange that. May I know your name?")}
+const r=R.find(x=>x[0].test(t.toLowerCase()));bot(r?r[1]:"Thanks for your message. For the best answer, tap Get a callback or the WhatsApp button and our team will reply shortly.")}
+["Property prices","Book a site visit","Get a callback","Rental homes"].forEach(t=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>ask(t);$('#qr').append(b)});
 add("Welcome to "+C.name+". What are you looking for today?",'b');
 const tg=o=>{cp.classList.toggle('open',o);cp.setAttribute('aria-hidden',!o);if(o)$('#cin').focus()};
 $('#cb').onclick=()=>tg(!cp.classList.contains('open'));$('#cx').onclick=()=>tg(false);
 $('#cf').onsubmit=e=>{e.preventDefault();const v=$('#cin').value.trim();if(v){ask(v);$('#cin').value=''}};
+
+/* progress, counters */
+const pg=$('#pg');addEventListener('scroll',()=>{pg.style.transform='scaleX('+(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))+')'},{passive:true});
+$$('.stats b').forEach(b=>{const t=b.textContent,n=+t.match(/[\d,]+/)[0].replace(/,/g,''),f=t.replace(/[\d,]+/,'{}'),t0=performance.now();(function u(now){const p=Math.min((now-t0)/1600,1);b.textContent=f.replace('{}',Math.round(n*(1-Math.pow(1-p,3))).toLocaleString('en-IN'));if(p<1)requestAnimationFrame(u)})(t0)});
+/* marquee clone */
+const mq=$('.mq');mq.append(mq.firstElementChild.cloneNode(true));
+/* shortlist */
+const sv=new Set();$$('.it').forEach(a=>{const b=document.createElement('button');b.className='hs';b.setAttribute('aria-label','Save property');b.innerHTML='<svg class="i"><use href="#hr"/></svg>';b.onclick=()=>{const t=a.querySelector('h3').textContent;sv.has(t)?sv.delete(t):sv.add(t);b.classList.toggle('on');$('#sn').textContent=sv.size;$('#sv').hidden=!sv.size};a.querySelector('.pic').append(b)});
+$('#sv').onclick=()=>open("https://wa.me/"+C.wa+"?text="+encodeURIComponent("Hi, I am interested in: "+[...sv].join(", ")),'_blank');
+/* EMI */
+const fm=n=>n>=1e7?"₹ "+(n/1e7).toFixed(2)+" Cr":n>=1e5?"₹ "+(n/1e5).toFixed(1)+" Lakh":"₹ "+Math.round(n).toLocaleString('en-IN');
+function emi(){const P=+$('#ea').value*1e5,r=+$('#er').value/1200,n=+$('#et').value*12,E=P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1),T=E*n;
+$('#la').textContent=fm(P);$('#lr').textContent=$('#er').value+"%";$('#lt').textContent=$('#et').value+" yrs";$('#eo').textContent="₹ "+Math.round(E).toLocaleString('en-IN');$('#ti').textContent=fm(T-P);$('#tp').textContent=fm(T);$('#rg2').style.strokeDashoffset=314*(1-P/T)}
+['#ea','#er','#et'].forEach(x=>$(x).oninput=emi);emi();
+/* SEO + GEO structured data */
+const sd=document.createElement('script');sd.type='application/ld+json';
+sd.textContent=JSON.stringify([{"@context":"https://schema.org","@type":"RealEstateAgent",name:C.name,telephone:C.phone,address:C.addr,url:location.href},{"@context":"https://schema.org","@type":"FAQPage",mainEntity:$$('.faq details').map(d=>({"@type":"Question",name:d.querySelector('summary').textContent,acceptedAnswer:{"@type":"Answer",text:d.querySelector('p').textContent}}))}]);document.head.append(sd);
 </script>
 </body></html>
