@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3f8f9">
+<title>Dental Studio Panipat | Implants, Smile Design &amp; Root Canal in Model Town</title>
+<meta name="description" content="Dental Studio, Model Town, Panipat. Painless dental care, implants, smile designing, root canal and kids dentistry by Dr. Mansi Chawla. 5.0 rated by 632+ patients.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f8f9;--ink:#06232b;--deep:#0a3b44;--aq:#12a89a;--soft:#e0f3f1;--gold:#eab84a;--mut:#4b6a72;--f:'Outfit',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.65 var(--f);background:var(--bg);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:110px 0;position:relative}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.04}
+h1{font-size:clamp(2.8rem,6.4vw,5.4rem)}
+h2{font-size:clamp(2.1rem,4.4vw,3.6rem);margin-bottom:16px}
+h3{font-size:1.4rem;letter-spacing:-.02em}
+.l{color:var(--mut);max-width:52ch;font-weight:300;font-size:1.12rem}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 30px;border-radius:99px;font:500 1rem var(--f);text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(6,35,43,.5)}
+.btn:active{transform:scale(.98)}
+.btn.o{background:transparent;color:var(--ink)}
+.btn.a{background:var(--aq);border-color:var(--aq)}
+:focus-visible{outline:3px solid var(--aq);outline-offset:3px}
+/* nav */
+header{position:fixed;top:calc(14px + env(safe-area-inset-top,0));left:0;right:0;z-index:50;padding:0 16px}
+.bar{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 22px;border-radius:99px;background:rgba(255,255,255,.72);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 40px -12px rgba(6,35,43,.18),inset 0 1px 0 #fff}
+.logo{font-weight:600;font-size:1.25rem;letter-spacing:-.03em;text-decoration:none;display:flex;gap:9px;align-items:center}
+.logo svg{width:26px;height:26px}
+nav{display:flex;gap:28px;align-items:center}nav a{text-decoration:none;font-size:.96rem;color:var(--mut)}nav a:hover{color:var(--ink)}
+nav .btn{padding:11px 24px;color:#fff}
+#bg{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:1.2rem;cursor:pointer}
+/* hero */
+.hero{min-height:100dvh;padding:130px 0 70px;display:flex;align-items:center;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative}
+.live{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:99px;background:#fff;border:1px solid #dbe9ea;font-size:.9rem;margin-bottom:26px}
+.live i{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 2s infinite}
+h1 span{display:block;overflow:hidden;padding-bottom:.06em}h1 span b{display:block;font-weight:600;transform:translateY(110%);animation:up .95s cubic-bezier(.16,1,.3,1) forwards}
+h1 span:nth-child(2) b{animation-delay:.1s}h1 span:nth-child(3) b{animation-delay:.2s}
+.hero .l{margin:26px 0 34px;opacity:0;animation:fade .8s .5s forwards}
+.cta,.proof{display:flex;gap:14px;flex-wrap:wrap;align-items:center;opacity:0;animation:fade .8s .65s forwards}
+.proof{margin-top:38px;gap:16px;animation-delay:.85s}
+.av{display:flex}.av img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid var(--bg);margin-left:-12px}.av img:first-child{margin:0}
+.proof small{display:block;color:var(--mut);line-height:1.3}.stars{color:var(--gold);letter-spacing:2px}
+.vis{position:relative;height:clamp(420px,72dvh,640px);opacity:0;animation:fade 1s .2s forwards}
+.vis>img{width:100%;height:100%;object-fit:cover;border-radius:40px 40px 40px 160px;box-shadow:0 40px 80px -30px rgba(6,35,43,.45)}
+.clip{position:absolute;inset:0;border-radius:40px 40px 40px 160px;overflow:hidden}.clip img{width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+.vis>img{display:none}
+.glass{position:absolute;padding:14px 20px;border-radius:22px;background:rgba(255,255,255,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 0 #fff,0 18px 40px -14px rgba(6,35,43,.35);line-height:1.3;font-size:.92rem}
+.glass b{display:block;font-size:1.05rem;font-weight:600}
+.g1{left:-34px;bottom:12%;animation:float 6s ease-in-out infinite}
+.g2{right:-14px;top:8%;animation:float 7s 1s ease-in-out infinite}
+.pol{position:absolute;right:18px;bottom:-26px;width:116px;padding:6px 6px 22px;background:#fff;border-radius:6px;transform:rotate(5deg);box-shadow:0 20px 40px -14px rgba(6,35,43,.4)}
+.pol img{width:100%;aspect-ratio:3/4;object-fit:cover}
+/* marquee */
+.mq{background:var(--deep);color:#fff;padding:24px 0;overflow:hidden}
+.mq div{display:flex;width:max-content;animation:mq 32s linear infinite}
+.mq span{font-size:1.6rem;font-weight:300;letter-spacing:-.02em;padding:0 28px;display:flex;align-items:center;gap:56px}
+.mq span:after{content:"";width:9px;height:9px;border-radius:50%;background:var(--aq)}
+/* about */
+.about .w{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+.pt{position:relative;width:100%;max-width:280px;justify-self:center}
+.pt img.m{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:36px;box-shadow:0 30px 60px -24px rgba(6,35,43,.4)}
+.pt .glass{right:-30px;bottom:-24px}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0 14px}
+.doc{padding:22px;border-radius:24px;background:#fff;border:1px solid #dbe9ea}
+.doc small{display:block;color:var(--mut);font-size:.9rem;line-height:1.5;margin-top:6px}
+.nums{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px;padding-top:30px;border-top:1px solid #d5e5e7}
+.nums b{display:block;font-size:2.8rem;font-weight:600;letter-spacing:-.04em;line-height:1}.nums span{color:var(--mut);font-size:.92rem}
+/* services */
+.svc{background:#fff}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:48px}
+.tile{border-radius:34px;padding:34px;position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.tile:hover{transform:translateY(-6px)}
+.tile.i{color:#fff}.tile.i>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.tile.i:hover>img{transform:scale(1.06)}
+.tile.i:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,35,43,.05) 20%,rgba(6,35,43,.88));z-index:1}
+.tile>*:not(img){position:relative;z-index:2}
+.t4{grid-column:span 4}.t2{grid-column:span 2}
+.tile.s{background:var(--soft)}.tile.d{background:var(--deep);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{padding:7px 15px;border-radius:99px;font-size:.88rem;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.tile.s .chips span{background:#fff;border-color:#cfe6e3}
+/* compare */
+.cmp{background:var(--ink);color:#fff}
+.cmp .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}.cmp .l{color:#a9c7c9}
+.sl{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:16/10;user-select:none;box-shadow:0 40px 80px -30px #000}
+.sl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sl .bf{filter:sepia(.8) saturate(1.6) brightness(.8);clip-path:inset(0 50% 0 0)}
+.sl input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.sl .ln{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;pointer-events:none}
+.sl .ln:after{content:"\2194";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:1.3rem;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.tag{position:absolute;bottom:16px;padding:6px 16px;border-radius:99px;background:rgba(6,35,43,.75);font-size:.85rem;pointer-events:none}
+/* gallery */
+.gal{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 26px;margin-top:56px}
+.ph{width:178px;padding:8px 8px 34px;background:#fff;border-radius:8px;box-shadow:0 22px 44px -18px rgba(6,35,43,.35);transition:transform .4s cubic-bezier(.16,1,.3,1);position:relative}
+.ph img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+.ph small{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:var(--mut);font-size:.82rem}
+.ph:nth-child(odd){transform:rotate(-3deg)}.ph:nth-child(even){transform:rotate(2.5deg) translateY(14px)}
+.ph:hover{transform:rotate(0) scale(1.08);z-index:3}
+/* reviews */
+.rev{background:var(--soft)}
+.rh{display:flex;align-items:center;gap:22px;margin-bottom:40px;flex-wrap:wrap}.rh b{font-size:5rem;font-weight:600;letter-spacing:-.05em;line-height:1}
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.q{background:#fff;border-radius:28px;padding:30px}.q p{margin:12px 0 18px}.q cite{font-style:normal;color:var(--mut);font-size:.92rem}
+.fb{margin-top:48px;background:var(--ink);color:#fff;border-radius:40px;padding:48px;display:grid;grid-template-columns:.85fr 1.15fr;gap:48px}.fb .l{color:#a9c7c9}
+.rate{display:flex;gap:4px;margin-bottom:6px}.rate button{background:none;border:0;font-size:2.6rem;line-height:1;color:#35595e;cursor:pointer;transition:transform .2s,color .2s}.rate button.on{color:var(--gold)}.rate button:hover{transform:scale(1.2) rotate(-6deg)}
+.f{display:grid;gap:16px}
+label{display:grid;gap:8px;font-size:.9rem;font-weight:500}
+input,select,textarea{width:100%;padding:15px 18px;border-radius:16px;border:1px solid #d5e5e7;font:inherit;background:#fff;color:var(--ink)}
+.fb input,.fb textarea{border-color:transparent}
+textarea{min-height:110px;resize:vertical}.msg{min-height:1.5em;font-weight:500}
+/* contact */
+.ct .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.info p{margin:20px 0}.info b{display:block;font-size:1.1rem;font-weight:600}.info a{color:var(--aq);font-weight:500}
+.cf{background:#fff;border-radius:36px;padding:38px;border:1px solid #dbe9ea;box-shadow:0 30px 60px -30px rgba(6,35,43,.25)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.map{display:block;width:100%;height:440px;border:0}
+footer{background:var(--ink);color:#a9c7c9;padding:34px 0 calc(34px + env(safe-area-inset-bottom,0));font-size:.92rem}footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+/* whatsapp */
+.wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0));z-index:60;display:flex;align-items:center;gap:10px;text-decoration:none}
+.wa span{background:#fff;padding:9px 16px;border-radius:99px;font-weight:500;font-size:.9rem;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.wa i{width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;animation:pulse 2.2s infinite}.wa svg{width:33px;height:33px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--d,0)*90ms)}.rv.in{opacity:1;transform:none}
+@keyframes up{to{transform:none}}@keyframes fade{to{opacity:1}}@keyframes float{50%{transform:translateY(-12px)}}@keyframes kb{to{transform:scale(1.1)}}@keyframes mq{to{transform:translateX(-50%)}}@keyframes drift{to{transform:translate(60px,40px) scale(1.2)}}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 26px rgba(37,211,102,0)}}
+@media(max-width:960px){
+ .hero .w,.about .w,.cmp .w,.ct .w,.fb{grid-template-columns:1fr}.hero{padding-top:110px}
+ .vis{height:440px}.g1{left:8px}.g2{right:8px}.pol{right:10px}.pt{margin:0 auto 20px}.pt .glass{right:-10px}
+ .qs{grid-template-columns:1fr}.t4,.t2{grid-column:span 6}.tile{min-height:280px}
+}
+@media(max-width:720px){
+ body{font-size:16px}section{padding:76px 0}#bg{display:block}
+ nav{position:absolute;top:66px;left:16px;right:16px;background:rgba(255,255,255,.96);border-radius:28px;flex-direction:column;padding:22px;gap:18px;display:none;box-shadow:0 20px 50px rgba(6,35,43,.2)}nav.open{display:flex}
+ .docs,.two{grid-template-columns:1fr}.fb{padding:30px 24px}.cf{padding:26px}.wa span{display:none}.vis{height:380px}.map{height:340px}
+ .ph{width:calc(50% - 16px)}.mq span{font-size:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}h1 span b,.hero .l,.cta,.proof,.vis,.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+ <a class="logo" href="#top"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5c-3-2.600-9-1.800-9 4.500 0 4 2 5 2.500 9.500.4 3.500 1.200 7 3.200 7 1.800 0 1.600-5 3.300-5s1.500 5 3.300 5c2 0 2.800-3.500 3.200-7C23 14.500 25 13.500 25 9.500 25 3.200 19 2.400 16 5z" stroke="#12a89a" stroke-width="2.200"/></svg>Dental Studio</a>
+ <button id="bg" aria-label="Menu" aria-expanded="false">&#9776;</button>
+ <nav id="nav"><a href="#about">About</a><a href="#services">Treatments</a><a href="#smiles">Smiles</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a class="btn" href="#contact">Book a visit</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="blob" style="width:520px;height:520px;background:#bfece6;top:-120px;right:-80px"></div>
+ <div class="blob" style="width:380px;height:380px;background:#cfe3ff;bottom:-100px;left:-60px;animation-delay:-5s"></div>
+ <div class="w">
+  <div>
+   <div class="live"><i></i>Now booking in Model Town, Panipat</div>
+   <h1><span><b>Smiles designed</b></span><span><b>with precision</b></span><span><b>and care.</b></span></h1>
+   <p class="l">Painless treatments, hospital-grade hygiene and advanced implant and cosmetic dentistry, led by Dr. Mansi Chawla since 2015.</p>
+   <div class="cta"><a class="btn a" href="#contact">Book an appointment</a><a class="btn o" href="tel:+918930227707">Call 89302 27707</a></div>
+   <div class="proof"><div class="av"><img src="images/doctor-patient.jpg" alt="Happy patient"><img src="images/team-patient.jpg" alt="Patient with team"><img src="images/treatment.jpg" alt="Patient in treatment"></div><div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><small>5.0 from 632+ patient reviews</small></div></div>
+  </div>
+  <div class="vis">
+   <div class="clip"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=80" alt="Modern dental treatment room with chair and equipment" width="1100" height="1400"></div>
+   <div class="glass g2"><b>Painless care</b>Gentle, modern treatment</div>
+   <div class="glass g1"><b>Dr. Mansi Chawla</b>BDS, MIDA Smile Designer</div>
+   <div class="pol"><img src="images/doctor-patient.jpg" alt="Doctor and patient smiling together"></div>
+  </div>
+ </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div>
+ <span>Dental implants</span><span>Smile designing</span><span>Root canal</span><span>Teeth whitening</span><span>Child dentistry</span><span>Braces</span><span>Veneers</span><span>Gum care</span>
+ <span>Dental implants</span><span>Smile designing</span><span>Root canal</span><span>Teeth whitening</span><span>Child dentistry</span><span>Braces</span><span>Veneers</span><span>Gum care</span>
+</div></div>
+
+<section class="about" id="about"><div class="w">
+ <div class="pt rv"><img class="m" src="images/dr-mansi.jpg" alt="Dr. Mansi Chawla at her desk"><div class="glass"><b>Since 2015</b>Model Town, Panipat</div></div>
+ <div>
+  <h2 class="rv">Art and science, in one chair.</h2>
+  <p class="l rv" style="--d:1">Dental Studio is a multi-specialty centre of excellence. From a first check-up to a full smile makeover, you meet doctors who explain every step and work gently.</p>
+  <div class="docs rv" style="--d:2">
+   <div class="doc"><h3>Dr. Mansi Chawla</h3><small>Founder and lead dentist. BDS, MIDA, Smile Designer. Formerly at Deen Dayal Upadhyaya Hospital, Delhi.</small></div>
+   <div class="doc"><h3>Dr. Karamdeep Kaur</h3><small>BDS, MIDA, PG Aesthetics (State University of New York). Formerly at PGI, Rohtak.</small></div>
+  </div>
+  <p class="l rv" style="font-size:.98rem">Also consulting: Dr. Sakshi and Dr. Sapna. Wheelchair-accessible entrance and parking. Cards and UPI accepted.</p>
+  <div class="nums rv">
+   <div><b data-n="11" data-s="+">0</b><span>Years of care</span></div><div><b data-n="632" data-s="+">0</b><span>Patient reviews</span></div><div><b data-n="5" data-s=".0">0</b><span>Star rating</span></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="svc" id="services"><div class="w">
+ <h2 class="rv">Every treatment, under one roof.</h2>
+ <p class="l rv">Four specialities, one team that knows your history.</p>
+ <div class="bento">
+  <div class="tile i t4 rv"><img src="https://images.unsplash.com/photo-1657470179447-0f5aa16daa91?auto=format&fit=crop&w=1200&q=75" alt="Dentist treating a patient" loading="lazy"><h3>Restorative</h3><div class="chips"><span>Dental implants</span><span>Root canal (RCT)</span><span>Crowns and bridges</span><span>Fixed and removable dentures</span></div></div>
+  <div class="tile s t2 rv" style="--d:1"><h3>General dentistry</h3><div class="chips"><span>Ultrasonic scaling</span><span>Cavity prevention</span><span>Full mouth X-ray</span><span>Tooth-coloured fillings</span></div></div>
+  <div class="tile d t2 rv"><h3>Specialised</h3><div class="chips"><span>Child dentistry</span><span>Braces and wires</span><span>Gum treatment</span></div></div>
+  <div class="tile i t4 rv" style="--d:1"><img src="https://images.unsplash.com/photo-1660732205495-f65510d8180e?auto=format&fit=crop&w=1200&q=75" alt="Bright, healthy smile" loading="lazy"><h3>Cosmetic</h3><div class="chips"><span>Smile designing</span><span>Teeth whitening</span><span>Veneers</span><span>Cosmetic dentistry</span></div></div>
+ </div>
+</div></section>
+
+<section class="cmp" id="smiles"><div class="w">
+ <div class="rv"><h2>A brighter smile, in a few visits.</h2><p class="l">Whitening and smile designing remove stains and even out shade and shape. Drag to compare.</p><p class="l" style="font-size:.85rem;margin-top:14px">Illustration of the whitening effect. Ask us to see real patient cases.</p></div>
+ <div class="sl rv" style="--d:1">
+  <img src="https://images.unsplash.com/photo-1660732205495-f65510d8180e?auto=format&fit=crop&w=1300&q=80" alt="Smile after whitening" loading="lazy">
+  <img class="bf" id="bf" src="https://images.unsplash.com/photo-1660732205495-f65510d8180e?auto=format&fit=crop&w=1300&q=80" alt="Smile before whitening" loading="lazy">
+  <span class="tag" style="left:16px">Before</span><span class="tag" style="right:16px">After</span><div class="ln" id="ln"></div>
+  <input type="range" min="0" max="100" value="50" id="rg" aria-label="Compare before and after">
+ </div>
+</div></section>
+
+<section><div class="w">
+ <h2 class="rv" style="text-align:center;margin-inline:auto">Real people, real clinic.</h2>
+ <p class="l rv" style="text-align:center;margin-inline:auto">Moments from Dental Studio in Model Town.</p>
+ <div class="gal">
+  <div class="ph rv"><img src="images/team-signboard.jpg" alt="Doctors and a patient beside the Dental Studio sign" loading="lazy"><small>Our team</small></div>
+  <div class="ph rv" style="--d:1"><img src="images/doctor-patient.jpg" alt="Doctor and patient giving thumbs up" loading="lazy"><small>Happy patients</small></div>
+  <div class="ph rv" style="--d:2"><img src="images/team-patient.jpg" alt="Team with a patient after treatment" loading="lazy"><small>After treatment</small></div>
+  <div class="ph rv" style="--d:3"><img src="images/treatment.jpg" alt="Patient during a gentle dental procedure" loading="lazy"><small>Gentle care</small></div>
+  <div class="ph rv"><img src="images/reception.jpg" alt="Dental Studio reception area" loading="lazy"><small>Reception</small></div>
+  <div class="ph rv" style="--d:1"><img src="images/doctor-visit.jpg" alt="Doctor with a patient at the clinic" loading="lazy"><small>Check-up</small></div>
+  <div class="ph rv" style="--d:2"><img src="images/procedure.jpg" alt="Dentists attending a patient in the chair" loading="lazy"><small>In the chair</small></div>
+ </div>
+</div></section>
+
+<section class="rev" id="reviews"><div class="w">
+ <div class="rh rv"><b>5.0</b><div><div class="stars" style="font-size:1.7rem">&#9733;&#9733;&#9733;&#9733;&#9733;</div>Based on 632+ patient reviews</div></div>
+ <div class="qs" id="qs">
+  <div class="q rv"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>Great experience working with such unbelievably knowledgeable, committed and sweet doctors. Dealt with my teeth in a very gentle manner.</p><cite>Patient review</cite></div>
+  <div class="q rv" style="--d:1"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>I love Dr. Mansi's practice and staff. I am so comfortable when I am there... you feel you are a priority to them.</p><cite>Sagar Batta</cite></div>
+  <div class="q rv" style="--d:2"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>High hygiene standards, friendly and cooperative staff, painless treatments.</p><cite>Patient feedback</cite></div>
+ </div>
+ <form class="fb rv" id="fb" novalidate>
+  <div><h2>How was your visit?</h2><p class="l">Tap a star and tell us what we did well or can do better.</p></div>
+  <div class="f"><div class="rate" id="rate" role="radiogroup" aria-label="Rating"></div>
+   <label>Your name<input id="fn" autocomplete="name"></label>
+   <label>Your feedback<textarea id="ft"></textarea></label>
+   <button class="btn a" type="submit" style="justify-self:start">Submit feedback</button><div class="msg" id="fm" role="status"></div></div>
+ </form>
+</div></section>
+
+<section class="ct" id="contact"><div class="w">
+ <div class="info rv">
+  <h2>Book your visit.</h2><p class="l">Send your details and we will confirm your slot on WhatsApp or by phone.</p>
+  <p><b>Address</b>194-L, Ram Lal Chowk, opposite Rainbow Hospital, Model Town, Panipat, Haryana 132103</p>
+  <p><b>Phone</b><a href="tel:+918930227707">+91 89302 27707</a> or <a href="tel:+911804017707">0180-4017707</a></p>
+  <p><b>Hours</b>Monday to Saturday, 10 AM to 8 PM<br>Sunday, 9 AM to 2 PM</p>
+  <p><a href="https://www.facebook.com/Dentalstudiodentist/" target="_blank" rel="noopener">Facebook</a> &nbsp;&nbsp; <a href="https://www.instagram.com/dentalstudiopanipat/" target="_blank" rel="noopener">Instagram</a></p>
+ </div>
+ <form class="cf f rv" id="cf" style="--d:1" novalidate>
+  <div class="two"><label>Name<input id="cn" autocomplete="name"></label><label>Phone<input id="cp" type="tel" inputmode="tel" autocomplete="tel"></label></div>
+  <div class="two"><label>Treatment<select id="cs"><option>General check-up</option><option>Root canal</option><option>Dental implants</option><option>Smile designing</option><option>Teeth whitening</option><option>Braces</option><option>Child dentistry</option><option>Other</option></select></label><label>Preferred date<input id="cd" type="date"></label></div>
+  <label>Message<textarea id="cm"></textarea></label>
+  <button class="btn a" type="submit" style="justify-self:start">Send on WhatsApp</button><div class="msg" id="cmsg" role="status"></div>
+ </form>
+</div></section>
+</main>
+
+<iframe class="map" title="Dental Studio on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Dental+Studio+194-L+Ram+Lal+Chowk+Model+Town+Panipat+Haryana&output=embed"></iframe>
+<footer><div class="w"><span>&copy; 2026 Dental Studio, Model Town, Panipat</span><span>Implants, smile design, root canal and kids dentistry</span></div></footer>
+
+<a class="wa" href="https://wa.me/918930227707?text=Hello%20Dental%20Studio%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span>Chat with us</span><i><svg viewBox="0 0 32 32"><path fill="#fff" d="M16 3a13 13 0 0 0-11 19.800L3 29l6.400-2A13 13 0 1 0 16 3zm0 2.400A10.600 10.600 0 1 1 9.900 24.600l-.4-.2-3.800 1.200 1.200-3.700-.3-.4A10.600 10.600 0 0 1 16 5.400zm-4 5.300c-.3 0-.7.100-1 .5-.4.400-1.300 1.200-1.300 3s1.300 3.500 1.500 3.700c.2.300 2.600 4.100 6.400 5.600 3.200 1.200 3.800.9 4.500.9.700-.1 2.200-.9 2.500-1.800.3-.9.3-1.600.2-1.800l-.6-.4-2.200-1.100c-.3-.1-.6-.2-.8.200l-1 1.200c-.2.200-.4.300-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-2-1.800-2.300-.2-.3 0-.5.100-.7l.5-.6c.2-.2.200-.4.300-.6.100-.2 0-.4 0-.6l-1-2.400c-.3-.6-.5-.5-.7-.5z"/></svg></i></a>
+
+<script>
+const $=s=>document.querySelector(s),nav=$('#nav'),bg=$('#bg');
+bg.onclick=()=>bg.setAttribute('aria-expanded',nav.classList.toggle('open'));
+nav.onclick=e=>{if(e.target.tagName==='A')nav.classList.remove('open')};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);
+ const t=+e.target.dataset.n,s=e.target.dataset.s||'',t0=performance.now();
+ (function f(n){const p=Math.min((n-t0)/1500,1),v=Math.round(t*(1-Math.pow(1-p,3)));e.target.textContent=v+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
+document.querySelectorAll('[data-n]').forEach(el=>co.observe(el));
+const rg=$('#rg');rg.oninput=()=>{$('#bf').style.clipPath=`inset(0 ${100-rg.value}% 0 0)`;$('#ln').style.left=rg.value+'%'};
+let rating=0;const rate=$('#rate'),lb=['Poor','Fair','Good','Very good','Excellent'];
+function paint(n){[...rate.children].forEach((b,i)=>{b.classList.toggle('on',i<n);b.setAttribute('aria-checked',i+1===rating)})}
+for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.innerHTML='&#9733;';b.setAttribute('role','radio');b.setAttribute('aria-label',i+' star, '+lb[i-1]);
+ b.onmouseenter=()=>paint(i);b.onmouseleave=()=>paint(rating);b.onclick=()=>{rating=i;paint(i);$('#fm').textContent=lb[i-1]};rate.appendChild(b)}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('#fb').onsubmit=e=>{e.preventDefault();const n=$('#fn').value.trim(),t=$('#ft').value.trim(),m=$('#fm');
+ if(!rating||!n||!t){m.textContent='Choose a star rating and add your name and feedback.';return}
+ const q=document.createElement('div');q.className='q in';q.innerHTML=`<span class="stars">${'&#9733;'.repeat(rating)}</span><p>${esc(t)}</p><cite>${esc(n)}</cite>`;
+ $('#qs').prepend(q);e.target.reset();rating=0;paint(0);m.textContent='Thank you. Your feedback is now on the page.'};
+$('#cf').onsubmit=e=>{e.preventDefault();const n=$('#cn').value.trim(),p=$('#cp').value.trim(),m=$('#cmsg');
+ if(!n||p.replace(/\D/g,'').length<10){m.textContent='Enter your name and a valid phone number.';return}
+ const x=`Hello Dental Studio, I'd like to book an appointment.\nName: ${n}\nPhone: ${p}\nTreatment: ${$('#cs').value}\nPreferred date: ${$('#cd').value||'Flexible'}\nMessage: ${$('#cm').value||'-'}`;
+ window.open('https://wa.me/918930227707?text='+encodeURIComponent(x),'_blank','noopener');m.textContent='Opening WhatsApp to send your request.'};
+</script>
+</body>
+</html>

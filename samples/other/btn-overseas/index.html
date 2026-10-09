@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTN Overseas — IELTS, PTE &amp; Visa Consultants, Rohtak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2545;
+    --navy-deep:#081729;
+    --paper:#F7F4EC;
+    --paper-line:#E4DFCF;
+    --stamp:#C0392B;
+    --approved:#1B7A5A;
+    --stone:#7C7768;
+    --ink:#1B1F27;
+    --gold:#C6A15B;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.slab{
+    font-family:'Zilla Slab',serif;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- top strip ---------- */
+  .country-strip{
+    background:var(--navy-deep);
+    color:#DCE4EE;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    padding:8px 0;
+    overflow:hidden;
+    white-space:nowrap;
+  }
+  .country-strip .wrap{
+    display:flex;
+    gap:28px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .country-strip span{opacity:.85;}
+  .country-strip b{color:var(--gold);font-weight:600;}
+
+  /* ---------- header ---------- */
+  header{
+    background:var(--paper);
+    border-bottom:1px solid var(--paper-line);
+    position:sticky;top:0;z-index:50;
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:24px;
+    padding:14px 24px;
+    max-width:1120px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .brand .mark{
+    width:36px;height:36px;border:2px solid var(--navy);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Zilla Slab',serif;font-weight:700;color:var(--navy);font-size:14px;
+    flex-shrink:0;
+  }
+  .brand-text{line-height:1.15;white-space:nowrap;}
+  .brand-text .b1{font-family:'Zilla Slab',serif;font-weight:700;font-size:18px;color:var(--navy);}
+  .brand-text .b2{font-size:10.5px;letter-spacing:.06em;color:var(--stone);}
+  .nav-right{display:flex;align-items:center;gap:28px;flex-shrink:0;}
+  nav.links{display:flex;gap:22px;font-size:14px;font-weight:500;flex-shrink:0;}
+  nav.links a{color:var(--navy);position:relative;padding:4px 0;white-space:nowrap;}
+  nav.links a:hover{color:var(--stamp);}
+  .nav-cta{
+    background:var(--navy);color:var(--paper);
+    padding:9px 16px;border-radius:2px;font-size:13px;font-weight:600;
+    border:1px solid var(--navy);white-space:nowrap;flex-shrink:0;
+  }
+  .nav-cta:hover{background:var(--navy-deep);}
+  .burger{
+    display:none;background:none;border:none;font-size:22px;color:var(--navy);
+    cursor:pointer;padding:4px 6px;flex-shrink:0;line-height:1;
+  }
+
+  /* mobile dropdown menu */
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    background:var(--paper);
+    border-top:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+    padding:8px 24px 18px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    color:var(--navy);font-size:15px;font-weight:500;
+    padding:13px 0;border-bottom:1px solid var(--paper-line);
+  }
+  .mobile-menu a:last-of-type{border-bottom:none;}
+  .mobile-menu .nav-cta{
+    color:var(--paper);
+    text-align:center;margin-top:12px;padding:12px 16px;font-size:14px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+    padding:72px 0 0;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(247,244,236,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(247,244,236,.05) 1px, transparent 1px);
+    background-size:38px 38px;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;
+    align-items:center;
+    padding-bottom:0;
+  }
+  .eyebrow-doc{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid rgba(247,244,236,.35);
+    padding:6px 14px;border-radius:2px;
+    font-size:12.5px;color:#CBD6E6;margin-bottom:26px;
+  }
+  .eyebrow-doc .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;}
+  .hero h1{
+    font-size:44px;line-height:1.14;font-weight:600;color:#fff;
+    max-width:11.5ch;
+  }
+  .hero p.sub{
+    margin-top:20px;font-size:16.5px;line-height:1.65;color:#C7D2E0;
+    max-width:46ch;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--stamp);color:#fff;padding:14px 26px;
+    font-weight:600;font-size:15px;border-radius:2px;
+    box-shadow:0 8px 24px rgba(192,57,43,.35);
+  }
+  .btn-primary:hover{background:#a83226;}
+  .btn-ghost{
+    border:1px solid rgba(247,244,236,.5);color:var(--paper);
+    padding:14px 26px;font-weight:600;font-size:15px;border-radius:2px;
+  }
+  .btn-ghost:hover{background:rgba(247,244,236,.08);}
+
+  .stat-row{
+    display:flex;gap:36px;margin-top:46px;padding-top:26px;
+    border-top:1px solid rgba(247,244,236,.18);
+    flex-wrap:wrap;
+  }
+  .stat b{
+    display:block;font-family:'Zilla Slab',serif;font-size:26px;color:#fff;font-weight:600;
+  }
+  .stat span{font-size:12.5px;color:#AAB8CC;}
+
+  /* boarding-pass card */
+  .pass{
+    position:relative;z-index:1;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:6px;
+    padding:26px;
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+    transform:rotate(2deg);
+    margin-bottom:-50px;
+  }
+  .pass-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:1px dashed var(--paper-line);
+    padding-bottom:14px;margin-bottom:14px;
+  }
+  .pass-top .p1{font-size:11px;letter-spacing:.06em;color:var(--stone);}
+  .pass-top .p2{font-family:'Zilla Slab',serif;font-weight:700;font-size:18px;color:var(--navy);}
+  .stamp-badge{
+    border:2px solid var(--stamp);color:var(--stamp);
+    border-radius:50%;width:64px;height:64px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;font-family:'Zilla Slab',serif;font-weight:700;
+    transform:rotate(-12deg);font-size:12px;line-height:1.1;
+    flex-shrink:0;
+  }
+  .pass-route{display:flex;align-items:center;gap:10px;margin:16px 0;}
+  .pass-route .city{font-family:'Zilla Slab',serif;font-weight:700;font-size:20px;color:var(--navy);}
+  .pass-route .line{flex:1;height:1px;background:var(--paper-line);position:relative;}
+  .pass-route .line::after{content:"✈";position:absolute;left:50%;top:50%;transform:translate(-50%,-55%);font-size:13px;color:var(--stone);}
+  .pass-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:10px;}
+  .pass-fields div span{display:block;font-size:10.5px;letter-spacing:.05em;color:var(--stone);margin-bottom:2px;}
+  .pass-fields div b{font-size:14px;color:var(--ink);font-weight:600;}
+
+  /* ---------- perforated divider ---------- */
+  .perf{
+    height:26px;background:var(--paper);position:relative;
+  }
+  .perf::before{
+    content:"";
+    position:absolute;top:0;left:0;right:0;height:1px;
+    background-image:radial-gradient(circle,var(--navy) 2px, transparent 2.2px);
+    background-size:16px 1px;background-repeat:repeat-x;
+    background-position:0 0;
+    opacity:.5;
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:60ch;margin-bottom:52px;}
+  .section-head .kicker{
+    font-size:13px;color:var(--stamp);font-weight:600;margin-bottom:10px;display:block;
+  }
+  .section-head h2{font-size:32px;font-weight:600;color:var(--navy);line-height:1.2;}
+  .section-head p{margin-top:14px;font-size:15.5px;color:var(--stone);line-height:1.6;}
+
+  /* services as document panels */
+  .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--paper-line);}
+  .doc-panel{
+    border-right:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+    padding:32px 28px;position:relative;background:var(--paper);
+  }
+  .doc-panel:nth-child(3n){border-right:none;}
+  .doc-panel::after{
+    content:"";position:absolute;top:0;right:0;
+    border-width:0 16px 16px 0;border-style:solid;
+    border-color:transparent var(--paper-line) transparent transparent;
+  }
+  .doc-panel .num{
+    font-family:'Zilla Slab',serif;font-size:13px;color:var(--stone);
+    border:1px solid var(--paper-line);width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .doc-panel h3{font-size:18.5px;color:var(--navy);font-weight:600;margin-bottom:10px;}
+  .doc-panel p{font-size:14.5px;color:var(--stone);line-height:1.6;margin:0;}
+
+  /* destinations */
+  .dest-band{background:var(--navy);color:var(--paper);}
+  .dest-band .section-head h2{color:#fff;}
+  .dest-band .section-head p{color:#B9C5D8;}
+  .dest-band .section-head .kicker{color:var(--gold);}
+  .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .dest-card{
+    border:1px solid rgba(247,244,236,.22);
+    padding:22px 18px;border-radius:4px;
+  }
+  .dest-card .flag{font-size:26px;margin-bottom:12px;}
+  .dest-card h4{font-family:'Zilla Slab',serif;font-size:17px;font-weight:600;color:#fff;margin-bottom:6px;}
+  .dest-card p{font-size:13px;color:#B9C5D8;margin:0;line-height:1.5;}
+
+  /* score band scorecard */
+  .scorecard-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;}
+  .scorecard{
+    background:#fff;border:1px solid var(--paper-line);border-radius:6px;
+    padding:0;overflow:hidden;
+  }
+  .scorecard-head{
+    background:var(--navy);color:#fff;padding:16px 22px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .scorecard-head span{font-size:12px;color:#B9C5D8;}
+  .scorecard-head b{font-family:'Zilla Slab',serif;font-size:16px;}
+  .score-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 22px;border-bottom:1px solid var(--paper-line);
+  }
+  .score-row:last-child{border-bottom:none;}
+  .score-row .skill{font-size:14.5px;color:var(--ink);font-weight:500;}
+  .score-band{
+    font-family:'Zilla Slab',serif;font-weight:700;color:var(--approved);
+    font-size:20px;
+  }
+  .scorecard-foot{padding:16px 22px;background:#FAFAF6;font-size:12.5px;color:var(--stone);}
+
+  .scorecard-mini{
+    background:#fff;border:1px solid var(--paper-line);border-radius:6px;
+    margin-top:16px;overflow:hidden;
+  }
+  .scorecard-mini .scorecard-head{padding:12px 18px;}
+  .scorecard-mini .scorecard-head span{font-size:11px;}
+  .scorecard-mini .scorecard-head b{font-size:14px;}
+  .mini-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:11px 18px;border-bottom:1px solid var(--paper-line);
+  }
+  .mini-row:last-of-type{border-bottom:none;}
+  .mini-row .skill{font-size:13.5px;color:var(--ink);font-weight:500;}
+  .mini-row .score-band{font-size:16.5px;}
+  .scorecard-mini .scorecard-foot{padding:12px 18px;font-size:11.5px;}
+
+  .approach-list{list-style:none;margin:0;padding:0;}
+  .approach-list li{
+    display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--paper-line);
+  }
+  .approach-list li:first-child{padding-top:0;}
+  .approach-list .check{
+    width:22px;height:22px;border-radius:50%;background:var(--approved);
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:12px;margin-top:2px;
+  }
+  .approach-list h4{font-size:15.5px;color:var(--navy);font-weight:600;margin:0 0 4px;}
+  .approach-list p{font-size:14px;color:var(--stone);margin:0;line-height:1.55;}
+
+  /* testimonials — approved stamp style */
+  .approved-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .approved-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:6px;
+    overflow:hidden;position:relative;
+  }
+  .approved-card .photo-wrap{position:relative;line-height:0;}
+  .approved-card .photo-wrap img{width:100%;height:210px;object-fit:cover;display:block;}
+  .approved-tag{
+    position:absolute;top:14px;right:14px;
+    background:var(--approved);color:#fff;
+    font-size:10.5px;font-weight:700;letter-spacing:.05em;
+    padding:4px 10px;border-radius:2px;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+  }
+  .approved-card .card-body{padding:20px 22px 24px;}
+  .approved-card .who{display:flex;align-items:center;gap:12px;}
+  .avatar{
+    width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Zilla Slab',serif;font-weight:600;
+    flex-shrink:0;font-size:14px;
+  }
+  .approved-card h5{font-size:15px;color:var(--navy);margin:0;font-weight:600;}
+  .approved-card .dest-tag{font-size:12px;color:var(--stone);}
+  .approved-card p.quote{font-size:14px;color:var(--ink);line-height:1.6;margin-top:14px;}
+
+  /* office / gallery */
+  .office-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;}
+  .office-grid img{border-radius:4px;border:1px solid var(--paper-line);width:100%;height:100%;object-fit:cover;}
+  .office-sub{display:grid;grid-template-rows:1fr 1fr;gap:16px;}
+
+  /* CTA band */
+  .cta-band{
+    background:var(--stamp);color:#fff;text-align:center;
+    padding:64px 24px;
+  }
+  .cta-band h2{font-size:30px;font-weight:600;max-width:20ch;margin:0 auto;}
+  .cta-band p{margin-top:14px;font-size:15.5px;color:#F6D9D4;}
+  .cta-band .btn-primary{background:var(--navy);box-shadow:none;margin-top:26px;display:inline-block;}
+  .cta-band .btn-primary:hover{background:var(--navy-deep);}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .info-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--paper-line);}
+  .info-row:first-child{padding-top:0;}
+  .info-icon{
+    width:36px;height:36px;border:1px solid var(--navy);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--navy);flex-shrink:0;
+  }
+  .info-icon svg{width:16px;height:16px;display:block;}
+  .info-row h5{font-size:14px;margin:0 0 3px;color:var(--navy);font-weight:600;}
+  .info-row p{font-size:14px;color:var(--stone);margin:0;line-height:1.55;}
+  .hours-table{width:100%;border-collapse:collapse;margin-top:8px;}
+  .hours-table td{padding:8px 0;font-size:14px;border-bottom:1px solid var(--paper-line);}
+  .hours-table td:last-child{text-align:right;color:var(--stone);}
+
+  .form-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:6px;padding:28px;
+  }
+  .form-card h3{font-size:19px;color:var(--navy);margin-bottom:6px;}
+  .form-card p{font-size:13.5px;color:var(--stone);margin-bottom:20px;}
+  .form-row{margin-bottom:14px;}
+  .form-row label{display:block;font-size:12.5px;color:var(--navy);margin-bottom:6px;font-weight:600;}
+  .form-row input, .form-row select{
+    width:100%;padding:11px 12px;border:1px solid var(--paper-line);border-radius:3px;
+    font-family:'Inter',sans-serif;font-size:14px;background:#FAFAF7;
+  }
+  .form-row input:focus, .form-row select:focus{outline:2px solid var(--navy);outline-offset:1px;}
+  .form-submit{
+    width:100%;background:var(--navy);color:#fff;border:none;padding:13px;
+    font-size:14.5px;font-weight:600;border-radius:3px;cursor:pointer;margin-top:6px;
+  }
+  .form-submit:hover{background:var(--navy-deep);}
+  .form-note{font-size:11.5px;color:var(--stone);margin-top:12px;text-align:center;}
+
+  /* ---------- map ---------- */
+  .map-panel{
+    margin-top:56px;
+    border:1px solid var(--paper-line);
+    border-radius:6px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .map-panel-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 24px;border-bottom:1px solid var(--paper-line);
+    flex-wrap:wrap;gap:10px;
+  }
+  .map-panel-head h3{font-size:17px;color:var(--navy);font-weight:600;}
+  .map-panel-head p{font-size:13px;color:var(--stone);margin-top:3px;}
+  .map-directions-link{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--navy);color:#fff;
+    padding:9px 16px;border-radius:2px;
+    font-size:13px;font-weight:600;white-space:nowrap;
+  }
+  .map-directions-link:hover{background:var(--navy-deep);}
+  .map-directions-link svg{width:15px;height:15px;}
+  .map-frame-wrap{position:relative;width:100%;height:340px;background:#EDEAE0;}
+  .map-frame-wrap iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;
+  }
+  @media (max-width:600px){
+    .map-frame-wrap{height:280px;}
+  }
+
+  /* ---------- WhatsApp float button ---------- */
+  .wa-float{
+    position:fixed;
+    right:22px;bottom:22px;
+    z-index:60;
+    width:58px;height:58px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(0,0,0,.28);
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{transform:scale(1.06);}
+  .wa-float svg{width:29px;height:29px;}
+  .wa-float .wa-ping{
+    position:absolute;inset:0;border-radius:50%;
+    background:#25D366;opacity:.55;
+    animation:wa-pulse 2.2s ease-out infinite;
+  }
+  @keyframes wa-pulse{
+    0%{transform:scale(1);opacity:.55;}
+    100%{transform:scale(1.9);opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .wa-ping{animation:none;display:none;}
+  }
+  @media (max-width:860px){
+    .wa-float{right:16px;bottom:16px;width:52px;height:52px;}
+    .wa-float svg{width:26px;height:26px;}
+  }
+
+  footer{background:var(--navy-deep);color:#B9C5D8;padding:44px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(247,244,236,.12);}
+  .foot-brand .b1{font-family:'Zilla Slab',serif;font-weight:700;color:#fff;font-size:19px;}
+  .foot-brand p{font-size:13.5px;margin-top:10px;line-height:1.6;max-width:34ch;}
+  footer h5{font-size:13px;color:#fff;margin-bottom:14px;font-weight:600;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:10px;font-size:13.5px;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12.5px;color:#7F8FA8;flex-wrap:wrap;gap:10px;}
+
+  @media (max-width:860px){
+    .nav-right{display:none;}
+    .burger{display:block;}
+    .nav{padding:12px 16px;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:32px;max-width:none;}
+    .pass{transform:none;margin-top:36px;margin-bottom:0;}
+    .doc-grid{grid-template-columns:1fr;}
+    .doc-panel:nth-child(3n){border-right:1px solid var(--paper-line);}
+    .doc-panel::after{display:none;}
+    .dest-grid{grid-template-columns:1fr 1fr;}
+    .scorecard-wrap{grid-template-columns:1fr;gap:32px;}
+    .approved-grid{grid-template-columns:1fr;}
+    .office-grid{grid-template-columns:1fr;}
+    .office-sub{grid-template-rows:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:24px;}
+    .country-strip .wrap{gap:16px;font-size:11.5px;}
+    section{padding:56px 0;}
+  }
+
+  @media (max-width:400px){
+    .brand-text .b1{font-size:16px;}
+    .brand-text .b2{font-size:9.5px;}
+    .brand .mark{width:32px;height:32px;font-size:12px;}
+    .nav{gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="country-strip">
+    <div class="wrap">
+      <span>Now counselling for <b>JAN 2026 intake</b></span>
+      <span>🇨🇦 Canada</span>
+      <span>🇦🇺 Australia</span>
+      <span>🇬🇧 UK</span>
+      <span>🇺🇸 USA</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="mark">BTN</div>
+        <div class="brand-text">
+          <div class="b1">BTN Overseas</div>
+          <div class="b2">IELTS · PTE · VISA CONSULTANTS</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <nav class="links">
+          <a href="#services">Services</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#approach">Our Approach</a>
+          <a href="#results">Results</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">Book Free Counselling</a>
+      </div>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Book Free Counselling</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow-doc"><span class="dot"></span> Rohtak's IELTS &amp; Visa Institute · Est. 2022</div>
+          <h1>Your file, prepared like it's already approved.</h1>
+          <p class="sub">IELTS and PTE coaching, plus study, work, PR and visitor visa consulting — under one roof at Pacific Mall, Model Town. Guarantee batches available.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Book Free Counselling</a>
+            <a href="#services" class="btn-ghost">View Services</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><b>4.9 / 5</b><span>rated by 100+ students</span></div>
+            <div class="stat"><b>2022</b><span>serving Rohtak since</span></div>
+            <div class="stat"><b>4</b><span>countries — CAN · AUS · UK · USA</span></div>
+          </div>
+        </div>
+
+        <div class="pass">
+          <div class="pass-top">
+            <div>
+              <div class="p1">STUDENT VISA · BOARDING</div>
+              <div class="p2">BTN Overseas</div>
+            </div>
+            <div class="stamp-badge">VISA<br>APPROVED</div>
+          </div>
+          <div class="pass-route">
+            <div class="city">ROHTAK</div>
+            <div class="line"></div>
+            <div class="city">ABROAD</div>
+          </div>
+          <div class="pass-fields">
+            <div><span>PASSENGER</span><b>Manju</b></div>
+            <div><span>DESTINATION</span><b>Australia</b></div>
+            <div><span>PROGRAM</span><b>Study Visa</b></div>
+            <div><span>STATUS</span><b style="color:var(--approved);">Approved</b></div>
+          </div>
+        </div>
+      </div>
+      <div style="height:60px;"></div>
+    </div>
+  </section>
+  <div class="perf"></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Services</span>
+        <h2>Everything between your first mock test and your visa stamp.</h2>
+        <p>English proficiency coaching and immigration consulting handled together, so your test scores and your visa file are always working toward the same intake date.</p>
+      </div>
+      <div class="doc-grid">
+        <div class="doc-panel">
+          <div class="num">1</div>
+          <h3>IELTS Coaching</h3>
+          <p>Academic and General Training batches, with weekly mock tests and one-on-one speaking practice sessions.</p>
+        </div>
+        <div class="doc-panel">
+          <div class="num">2</div>
+          <h3>PTE Coaching</h3>
+          <p>Pearson Test of English preparation focused on the exact question formats and scoring pattern examiners use.</p>
+        </div>
+        <div class="doc-panel">
+          <div class="num">3</div>
+          <h3>UKVI Guidance</h3>
+          <p>Test and documentation guidance specific to UK visa and immigration requirements.</p>
+        </div>
+        <div class="doc-panel">
+          <div class="num">4</div>
+          <h3>Study Visa</h3>
+          <p>End-to-end assistance — university shortlisting, SOP, documentation and file filing for your student visa.</p>
+        </div>
+        <div class="doc-panel">
+          <div class="num">5</div>
+          <h3>PR Pathways</h3>
+          <p>Counselling on the right permanent residence route for your profile, country and timeline.</p>
+        </div>
+        <div class="doc-panel">
+          <div class="num">6</div>
+          <h3>Work &amp; Visitor Visa</h3>
+          <p>Support for work permits and visitor visas for travel, family visits or short-term overseas work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dest-band" id="destinations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Destinations</span>
+        <h2>Where our students are headed.</h2>
+        <p>Counselling tailored to each country's own intake cycles, documentation and visa process.</p>
+      </div>
+      <div class="dest-grid">
+        <div class="dest-card"><div class="flag">🇨🇦</div><h4>Canada</h4><p>Study permits, PGWP pathway, PR guidance.</p></div>
+        <div class="dest-card"><div class="flag">🇦🇺</div><h4>Australia</h4><p>Study visas across major intakes, GTE support.</p></div>
+        <div class="dest-card"><div class="flag">🇬🇧</div><h4>UK</h4><p>UKVI-aligned English testing and student visas.</p></div>
+        <div class="dest-card"><div class="flag">🇺🇸</div><h4>USA</h4><p>F1 visa guidance and interview preparation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="scorecard-wrap">
+        <div>
+          <span class="kicker">Sample Scorecard</span>
+          <h2 style="font-size:28px;color:var(--navy);font-weight:600;margin-bottom:22px;">The band scores we coach students toward.</h2>
+          <div class="scorecard">
+            <div class="scorecard-head">
+              <span>IELTS Academic</span>
+              <b>Target Overview</b>
+            </div>
+            <div class="score-row"><span class="skill">Listening</span><span class="score-band">7.5</span></div>
+            <div class="score-row"><span class="skill">Reading</span><span class="score-band">7.0</span></div>
+            <div class="score-row"><span class="skill">Writing</span><span class="score-band">7.0</span></div>
+            <div class="score-row"><span class="skill">Speaking</span><span class="score-band">7.5</span></div>
+            <div class="scorecard-foot">Illustrative target bands — your batch plan is set after a free diagnostic test.</div>
+          </div>
+
+          <div class="scorecard-mini">
+            <div class="scorecard-head">
+              <span>PTE Academic</span>
+              <b>Target Overview</b>
+            </div>
+            <div class="mini-row"><span class="skill">Overall Score</span><span class="score-band">65+</span></div>
+            <div class="mini-row"><span class="skill">Each Section</span><span class="score-band">58+</span></div>
+            <div class="scorecard-foot">Target band for most study and PR pathways — actual goal is set per country and program.</div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">Our Approach</span>
+          <h2 style="font-size:28px;color:var(--navy);font-weight:600;margin-bottom:22px;">How we get you there.</h2>
+          <ul class="approach-list">
+            <li>
+              <div class="check">✓</div>
+              <div><h4>Diagnostic first</h4><p>Every student starts with a free mock test so your batch is matched to your actual starting band.</p></div>
+            </li>
+            <li>
+              <div class="check">✓</div>
+              <div><h4>Guarantee batch option</h4><p>A structured, repeat-till-you-hit-it batch for students working toward a specific score.</p></div>
+            </li>
+            <li>
+              <div class="check">✓</div>
+              <div><h4>Visa filed by the same team</h4><p>Your test scores and your visa documentation are handled together, so nothing falls between departments.</p></div>
+            </li>
+            <li>
+              <div class="check">✓</div>
+              <div><h4>Online or onsite</h4><p>Attend classes at Pacific Mall, Model Town, or join online batches from anywhere.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" style="background:#F1EDE0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Results</span>
+        <h2>Recently approved.</h2>
+        <p>A few of the students we've counselled through to a visa approval.</p>
+      </div>
+      <div class="approved-grid">
+        <div class="approved-card">
+          <div class="photo-wrap">
+            <span class="approved-tag">VISA APPROVED</span>
+            <img src="img/manju.jpg" alt="Manju — Australia study visa approved">
+          </div>
+          <div class="card-body">
+            <div class="who">
+              <div class="avatar">M</div>
+              <div><h5>Manju</h5><div class="dest-tag">Australia · Study Visa</div></div>
+            </div>
+            <p class="quote">Guided from the first mock test through to visa filing, with clear updates at every stage.</p>
+          </div>
+        </div>
+        <div class="approved-card">
+          <div class="photo-wrap">
+            <span class="approved-tag">UK VISA</span>
+            <img src="img/deepak-yadav.jpg" alt="Deepak Yadav — UK visa approved">
+          </div>
+          <div class="card-body">
+            <div class="who">
+              <div class="avatar">D</div>
+              <div><h5>Deepak Yadav (Rewari)</h5><div class="dest-tag">UK · Visa</div></div>
+            </div>
+            <p class="quote">Straightforward documentation process and a team that answered every question along the way.</p>
+          </div>
+        </div>
+        <div class="approved-card">
+          <div class="photo-wrap">
+            <span class="approved-tag">JAN INTAKE</span>
+            <img src="img/canada-college.jpg" alt="Canada college January intake">
+          </div>
+          <div class="card-body">
+            <div class="who">
+              <div class="avatar" style="font-size:18px;">C</div>
+              <div><h5>Canada College</h5><div class="dest-tag">Opening for JAN Intake</div></div>
+            </div>
+            <p class="quote">Seats open for the upcoming Canada intake — book your counselling slot to lock a place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="office">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Visit Us</span>
+        <h2>Inside BTN Overseas, Pacific Mall.</h2>
+      </div>
+      <div class="office-grid">
+        <img src="img/founders.jpg" alt="BTN Overseas team celebrating a student's visa approval">
+        <div class="office-sub">
+          <img src="img/pacific-mall.jpg" alt="Pacific Mall, Model Town, Rohtak — BTN Overseas location">
+          <img src="img/group-certs.jpg" alt="Students with BTN Overseas visa approval certificates">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2>Book your free counselling session this week.</h2>
+      <p>Bring your last exam scores or none at all — we'll map a plan either way.</p>
+      <a href="#contact" class="btn-primary">Book Free Counselling</a>
+    </div>
+  </div>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Contact</span>
+        <h2>Let's plan your file.</h2>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h5>Address</h5><p>SCO No. 114, Ground Floor, Pacific Mall, Delhi Road, Near Jaat Bhawan, Opp. Shangrila Hotel, Model Town, Rohtak, Haryana – 124001</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+            <div><h5>Phone</h5><p>+91 99909 44008 · +91 89016 64404</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
+            <div><h5>Email</h5><p>btnoverseas@gmail.com</p></div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div>
+              <h5>Business Hours</h5>
+              <table class="hours-table">
+                <tr><td>Monday – Saturday</td><td>9:00 AM – 9:00 PM</td></tr>
+                <tr><td>Sunday</td><td>10:00 AM – 5:00 PM</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Book a free counselling session</h3>
+          <p>Tell us a little about your plan and we'll call you back.</p>
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your name">
+            </div>
+            <div class="form-row">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91">
+            </div>
+            <div class="form-row">
+              <label>Interested In</label>
+              <select>
+                <option>IELTS Coaching</option>
+                <option>PTE Coaching</option>
+                <option>Study Visa</option>
+                <option>PR Pathway</option>
+                <option>Work / Visitor Visa</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>Preferred Country</label>
+              <select>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>UK</option>
+                <option>USA</option>
+                <option>Not decided yet</option>
+              </select>
+            </div>
+            <button class="form-submit" type="submit">Request Callback</button>
+          </form>
+          <div class="form-note">This is a sample layout — form will connect to WhatsApp/call on the live site.</div>
+        </div>
+      </div>
+
+      <div class="map-panel">
+        <div class="map-panel-head">
+          <div>
+            <h3>Find us at Pacific Mall, Model Town</h3>
+            <p>SCO No. 114, Ground Floor, Delhi Road, Near Jaat Bhawan, Rohtak</p>
+          </div>
+          <a class="map-directions-link" href="https://www.google.com/maps/dir/?api=1&destination=BTN+Overseas+Pacific+Mall+Model+Town+Rohtak+Haryana+124001" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
+        </div>
+        <div class="map-frame-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=BTN+Overseas,+SCO+No.+114,+Ground+Floor,+Pacific+Mall,+Delhi+Road,+Near+Jaat+Bhawan,+Model+Town,+Rohtak,+Haryana+124001&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="BTN Overseas location map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="b1">BTN Overseas</div>
+          <p>IELTS, PTE coaching and visa consulting, based at Pacific Mall, Model Town, Rohtak since 2022.</p>
+        </div>
+        <div>
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">IELTS Coaching</a></li>
+            <li><a href="#services">PTE Coaching</a></li>
+            <li><a href="#services">Study Visa</a></li>
+            <li><a href="#services">PR Pathways</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li>+91 99909 44008</li>
+            <li>btnoverseas@gmail.com</li>
+            <li>Model Town, Rohtak</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 BTN Overseas. All rights reserved.</span>
+        <span>Sample design — not the final live site</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919990944008?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20IELTS%2FPTE%20coaching%20and%20visa%20consulting."
+     class="wa-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span class="wa-ping"></span>
+    <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.316.63 4.484 1.73 6.35L3 29l7.325-2.184A12.44 12.44 0 0 0 16 28c6.904 0 12.5-5.596 12.5-12.5S22.905 3 16.001 3Zm0 22.7c-1.99 0-3.85-.55-5.44-1.51l-.39-.23-4.35 1.3 1.32-4.24-.25-.4a9.83 9.83 0 0 1-1.6-5.32c0-5.46 4.44-9.9 9.9-9.9s9.9 4.44 9.9 9.9-4.43 9.9-9.09 9.9Zm5.43-7.41c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.08-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.91-2.19-.24-.58-.48-.5-.66-.51h-.56c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.68.25-1.27.17-1.4-.07-.12-.27-.2-.57-.35Z"/></svg>
+  </a>
+
+  <script>
+    (function(){
+      var burger = document.getElementById('burgerBtn');
+      var menu = document.getElementById('mobileMenu');
+      if(!burger || !menu) return;
+
+      function closeMenu(){
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+        burger.textContent = '☰';
+      }
+      function openMenu(){
+        menu.classList.add('open');
+        burger.setAttribute('aria-expanded','true');
+        burger.textContent = '✕';
+      }
+
+      burger.addEventListener('click', function(){
+        if(menu.classList.contains('open')){ closeMenu(); } else { openMenu(); }
+      });
+
+      // close when a menu link is tapped
+      menu.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeMenu);
+      });
+
+      // close if window is resized back to desktop width
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 860){ closeMenu(); }
+      });
+    })();
+  </script>
+</body>
+</html>
