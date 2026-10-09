@@ -2,316 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sample Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0F1115">
+<title>Website Samples</title>
 <style>
-  @font-face {
-    font-family: 'JetBrains Mono';
-    src: local('JetBrains Mono');
+  :root{
+    --bg:#0F1115; --panel:#15171D; --panel-hover:#1B1E26; --border:#262A33;
+    --text:#E8E6E1; --dim:#8A8F9C; --faint:#565B68;
+    --accent:#6C9BFF; --accent-dim:#3A4B7A; --tpl:#4FD1C5;
   }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:36px 18px 80px}
+  h1{font-size:26px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
+  .sub{color:var(--dim);font-size:14px;line-height:1.5;margin:0}
+  .stats{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:var(--faint);margin-top:14px}
 
-  :root {
-    --bg: #0F1115;
-    --panel: #15171D;
-    --panel-hover: #1B1E26;
-    --border: #262A33;
-    --text: #E8E6E1;
-    --text-dim: #8A8F9C;
-    --text-faint: #565B68;
-    --accent: #6C9BFF;
-    --accent-dim: #3A4B7A;
-  }
+  /* controls */
+  .controls{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 85%,transparent);
+    padding:16px 0 10px;margin-top:18px}
+  .search{width:100%;background:var(--panel);border:1px solid var(--border);border-radius:10px;
+    color:var(--text);font-size:15px;padding:12px 14px;outline:none}
+  .search::placeholder{color:var(--faint)}
+  .search:focus{border-color:var(--accent-dim)}
+  .filters{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .fchip{flex:none;font:inherit;font-size:13px;color:var(--dim);background:transparent;
+    border:1px solid var(--border);border-radius:999px;padding:7px 13px;cursor:pointer;white-space:nowrap}
+  .fchip b{font-weight:500;color:var(--faint);margin-left:5px}
+  .fchip:hover{border-color:var(--accent-dim);color:var(--text)}
+  .fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0b1020}
+  .fchip[aria-pressed="true"] b{color:#0b1020aa}
+  .fchip.safe[aria-pressed="true"]{background:var(--tpl);border-color:var(--tpl)}
+  .sep{flex:none;width:1px;background:var(--border);margin:2px 2px}
 
-  * { box-sizing: border-box; }
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--faint);margin:6px 0 4px}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  .dot.t{background:var(--tpl)}
+  .dot.r{border:1.5px solid var(--dim)}
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 56px 24px 96px;
-  }
-
-  header {
-    margin-bottom: 40px;
-  }
-
-  .path {
-    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 13px;
-    color: var(--text-faint);
-    letter-spacing: 0.01em;
-    margin-bottom: 14px;
-  }
-
-  h1 {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin: 0 0 8px;
-  }
-
-  .sub {
-    color: var(--text-dim);
-    font-size: 14.5px;
-    line-height: 1.5;
-    max-width: 56ch;
-  }
-
-  .count {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    color: var(--text-faint);
-    font-size: 12.5px;
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 14px;
-    margin-top: 24px;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    color: inherit;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px;
-    min-height: 118px;
-    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-  }
-
-  .card:hover {
-    background: var(--panel-hover);
-    border-color: var(--accent-dim);
-    transform: translateY(-2px);
-  }
-
-  .card:hover .name { color: var(--accent); }
-  .card:hover .go { opacity: 1; transform: translateX(0); }
-
-  .card:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .num {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 12px;
-    color: var(--text-faint);
-  }
-
-  .name {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 15px;
-    color: var(--text);
-    margin-top: 10px;
-    transition: color 0.15s ease;
-  }
-
-  .filename {
-    display: block;
-    color: var(--text-faint);
-    font-size: 11.5px;
-    margin-top: 4px;
-  }
-
-  .go {
-    margin-top: 14px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 12px;
-    color: var(--accent);
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.15s ease, transform 0.15s ease;
-  }
-
-  /* Placeholder cards for slots not yet built */
-  .card.pending {
-    cursor: default;
-    opacity: 0.5;
-  }
-
-  .card.pending:hover {
-    background: var(--panel);
-    border-color: var(--border);
-    transform: none;
-  }
-
-  .card.pending .name { color: var(--text-faint); }
-
-  .badge {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 10px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 6px;
-  }
-
-  .empty {
-    padding: 40px 4px;
-    color: var(--text-faint);
-    font-size: 14px;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    line-height: 1.7;
-    border-top: 1px solid var(--border);
-    grid-column: 1 / -1;
-  }
-
-  .empty code {
-    background: var(--panel);
-    padding: 1px 6px;
-    border-radius: 3px;
-    color: var(--text-dim);
-  }
-
-  @media (max-width: 520px) {
-    .wrap { padding: 40px 18px 72px; }
-    h1 { font-size: 23px; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-    .card { padding: 14px; min-height: 100px; }
+  /* sections + sample chips */
+  section{margin-top:26px}
+  section h2{display:flex;align-items:baseline;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--dim);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  section h2 span{font-family:ui-monospace,monospace;color:var(--faint);font-weight:400;letter-spacing:0}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);
+    background:var(--panel);border:1px solid var(--border);border-radius:10px;
+    padding:11px 14px;font-size:14.5px;line-height:1.25;
+    transition:background-color .15s,border-color .15s,transform .15s}
+  .chip:hover{background:var(--panel-hover);border-color:var(--accent-dim);transform:translateY(-1px)}
+  .chip:hover .nm{color:var(--accent)}
+  .chip:focus-visible,.fchip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .chip .dot{margin:0;flex:none}
+  .chip.tpl{border-color:#24473f}
+  .empty{color:var(--faint);font-size:14px;padding:44px 0;text-align:center;
+    font-family:ui-monospace,monospace}
+  @media(max-width:520px){
+    .wrap{padding:28px 14px 64px}
+    h1{font-size:22px}
+    .chip{font-size:14px;padding:11px 12px}
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="path">index.html /</div>
-      <h1>Sample websites</h1>
-      <div class="sub">A running index of sample builds. Each sample lives in its own folder under <code>samples/</code> — drop in a new folder and add one line below.</div>
-    </header>
+<div class="wrap">
+  <header>
+    <h1>Website Samples</h1>
+    <p class="sub">Tap any name to open that sample.</p>
+    <div class="stats" id="stats"></div>
+  </header>
 
-    <div class="grid" id="index-grid"></div>
-    <div class="count" id="count"></div>
+  <div class="controls">
+    <input class="search" id="q" type="search" placeholder="Search sample name…" autocomplete="off" aria-label="Search samples">
+    <div class="filters" id="filters"></div>
   </div>
 
-  <script>
-    // Ordered manifest — add an entry here whenever a new samples/sampleN/ folder is added.
-    // Each sample folder is expected to contain its own index.html (and optionally style.css, script.js).
-    // Slots with no folder yet are still listed here (up to 20) so the grid always shows
-    // the full card set — unbuilt ones render as "pending" placeholders instead of disappearing.
-   const samples = [
-  { folder: 'sample1', label: 'Sample 1' },
-  { folder: 'sample2', label: 'Sample 2' },
-  { folder: 'sample3', label: 'Sample 3' },
-  { folder: 'sample4', label: 'Sample 4' },
-  { folder: 'sample5', label: 'Sample 5' },
-  { folder: 'sample6', label: 'Sample 6' },
-  { folder: 'sample7', label: 'Sample 7' },
-  { folder: 'sample8', label: 'Sample 8' },
-  { folder: 'sample9', label: 'Sample 9' },
-  { folder: 'sample10', label: 'Sample 10' },
-  { folder: 'sample11', label: 'Sample 11' },
-  { folder: 'sample12', label: 'Sample 12' },
-  { folder: 'sample13', label: 'Sample 13' },
-  { folder: 'sample14', label: 'Sample 14' },
-  { folder: 'sample15', label: 'Sample 15' },
-  { folder: 'sample16', label: 'Sample 16' },
-  { folder: 'sample17', label: 'Sample 17' },
-  { folder: 'sample18', label: 'Sample 18' },
-  { folder: 'sample19', label: 'Sample 19' },
-  { folder: 'sample20', label: 'Sample 20' },
-  { folder: 'sample21', label: 'Sample 21' },
-  { folder: 'sample22', label: 'Sample 22' },
-  { folder: 'sample23', label: 'Sample 23' },
-  { folder: 'sample24', label: 'Sample 24' },
-  { folder: 'sample25', label: 'Sample 25' },
-  { folder: 'sample26', label: 'Sample 26' },
-  { folder: 'sample27', label: 'Sample 27' },
-  { folder: 'sample28', label: 'Sample 28' },
-  { folder: 'sample29', label: 'Sample 29' },
-  { folder: 'sample30', label: 'Sample 30' },
-  { folder: 'sample31', label: 'Sample 31' },
-  { folder: 'sample32', label: 'Sample 32' },
-  { folder: 'sample33', label: 'Sample 33' },
-  { folder: 'sample34', label: 'Sample 34' },
-  { folder: 'sample35', label: 'Sample 35' },
-  { folder: 'sample36', label: 'Sample 36' },
-  { folder: 'sample37', label: 'Sample 37' },
-  { folder: 'sample38', label: 'Sample 38' },
-  { folder: 'sample39', label: 'Sample 39' },
-  { folder: 'sample40', label: 'Sample 40' },
-];
+  <div class="legend">
+    <span><i class="dot t"></i>Template (placeholder name)</span>
+    <span><i class="dot r"></i>Real business name</span>
+  </div>
 
-    const grid = document.getElementById('index-grid');
-    const count = document.getElementById('count');
+  <main id="list"></main>
+</div>
 
-    async function checkExists(path) {
-      try {
-        const res = await fetch(path, { method: 'HEAD' });
-        return res.ok;
-      } catch {
-        return false;
-      }
-    }
+<script src="samples-data.js"></script>
+<script>
+(function(){
+  var CATS = window.CATEGORIES, ALL = window.SAMPLES;
+  var state = { cat: 'all', q: '', safe: /[?&]templates=1/.test(location.search) };
+  var $ = function(s){ return document.querySelector(s); };
+  var esc = function(s){ return String(s).replace(/[&<>"']/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
 
-    async function render() {
-      const results = await Promise.all(
-        samples.map(async (s) => ({ ...s, exists: await checkExists(`samples/${s.folder}/index.html`) }))
-      );
+  function visible(s){
+    if (state.safe && !s.template) return false;
+    if (state.cat !== 'all' && s.cat !== state.cat) return false;
+    if (state.q && s.name.toLowerCase().indexOf(state.q) === -1) return false;
+    return true;
+  }
 
-      if (results.length === 0) {
-        grid.innerHTML = `<div class="empty">No sample folders found yet.<br>Add folders under <code>samples/</code> like <code>samples/sample1/index.html</code>, <code>samples/sample2/index.html</code>, etc.</div>`;
-        count.textContent = '';
-        return;
-      }
+  function renderFilters(){
+    var base = ALL.filter(function(s){ return !state.safe || s.template; });
+    var html = '<button class="fchip" data-cat="all" aria-pressed="'+(state.cat==='all')+'">All<b>'+base.length+'</b></button>';
+    CATS.forEach(function(c){
+      var n = base.filter(function(s){ return s.cat===c.id; }).length;
+      if (!n) return;
+      html += '<button class="fchip" data-cat="'+c.id+'" aria-pressed="'+(state.cat===c.id)+'">'+esc(c.label)+'<b>'+n+'</b></button>';
+    });
+    html += '<span class="sep"></span><button class="fchip safe" id="safe" aria-pressed="'+state.safe+'">Templates only</button>';
+    $('#filters').innerHTML = html;
+  }
 
-      grid.innerHTML = results.map((s, i) => {
-        const n = String(i + 1).padStart(2, '0');
-        if (s.exists) {
-          return `
-            <a class="card" href="samples/${s.folder}/index.html">
-              <div class="card-top">
-                <span class="num">${n}</span>
-              </div>
-              <div>
-                <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
-                <div class="go">view →</div>
-              </div>
-            </a>
-          `;
-        }
-        return `
-          <div class="card pending">
-            <div class="card-top">
-              <span class="num">${n}</span>
-              <span class="badge">pending</span>
-            </div>
-            <div>
-              <span class="name">${s.label}<span class="filename">samples/${s.folder}/</span></span>
-            </div>
-          </div>
-        `;
-      }).join('');
+  function renderList(){
+    var out = '', shown = 0;
+    CATS.forEach(function(c){
+      var items = ALL.filter(function(s){ return s.cat===c.id && visible(s); });
+      if (!items.length) return;
+      shown += items.length;
+      out += '<section><h2>'+esc(c.label)+' <span>'+items.length+'</span></h2><div class="chips">' +
+        items.map(function(s){
+          return '<a class="chip'+(s.template?' tpl':'')+'" href="samples/'+s.path+'/">' +
+                 '<i class="dot '+(s.template?'t':'r')+'"></i><span class="nm">'+esc(s.name)+'</span></a>';
+        }).join('') + '</div></section>';
+    });
+    $('#list').innerHTML = out || '<div class="empty">No sample matches.</div>';
+    var t = ALL.filter(function(s){ return s.template; }).length;
+    $('#stats').textContent = ALL.length + ' samples · ' + t + ' templates · ' + (ALL.length-t) + ' real names';
+  }
 
-      const built = results.filter(r => r.exists).length;
-      count.textContent = `${built} of ${results.length} built`;
-    }
+  function render(){ renderFilters(); renderList(); }
 
+  $('#filters').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.id === 'safe') { state.safe = !state.safe; }
+    else { state.cat = b.getAttribute('data-cat'); }
     render();
-  </script>
+  });
+  $('#q').addEventListener('input', function(e){ state.q = e.target.value.trim().toLowerCase(); renderList(); });
+  render();
+})();
+</script>
 </body>
 </html>
