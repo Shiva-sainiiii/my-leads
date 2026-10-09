@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contact | Your Jewels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css"></head>
+<body data-p="contact"><main>
+<section class="sec" id="enquiry" style="padding-bottom:clamp(56px,8vw,100px)"><div class="w fg">
+<div class="rv"><div class="eb">Enquiry</div><h2>Tell us what you <em>love</em></h2><p class="lead" style="margin-top:16px">Share your requirement and our team will call you back within the day.</p>
+<form id="ef" class="fb" novalidate>
+<div class="f"><label for="n">Your name</label><input id="n" placeholder="Full name" autocomplete="name"><span class="er">Please enter your name.</span></div>
+<div class="f"><label for="p">Mobile number</label><input id="p" inputmode="tel" placeholder="10-digit mobile number" autocomplete="tel"><span class="er">Enter a valid 10-digit number.</span></div>
+<div class="f"><label for="i">I am looking for</label><select id="i"><option>Bridal set</option><option>Necklace</option><option>Earrings</option><option>Diamond ring</option><option>Bangles</option><option>Custom design</option></select></div>
+<div class="f"><label for="m">Message (optional)</label><textarea id="m" placeholder="Budget, occasion, any design in mind"></textarea></div>
+<button class="btn" type="submit" style="justify-self:start">Send enquiry</button></form>
+<div class="ok-m" id="eo"><h3>Thank you.</h3><p style="color:var(--mut)">Your enquiry has been received. We will call you shortly.</p></div></div>
+<div class="rg rv" style="--d:1"><div class="eb">Feedback</div><h2>How was your <em>visit</em>?</h2><p class="lead" style="margin-top:16px">Your rating helps us serve you better.</p>
+<div id="rf"><div class="stars" id="st" role="group" aria-label="Rating"></div><div class="rl" id="rl"></div>
+<div class="fb"><div class="f"><label for="rn">Your name</label><input id="rn" placeholder="Optional"></div>
+<div class="f"><label for="rt">Your experience</label><textarea id="rt" placeholder="Tell us what you liked"></textarea></div>
+<span class="er" id="re">Please choose a star rating first.</span>
+<button class="btn" id="rb" type="button" style="justify-self:start">Submit feedback</button></div></div>
+<div class="ok-m" id="ro"><h3>Thank you!</h3><p style="color:var(--mut)">We appreciate your <b id="rv2"></b>-star rating.</p></div></div>
+</div></section>
+<section class="sec dark" id="visit"><div class="w mg">
+<div class="rv"><div class="eb">Visit us</div><h2>Come see it in <em>person</em></h2>
+<div class="ci">
+<div><svg class="ic"><use href="#pin"/></svg><span>Your showroom address, Main Market, City</span></div>
+<div><svg class="ic"><use href="#clock"/></svg><span>Mon to Sun, 10:30 am to 8:30 pm</span></div>
+<div><svg class="ic"><use href="#ph"/></svg><span>+91 99999 99999</span></div></div>
+<a class="btn" id="dir" target="_blank" rel="noopener">Get directions <svg class="ic"><use href="#arr"/></svg></a></div>
+<div class="map rv" style="--d:1"><iframe id="mp" title="Showroom location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+</div></section>
+</main>
+<script src="assets/app.js"></script></body></html>

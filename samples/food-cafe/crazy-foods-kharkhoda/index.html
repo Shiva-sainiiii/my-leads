@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crazy Foods Kharkhoda | Best Fast Food, White Sauce Pasta & Crazy Shakes</title>
+<meta name="description" content="Crazy Foods, Pacca Bagh, Kharkhoda. 100% veg burgers, pizza, white sauce pasta, momos, crazy shakes and coffee. Dine-in, takeaway and home delivery.">
+<meta name="keywords" content="Best Fast Food in Kharkhoda, Crazy Foods Pacca Bagh Menu, White Sauce Pasta Kharkhoda, Food Delivery Kharkhoda">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Colors: tomato, butter, cream, ink, leaf */
+:root{--t:#e23d28;--b:#ffc933;--c:#fff4df;--i:#2a150d;--l:#2f7d4f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--c);color:var(--i);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.dp{font-family:'Bricolage Grotesque',Georgia,sans-serif;line-height:1.05;letter-spacing:-.02em}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--t);outline-offset:3px}
+.w{max-width:1160px;margin:auto;padding:0 20px}
+section{padding:96px 0}
+h2{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800}
+.sub{max-width:52ch;margin-top:14px;opacity:.8}
+.btn{display:inline-block;padding:15px 30px;border-radius:99px;font:700 1rem 'DM Sans';border:2px solid var(--i);cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--i)}
+.bt{background:var(--t);color:#fff}.bb{background:var(--b);color:var(--i)}.bc{background:var(--c)}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:var(--c);border-bottom:2px solid var(--i)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font-size:1.6rem;font-weight:800}.logo i{font-style:normal;color:var(--t)}
+.nl{display:flex;gap:26px;align-items:center;font-weight:500}
+.nl a:not(.btn):hover{color:var(--t)}
+.nl .btn{padding:9px 20px}
+.mb{display:none;background:0;border:0;font-size:2rem;cursor:pointer;color:var(--i)}
+
+/* Hero */
+.hero{background:var(--b);padding:130px 0 80px;position:relative;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,7.5vw,6rem);font-weight:800}
+.hero p{margin:22px 0 32px;max-width:44ch;font-size:1.15rem}
+.hb{display:flex;gap:14px;flex-wrap:wrap}
+.pic{position:relative;max-width:470px;margin:auto;width:100%}
+.blob{aspect-ratio:1;border:4px solid var(--i);overflow:hidden;background:var(--t);animation:mo 9s ease-in-out infinite}
+@keyframes mo{0%,100%{border-radius:42% 58% 55% 45%/50% 42% 58% 50%}50%{border-radius:60% 40% 42% 58%/45% 60% 40% 55%}}
+.spin{position:absolute;top:-26px;right:-18px;width:130px;height:130px;background:var(--t);border-radius:50%;border:3px solid var(--i);animation:rot 14s linear infinite}
+.spin text{fill:#fff;font:800 13.5px 'Bricolage Grotesque'}
+@keyframes rot{to{transform:rotate(360deg)}}
+.stk{position:absolute;left:-14px;bottom:26px;background:var(--c);border:3px solid var(--i);border-radius:16px;padding:10px 18px;font-weight:700;transform:rotate(-6deg);animation:bob 3.4s ease-in-out infinite;box-shadow:4px 4px 0 var(--i)}
+.stk b{font-size:1.6rem;display:block;line-height:1}.stk span{font-size:.8rem}
+@keyframes bob{50%{transform:rotate(-6deg) translateY(-10px)}}
+/* Hero load sequence: ek baar, ek ke baad ek */
+.hero h1,.hero p,.hb,.pic{animation:in .8s cubic-bezier(.2,.8,.2,1) both}
+.hero p{animation-delay:.15s}.hb{animation-delay:.3s}.pic{animation-delay:.2s}
+@keyframes in{from{opacity:0;transform:translateY(34px)}}
+
+/* Marquee */
+.mq{background:var(--t);color:var(--c);border-block:3px solid var(--i);overflow:hidden;white-space:nowrap;padding:14px 0}
+.mq div{display:inline-block;animation:mr 28s linear infinite;font:800 1.5rem 'Bricolage Grotesque'}
+.mq span{margin:0 22px}
+@keyframes mr{to{transform:translateX(-50%)}}
+
+/* About */
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.col{position:relative;height:460px}
+.col div{position:absolute;overflow:hidden;border:3px solid var(--i);border-radius:28px;background:var(--b)}
+.c1{inset:0 22% 18% 0;transform:rotate(-2deg)}.c2{inset:38% 0 0 34%;transform:rotate(3deg);box-shadow:6px 6px 0 var(--i)}
+.us{display:grid;gap:18px;margin-top:28px}
+.us div{padding-left:18px;border-left:5px solid var(--t)}.us b{font:800 1.2rem 'Bricolage Grotesque'}.us p{opacity:.8;font-size:.96rem}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.st div{background:var(--b);border:2px solid var(--i);border-radius:16px;padding:14px 8px;text-align:center}
+.st b{display:block;font:800 1.7rem 'Bricolage Grotesque'}.st span{font-size:.78rem}
+
+/* Best sellers */
+.dk{background:var(--i);color:var(--c)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:44px}
+.fc{background:var(--c);color:var(--i);border-radius:28px 28px 28px 6px;overflow:hidden;transition:transform .35s;opacity:0;transform:translateY(40px)}
+.fc.in{opacity:1;transform:none;transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.fc.in:hover{transform:translateY(-8px) rotate(-1deg)}
+.fi{height:210px;background:var(--b);overflow:hidden}.fi img{transition:transform .6s}.fc:hover img{transform:scale(1.08)}
+.fb{padding:20px 22px 24px}.fb h3{font-size:1.4rem;font-weight:800}.fb p{font-size:.93rem;opacity:.8;margin-top:4px}
+.bd{display:inline-block;background:var(--t);color:#fff;font-size:.78rem;font-weight:700;padding:3px 12px;border-radius:99px;margin-bottom:10px}
+
+/* Menu: chhapa hua menu card jaisa, dotted leader ke saath */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.tabs button{padding:10px 22px;border-radius:99px;border:2px solid var(--i);background:transparent;font:700 .95rem 'DM Sans';cursor:pointer;color:var(--i);transition:.2s}
+.tabs button:hover{background:var(--b)}.tabs .on{background:var(--i);color:var(--c)}
+.ml{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:6px 56px}
+.mi{padding:14px 0;border-bottom:2px dotted rgba(42,21,13,.25);animation:in .5s both}
+.mr{display:flex;align-items:baseline;gap:10px;font:800 1.15rem 'Bricolage Grotesque'}
+.vd{width:13px;height:13px;border:2px solid var(--l);display:inline-grid;place-items:center;flex:none;transform:translateY(1px)}.vd::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--l)}
+.dt{flex:1}.pr{color:var(--t)}
+.mi p{font-size:.9rem;opacity:.75;padding-left:23px}
+
+/* Reviews */
+.rv{background:var(--b);border-block:3px solid var(--i)}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:44px}
+.rc{background:var(--c);border:3px solid var(--i);border-radius:22px;padding:24px;box-shadow:6px 6px 0 var(--i);transition:transform .3s}
+.rc:nth-child(odd){transform:rotate(-1.5deg)}.rc:nth-child(even){transform:rotate(1.5deg)}.rc:hover{transform:rotate(0) translateY(-6px)}
+.rc .s{color:var(--t);font-size:1.2rem;letter-spacing:2px}.rc p{margin:8px 0 12px;font-weight:500}.rc small{opacity:.7}
+
+/* Forms */
+.fm{background:var(--t)}.fm h2{color:var(--c)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.pn{background:var(--c);border:3px solid var(--i);border-radius:28px;padding:32px;box-shadow:8px 8px 0 var(--i)}
+.pn h3{font-size:1.7rem;font-weight:800;margin-bottom:6px}
+input,textarea,select{width:100%;padding:14px 16px;margin:12px 0 0;background:#fff;border:2px solid var(--i);border-radius:14px;font:inherit;color:var(--i)}
+input:focus,textarea:focus,select:focus{outline:3px solid var(--b)}
+.stars{display:flex;gap:4px;margin:16px 0 4px}
+.stars button{background:0;border:0;font-size:2.6rem;line-height:1;cursor:pointer;color:#dcc9a6;transition:transform .2s,color .2s}
+.stars button.on{color:var(--b);text-shadow:0 0 0 var(--i);-webkit-text-stroke:2px var(--i)}.stars button:hover{transform:scale(1.25) rotate(-8deg)}
+.msg{margin-top:12px;font-weight:700;min-height:1.5em}
+.pn .btn{margin-top:16px;width:100%}
+
+/* Map + footer */
+.map iframe{display:block;width:100%;height:440px;border:0;border-block:3px solid var(--i)}
+footer{background:var(--i);color:var(--c);padding:56px 0 30px}
+.fgd{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+footer h3{font-size:1.2rem;margin-bottom:10px;color:var(--b)}footer p,footer a{opacity:.85;font-size:.95rem;display:block}
+footer .cp{margin-top:36px;padding-top:18px;border-top:1px solid rgba(255,244,223,.2);font-size:.85rem;opacity:.6}
+
+/* WhatsApp widget */
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;border:3px solid var(--i);border-radius:99px;padding:10px;font-weight:700;box-shadow:4px 4px 0 var(--i);animation:pu 2.4s infinite}
+.wa svg{width:34px;height:34px;fill:#fff}.wa span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .4s,padding .4s}.wa:hover span{max-width:150px;padding:0 10px 0 4px}
+@keyframes pu{0%{box-shadow:4px 4px 0 var(--i),0 0 0 0 rgba(37,211,102,.7)}70%,100%{box-shadow:4px 4px 0 var(--i),0 0 0 22px rgba(37,211,102,0)}}
+
+@media(max-width:860px){
+section{padding:68px 0}
+.mb{display:block}
+.nl{position:fixed;inset:68px 0 auto;flex-direction:column;background:var(--c);padding:24px;gap:18px;border-bottom:2px solid var(--i);transform:translateY(-140%);transition:transform .4s;z-index:-1}.nl.o{transform:none}
+.hg,.ag,.fg,.fgd{grid-template-columns:1fr}
+.hero{padding-top:104px}.pic{max-width:340px}
+.col{height:380px}.st{grid-template-columns:repeat(2,1fr)}
+.pn{padding:24px}.ml{gap:6px 0}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.fc{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="w">
+  <a href="#top" class="logo">Crazy<i>Foods</i></a>
+  <button class="mb" aria-label="Menu kholo">&#9776;</button>
+  <nav class="nl">
+    <a href="#about">About</a><a href="#best">Favorites</a><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    <a href="tel:+919050198877" class="btn bt">Call now</a>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w hg">
+  <div>
+    <h1>From spicy chaat to creamy pasta. Kharkhoda's craziest flavors.</h1>
+    <p>Burgers, pizza, momos, shakes and coffee, all 100% veg. Pacca Bagh's hangout spot since 2016.</p>
+    <div class="hb"><a href="#menu" class="btn bt">See the menu</a><a href="https://wa.me/919050198877?text=Hi%20Crazy%20Foods%2C%20I%20want%20to%20order" class="btn bc" target="_blank" rel="noopener">Order on WhatsApp</a></div>
+  </div>
+  <div class="pic">
+    <div class="blob"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80" alt="Juicy loaded veg burger"></div>
+    <svg class="spin" viewBox="0 0 130 130" aria-hidden="true"><defs><path id="cp" d="M65 65m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#cp">100% VEG ✺ SINCE 2016 ✺ 100% VEG ✺ SINCE 2016 ✺</textPath></text></svg>
+    <div class="stk"><b>4.0 ★</b><span>100+ happy reviews</span></div>
+  </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div><span>Maharaja Burger</span>✺<span>White Sauce Pasta</span>✺<span>Honey Chilli Potato</span>✺<span>Crazy Shakes</span>✺<span>Chocolate Pizza</span>✺<span>Momos</span>✺<span>Maharaja Burger</span>✺<span>White Sauce Pasta</span>✺<span>Honey Chilli Potato</span>✺<span>Crazy Shakes</span>✺<span>Chocolate Pizza</span>✺<span>Momos</span>✺</div></div>
+
+<section id="about"><div class="w ag">
+  <div class="col">
+    <div class="c1"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Cozy restaurant seating" loading="lazy"></div>
+    <div class="c2"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Fresh pizza" loading="lazy"></div>
+  </div>
+  <div>
+    <h2>A cozy corner for every craving</h2>
+    <p class="sub">Students, families and friends have been meeting at Crazy Foods for over 10 years. Good food, friendly staff and prices that make sense.</p>
+    <div class="us">
+      <div><b>Easy to find</b><p>Main Road, Pacca Bagh, right opposite Syndicate Bank.</p></div>
+      <div><b>Big menu, small bill</b><p>Chaat and momos, burgers and pasta, Chinese and Indian. Two people eat well for ₹200 to ₹500.</p></div>
+      <div><b>Dine in, take away or get it delivered</b><p>Party and bulk orders welcome, and we can customize dishes for you.</p></div>
+    </div>
+    <div class="st"><div><b data-n="2016" data-f="2000">0</b><span>Serving since</span></div><div><b data-n="100" data-s="+">0</b><span>Reviews</span></div><div><b data-n="4" data-s=".0★">0</b><span>Rating</span></div><div><b data-n="100" data-s="%">0</b><span>Veg</span></div></div>
+  </div>
+</div></section>
+
+<section id="best" class="dk"><div class="w">
+  <h2>The ones everybody orders</h2>
+  <div class="g3">
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Thick patty burger" loading="lazy"></div><div class="fb"><span class="bd">Signature</span><h3>Maharaja Burger</h3><p>A thick, premium patty stacked high. Also try the Creamy and Spicy Grilled burgers.</p></div></article>
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=800&q=80" alt="Creamy white sauce pasta" loading="lazy"></div><div class="fb"><span class="bd">Must try</span><h3>White Sauce Pasta</h3><p>Rich, creamy and the dish reviewers keep telling friends about.</p></div></article>
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Pizza" loading="lazy"></div><div class="fb"><span class="bd">Must try</span><h3>Chocolate Pizza</h3><p>Part dessert, part snack, completely unexpected. Veg pizza is here too.</p></div></article>
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80" alt="Crispy potato fries" loading="lazy"></div><div class="fb"><h3>Honey Chilli Potato</h3><p>Crispy, sweet and spicy. Gone before the main course arrives.</p></div></article>
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Momos" loading="lazy"></div><div class="fb"><h3>Momos</h3><p>Steamed or fried, with rolls and chaat for a quick bite.</p></div></article>
+    <article class="fc"><div class="fi"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80" alt="Thick milkshake" loading="lazy"></div><div class="fb"><h3>Crazy Shakes</h3><p>Thick, cold and made to share. Hot or cold coffee if you prefer.</p></div></article>
+  </div>
+</div></section>
+
+<section id="menu"><div class="w">
+  <h2>Our menu</h2>
+  <p class="sub">Everything is 100% vegetarian. Prices for the rest are at the counter.</p>
+  <div class="tabs" role="tablist"></div>
+  <div class="ml" aria-live="polite"></div>
+</div></section>
+
+<section id="reviews" class="rv"><div class="w">
+  <h2>What Kharkhoda says</h2>
+  <div class="rg" id="rl">
+    <div class="rc"><div class="s">★★★★★</div><p>Good food, good taste, and excellent value for money.</p><small>Google review</small></div>
+    <div class="rc"><div class="s">★★★★★</div><p>You should try their white sauce pasta at least once. It's yum.</p><small>Justdial review</small></div>
+    <div class="rc"><div class="s">★★★★☆</div><p>Decent food at reasonable prices.</p><small>Google review</small></div>
+  </div>
+</div></section>
+
+<section id="contact" class="fm"><div class="w">
+  <h2>Tell us how we did, or plan your party</h2>
+  <div class="fg">
+    <div class="pn">
+      <h3>Rate your visit</h3>
+      <div class="stars" id="stars" role="radiogroup" aria-label="Rating"><button type="button" aria-label="1 star">★</button><button type="button" aria-label="2 stars">★</button><button type="button" aria-label="3 stars">★</button><button type="button" aria-label="4 stars">★</button><button type="button" aria-label="5 stars">★</button></div>
+      <div class="msg" id="rt">Tap a star to rate</div>
+      <input id="fn" placeholder="Your name" maxlength="40" autocomplete="name">
+      <textarea id="fc" rows="3" placeholder="What did you eat? How was it?" maxlength="220"></textarea>
+      <button class="btn bt" id="fs" type="button">Post my review</button>
+      <div class="msg" id="fmg"></div>
+    </div>
+    <div class="pn">
+      <h3>Contact us</h3>
+      <form id="cf">
+        <input id="cn" placeholder="Your name" required autocomplete="name">
+        <input id="cp" type="tel" placeholder="Phone number" required autocomplete="tel">
+        <select id="ct"><option>Home delivery</option><option>Party or bulk order</option><option>General enquiry</option></select>
+        <textarea id="cm" rows="3" placeholder="Your message" required></textarea>
+        <button class="btn bb" type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+
+<div class="map"><iframe title="Crazy Foods on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Crazy+Foods+Pacca+Bagh+Kharkhoda+Haryana+131402&output=embed"></iframe></div>
+</main>
+
+<footer><div class="w">
+  <div class="fgd">
+    <div><a href="#top" class="logo dp" style="font-size:1.8rem;opacity:1">Crazy<i style="color:var(--t)">Foods</i></a><p>Yummy fast food and coffee. A casual hangout spot in Kharkhoda. Serving Pacca Bagh, Adresh Colony and nearby areas.</p></div>
+    <div><h3>Visit us</h3><p>Opposite Syndicate Bank, Main Road, Pacca Bagh, Kharkhoda, Haryana 131402</p></div>
+    <div><h3>Open every day</h3><p>11:00 AM to 9:00 PM</p><a href="tel:+919050198877">+91 90501 98877</a><p>UPI and cash accepted</p></div>
+  </div>
+  <p class="cp">&copy; 2026 Crazy Foods, Pacca Bagh, Kharkhoda.</p>
+</div></footer>
+
+<a class="wa" href="https://wa.me/919050198877?text=Hi%20Crazy%20Foods" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],WA='919050198877';
+
+// Mobile menu toggle
+$('.mb').onclick=()=>$('.nl').classList.toggle('o');
+$$('.nl a').forEach(a=>a.onclick=()=>$('.nl').classList.remove('o'));
+
+// Menu data: [naam, description, price]. Price sirf wahi jo confirm hai, baaki counter pe
+const M={
+ 'Burgers':[['Maharaja Burger','Premium thick patty, loaded'],['Creamy Burger','Rich and sauce-heavy'],['Spicy Grilled Burger','Grilled, with extra heat']],
+ 'Pizza & Pasta':[['Vegetable Pizza','Classic veggie topping'],['Chocolate Pizza','Sweet and unusual, a must try'],['White Sauce Pasta','Creamy, our most recommended dish']],
+ 'Snacks':[['Honey Chilli Potato','Crispy, sweet and spicy'],['Momos','Steamed or fried'],['Rolls','Quick bites for on the go'],['Chaat','Tangy street-style favorite']],
+ 'Chinese & Indian':[['Noodles','Chinese-style'],['Manchurian','Chinese-style'],['Dal Makhani','Slow and creamy'],['Shahi Paneer','Rich gravy'],['Naan','Fresh from the tandoor']],
+ 'Drinks':[['Crazy Shakes','Our signature thick shakes'],['Coffee','Hot or cold']],
+ 'Sides':[['Dry Papad','','₹10'],['Fried Papad','','₹15'],['Plain Curd','','₹30'],['Masala Papad','','₹30'],['Kachumber Salad','','₹40']]
+};
+const tb=$('.tabs'),ml=$('.ml');
+function show(k){
+  $$('.tabs button').forEach(b=>b.classList.toggle('on',b.textContent===k));
+  ml.innerHTML='';
+  M[k].forEach((it,n)=>{
+    const d=document.createElement('div');d.className='mi';d.style.animationDelay=n*60+'ms';
+    d.innerHTML='<div class="mr"><i class="vd"></i><span></span>'+(it[2]?'<i class="dt" style="border-bottom:2px dotted rgba(42,21,13,.3)"></i><span class="pr"></span>':'')+'</div>'+(it[1]?'<p></p>':'');
+    const s=d.querySelectorAll('span');s[0].textContent=it[0];if(it[2])s[1].textContent=it[2];if(it[1])d.querySelector('p').textContent=it[1];
+    ml.append(d);
+  });
+}
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>show(k);tb.append(b)});
+show('Burgers');
+
+// Scroll reveal: sirf favorites cards + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const t=e.target;
+  if(t.dataset.n){count(t)}else{t.style.transitionDelay=([...t.parentNode.children].indexOf(t)%3)*120+'ms';t.classList.add('in')}
+  io.unobserve(t);
+}),{threshold:.2});
+$$('.fc,[data-n]').forEach(e=>io.observe(e));
+function count(el){
+  const to=+el.dataset.n,from=+(el.dataset.f||0),sf=el.dataset.s||'',t0=performance.now();
+  (function f(t){const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-p,3)))+(p<1?'':sf);if(p<1)requestAnimationFrame(f)})(t0);
+}
+
+// 5 star rating
+let rate=0;
+const L=['','Not good','Could be better','It was good','Really tasty','Absolutely crazy good!'],sb=$$('#stars button');
+function paint(n){sb.forEach((b,i)=>b.classList.toggle('on',i<n))}
+sb.forEach((b,i)=>{b.onmouseenter=()=>paint(i+1);b.onfocus=()=>paint(i+1);b.onclick=()=>{rate=i+1;$('#rt').textContent=L[rate];paint(rate)}});
+$('#stars').onmouseleave=()=>paint(rate);
+$('#fs').onclick=()=>{
+  const n=$('#fn').value.trim(),c=$('#fc').value.trim(),m=$('#fmg');
+  if(!rate){m.textContent='Please pick a star rating first.';return}
+  if(!c){m.textContent='Add a line about your visit.';return}
+  // Review page pe add hota hai. Save karne ke liye backend (Supabase/Firebase) connect karna hoga
+  const d=document.createElement('div');d.className='rc';
+  d.innerHTML='<div class="s"></div><p></p><small></small>';
+  d.children[0].textContent='★'.repeat(rate)+'☆'.repeat(5-rate);d.children[1].textContent=c;d.children[2].textContent=n||'A happy customer';
+  $('#rl').prepend(d);
+  m.textContent='Thanks'+(n?', '+n:'')+'! Your review is posted.';
+  $('#fn').value=$('#fc').value='';rate=0;paint(0);$('#rt').textContent='Tap a star to rate';
+  $('#reviews').scrollIntoView({behavior:'smooth'});
+};
+
+// Contact form WhatsApp pe bhejta hai
+$('#cf').onsubmit=e=>{
+  e.preventDefault();
+  const t='Hi Crazy Foods!\nName: '+$('#cn').value+'\nPhone: '+$('#cp').value+'\nAbout: '+$('#ct').value+'\n'+$('#cm').value;
+  window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');
+};
+
+// Image load fail ho toh khali box hide karo (background color dikhega)
+$$('img').forEach(i=>{const h=()=>i.remove();i.addEventListener('error',h);if(i.complete&&!i.naturalWidth)h()});
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full Catalogue — Shri Ram Jewellers</title>
+<meta name="description" content="Browse the complete gold, diamond and silver jewellery catalogue at Shri Ram Jewellers, Sonipat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">
+      <div class="brand-text">
+        <h1>Shri Ram Jewellers</h1>
+        <span>Since 2003 &middot; Sonipat</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#collections">Collections</a></li>
+      <li><a href="catalogue.html" class="active">Catalogue</a></li>
+      <li><a href="index.html#about">Our Story</a></li>
+      <li><a href="index.html#testimonials">Reviews</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+919467664009" class="nav-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+91 94676 64009</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow-label" style="color:#d9b84a;">Full Catalogue</span>
+    <h1>Every collection, in one place</h1>
+    <p>Search or filter through our complete range of gold, diamond and silver jewellery.</p>
+    <div class="catalogue-search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="catalogue-search-input" placeholder="Search jewellery, e.g. 'gold bangles' or 'diamond ring'...">
+    </div>
+  </div>
+</section>
+
+<div class="catalogue-filters container">
+  <button class="filter-chip active" data-category="all">All</button>
+  <button class="filter-chip" data-category="gold">Gold</button>
+  <button class="filter-chip" data-category="diamond">Diamond</button>
+  <button class="filter-chip" data-category="silver">Silver</button>
+</div>
+
+<section class="catalogue-grid-wrap container">
+  <p class="catalogue-count" id="catalogue-count"></p>
+  <div class="catalogue-grid" id="catalogue-grid"></div>
+  <div class="no-results" id="no-results">
+    <p>No items match your search. Try a different keyword or call us at +91 94676 64009.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>Shri Ram Jewellers</h2>
+        <p>Committed for Purity and Authenticity — serving Sonipat since 2003 with honest, quality gold, diamond and silver jewellery.</p>
+      </div>
+      <div class="footer-col">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="catalogue.html">Full Catalogue</a></li>
+          <li><a href="index.html#about">Our Story</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><p>Shop no. 2, Button Factory, Ashok Nagar, Sonipat, Haryana - 131001</p></li>
+          <li><a href="tel:+919467664009">+91 94676 64009</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shri Ram Jewellers. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/shriramjewellers01?mibextid=ZbWKwL" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.56 1.53-3.97 3.87-3.97 1.12 0 2.3.2 2.3.2v2.5h-1.3c-1.28 0-1.68.8-1.68 1.6V12h2.86l-.46 2.89h-2.4v6.98A10 10 0 0 0 22 12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING WIDGETS ===================== -->
+<div class="float-stack">
+  <button class="float-btn ai-btn" id="ai-toggle" aria-label="Chat with our assistant">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="ping"></span>
+  </button>
+  <a class="float-btn wa-btn" href="https://wa.me/919467664009?text=Hi%2C%20I%27m%20interested%20in%20your%20jewellery%20collection" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.54.12.17 1.74 2.65 4.21 3.72.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+  </a>
+</div>
+
+<div class="chat-panel" id="chat-panel">
+  <div class="chat-head">
+    <div class="dot"></div>
+    <div>
+      <strong>Shri Ram Jewellers</strong>
+      <span>Assistant &middot; usually replies instantly</span>
+    </div>
+    <button class="chat-close" id="chat-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="chat-msg bot">Namaste! 🙏 Welcome to Shri Ram Jewellers. Ask me about our store hours, collections, or how to reach us.</div>
+  </div>
+  <div class="chat-quick" id="chat-quick">
+    <button type="button">Store hours?</button>
+    <button type="button">Gold collection</button>
+    <button type="button">Store address</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Type your question...">
+    <button id="chat-send" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/catalogue.js"></script>
+</body>
+</html>
