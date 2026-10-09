@@ -5,7 +5,7 @@ window.SAMPLES = [
   {"name": "Fine Jewellery · Cream & Gold", "cat": "jewellery", "template": true, "path": "jewellery/template-cream-gold"},
    {"name": "Ivory", "cat": "jewellery", "template": true, "path": "jewellery/1-ivory"},
      {"name": "Heritage", "cat": "jewellery", "template": true, "path": "jewellery/3-heritage"},
-     {"name": "Noir", "cat": "jewellery", "template": true, "path": "jewellery/noir"},
+     {"name": "Noir", "cat": "jewellery", "template": true, "path": "jewellery/2-noir"},
   {"name": "Ghasi Ram Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/ghasi-ram-jewellers"},
   {"name": "Premsons Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/premsons-jewellers"},
   {"name": "Shri Ram Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/shri-ram-jewellers"},
