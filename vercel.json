@@ -1,0 +1,424 @@
+{
+  "redirects": [
+    {
+      "source": "/samples/sample1",
+      "destination": "/samples/jewellery/ghasi-ram-jewellers/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample1/:path*",
+      "destination": "/samples/jewellery/ghasi-ram-jewellers/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample2",
+      "destination": "/samples/other/aj-fashion/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample2/:path*",
+      "destination": "/samples/other/aj-fashion/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample3",
+      "destination": "/samples/healthcare/oxygen-hospital/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample3/:path*",
+      "destination": "/samples/healthcare/oxygen-hospital/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample4",
+      "destination": "/samples/dental/shaista-dental-clinic/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample4/:path*",
+      "destination": "/samples/dental/shaista-dental-clinic/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample5",
+      "destination": "/samples/jewellery/vriddhi-by-sehgal/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample5/:path*",
+      "destination": "/samples/jewellery/vriddhi-by-sehgal/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample6",
+      "destination": "/samples/jewellery/ghasi-ram-jewellers/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample6/:path*",
+      "destination": "/samples/jewellery/ghasi-ram-jewellers/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample7",
+      "destination": "/samples/dental/shaista-dental-clinic/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample7/:path*",
+      "destination": "/samples/dental/shaista-dental-clinic/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample8",
+      "destination": "/samples/other/btn-overseas/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample8/:path*",
+      "destination": "/samples/other/btn-overseas/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample9",
+      "destination": "/samples/dental/ramaya-dentals/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample9/:path*",
+      "destination": "/samples/dental/ramaya-dentals/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample10",
+      "destination": "/samples/other/rudransh-modular-kitchens/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample10/:path*",
+      "destination": "/samples/other/rudransh-modular-kitchens/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample11",
+      "destination": "/samples/education/sd-memorial-convent-school/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample11/:path*",
+      "destination": "/samples/education/sd-memorial-convent-school/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample12",
+      "destination": "/samples/jewellery/premsons-jewellers/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample12/:path*",
+      "destination": "/samples/jewellery/premsons-jewellers/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample13",
+      "destination": "/samples/education/narayan-manav-chetna-classes/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample13/:path*",
+      "destination": "/samples/education/narayan-manav-chetna-classes/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample14",
+      "destination": "/samples/jewellery/shri-ram-jewellers/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample14/:path*",
+      "destination": "/samples/jewellery/shri-ram-jewellers/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample15",
+      "destination": "/samples/hotels/catalina-hotel-banquets/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample15/:path*",
+      "destination": "/samples/hotels/catalina-hotel-banquets/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample16",
+      "destination": "/samples/hotels/hotel-lavenir/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample16/:path*",
+      "destination": "/samples/hotels/hotel-lavenir/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample17",
+      "destination": "/samples/hotels/hotel-lavenir/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample17/:path*",
+      "destination": "/samples/hotels/hotel-lavenir/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample18",
+      "destination": "/samples/jewellery/radha-jewellers/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample18/:path*",
+      "destination": "/samples/jewellery/radha-jewellers/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample19",
+      "destination": "/samples/hotels/hotel-landlord-premier/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample19/:path*",
+      "destination": "/samples/hotels/hotel-landlord-premier/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample20",
+      "destination": "/samples/food-cafe/qaenat-rooftop-restaurant/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample20/:path*",
+      "destination": "/samples/food-cafe/qaenat-rooftop-restaurant/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample21",
+      "destination": "/samples/dental/shaista-dental-clinic-design-2/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample21/:path*",
+      "destination": "/samples/dental/shaista-dental-clinic-design-2/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample22",
+      "destination": "/samples/healthcare/sanjivani-chiropractic/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample22/:path*",
+      "destination": "/samples/healthcare/sanjivani-chiropractic/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample23",
+      "destination": "/samples/food-cafe/crazy-foods-kharkhoda/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample23/:path*",
+      "destination": "/samples/food-cafe/crazy-foods-kharkhoda/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample24",
+      "destination": "/samples/dental/dental-studio-panipat/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample24/:path*",
+      "destination": "/samples/dental/dental-studio-panipat/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample25",
+      "destination": "/samples/dental/dr-singla-dental-clinic/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample25/:path*",
+      "destination": "/samples/dental/dr-singla-dental-clinic/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample26",
+      "destination": "/samples/food-cafe/cafe-ocean-blue/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample26/:path*",
+      "destination": "/samples/food-cafe/cafe-ocean-blue/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample27",
+      "destination": "/samples/jewellery/template-cream-gold/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample27/:path*",
+      "destination": "/samples/jewellery/template-cream-gold/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample28",
+      "destination": "/samples/real-estate/template-cream-gold/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample28/:path*",
+      "destination": "/samples/real-estate/template-cream-gold/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample29",
+      "destination": "/samples/dental/template-teal-clean/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample29/:path*",
+      "destination": "/samples/dental/template-teal-clean/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample30",
+      "destination": "/samples/food-cafe/template-cream-brunch/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample30/:path*",
+      "destination": "/samples/food-cafe/template-cream-brunch/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample31",
+      "destination": "/samples/real-estate/template-cream-gold/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample31/:path*",
+      "destination": "/samples/real-estate/template-cream-gold/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample32",
+      "destination": "/samples/real-estate/template-dark-luxury/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample32/:path*",
+      "destination": "/samples/real-estate/template-dark-luxury/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample33",
+      "destination": "/samples/real-estate/template-green-modern/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample33/:path*",
+      "destination": "/samples/real-estate/template-green-modern/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample34",
+      "destination": "/samples/food-cafe/template-bright-yellow/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample34/:path*",
+      "destination": "/samples/food-cafe/template-bright-yellow/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample35",
+      "destination": "/samples/food-cafe/template-night-plum/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample35/:path*",
+      "destination": "/samples/food-cafe/template-night-plum/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample36",
+      "destination": "/samples/food-cafe/template-cream-brunch/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample36/:path*",
+      "destination": "/samples/food-cafe/template-cream-brunch/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample37",
+      "destination": "/samples/dental/template-warm-family/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample37/:path*",
+      "destination": "/samples/dental/template-warm-family/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample38",
+      "destination": "/samples/dental/template-blue-specialist/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample38/:path*",
+      "destination": "/samples/dental/template-blue-specialist/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample39",
+      "destination": "/samples/dental/template-sage-calm/",
+      "permanent": false
+    },
+    {
+      "source": "/samples/sample39/:path*",
+      "destination": "/samples/dental/template-sage-calm/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/sample31",
+      "destination": "/samples/real-estate/template-cream-gold/",
+      "permanent": false
+    },
+    {
+      "source": "/sample31/:path*",
+      "destination": "/samples/real-estate/template-cream-gold/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/sample32",
+      "destination": "/samples/real-estate/template-dark-luxury/",
+      "permanent": false
+    },
+    {
+      "source": "/sample32/:path*",
+      "destination": "/samples/real-estate/template-dark-luxury/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/sample33",
+      "destination": "/samples/real-estate/template-green-modern/",
+      "permanent": false
+    },
+    {
+      "source": "/sample33/:path*",
+      "destination": "/samples/real-estate/template-green-modern/:path*",
+      "permanent": false
+    }
+  ]
+}
