@@ -3,6 +3,9 @@
 window.CATEGORIES = [{"id": "jewellery", "label": "Jewellery"}, {"id": "dental", "label": "Dental"}, {"id": "real-estate", "label": "Real Estate"}, {"id": "food-cafe", "label": "Food & Cafe"}, {"id": "hotels", "label": "Hotels"}, {"id": "healthcare", "label": "Healthcare"}, {"id": "education", "label": "Education"}, {"id": "gym", "label": "Gym & Fitness"},{"id": "other", "label": "Other"}];
 window.SAMPLES = [
   {"name": "Fine Jewellery · Cream & Gold", "cat": "jewellery", "template": true, "path": "jewellery/template-cream-gold"},
+   {"name": "Ivory", "cat": "jewellery", "template": true, "path": "jewellery/1-ivory"},
+     {"name": "Heritage", "cat": "jewellery", "template": true, "path": "jewellery/3-heritage"},
+     {"name": "Noir", "cat": "jewellery", "template": true, "path": "jewellery/noir"},
   {"name": "Ghasi Ram Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/ghasi-ram-jewellers"},
   {"name": "Premsons Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/premsons-jewellers"},
   {"name": "Shri Ram Jewellers", "cat": "jewellery", "template": false, "path": "jewellery/shri-ram-jewellers"},
