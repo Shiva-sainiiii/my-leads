@@ -1,4 +1,7 @@
 {
+  "framework": null,
+  "buildCommand": "node build-index.js",
+  "outputDirectory": ".",
   "redirects": [
     {
       "source": "/samples/sample1",
