@@ -97,6 +97,15 @@ nav .w{display:flex;align-items:center;justify-content:space-between;height:72px
 .stars button:hover{transform:scale(1.15)}
 .rl{font:italic 500 22px var(--fd);color:var(--gold);min-height:30px;margin-top:6px}
 .rg .er{font-size:13px;color:#a8321f;display:none}
+.contact-note{font-size:13px;color:var(--mut);margin-top:8px}
+#rf .fb{margin-top:22px}
+#rf .f textarea{min-height:96px}
+@media(max-width:600px){
+  .hh h1{font-size:clamp(40px,12vw,62px);line-height:1.02;padding-inline:8px}
+  .hi{font-size:18px}
+  .fg{gap:48px}
+}
+
 /* map */
 .dark{background:var(--ink);color:var(--bg)}
 .dark .eb{color:var(--gold2)}.dark .eb:before{background:var(--gold2)}
@@ -236,7 +245,7 @@ nav:before{content:"BIS Hallmarked  \25C6  Certified Diamond Jewellery  \25C6  C
 .sh h2{margin-top:4px}
 /* hero */
 .hh{text-align:center;padding-top:clamp(40px,7vw,84px)}
-.hh h1{font-size:clamp(42px,7vw,90px);max-width:14ch;margin:0 auto;line-height:1.05}
+.hh h1{font-size:clamp(42px,7vw,90px);max-width:1100px;width:100%;margin:0 auto;line-height:1.05;text-align:center;text-wrap:balance}
 .hi{font-size:clamp(18px,2.4vw,24px);color:var(--gold);margin-top:16px}
 .hh .lead{margin-inline:auto}
 .hh .bt2{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
