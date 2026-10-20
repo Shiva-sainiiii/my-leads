@@ -112,21 +112,32 @@ $('#q').oninput=e=>{q=e.target.value;draw()};$('#xq').onclick=()=>{q='';$('#q').
 $('#sf').onsubmit=e=>e.preventDefault();$('#mt').onchange=$('#so').onchange=draw;
 grid(gd);draw()}
 
-/* ---- contact: enquiry + rating ---- */
+/* ---- contact enquiry + persistent 5-star feedback (browser demo) ---- */
 const bad=(id,v)=>$('#'+id).parentElement.classList.toggle('bad',v);
+const safeRead=(key)=>{try{return JSON.parse(localStorage.getItem(key))||[]}catch{return[]}};
+const safeWrite=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
 const ef=$('#ef');
 if(ef){ef.onsubmit=e=>{e.preventDefault();
-const a=$('#n').value.trim().length<2,b=!/^\d{10}$/.test($('#p').value.replace(/[\s+-]|^91/g,''));
-bad('n',a);bad('p',b);if(a||b)return;
-const bt=ef.querySelector('button');bt.disabled=true;bt.textContent='Sending...';
-setTimeout(()=>{ef.style.display='none';$('#eo').classList.add('show')},900)};
+const name=$('#n').value.trim(),phone=$('#p').value.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,''),interest=$('#i').value,message=$('#m').value.trim();
+const a=name.length<2,b=!/^\d{10}$/.test(phone);bad('n',a);bad('p',b);if(a||b)return;
+const entry={id:'ENQ'+Date.now().toString().slice(-7),created:new Date().toLocaleString('en-IN'),name,phone,interest,message};
+const enquiries=safeRead('gamya_demo_enquiries_v1');enquiries.unshift(entry);safeWrite('gamya_demo_enquiries_v1',enquiries);
+ef.style.display='none';$('#eo').classList.add('show');
+const text=`Hello Gamya Jewellers, I submitted a website enquiry.\nName: ${name}\nMobile: ${phone}\nInterested in: ${interest}\nMessage: ${message||'Not provided'}\nReference: ${entry.id}`;
+const waLink='https://wa.me/919254294542?text='+encodeURIComponent(text);
+const link=document.createElement('a');link.className='btn';link.href=waLink;link.target='_blank';link.rel='noopener';link.textContent='Send details on WhatsApp';$('#eo').append(link);
+};
 const L=['Needs work','Fair','Good','Very good','Excellent'];let R=0;const st=$('#st');
-const paint=n=>{[...st.children].forEach((b,i)=>b.classList.toggle('on',i<n));$('#rl').textContent=n?L[n-1]:''};
-for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',i+' star');b.innerHTML=ic('star');
+const paint=n=>{[...st.children].forEach((b,i)=>{b.classList.toggle('on',i<n);b.setAttribute('aria-pressed',String(i<n))});$('#rl').textContent=n?`${L[n-1]} · ${n}/5`:''};
+for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',i+' star');b.setAttribute('aria-pressed','false');b.innerHTML=ic('star');
 b.onmouseenter=()=>paint(i);b.onclick=()=>{R=i;paint(i);$('#re').style.display='none'};st.append(b)}
 st.onmouseleave=()=>paint(R);
 $('#rb').onclick=()=>{if(!R){$('#re').style.display='block';return}
-$('#rv2').textContent=R;$('#rf').style.display='none';$('#ro').classList.add('show')}}
+const feedback={id:'FB'+Date.now().toString().slice(-7),created:new Date().toLocaleString('en-IN'),name:$('#rn').value.trim()||'Anonymous',rating:R,experience:$('#rt').value.trim()};
+const feedbacks=safeRead('gamya_demo_feedback_v1');feedbacks.unshift(feedback);safeWrite('gamya_demo_feedback_v1',feedbacks);
+$('#rv2').textContent=R;$('#rf').style.display='none';$('#ro').classList.add('show');
+const follow=document.createElement('a');follow.className='btn';follow.href='https://wa.me/919254294542?text='+encodeURIComponent(`Hello Gamya Jewellers, I shared ${R}/5 star feedback. Reference: ${feedback.id}`);follow.target='_blank';follow.rel='noopener';follow.textContent='Share feedback on WhatsApp';$('#ro').append(follow);
+}}
 const mp=$('#mp');if(mp){mp.src='https://maps.google.com/maps?q='+encodeURIComponent(C.map)+'&z=16&output=embed';$('#dir').href='https://www.google.com/maps/dir//Shop+No,+1,+Gamya,+near+Gandhi+Chowk+Road,+Sector+14,+Sonipat,+Haryana+131001/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x390db14b327a36b3:0x77ade42197678748?sa=X&ved=1t:57443&ictx=111'}
 
 /* ---- chatbot ---- */
