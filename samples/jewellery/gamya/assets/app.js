@@ -126,8 +126,8 @@ ef.style.display='none';$('#eo').classList.add('show');
 const text=`Hello Gamya Jewellers, I submitted a website enquiry.\nName: ${name}\nMobile: ${phone}\nInterested in: ${interest}\nMessage: ${message||'Not provided'}\nReference: ${entry.id}`;
 const waLink='https://wa.me/919254294542?text='+encodeURIComponent(text);
 const link=document.createElement('a');link.className='btn';link.href=waLink;link.target='_blank';link.rel='noopener';link.textContent='Send details on WhatsApp';$('#eo').append(link);
-};
-const L=['Needs work','Fair','Good','Very good','Excellent'];let R=0;const st=$('#st');
+};}
+if($('#st')){const L=['Needs work','Fair','Good','Very good','Excellent'];let R=0;const st=$('#st');
 const paint=n=>{[...st.children].forEach((b,i)=>{b.classList.toggle('on',i<n);b.setAttribute('aria-pressed',String(i<n))});$('#rl').textContent=n?`${L[n-1]} · ${n}/5`:''};
 for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',i+' star');b.setAttribute('aria-pressed','false');b.innerHTML=ic('star');
 b.onmouseenter=()=>paint(i);b.onclick=()=>{R=i;paint(i);$('#re').style.display='none'};st.append(b)}
