@@ -1,5 +1,5 @@
 /* ===== EDIT PER CLIENT ===== */
-const C={name:'Gamya Jewellers',phone:'+91 92542 94542',wa:'919254294542',waShow:'+91 92542 94542',alt:'+91 98135 67674',map:'Gamya Jewellers, Shop No. C-20, Prem Nagar, Near Gandhi Chowk, Atlas Road, Sector 14, Sonipat, Haryana 131001',addr:'Shop No. C-20, Prem Nagar, Near Gandhi Chowk, Atlas Road, Sector 14, Sonipat, Haryana - 131001'};
+const C={name:'Gamya Jewellers',phone:'+91 92542 94542',wa:'919254294542',waShow:'+91 92542 94542',alt:'+91 98135 67674',map:'Shop No, 1, Gamya, near Gandhi Chowk Road, Sector 14, Sonipat, Haryana 131001',addr:'Shop No. C-20, Prem Nagar, Near Gandhi Chowk, Atlas Road, Sector 14, Sonipat, Haryana - 131001'};
 /* ========================== */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const ic=n=>`<svg class="ic"><use href="#${n}"/></svg>`;
@@ -127,7 +127,7 @@ b.onmouseenter=()=>paint(i);b.onclick=()=>{R=i;paint(i);$('#re').style.display='
 st.onmouseleave=()=>paint(R);
 $('#rb').onclick=()=>{if(!R){$('#re').style.display='block';return}
 $('#rv2').textContent=R;$('#rf').style.display='none';$('#ro').classList.add('show')}}
-const mp=$('#mp');if(mp){mp.src='https://www.google.com/maps?q='+encodeURIComponent(C.map)+'&output=embed';$('#dir').href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(C.map)}
+const mp=$('#mp');if(mp){mp.src='https://maps.google.com/maps?q='+encodeURIComponent(C.map)+'&z=16&output=embed';$('#dir').href='https://www.google.com/maps/dir//Shop+No,+1,+Gamya,+near+Gandhi+Chowk+Road,+Sector+14,+Sonipat,+Haryana+131001/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x390db14b327a36b3:0x77ade42197678748?sa=X&ved=1t:57443&ictx=111'}
 
 /* ---- chatbot ---- */
 const cp=$('#cp'),cm=$('#cm');
