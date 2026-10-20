@@ -291,3 +291,51 @@ nav:before{font-size:10px;padding:7px 10px;letter-spacing:.08em}
 
 /* Gamya ecommerce demo additions */
 .admin-link{font-size:12px;color:var(--ink);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}.cart-top{border:1px solid var(--line);background:transparent;color:var(--ink);padding:10px 13px;border-radius:3px;cursor:pointer;font:inherit;font-size:13px}.cart-top span{display:inline-grid;place-items:center;background:var(--gold);color:#111;border-radius:50%;width:20px;height:20px;margin-left:4px}.shop-price{display:block;margin:12px 0 10px;font-size:20px;color:var(--ink)}.shop-price small{font-size:10px;font-weight:400;color:#9a8060;display:block}.shop-actions{display:flex;gap:8px;align-items:center}.buy-btn,.checkout-btn{border:0;background:#263d31;color:#fff;padding:11px 13px;cursor:pointer;font:inherit;font-size:12px;letter-spacing:.03em}.shop-actions .ask{flex:1;text-align:center;padding:11px 8px;border:1px solid var(--line);text-decoration:none;font-size:12px}.shop-drawer{position:fixed;inset:0;z-index:9999;background:#0009;display:none;justify-content:flex-end}.shop-drawer.open{display:flex}.shop-panel{background:#f8f5ef;color:#25231f;width:min(460px,100%);height:100%;overflow:auto;padding:26px;box-shadow:0 0 40px #0003}.shop-panel h2{font-weight:400;font-size:28px}.shop-close{float:right;background:none;border:0;font-size:26px;cursor:pointer}.cart-line{display:grid;grid-template-columns:1fr auto;gap:8px;border-bottom:1px solid #ddd3c4;padding:15px 0}.cart-line small{display:block;color:#756d60;margin-top:5px}.qty-row{display:flex;gap:8px;align-items:center;margin-top:8px}.qty-row button{border:1px solid #ccc;background:white;padding:3px 9px;cursor:pointer}.checkout-field{width:100%;padding:12px;margin:7px 0;border:1px solid #d5cbbc;background:#fff;font:inherit}.shop-note{font-size:12px;color:#786f61;line-height:1.6}.admin-page{background:#f5f1e8;min-height:100vh;color:#29261f;padding:30px 16px;font-family:'Hind',sans-serif}.admin-wrap{max-width:1050px;margin:auto}.admin-box{background:#fff;padding:24px;margin:16px 0;border:1px solid #e2d9c9}.admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.admin-box input,.admin-box select{padding:11px;border:1px solid #d6cbbb;width:100%;margin:5px 0;font:inherit}.admin-btn{background:#263d31;color:white;border:0;padding:11px 16px;cursor:pointer;margin:5px 5px 5px 0}.admin-table{width:100%;border-collapse:collapse;font-size:13px}.admin-table td,.admin-table th{padding:10px;border-bottom:1px solid #e7dfd2;text-align:left}@media(max-width:600px){.admin-link{display:none}.shop-actions{flex-wrap:wrap}.shop-actions>*{min-width:44%}.shop-panel{padding:20px}}
+
+/* ===== v3: mobile catalogue fix + polish ===== */
+html{-webkit-text-size-adjust:100%}
+[id]{scroll-margin-top:112px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* catalogue: .pgh stripped the side padding of .w, so cards touched the screen edges */
+.pgh{padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+.pgd>*,.pc{min-width:0}
+.pgd{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:861px){.pgd{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1101px){.pgd{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.pc h3{text-wrap:balance;overflow-wrap:anywhere}
+.pc p{font-size:14px;color:var(--mut)}
+.hr{width:44px;height:44px}
+.shop-actions{display:flex;gap:8px;align-items:stretch}
+.shop-actions>*{min-width:0}
+.buy-btn,.shop-actions .ask{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;font-size:13px;letter-spacing:.04em}
+.shop-actions .ask{color:var(--mr);border-color:var(--mr);font-weight:500}
+.shop-actions .ask:hover{background:var(--mr);color:#f9e6b8}
+.buy-btn:hover{background:#1b2d23}
+@media(max-width:600px){
+.shop-actions{flex-direction:column}
+.shop-actions>*{width:100%;flex:none;min-width:0}
+.pgd{gap:28px 14px}
+.pc h3{font-size:19px}
+.shop-price{font-size:18px}
+.tb{flex-direction:column;align-items:stretch;gap:10px}
+.tb>div{display:flex;gap:10px}.tb select{flex:1;min-width:0;min-height:44px}
+.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}.chips button{flex:none;min-height:44px}
+.fab button,.fab a{width:50px;height:50px}
+}
+.nf{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;text-align:center;padding-bottom:clamp(48px,7vw,88px)}
+.nf p{flex-basis:100%;font:400 22px var(--fd);color:var(--mr)}
+/* contact, feedback, directions */
+.fg>.rv{background:#fffaf0;border:1px solid var(--line);border-radius:10px;padding:clamp(22px,4vw,40px);box-shadow:var(--sh)}
+.f label{font-size:12px;letter-spacing:.12em;color:var(--mut)}
+.f input,.f select,.f textarea{background:#fff;border:1px solid rgba(106,15,37,.3);border-radius:4px;padding:12px 14px;min-height:48px;font-size:16px;color:var(--ink)}
+.f input::placeholder,.f textarea::placeholder{color:#7b5a4c}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--mr);box-shadow:0 0 0 3px rgba(182,132,44,.28)}
+.f.bad input,.f.bad select{border-color:#a8321f}
+.stars{margin-top:24px;gap:0}
+.stars button{width:48px;height:48px;display:grid;place-items:center;padding:0;color:rgba(106,15,37,.3)}
+.stars button.on{color:var(--gold)}
+.rl{font-style:normal;font-size:20px;color:var(--mr);min-height:30px}
+.map{min-height:300px}.map iframe{min-height:300px;filter:sepia(.25) contrast(1.02)}
+@media(max-width:860px){.map,.map iframe{min-height:260px}}
+@media(max-width:600px){.fb .btn,.cta .btn,.hh .btn{width:100%;justify-content:center;justify-self:stretch!important}.ci div{gap:12px}.dark .btn{width:100%;justify-content:center}}
