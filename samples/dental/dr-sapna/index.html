@@ -72,6 +72,10 @@ h1,h2{letter-spacing:-.025em}
 .tag{color:#0b5e5d}.dkp{background:#0b1f24;--st0:#3b5a60}.cpn p{color:#d9f1ee}.rc small{font-weight:500}
 .ab{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,70px);align-items:center}.ab ul{list-style:none;padding:0;display:grid;gap:14px}.ab li{display:flex;gap:16px;padding:20px 22px;background:#fff;border:1px solid var(--ln);border-radius:24px}.ab li b{display:block;color:var(--tx);font-weight:600}.ab li .i{color:var(--ac);margin-top:3px}.ab .cta{margin-top:26px}
 .so{display:flex;gap:10px}.so a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;color:#fff;transition:background .25s}.so a:hover{background:var(--ac)}
+.lc{position:absolute;left:50%;top:50%;width:75%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:12px solid var(--tx);box-shadow:0 30px 50px -28px rgba(11,31,36,.6)}
+.lc img{filter:blur(16px);transition:opacity .8s,filter 1.8s var(--ez)}.lc img.ok{filter:none}
+.ls{position:absolute;left:-1%;bottom:5%;width:32%;aspect-ratio:1;border-radius:50%;border:6px solid var(--bg);box-shadow:0 18px 30px -16px rgba(11,31,36,.55)}
+.abi{aspect-ratio:16/10;border-radius:32px;box-shadow:0 30px 50px -34px rgba(11,31,36,.55)}.ab>.r:last-child{display:grid;gap:14px}
 @media(max-width:900px){.ab{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.js .fx,.lt{opacity:1;filter:none}}
 </style>
@@ -112,13 +116,12 @@ h1,h2{letter-spacing:-.025em}
 <p class="lead r" style="--i:2">Gentle, meticulous care led by Dr. Sapna Sharma, Periodontist and Oral Implantologist. High magnification lets us see and treat what standard procedures miss.</p>
 <div class="cta r" style="--i:3"><a href="#contact" class="btn">Book appointment <svg class="i"><use href="#ar"/></svg></a><a data-tel class="btn o"><svg class="i"><use href="#ph"/></svg><span data-c="phone"></span></a></div>
 <div class="rt r" style="--i:4"><span class="sr"><svg class="i"><use href="#st"/></svg><svg class="i"><use href="#st"/></svg><svg class="i"><use href="#st"/></svg><svg class="i"><use href="#st"/></svg><svg class="i"><use href="#st"/></svg></span><span><b>5.0</b> rating across the web</span></div></div>
-<div class="lens r" style="--i:2" aria-hidden="true">
-<svg viewBox="0 0 400 400"><defs><radialGradient id="lg" cx="50%" cy="42%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfe6e2"/></radialGradient></defs>
-<g class="rg"><circle cx="200" cy="200" r="192" fill="none" stroke="#d6e4e2" stroke-width="1.5"/><circle cx="200" cy="200" r="192" fill="none" stroke="#0e7c7b" stroke-width="3" stroke-dasharray="2 17" stroke-linecap="round"/></g>
+<div class="lens r" style="--i:2">
+<svg viewBox="0 0 400 400" aria-hidden="true"><g class="rg"><circle cx="200" cy="200" r="192" fill="none" stroke="#d6e4e2" stroke-width="1.5"/><circle cx="200" cy="200" r="192" fill="none" stroke="#0e7c7b" stroke-width="3" stroke-dasharray="2 17" stroke-linecap="round"/></g>
 <g class="rg2"><circle cx="200" cy="200" r="172" fill="none" stroke="#0e7c7b" stroke-opacity=".55" stroke-width="2" stroke-dasharray="46 300" stroke-linecap="round"/></g>
-<circle cx="200" cy="200" r="150" fill="url(#lg)" stroke="#0b1f24" stroke-width="12"/>
-<path d="M200 72v26M200 302v26M72 200h26M302 200h26" stroke="#0e7c7b" stroke-width="2.5" stroke-linecap="round"/>
-<use class="lt" href="#tooth" x="105" y="105" width="190" height="190" fill="#fff" stroke="#0e7c7b" stroke-width=".7"/></svg>
+<path d="M200 14v30M200 356v30M14 200h30M356 200h30" stroke="#0e7c7b" stroke-width="2.5" stroke-linecap="round"/></svg>
+<div class="im lc"><img data-u="hero" data-w="900" alt="Modern dental treatment room"></div>
+<div class="im ls"><img data-u="tools" data-w="400" alt="Dentist reviewing an X-ray with a patient"></div>
 <div class="sk">Under the microscope<small>Every detail in focus</small></div></div>
 </section>
 
@@ -139,11 +142,11 @@ h1,h2{letter-spacing:-.025em}
 <p style="margin-top:18px">Dr. Sapna Sharma is a Periodontist and Oral Implantologist, and the founder of the clinic. She is a pioneer of microscope-assisted dental treatment in the region.</p>
 <p style="margin-top:12px">Whether the job is saving a severely compromised tooth or placing a complex implant, the aim is the same: precise work and a comfortable visit.</p>
 <div class="cta"><a class="btn" href="https://www.youtube.com/@drsapna1" target="_blank" rel="noopener"><svg class="i"><use href="#yt"/></svg>Watch case videos</a><a class="btn o" href="https://www.instagram.com/drsapnaperio/" target="_blank" rel="noopener"><svg class="i"><use href="#ig"/></svg>Instagram</a></div></div>
-<ul class="r" style="--i:1">
+<div class="r" style="--i:1"><div class="im abi"><img data-u="d3" data-w="800" alt="Dentist at work"></div><ul>
 <li><svg class="i"><use href="#sh"/></svg><span><b>Microscope-assisted precision</b>Clear structural detail for every procedure.</span></li>
 <li><svg class="i"><use href="#sm"/></svg><span><b>Pain-free approach</b>A light-handed technique designed for comfort.</span></li>
 <li><svg class="i"><use href="#tooth"/></svg><span><b>Expert-led care</b>Overseen by a certified Periodontist and Oral Implantologist.</span></li>
-<li><svg class="i"><use href="#sp"/></svg><span><b>Welcoming to everyone</b>Women-owned and LGBTQ+ friendly.</span></li></ul></div></section>
+<li><svg class="i"><use href="#sp"/></svg><span><b>Welcoming to everyone</b>Women-owned and LGBTQ+ friendly.</span></li></ul></div></div></section>
 
 <section id="faq" class="sec w" style="padding-top:0"><div class="fq"><div class="r"><h2>Questions patients often ask</h2></div>
 <div class="r" style="--i:1"><details open><summary>What is microscope-assisted dentistry?</summary><p>A high-magnification dental microscope gives the dentist a far clearer view of your tooth, so treatment can be more precise and detailed.</p></details>
