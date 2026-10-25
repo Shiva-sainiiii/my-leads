@@ -10,7 +10,7 @@
 <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Inter Tight"','system-ui','sans-serif']},colors:{brand:'#6B9FDC',navy:'#0E2A57',lime:'#DDF76C',mist:'#EEF4FC'}}}}</script>
 <style>
 .ln{display:block;overflow:hidden;padding-bottom:.06em}
-.ln>span{display:inline-block;transform:translateY(110%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
+.ln>span:not(.pop){display:inline-block;transform:translateY(110%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
 .pop{opacity:0;transform:scale(.4);animation:pop .7s cubic-bezier(.3,1.6,.5,1) 1.1s forwards}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
 .rv.in{opacity:1;transform:none}
@@ -35,10 +35,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @keyframes grid{to{background-position:56px 56px}}
 @keyframes flow{to{stroke-dashoffset:-60}}
 @media (prefers-reduced-motion:reduce){.gl circle{display:none}}
+.mq{animation:mq 40s linear infinite}.mq:hover{animation-play-state:paused}@keyframes mq{to{transform:translateX(-50%)}}
+html{overflow-x:clip}@media(max-width:380px){.pop>*{width:2.5rem!important;height:2.5rem!important}}
 </style>
 </head>
 <body class="font-sans text-navy antialiased bg-white">
 <div id="bar" class="fixed top-0 left-0 z-[60] h-1 w-full origin-left scale-x-0 bg-lime"></div>
+<nav id="sn" aria-label="Sticky" class="fixed left-1/2 top-3 z-[55] flex w-[calc(100%-1.5rem)] max-w-3xl -translate-x-1/2 -translate-y-24 items-center justify-between rounded-full border border-white/60 bg-white/80 py-2 pl-5 pr-2 shadow-xl shadow-navy/10 backdrop-blur-xl transition duration-500"><a href="#" class="font-medium">SmileLab</a><ul class="hidden gap-6 text-sm md:flex"><li><a href="#about">About</a></li><li><a href="#results">Results</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul><a href="#book" class="rounded-full bg-navy px-5 py-2.5 text-sm text-white transition hover:bg-brand">Book Visit</a></nav>
 
 <svg width="0" height="0" class="absolute"><symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol></svg>
 
@@ -52,12 +55,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         SmileLab <span class="hidden text-sm font-light text-white/70 sm:inline">/ Your Clinic</span>
       </a>
       <ul class="hidden gap-9 text-[15px] text-white/70 md:flex">
-        <li><a class="text-white" href="#about">About</a></li><li><a class="hover:text-white" href="#results">Results</a></li><li><a class="hover:text-white" href="#treatments">Pricing</a></li><li><a class="hover:text-white" href="#reviews">Reviews</a></li><li><a class="hover:text-white" href="#faq">FAQ</a></li>
+        <li><a class="text-white" href="#about">About</a></li><li><a class="hover:text-white" href="#results">Results</a></li><li><a class="hover:text-white" href="#pricing">Pricing</a></li><li><a class="hover:text-white" href="#reviews">Reviews</a></li><li><a class="hover:text-white" href="#faq">FAQ</a></li>
       </ul>
       <a href="#book" class="group hidden items-center gap-3 rounded-full bg-white md:flex py-2 pl-5 pr-2 text-[15px] font-medium transition hover:bg-lime">Book Visit <span class="grid h-8 w-8 place-items-center rounded-full bg-lime transition group-hover:rotate-45 group-hover:bg-white">↗</span></a>
     <button id="mb" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white md:hidden" aria-label="Menu" aria-expanded="false"><span class="block h-0.5 w-5 bg-current shadow-[0_6px_0_currentColor,0_-6px_0_currentColor]"></span></button>
     </nav>
-    <div id="mm" class="mt-4 hidden flex-col gap-1 rounded-3xl bg-white p-3 text-lg md:hidden"><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#about">About</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#results">Results</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#treatments">Pricing</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#reviews">Reviews</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#faq">FAQ</a><a class="mt-1 rounded-full bg-lime px-4 py-3 text-center font-medium" href="#book">Book Visit</a></div>
+    <div id="mm" class="mt-4 hidden flex-col gap-1 rounded-3xl bg-white p-3 text-lg md:hidden"><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#about">About</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#results">Results</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#pricing">Pricing</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#reviews">Reviews</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#faq">FAQ</a><a class="mt-1 rounded-full bg-lime px-4 py-3 text-center font-medium" href="#book">Book Visit</a></div>
 
     <div class="mt-10 grid items-center gap-8 text-center lg:mt-16 lg:grid-cols-2 lg:text-left">
 <div class="lg:col-start-1 lg:row-start-1"><h1 class="text-[clamp(3.6rem,9.5vw,8.5rem)] font-light leading-[.9] tracking-[-.05em] text-white">
@@ -72,7 +75,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         </h1>
         <p class="rv in mx-auto mt-6 max-w-sm lg:mx-0 text-[15px] leading-relaxed text-white/70" style="--d:1s">Using advanced technology, we deliver comprehensive treatments for a healthy, <span class="text-white">confident smile.</span></p>
         </div>
-<div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none"><svg viewBox="0 0 200 230" class="float mx-auto w-[80%] drop-shadow-[0_40px_40px_rgba(14,42,87,.3)]" aria-label="Glossy tooth illustration" role="img">
+<div id="tp" style="transition:transform .4s ease-out" class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none"><svg viewBox="0 0 200 230" class="float mx-auto w-[80%] drop-shadow-[0_40px_40px_rgba(14,42,87,.3)]" aria-label="Glossy tooth illustration" role="img">
           <defs><radialGradient id="g" cx=".32" cy=".25" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#e8f0fb"/><stop offset="1" stop-color="#a9c4e8"/></radialGradient></defs>
           <path d="M50 22c20-14 35 0 50 0s30-14 50 0c26 17 28 52 14 87-9 22-8 48-18 78-4 13-16 13-20-1-6-22-8-40-26-40s-20 18-26 40c-4 14-16 14-20 1-10-30-9-56-18-78C22 74 24 39 50 22z" fill="url(#g)"/>
           <path d="M58 38c10-8 22-4 30 0" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".9"/>
@@ -96,6 +99,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </header>
 
 <main>
+<div class="overflow-hidden bg-navy py-4 text-white" aria-hidden="true"><div id="mq" class="mq flex w-max whitespace-nowrap text-xl font-light"></div></div>
 <!-- 2. TRUST BAR -->
 <section class="py-16" aria-label="Accreditations">
   <div class="mx-auto max-w-6xl px-6">
@@ -104,6 +108,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<section class="relative isolate overflow-hidden bg-brand py-16 text-white" aria-label="Clinic numbers"><div class="gl" aria-hidden="true"></div><div id="stats" class="mx-auto grid max-w-6xl grid-cols-2 gap-y-10 px-6 text-center md:grid-cols-4"></div></section>
 <!-- 3. INFRASTRUCTURE -->
 <section id="about" class="bg-mist py-20">
   <div class="mx-auto max-w-6xl px-6">
@@ -112,14 +117,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   </div>
 </section>
 
+<section id="journey" class="py-20"><div class="mx-auto max-w-6xl px-6"><h2 class="rv max-w-2xl text-4xl font-light tracking-tight md:text-6xl">Your visit, step by step</h2><div class="relative mt-14"><div class="absolute inset-x-0 top-6 hidden h-px bg-navy/15 md:block"><div id="jl" class="h-full origin-left scale-x-0 bg-brand transition-transform duration-[2000ms] ease-out"></div></div><ol id="steps" class="relative grid gap-10 md:grid-cols-4"></ol></div></div></section>
 <!-- 4. TREATMENTS -->
-<section id="treatments" class="py-20">
+<section id="treatments" class="bg-mist py-20">
   <div class="mx-auto max-w-7xl px-6">
     <div class="rv flex flex-col justify-between gap-6 md:flex-row md:items-end"><h2 class="text-4xl font-light tracking-tight md:text-6xl">15 treatments,<br>one caring team</h2><div id="chips" class="flex flex-wrap gap-2"></div></div>
     <div id="tgrid" class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style="perspective:1000px"></div>
   </div>
 </section>
 
+<section id="pricing" class="py-20"><div class="mx-auto max-w-6xl px-6"><h2 class="rv text-center text-4xl font-light tracking-tight md:text-6xl">Clear, honest pricing</h2><p class="rv mt-4 text-center text-navy/60">Placeholder prices. EMI options available on larger treatments.</p><div id="plans" class="mt-14 grid items-center gap-6 md:grid-cols-3"></div></div></section>
 <!-- 5. BEFORE / AFTER -->
 <section id="results" class="relative isolate overflow-hidden bg-navy py-20 text-white"><div class="gl" aria-hidden="true"></div>
   <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-5">
@@ -137,7 +144,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <!-- 6. REVIEWS -->
 <section id="reviews" class="py-20">
   <div class="mx-auto max-w-4xl px-6">
-    <h2 class="rv text-center text-4xl font-light tracking-tight md:text-6xl">Patients, in their words</h2>
+    <h2 class="rv text-center text-4xl font-light tracking-tight md:text-6xl">Patients, in their words</h2><p class="mt-4 text-center text-navy/60"><span class="text-brand">★★★★★</span> 4.9 average from 311 verified reviews (placeholder)</p>
     <div class="mt-12 overflow-hidden rounded-3xl bg-mist"><div id="rtrack" class="flex transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)]"></div></div>
     <div class="mt-6 flex items-center justify-center gap-4"><button id="prev" class="h-11 w-11 rounded-full border border-navy/20 transition hover:bg-navy hover:text-white" aria-label="Previous review">←</button><div id="dots" class="flex gap-2"></div><button id="next" class="h-11 w-11 rounded-full border border-navy/20 transition hover:bg-navy hover:text-white" aria-label="Next review">→</button></div>
   </div>
@@ -166,6 +173,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
         <input required placeholder="Full name" class="w-full rounded-full border border-navy/15 bg-mist px-6 py-4 outline-none transition focus:border-brand focus:bg-white">
         <input required type="tel" placeholder="Phone number" class="w-full rounded-full border border-navy/15 bg-mist px-6 py-4 outline-none transition focus:border-brand focus:bg-white">
         <select id="sel" required class="w-full rounded-full border border-navy/15 bg-mist px-6 py-4 outline-none transition focus:border-brand focus:bg-white"><option value="">Select treatment</option></select>
+        <input type="date" aria-label="Preferred date" class="w-full rounded-full border border-navy/15 bg-mist px-6 py-4 outline-none transition focus:border-brand focus:bg-white">
         <button class="w-full rounded-full bg-navy py-4 font-medium text-white transition hover:bg-brand">Request Appointment</button>
         <p id="ok" class="hidden rounded-2xl bg-lime/60 p-4 text-center text-sm">Thanks! This is a demo form, so nothing was sent.</p>
       </div>
@@ -179,6 +187,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <p class="mt-5 text-center text-sm text-white/40">© 2026 SmileLab / Your Clinic. Demo website.</p>
 </section>
 
+<div id="tm" class="invisible fixed inset-0 z-[70] grid place-items-center bg-navy/60 p-4 opacity-0 backdrop-blur-sm transition-[opacity,visibility] duration-300" role="dialog" aria-modal="true" aria-labelledby="tmt"><div id="tmc" class="w-full max-w-lg scale-95 overflow-hidden rounded-3xl bg-white transition duration-300"><div class="relative h-52 bg-gradient-to-br from-brand to-navy"><img id="tmi" class="h-full w-full object-cover" alt="" onerror="this.style.display='none'"><button id="tmx" class="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white text-xl" aria-label="Close">×</button></div><div class="p-7"><span id="tmk" class="rounded-full bg-mist px-3 py-1 text-xs text-brand"></span><h3 id="tmt" class="mt-3 text-3xl font-medium tracking-tight"></h3><p id="tmd" class="mt-2 text-navy/60"></p><dl class="mt-6 grid grid-cols-3 gap-3 text-center text-sm"><div class="rounded-2xl bg-mist p-3"><dt class="text-navy/50">Duration</dt><dd class="font-medium">30–90 min</dd></div><div class="rounded-2xl bg-mist p-3"><dt class="text-navy/50">Visits</dt><dd class="font-medium">1–3</dd></div><div class="rounded-2xl bg-mist p-3"><dt class="text-navy/50">Comfort</dt><dd class="font-medium">Pain-free</dd></div></dl><a id="tmb" href="#book" class="mt-6 block rounded-full bg-navy py-4 text-center font-medium text-white transition hover:bg-brand">Book this treatment</a></div></div></div>
 <!-- WhatsApp widget -->
 <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20book%20a%20visit" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="ring group fixed bottom-5 left-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] p-4 text-white shadow-xl transition hover:scale-105">
   <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor"><path d="M12 2a10 10 0 00-8.600 15L2 22l5.200-1.400A10 10 0 1012 2zm5.200 14.100c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.500-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.3.500-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.700-.1 1.200z"/></svg>
@@ -228,7 +237,7 @@ $('#prev').onclick=()=>go(ri-1);$('#next').onclick=()=>go(ri+1);go(0);
 [['What is your typical clinic timing?','We are open Monday to Saturday, 9 AM to 8 PM, with limited Sunday slots by appointment.'],['How much does a consultation cost?','Consultation fees are shown at booking. Replace this answer with your own pricing.'],['Is treatment painful?','We use modern anaesthesia and gentle techniques so most patients feel little to no discomfort.'],['Do you offer emergency appointments?','Yes. Call us and we will do our best to see you the same day.'],['Can I pay in instalments?','Flexible payment plans are available for larger treatments. Ask our team for details.'],['How long does a smile makeover take?','Most plans take 2 to 6 weeks, depending on the treatments chosen.']].forEach(([q,a],i)=>{const f=mk(`<div class="rv rounded-2xl bg-white" style="--d:${i*.05}s"><button class="flex w-full items-center justify-between gap-4 p-5 text-left text-lg font-medium" aria-expanded="false">${q}<span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-mist transition duration-500">+</span></button><div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out"><div class="overflow-hidden"><p class="px-5 pb-5 text-navy/60">${a}</p></div></div></div>`);f.firstChild.onclick=e=>{const b=e.currentTarget,o=b.getAttribute('aria-expanded')=='true';b.setAttribute('aria-expanded',!o);b.nextSibling.classList.toggle('grid-rows-[1fr]',!o);b.nextSibling.classList.toggle('grid-rows-[0fr]',o);b.lastChild.style.transform=o?'':'rotate(135deg)';b.lastChild.style.background=o?'':'#DDF76C'};$('#faqs').append(f)});
 
 // Booking form
-$('#form').onsubmit=e=>{e.preventDefault();$('#ok').classList.remove('hidden')};
+$('#form').onsubmit=e=>{e.preventDefault();const [n,ph,s,d]=[...e.target.querySelectorAll('input,select')].map(x=>x.value),ok=$('#ok'),m=`Hi, I would like to book ${s}. Name: ${n}, phone: ${ph}${d?', preferred date: '+d:''}`;ok.textContent='Thanks '+n+'! This is a demo form, nothing was sent. ';ok.append(mk(`<a class="font-medium underline" target="_blank" rel="noopener" href="https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(m)}">Send these details on WhatsApp</a>`));ok.classList.remove('hidden')};
 
 // Chatbot (static replies)
 const A=[[/time|open|hour|clos/,'We are open Mon–Sat, 9 AM – 8 PM. Sunday by appointment.'],[/cost|price|fee|consult/,'Consultation pricing is shared at booking. Our team will confirm the exact fee.'],[/implant/,'Dental implants are permanent tooth replacements. Book a consultation to see if you are a candidate.'],[/white|bright/,'Professional whitening is done in a single visit and takes about an hour.'],[/pain|hurt/,'We use gentle techniques and modern anaesthesia, so most patients feel little to no discomfort.'],[/book|appoint|visit/,'Great! Use the Request Appointment form below and we will call you back shortly.']];
@@ -240,6 +249,29 @@ $('#cf').onsubmit=e=>{e.preventDefault();const v=$('#ci').value.trim();if(v){$('
 $('#cbtn').onclick=()=>{const c=$('#chat'),o=c.classList.contains('invisible');c.classList.toggle('invisible',!o);c.classList.toggle('opacity-0',!o);c.classList.toggle('scale-90',!o);$('#cbtn').textContent=o?'×':'✦'};
 
 $('#mb').onclick=()=>{const m=$('#mm'),o=m.classList.toggle('hidden');m.classList.toggle('flex',!o);$('#mb').setAttribute('aria-expanded',!o)};document.querySelectorAll('#mm a').forEach(a=>a.onclick=()=>$('#mb').click());
+// Ticker, stats, journey, pricing
+const mw=['Pain-free treatments','Same-day appointments','Digital smile design','Gentle care for kids','EMI available'];
+$('#mq').innerHTML=[...mw,...mw,...mw,...mw].map(x=>`<span class="mr-10">${x}</span><span class="mr-10 text-lime">✦</span>`).join('');
+[[15,'k+','Smiles restored'],[12,'+','Years of care'],[98,'%','Patient satisfaction'],[311,'','Verified reviews']].forEach(([n,u,l],i)=>$('#stats').append(mk(`<div class="rv" style="--d:${i*.1}s"><div class="text-5xl font-light tracking-tighter md:text-7xl"><span data-cu="${n}">0</span>${u}</div><p class="mt-2 text-white/75">${l}</p></div>`)));
+const cu=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cu.unobserve(e.target);const el=e.target,n=+el.dataset.cu,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1800,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
+document.querySelectorAll('[data-cu]').forEach(el=>cu.observe(el));
+[['Book online','Pick a time or message us on WhatsApp.'],['Smile consultation','A digital scan and a clear, honest plan.'],['Gentle treatment','Comfortable care by your specialist.'],['Follow-up and care','Aftercare guidance and regular check-ups.']].forEach(([a,b],i)=>$('#steps').append(mk(`<li class="rv" style="--d:${i*.15}s"><span class="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-navy font-medium text-white ring-8 ring-white">${i+1}</span><h3 class="mt-5 text-xl font-medium">${a}</h3><p class="mt-1 text-sm text-navy/60">${b}</p></li>`)));
+new IntersectionObserver(([e])=>e.isIntersecting&&$('#jl').classList.replace('scale-x-0','scale-x-100'),{threshold:.4}).observe($('#journey'));
+[['Check-up and Cleaning','₹XXX','Routine care',['Full oral exam','Digital X-ray','Scaling and polishing','Personal care plan'],0],['Smile Care','₹X,XXX','Most popular',['Everything in Check-up','Teeth whitening','Cavity and filling care','Priority booking'],1],['Smile Makeover','Custom','Tailored plan',['Digital smile design','Veneers or aligners','Specialist team','EMI available'],0]].forEach(([n,pr,s,f,h],i)=>$('#plans').append(mk(`<div class="rv rounded-3xl p-8 ${h?'bg-navy text-white md:-my-4 md:py-12':'border border-navy/10'}" style="--d:${i*.1}s"><span class="rounded-full px-3 py-1 text-xs ${h?'bg-lime text-navy':'bg-mist text-brand'}">${s}</span><h3 class="mt-6 text-2xl font-medium">${n}</h3><p class="mt-2 text-5xl font-light tracking-tighter">${pr}</p><ul class="mt-6 space-y-3 text-sm ${h?'text-white/80':'text-navy/70'}">${f.map(x=>`<li class="flex gap-2"><span class="${h?'text-lime':'text-brand'}">✓</span>${x}</li>`).join('')}</ul><a href="#book" class="mt-8 block rounded-full py-3.5 text-center font-medium transition ${h?'bg-lime text-navy hover:bg-white':'bg-navy text-white hover:bg-brand'}">Book this plan</a></div>`)));
+
+// Treatment modal
+const tm=$('#tm');
+function closeT(){tm.classList.add('invisible','opacity-0');$('#tmc').classList.add('scale-95')}
+function openT(i){const x=T[i];$('#tmi').style.display='';$('#tmi').src=U(IMG[i%IMG.length]);$('#tmt').textContent=x[0];$('#tmk').textContent=x[1];$('#tmd').textContent=x[2]+' Replace this text with your own description, process and aftercare notes.';$('#tmb').onclick=e=>{e.preventDefault();$('#sel').value=x[0];closeT();setTimeout(()=>$('#book').scrollIntoView({behavior:'smooth'}),250)};tm.classList.remove('invisible','opacity-0');$('#tmc').classList.remove('scale-95')}
+$('#tgrid').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();openT(T.findIndex(x=>x[0]==a.parentNode.querySelector('h3').textContent))});
+$('#tmx').onclick=closeT;tm.onclick=e=>e.target==tm&&closeT();addEventListener('keydown',e=>e.key=='Escape'&&closeT());
+
+// Sticky nav, hero parallax, before/after auto-sweep
+const sn=$('#sn');sn.inert=true;
+addEventListener('scroll',()=>{const s=scrollY>700;sn.classList.toggle('-translate-y-24',!s);sn.inert=!s},{passive:true});
+$('header').addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;$('#tp').style.transform=`translate(${x*28}px,${y*20}px) rotate(${x*5}deg)`});
+new IntersectionObserver(([e],o)=>{if(!e.isIntersecting)return;o.disconnect();const r=$('#baR'),t0=performance.now();(function f(t){const k=(t-t0)/2600;r.value=k>=1?50:50+38*Math.sin(k*Math.PI*2);r.dispatchEvent(new Event('input'));if(k<1)requestAnimationFrame(f)})(t0)},{threshold:.6}).observe($('#ba'));
+
 // Scroll reveal, count-up, progress bar
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
