@@ -28,6 +28,13 @@
 @keyframes dot{50%{transform:translateY(-4px);opacity:.4}}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #0E2A57;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.ln>span,.pop{opacity:1;transform:none}}
+.gl{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:-10;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 30%,transparent 88%);mask-image:radial-gradient(ellipse at 50% 45%,#000 30%,transparent 88%)}
+.gl::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:56px 56px;animation:grid 5s linear infinite}
+.gl svg{position:absolute;inset:0;width:100%;height:100%}
+.flow{stroke-dasharray:3 12;animation:flow 3s linear infinite}
+@keyframes grid{to{background-position:56px 56px}}
+@keyframes flow{to{stroke-dashoffset:-60}}
+@media (prefers-reduced-motion:reduce){.gl circle{display:none}}
 </style>
 </head>
 <body class="font-sans text-navy antialiased bg-white">
@@ -36,8 +43,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <svg width="0" height="0" class="absolute"><symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol></svg>
 
 <!-- 1. HERO -->
-<header class="relative bg-gradient-to-b from-[#c3e8b5] via-[#a6d4e6] to-[#9cc6ea] px-3 pt-3 pb-20 md:px-6 md:pt-6">
-  <div class="relative mx-auto max-w-7xl rounded-[2rem] bg-brand px-6 pb-16 pt-6 md:rounded-[2.75rem] md:px-12 md:pt-8">
+<header class="relative bg-gradient-to-b from-[#c3e8b5] via-[#a6d4e6] to-[#9cc6ea] px-3 pt-3 pb-[4.5rem] md:px-6 md:pt-6">
+  <div class="relative mx-auto max-w-7xl isolate rounded-[2rem] bg-brand px-6 pb-28 pt-6 md:rounded-[2.75rem] md:px-12 md:pt-8 lg:pb-16">
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.2"><path class="flow" d="M-20 520C250 300 420 640 700 380S1050 180 1230 260"/><path class="flow" style="animation-duration:5s" d="M-20 200C220 60 480 300 760 140S1100 40 1230 120"/><circle r="4" fill="#DDF76C" stroke="none"><animateMotion dur="9s" repeatCount="indefinite" path="M-20 520C250 300 420 640 700 380S1050 180 1230 260"/></circle><circle r="3" fill="#fff" stroke="none"><animateMotion dur="12s" repeatCount="indefinite" path="M-20 200C220 60 480 300 760 140S1100 40 1230 120"/></circle></svg></div>
     <nav class="flex items-center justify-between" aria-label="Main">
       <a href="#" class="flex items-center gap-2 text-2xl font-medium text-white">
         <svg viewBox="0 0 24 24" class="h-8 w-8 text-lime" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3c2-1 3.5.5 5 .5S15 2 17 3c3 1.5 3 5 1.6 8-.9 2-.8 4.5-1.6 8-.4 1.600-2 1.600-2.400 0-.5-2-.7-3.500-2.600-3.500S9.900 17 9.400 19c-.4 1.600-2 1.600-2.400 0-.8-3.500-.7-6-1.600-8C4 8 4 4.500 7 3z"/></svg>
@@ -46,12 +54,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <ul class="hidden gap-9 text-[15px] text-white/70 md:flex">
         <li><a class="text-white" href="#about">About</a></li><li><a class="hover:text-white" href="#results">Results</a></li><li><a class="hover:text-white" href="#treatments">Pricing</a></li><li><a class="hover:text-white" href="#reviews">Reviews</a></li><li><a class="hover:text-white" href="#faq">FAQ</a></li>
       </ul>
-      <a href="#book" class="group flex items-center gap-3 rounded-full bg-white py-2 pl-5 pr-2 text-[15px] font-medium transition hover:bg-lime">Book Visit <span class="grid h-8 w-8 place-items-center rounded-full bg-lime transition group-hover:rotate-45 group-hover:bg-white">↗</span></a>
+      <a href="#book" class="group hidden items-center gap-3 rounded-full bg-white md:flex py-2 pl-5 pr-2 text-[15px] font-medium transition hover:bg-lime">Book Visit <span class="grid h-8 w-8 place-items-center rounded-full bg-lime transition group-hover:rotate-45 group-hover:bg-white">↗</span></a>
+    <button id="mb" class="grid h-11 w-11 place-items-center rounded-full bg-white/15 text-white md:hidden" aria-label="Menu" aria-expanded="false"><span class="block h-0.5 w-5 bg-current shadow-[0_6px_0_currentColor,0_-6px_0_currentColor]"></span></button>
     </nav>
+    <div id="mm" class="mt-4 hidden flex-col gap-1 rounded-3xl bg-white p-3 text-lg md:hidden"><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#about">About</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#results">Results</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#treatments">Pricing</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#reviews">Reviews</a><a class="rounded-2xl px-4 py-3 hover:bg-mist" href="#faq">FAQ</a><a class="mt-1 rounded-full bg-lime px-4 py-3 text-center font-medium" href="#book">Book Visit</a></div>
 
-    <div class="mt-12 grid items-center gap-8 lg:mt-16 lg:grid-cols-2">
-      <div>
-        <h1 class="text-[clamp(3.6rem,9.5vw,8.5rem)] font-light leading-[.9] tracking-[-.05em] text-white">
+    <div class="mt-10 grid items-center gap-8 text-center lg:mt-16 lg:grid-cols-2 lg:text-left">
+<div class="lg:col-start-1 lg:row-start-1"><h1 class="text-[clamp(3.6rem,9.5vw,8.5rem)] font-light leading-[.9] tracking-[-.05em] text-white">
           <span class="ln"><span>Restore</span></span>
           <span class="ln"><span style="animation-delay:.12s">Your True</span></span>
           <span class="ln"><span style="animation-delay:.24s">Smile</span>
@@ -61,8 +70,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
               <span class="-ml-3 grid h-12 w-12 place-items-center rounded-full bg-white text-sm font-medium text-navy md:h-14 md:w-14">+2k</span>
             </span></span>
         </h1>
-        <p class="rv in mt-6 max-w-sm text-[15px] leading-relaxed text-white/70" style="--d:1s">Using advanced technology, we deliver comprehensive treatments for a healthy, <span class="text-white">confident smile.</span></p>
-        <div class="mt-10 flex items-end gap-3">
+        <p class="rv in mx-auto mt-6 max-w-sm lg:mx-0 text-[15px] leading-relaxed text-white/70" style="--d:1s">Using advanced technology, we deliver comprehensive treatments for a healthy, <span class="text-white">confident smile.</span></p>
+        </div>
+<div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none"><svg viewBox="0 0 200 230" class="float mx-auto w-[80%] drop-shadow-[0_40px_40px_rgba(14,42,87,.3)]" aria-label="Glossy tooth illustration" role="img">
+          <defs><radialGradient id="g" cx=".32" cy=".25" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#e8f0fb"/><stop offset="1" stop-color="#a9c4e8"/></radialGradient></defs>
+          <path d="M50 22c20-14 35 0 50 0s30-14 50 0c26 17 28 52 14 87-9 22-8 48-18 78-4 13-16 13-20-1-6-22-8-40-26-40s-20 18-26 40c-4 14-16 14-20 1-10-30-9-56-18-78C22 74 24 39 50 22z" fill="url(#g)"/>
+          <path d="M58 38c10-8 22-4 30 0" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".9"/>
+          <g fill="#fff"><circle class="sparkle" cx="170" cy="40" r="5"/><circle class="sparkle" cx="30" cy="100" r="4" style="animation-delay:.8s"/><circle class="sparkle" cx="178" cy="130" r="3" style="animation-delay:1.4s"/></g>
+        </svg></div>
+<div class="flex items-end justify-center gap-3 lg:col-start-1 lg:row-start-2 lg:justify-start">
           <div class="rounded-[2rem] rounded-br-lg bg-white px-6 py-5 text-center shadow-xl shadow-navy/10">
             <div class="text-5xl font-light tracking-tighter text-brand"><span data-count="98">0</span>%</div>
             <div class="mt-1 text-sm leading-tight">Patient<br>Satisfaction</div>
@@ -71,18 +87,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
             <img class="h-full w-full object-cover" alt="Happy patient" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=faces" onerror="this.style.display='none'">
           </div>
         </div>
-      </div>
-      <div class="relative mx-auto w-full max-w-md lg:max-w-none">
-        <svg viewBox="0 0 200 230" class="float mx-auto w-[80%] drop-shadow-[0_40px_40px_rgba(14,42,87,.3)]" aria-label="Glossy tooth illustration" role="img">
-          <defs><radialGradient id="g" cx=".32" cy=".25" r=".9"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#e8f0fb"/><stop offset="1" stop-color="#a9c4e8"/></radialGradient></defs>
-          <path d="M50 22c20-14 35 0 50 0s30-14 50 0c26 17 28 52 14 87-9 22-8 48-18 78-4 13-16 13-20-1-6-22-8-40-26-40s-20 18-26 40c-4 14-16 14-20 1-10-30-9-56-18-78C22 74 24 39 50 22z" fill="url(#g)"/>
-          <path d="M58 38c10-8 22-4 30 0" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".9"/>
-          <g fill="#fff"><circle class="sparkle" cx="170" cy="40" r="5"/><circle class="sparkle" cx="30" cy="100" r="4" style="animation-delay:.8s"/><circle class="sparkle" cx="178" cy="130" r="3" style="animation-delay:1.4s"/></g>
-        </svg>
-      </div>
-    </div>
+</div>
   </div>
-  <a href="#book" aria-label="Book your consultation" class="group absolute bottom-3 left-1/2 grid h-36 w-36 -translate-x-1/2 place-items-center rounded-full bg-lime shadow-xl shadow-navy/20 md:h-40 md:w-40 lg:left-[45%]">
+  <a href="#book" aria-label="Book your consultation" class="group absolute bottom-0 left-1/2 grid h-36 w-36 -translate-x-1/2 place-items-center rounded-full bg-lime shadow-xl shadow-navy/20 md:h-40 md:w-40 lg:left-[45%]">
     <svg viewBox="0 0 200 200" class="spin absolute inset-0"><defs><path id="c" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs><text font-size="14" font-weight="600" fill="#0E2A57"><textPath href="#c" textLength="470" lengthAdjust="spacing">BOOK YOUR CONSULTATION • BOOK YOUR CONSULTATION •</textPath></text></svg>
     <span class="text-4xl transition group-hover:rotate-45">↗</span>
   </a>
@@ -114,7 +121,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </section>
 
 <!-- 5. BEFORE / AFTER -->
-<section id="results" class="bg-navy py-20 text-white">
+<section id="results" class="relative isolate overflow-hidden bg-navy py-20 text-white"><div class="gl" aria-hidden="true"></div>
   <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-5">
     <div class="rv lg:col-span-2"><h2 class="text-4xl font-light tracking-tight md:text-6xl">See the difference</h2><p class="mt-5 text-white/60">Drag the handle to compare. Replace the demo photo with real patient results (with consent).</p></div>
     <div id="ba" class="relative aspect-[4/3] select-none overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-lime lg:col-span-3" style="--p:50%">
@@ -146,7 +153,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </main>
 
 <!-- 8. FOOTER + BOOKING -->
-<footer id="book" class="bg-navy py-20 text-white">
+<footer id="book" class="relative isolate overflow-hidden bg-navy py-20 text-white"><div class="gl" aria-hidden="true"></div>
   <div class="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
     <div class="rv">
       <h2 class="text-4xl font-light tracking-tight md:text-5xl">Visit SmileLab</h2>
@@ -192,17 +199,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <script>
 const $=s=>document.querySelector(s),mk=(h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstChild};
 
+const U=id=>`https://images.unsplash.com/photo-${id}?w=640&h=400&fit=crop&auto=format&q=70`,IMG=['1643660527071-52e37cf7c7ea','1643660526741-094639fbe53a','1606811841689-23dfddce3e95','1629909613654-28e377c37b09','1588776814546-1ffcf47267a5','1609840114035-3c981b782dfe','1598256989800-fe5f95da9787'];
 // Trust bar
 ['Dental Council','Implant Society','Orthodontic Assoc.','Endodontic Board','Cosmetic Dentistry Guild','Oral Health Alliance','Pediatric Dental Society','Quality Care Certified'].forEach((n,i)=>$('#trust').append(mk(`<div class="rv flex items-center gap-3 rounded-2xl border border-navy/10 p-5 opacity-50 grayscale transition hover:opacity-100 hover:border-brand" style="--d:${i*.06}s"><svg class="h-7 w-7"><use href="#shield"/></svg><span class="text-sm font-medium">${n}</span></div>`)));
 
 // Infrastructure
-[['[Advanced Technology Tool]','Digital scanners and imaging for faster, more accurate diagnosis.'],['Pain-Free Approach','Gentle techniques and modern anaesthesia so you stay relaxed.'],['Expert-Led Care','Every plan is designed and reviewed by experienced specialists.'],['Hospital-Grade Sterilisation','Single-use kits and strict hygiene protocols on every visit.'],['Digital Smile Planning','Preview your results before treatment begins.'],['Comfort Lounge','A calm, welcoming space for patients and families.']].forEach(([t,d],i)=>$('#infra').append(mk(`<div class="rv group bg-white p-8 transition duration-500 hover:bg-brand hover:text-white" style="--d:${(i%3)*.1}s"><div class="mb-10 grid h-12 w-12 place-items-center rounded-2xl bg-mist text-xl text-brand transition duration-500 group-hover:rotate-12 group-hover:bg-lime group-hover:text-navy">✦</div><h3 class="text-xl font-medium">${t}</h3><p class="mt-2 text-sm text-navy/60 transition group-hover:text-white/80">${d}</p></div>`)));
+[['[Advanced Technology Tool]','Digital scanners and imaging for faster, more accurate diagnosis.'],['Pain-Free Approach','Gentle techniques and modern anaesthesia so you stay relaxed.'],['Expert-Led Care','Every plan is designed and reviewed by experienced specialists.'],['Hospital-Grade Sterilisation','Single-use kits and strict hygiene protocols on every visit.'],['Digital Smile Planning','Preview your results before treatment begins.'],['Comfort Lounge','A calm, welcoming space for patients and families.']].forEach(([t,d],i)=>$('#infra').append(mk(`<div class="rv group bg-white p-8 transition duration-500 hover:bg-brand hover:text-white" style="--d:${(i%3)*.1}s"><div class="mb-6 h-44 overflow-hidden rounded-2xl bg-gradient-to-br from-brand to-navy"><img loading="lazy" alt="" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" src="${U(IMG[(i+2)%IMG.length])}" onerror="this.remove()"></div><h3 class="text-xl font-medium">${t}</h3><p class="mt-2 text-sm text-navy/60 transition group-hover:text-white/80">${d}</p></div>`)));
 
 // Treatments
 const T=[['Root Canal Therapy','Restorative','Save your natural tooth, comfortably.'],['Dental Implants','Restorative','Permanent, natural-looking replacements.'],['Smile Makeover','Cosmetic','A custom plan for your ideal smile.'],['Teeth Whitening','Cosmetic','Brighter shades in a single visit.'],['Porcelain Veneers','Cosmetic','Ultra-thin shells for a flawless finish.'],['Clear Aligners','Cosmetic','Straighten teeth discreetly.'],['Braces','Cosmetic','Metal and ceramic options for all ages.'],['Crowns & Bridges','Restorative','Strong, lifelike tooth restoration.'],['Full-Mouth Rehab','Restorative','Complete function and aesthetics.'],['Gum Treatment','Preventive','Healthy gums, healthy foundation.'],['Scaling & Polishing','Preventive','Deep cleaning for fresh, clean teeth.'],['Wisdom Tooth Removal','Surgical','Gentle, planned extractions.'],['Pediatric Dentistry','Preventive','Friendly care for little smiles.'],['Dentures','Restorative','Comfortable, natural-fit solutions.'],['Emergency Care','Surgical','Same-day relief for dental pain.']];
 const cats=['All','Restorative','Cosmetic','Preventive','Surgical'];let cur='All';
 function tilt(el){el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`translateY(-8px) rotateX(${-y*8}deg) rotateY(${x*8}deg)`});el.addEventListener('mouseleave',()=>el.style.transform='')}
-function drawT(){const g=$('#tgrid');g.innerHTML='';T.filter(t=>cur=='All'||t[1]==cur).forEach((t,i)=>{const c=mk(`<article class="tilt group rounded-3xl border border-navy/10 bg-white p-7 hover:shadow-2xl hover:shadow-brand/20" style="opacity:0;transform:translateY(20px)"><span class="rounded-full bg-mist px-3 py-1 text-xs text-brand">${t[1]}</span><h3 class="mt-8 text-2xl font-medium tracking-tight">${t[0]}</h3><p class="mt-2 min-h-[2.5rem] text-sm text-navy/60">${t[2]}</p><a href="#book" class="mt-6 inline-flex items-center gap-2 rounded-full border border-navy/15 px-5 py-2 text-sm transition group-hover:border-lime group-hover:bg-lime">Learn More <span class="transition group-hover:translate-x-1">→</span></a></article>`);g.append(c);tilt(c);setTimeout(()=>{c.style.transition='opacity .6s,transform .6s';c.style.opacity=1;c.style.transform='';setTimeout(()=>c.style.transition='',650)},i*50)})}
+function drawT(){const g=$('#tgrid');g.innerHTML='';T.filter(t=>cur=='All'||t[1]==cur).forEach((t,i)=>{const c=mk(`<article class="tilt group overflow-hidden rounded-3xl border border-navy/10 bg-white p-7 hover:shadow-2xl hover:shadow-brand/20" style="opacity:0;transform:translateY(20px)"><div class="relative -mx-7 -mt-7 mb-6 h-40 overflow-hidden bg-gradient-to-br from-brand to-navy"><img loading="lazy" alt="" class="h-full w-full object-cover transition duration-700 group-hover:scale-110" src="${U(IMG[T.indexOf(t)%IMG.length])}" onerror="this.remove()"><span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs text-brand">${t[1]}</span></div><h3 class="text-2xl font-medium tracking-tight">${t[0]}</h3><p class="mt-2 min-h-[2.5rem] text-sm text-navy/60">${t[2]}</p><a href="#book" class="mt-6 inline-flex items-center gap-2 rounded-full border border-navy/15 px-5 py-2 text-sm transition group-hover:border-lime group-hover:bg-lime">Learn More <span class="transition group-hover:translate-x-1">→</span></a></article>`);g.append(c);tilt(c);setTimeout(()=>{c.style.transition='opacity .6s,transform .6s';c.style.opacity=1;c.style.transform='';setTimeout(()=>c.style.transition='',650)},i*50)})}
 cats.forEach(c=>{const b=mk(`<button class="rounded-full border border-navy/15 px-4 py-2 text-sm transition">${c}</button>`);b.onclick=()=>{cur=c;[...$('#chips').children].forEach(x=>x.className='rounded-full border border-navy/15 px-4 py-2 text-sm transition');b.className='rounded-full border border-navy bg-navy px-4 py-2 text-sm text-white transition';drawT()};$('#chips').append(b)});
 $('#chips').firstChild.click();
 T.forEach(t=>$('#sel').append(new Option(t[0],t[0])));
@@ -231,6 +239,7 @@ add('Hi! I am the SmileLab assistant. How can I help you today?');
 $('#cf').onsubmit=e=>{e.preventDefault();const v=$('#ci').value.trim();if(v){$('#ci').value='';ask(v)}};
 $('#cbtn').onclick=()=>{const c=$('#chat'),o=c.classList.contains('invisible');c.classList.toggle('invisible',!o);c.classList.toggle('opacity-0',!o);c.classList.toggle('scale-90',!o);$('#cbtn').textContent=o?'×':'✦'};
 
+$('#mb').onclick=()=>{const m=$('#mm'),o=m.classList.toggle('hidden');m.classList.toggle('flex',!o);$('#mb').setAttribute('aria-expanded',!o)};document.querySelectorAll('#mm a').forEach(a=>a.onclick=()=>$('#mb').click());
 // Scroll reveal, count-up, progress bar
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
