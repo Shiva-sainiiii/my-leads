@@ -19,7 +19,7 @@ nav a{color:var(--fg);text-decoration:none;font-size:.78rem;letter-spacing:.18em
 button,.btn{font:800 .78rem Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;border:0;border-radius:99px;padding:14px 24px;background:var(--btn);color:var(--btnfg);cursor:pointer;text-decoration:none;display:inline-block;transition:transform .3s}
 .btn:hover,button:hover{transform:translateY(-3px) scale(1.03)}
 .ghostb{background:transparent;color:var(--fg);border:1px solid var(--line)}
-#tg{width:44px;height:44px;padding:0;display:grid;place-items:center;flex:none;background:var(--h1);color:var(--bg);border:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--h1) 30%,transparent)}#tg svg{width:22px;height:22px;fill:currentColor}#tg .sun{display:none}:root[data-theme=light] #tg .sun{display:block}:root[data-theme=light] #tg .moon{display:none}
+#tg{display:grid}#tg svg{width:22px;height:22px;fill:currentColor}#tg .sun{display:none}:root[data-theme=light] #tg .sun{display:block}:root[data-theme=light] #tg .moon{display:none}
 .sec{min-height:100svh;padding:120px 6vw 80px;display:flex;align-items:center}
 .box{width:100%;max-width:56%}.box.R{margin-left:auto}
 .tag{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);display:flex;gap:12px;align-items:center}.tag:before{content:"";width:40px;height:1px;background:var(--mut)}
@@ -39,15 +39,29 @@ p.lead{max-width:34ch;color:var(--mut);font-size:1.05rem}
 .mq div{display:flex;gap:40px;width:max-content;animation:m 22s linear infinite;font:400 2rem Anton,sans-serif;text-transform:uppercase;color:var(--h1)}.mq span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--h1)}
 @keyframes m{to{transform:translateX(-50%)}}
 .rv{opacity:0;transform:translateY(44px);transition:opacity .9s,transform .9s;transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
-#contact{align-items:flex-start;min-height:150svh}#contact .box{max-width:100%}
+#contact{align-items:flex-start}
+#mn{display:none}#tg,#mn{width:44px;height:44px;padding:0;place-items:center;flex:none;background:var(--h1);color:var(--bg);border:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--h1) 30%,transparent)}#mn svg{width:22px;height:22px;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;fill:none}
+.ph{height:120px;border-radius:14px;margin-bottom:14px;display:grid;place-items:center;background:var(--img,none) center/cover,linear-gradient(135deg,color-mix(in srgb,var(--a) 70%,transparent),color-mix(in srgb,var(--h1) 18%,transparent));border:1px solid var(--line)}.ph svg{width:46px;height:46px;stroke:var(--h1);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.ph[style*="--img"] svg{display:none}
+.pr{margin:14px 0 10px;font:400 1.6rem Anton,sans-serif;color:var(--h1)}.pr small{font:600 .8rem Manrope,sans-serif;letter-spacing:.04em;color:var(--mut)}
+.sm{padding:10px 18px;font-size:.7rem;margin-top:6px}
+.rate{display:flex;gap:16px;flex-wrap:wrap}.rate .cd{flex:1 1 200px;text-align:center}.rate b{display:block;font:400 3.2rem/1 Anton,sans-serif;color:var(--h1)}.stars{color:var(--h1);letter-spacing:.2em;font-size:1.1rem}.rate small{display:block;letter-spacing:.2em;text-transform:uppercase;font-size:.68rem;color:var(--mut);margin-top:6px}
+#rv-list{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin-top:16px}#rv-list .cd{flex:0 0 min(320px,80%);scroll-snap-align:start}#rv-list:empty{display:none}#rv-list p{color:var(--fg);font-size:.95rem}#rv-list small{display:block;margin-top:10px;color:var(--mut);letter-spacing:.1em;font-weight:600}
+.eq{display:grid;gap:12px;margin-top:8px}.eq label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);display:grid;gap:6px}.eq input,.eq select{font:600 1rem Manrope,sans-serif;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 70%,transparent);color:var(--fg);width:100%}.eq input:focus,.eq select:focus{outline:2px solid var(--h1);outline-offset:1px}.eq .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.map{margin-top:22px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card)}.map iframe{display:block;width:100%;height:340px;border:0}:root[data-theme=dark] .map iframe{filter:invert(.92) hue-rotate(180deg) contrast(.9) saturate(.8)}.map .row{margin:0;padding:14px}
+.dock{display:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--h1);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
 footer{position:relative;z-index:2;padding:30px 6vw;font-size:.75rem;color:var(--mut);text-align:center}footer a{color:inherit}
 #ld{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;font:400 5rem Anton,sans-serif;color:var(--h1);transition:opacity .8s;animation:p 1s infinite alternate}#ld.off{opacity:0;pointer-events:none}@keyframes p{to{letter-spacing:.2em}}
-@media(min-width:801px){.hd{padding-top:140px}}@media(min-width:801px) and (max-height:820px){.s1{font-size:clamp(4rem,min(13vw,16vh),10.5rem)}.s2{font-size:clamp(2.2rem,min(6vw,8vh),5rem)}.s3{font-size:clamp(2.2rem,min(7vw,9vh),6rem)}}@media(max-width:800px){nav{display:none}.box,.box.R{max-width:100%}.g4{grid-template-columns:1fr 1fr}.slash{width:50vw;opacity:.45}.sec{padding-top:100px}.grid{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.hd{padding-bottom:42vh}header .btn{display:none}}
+@media(min-width:801px){.hd{padding-top:140px}}@media(min-width:801px) and (max-height:820px){.s1{font-size:clamp(4rem,min(13vw,16vh),10.5rem)}.s2{font-size:clamp(2.2rem,min(6vw,8vh),5rem)}.s3{font-size:clamp(2.2rem,min(7vw,9vh),6rem)}}@media(max-width:800px){#mn{display:grid}nav{display:none}nav.open{display:flex;flex-direction:column;position:fixed;inset:0;z-index:19;background:var(--bg);padding:110px 8vw 40px;gap:4px}nav.open a{font:400 2.6rem Anton,sans-serif;letter-spacing:.04em;margin:0;padding:10px 0;opacity:1;border-bottom:1px solid var(--line)}
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}.grid>*{min-width:0}.cd h3{font-size:1.25rem;overflow-wrap:anywhere}.g4{gap:12px}.g4 .cd{padding:18px}.eq .two{grid-template-columns:1fr}.map iframe{height:280px}
+.dock{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:25;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}.dock a{text-align:center;padding:13px 6px;font-size:.72rem;letter-spacing:.1em}.box,.box.R{max-width:100%}.g4{grid-template-columns:1fr 1fr}.slash{width:50vw;opacity:.45}.sec{padding-top:100px}.grid{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.hd{padding-bottom:42vh}header .btn{display:none}}
 </style></head><body>
 <div id="ld">FRD</div>
 <div class="bg"><div class="ghost" id="gh">FRD</div><div class="slash" id="sl"></div></div>
 <canvas id="gl"></canvas>
-<header><div class="logo"><b>■</b> FRD GYM</div><nav><a href="#floors">Floors</a><a href="#amenities">Amenities</a><a href="#plans">Plans</a><a href="#contact">Contact</a></nav><button id="tg" aria-label="Toggle theme" title="Switch theme"><svg class="moon" viewBox="0 0 24 24"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><a class="btn" href="tel:+919278160000">Join now</a></header>
+<header><div class="logo"><b>■</b> FRD GYM</div><nav><a href="#floors">Floors</a><a href="#amenities">Amenities</a><a href="#plans">Plans</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav><button id="tg" aria-label="Toggle theme" title="Switch theme"><svg class="moon" viewBox="0 0 24 24"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><button id="mn" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path id="mnp" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn" href="tel:+919278160000">Join now</a></header>
 <main>
 <section class="sec hd" id="hero"><div class="box">
 <div class="tag rv">Rohtak · Open 24×7 · All year</div>
@@ -60,10 +74,10 @@ footer{position:relative;z-index:2;padding:30px 6vw;font-size:.75rem;color:var(-
 <section class="sec" id="floors"><div class="box R">
 <div class="tag rv">Explore our gym</div><h2 class="rv">Four floors. <em>One obsession.</em></h2>
 <div class="grid">
-<div class="cd rv"><i>00</i><h3>Ground</h3><p>Reception and lounge, your first checkpoint into the grind.</p></div>
-<div class="cd rv" style="--d:.1s"><i>01</i><h3>Cardio &amp; Studio</h3><p>Stamina floor with a wooden, mirrored studio for Zumba, aerobics and power yoga.</p></div>
-<div class="cd rv" style="--d:.2s"><i>02</i><h3>Strength</h3><p>Heavy iron, chest presses and rowers, with 2 certified trainers and 1 assistant on the floor.</p></div>
-<div class="cd rv" style="--d:.3s"><i>RT</i><h3>Rooftop Arena</h3><p>Open-air CrossFit on turf: functional rigs, tyre flips and pull-up bars.</p></div>
+<div class="cd rv"><div class="ph"><svg viewBox="0 0 24 24"><path d="M5 21V4h9v17M14 8h5v13M9 12v2"/></svg></div><i>00</i><h3>Ground</h3><p>Reception and lounge, your first checkpoint into the grind.</p></div>
+<div class="cd rv" style="--d:.1s"><div class="ph"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><i>01</i><h3>Cardio &amp; Studio</h3><p>Stamina floor with a wooden, mirrored studio for Zumba, aerobics and power yoga.</p></div>
+<div class="cd rv" style="--d:.2s"><div class="ph"><svg viewBox="0 0 24 24"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg></div><i>02</i><h3>Strength</h3><p>Heavy iron, chest presses and rowers, with 2 certified trainers and 1 assistant on the floor.</p></div>
+<div class="cd rv" style="--d:.3s"><div class="ph"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><i>RT</i><h3>Rooftop Arena</h3><p>Open-air CrossFit on turf: functional rigs, tyre flips and pull-up bars.</p></div>
 </div></div></section>
 <section class="sec" id="amenities"><div class="box">
 <div class="tag rv">Amenities</div><h2 class="rv">Everything <em>you need.</em></h2>
@@ -76,17 +90,31 @@ footer{position:relative;z-index:2;padding:30px 6vw;font-size:.75rem;color:var(-
 <section class="sec" id="plans"><div class="box R">
 <div class="tag rv">Membership</div><h2 class="rv">Pick your <em>pace.</em></h2>
 <div class="grid">
-<div class="cd rv"><small>1 MONTH</small><h3>Trial</h3><p>All floors and standard equipment.</p></div>
-<div class="cd rv" style="--d:.1s"><small>3 MONTHS</small><h3>Beginner sprint</h3><p>Floor trainer guidance and a body assessment.</p></div>
-<div class="cd rv" style="--d:.2s"><small>6 MONTHS</small><h3>Consistency pack</h3><p>Better value plus a diet outline.</p></div>
-<div class="cd best rv" style="--d:.3s"><small>1 YEAR · BEST VALUE</small><h3>Beast commitment</h3><p>Lowest monthly cost, discount coupons and locker.</p></div>
-</div><p class="rv" style="color:var(--mut);font-size:.85rem;margin-top:18px">Current pricing: call or visit the front desk.</p></div></section>
-<section class="sec" id="contact"><div class="box">
+<div class="cd rv"><small>1 MONTH</small><h3>Trial</h3><p>All floors and standard equipment.</p><div class="pr" data-k="trial"></div><a class="btn ghostb sm" data-plan="Trial 1 month" href="#contact">Enquire</a></div>
+<div class="cd rv" style="--d:.1s"><small>3 MONTHS</small><h3>Beginner sprint</h3><p>Floor trainer guidance and a body assessment.</p><div class="pr" data-k="sprint"></div><a class="btn ghostb sm" data-plan="Beginner sprint 3 months" href="#contact">Enquire</a></div>
+<div class="cd rv" style="--d:.2s"><small>6 MONTHS</small><h3>Consistency pack</h3><p>Better value plus a diet outline.</p><div class="pr" data-k="pack"></div><a class="btn ghostb sm" data-plan="Consistency pack 6 months" href="#contact">Enquire</a></div>
+<div class="cd best rv" style="--d:.3s"><small>1 YEAR · BEST VALUE</small><h3>Beast commitment</h3><p>Lowest monthly cost, discount coupons and locker.</p><div class="pr" data-k="beast"></div><a class="btn ghostb sm" data-plan="Beast commitment 1 year" href="#contact">Enquire</a></div>
+</div><p class="rv" style="color:var(--mut);font-size:.85rem;margin-top:18px">Prices change with offers. Tap Enquire or call the front desk for today's rate.</p></div></section>
+<section class="sec" id="reviews"><div class="box">
+<div class="tag rv">Trusted in Rohtak</div><h2 class="rv">Members <em>rate us.</em></h2>
+<div class="rate rv"><div class="cd"><b>4.6</b><div class="stars">★★★★★</div><small>Google rating</small></div><div class="cd"><b>4.7</b><div class="stars">★★★★★</div><small>Justdial rating</small></div></div>
+<div id="rv-list"></div>
+<div class="row rv"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Read Google reviews</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.justdial.com/Rohtak/FRD-Gym-24x7">Justdial</a></div>
+</div></section>
+<section class="sec" id="contact"><div class="box R">
 <div class="tag rv">Visit us</div><h2 class="rv">Come lift <em>with us.</em></h2>
-<p class="lead rv">Gali No. 1, Dev Colony, Delhi Road, opposite Chotu Ram Polytechnic, Rohtak, Haryana 124001<br>Open 24 hours, 7 days a week<br>+91 92781 60000 · 01262-273333</p>
-<div class="row rv"><a class="btn" href="tel:+919278160000">Call now</a><a class="btn ghostb" href="https://wa.me/919278160000">WhatsApp</a><a class="btn ghostb" href="https://www.google.com/maps/search/?api=1&query=FRD+Gym+24x7+Rohtak">Directions</a></div>
+<p class="lead rv">Gali No. 1, Dev Colony, Delhi Road, opposite Chhotu Ram Polytechnic, Rohtak, Haryana 124001<br>Open 24 hours, 7 days a week<br>+91 92781 60000 · 01262-273333</p>
+<div class="row rv"><a class="btn" href="tel:+919278160000">Call now</a><a class="btn ghostb" href="https://wa.me/919278160000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Directions</a></div>
+<form class="cd eq rv" id="eq"><h3>Book a free visit</h3>
+<label>Your name<input name="n" required autocomplete="name" placeholder="Name"></label>
+<div class="two"><label>Preferred time<select name="t"><option>Morning (5–10 am)</option><option>Afternoon (10 am–4 pm)</option><option>Evening (4–9 pm)</option><option>Late night (9 pm–5 am)</option></select></label>
+<label>Goal<select name="g"><option>weight loss</option><option>muscle gain</option><option>general fitness</option><option>CrossFit / Zumba / Yoga</option></select></label></div>
+<button type="submit">Send on WhatsApp →</button></form>
+<div class="map rv"><iframe title="FRD Gym 24x7 on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak+Haryana&output=embed"></iframe>
+<div class="row"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Get directions</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Open in Google Maps</a></div></div>
 </div></section>
 </main>
+<nav class="dock" aria-label="Quick contact"><a class="btn" href="tel:+919278160000">Call</a><a class="btn ghostb" href="https://wa.me/919278160000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Directions</a></nav>
 <footer>Demo concept for FRD Gym 24×7. 3D model “Metal dumbell” by <a href="https://sketchfab.com/borrealis">Borrealis</a>, CC BY 4.0.</footer>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -97,6 +125,15 @@ setTimeout(done,6000);
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 document.querySelectorAll('[data-n]').forEach(el=>{const n=+el.dataset.n,d=+el.dataset.d||0,t0=performance.now()+900;(function f(t){const k=Math.min(1,Math.max(0,(t-t0)/1600));el.textContent=(n*(1-Math.pow(1-k,3))).toFixed(d);if(k<1)requestAnimationFrame(f)})(0);});
+// ===== EDIT ME: plan prices (e.g. trial:"1,500") and real member reviews =====
+const PRICES={trial:"",sprint:"",pack:"",beast:""};
+const REVIEWS=[]; // {t:"review text",n:"Name"}
+document.querySelectorAll('.pr').forEach(e=>{const v=PRICES[e.dataset.k];e.innerHTML=v?'₹'+v+' <small>/ plan</small>':'<small>Ask for today’s offer</small>'});
+$('#rv-list').innerHTML=REVIEWS.map(r=>`<div class="cd"><div class="stars">★★★★★</div><p>“${r.t}”</p><small>${r.n}</small></div>`).join('');
+document.querySelectorAll('[data-plan]').forEach(a=>a.onclick=()=>{const p=a.dataset.plan;$('#eq').dataset.plan=p});
+$('#eq').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),p=e.target.dataset.plan?` I’m interested in the ${e.target.dataset.plan} plan.`:'';open('https://wa.me/919278160000?text='+encodeURIComponent(`Hi FRD Gym, I’m ${f.get('n')}. I’d like to visit in the ${f.get('t')} for ${f.get('g')}.${p} Please share details.`),'_blank')};
+const nv=$('header nav'),mn=$('#mn'),setM=o=>{nv.classList.toggle('open',o);mn.setAttribute('aria-expanded',o);$('#mnp').setAttribute('d',o?'M5 5l14 14M19 5L5 19':'M4 7h16M4 12h16M4 17h16');document.body.style.overflow=o?'hidden':''};
+mn.onclick=()=>setM(!nv.classList.contains('open'));nv.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setM(false)));
 let L1,L2,rd;
 function applyTheme(){const d=R.dataset.theme!=='light';if(!rd)return;L1.color.set(d?0x3b7bff:0xffe3b0);L2.color.set(d?0xD4FF24:0xff6a55);rd.toneMappingExposure=d?1.1:1.3}
 $('#tg').onclick=()=>{R.dataset.theme=R.dataset.theme==='light'?'dark':'light';applyTheme()};
@@ -114,13 +151,13 @@ const pv=new THREE.Group(),inner=new THREE.Group();pv.add(inner);pv.rotation.ord
 const bin=atob(GLB),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
 new THREE.GLTFLoader().parse(u.buffer,'',gl=>{const m=gl.scene;m.rotation.y=Math.PI/2;m.updateMatrixWorld(true);m.position.sub(new THREE.Box3().setFromObject(m).getCenter(new THREE.Vector3()));inner.add(m);pv.visible=true;done()},done);
 // pose per section: x, y (viewport fractions), scale, spin, tilt, turn
-const P=[[.5,-.04,.68,0,.4,-.35],[-.68,0,.55,3.2,1.45,.2],[.7,0,.5,6.3,-.6,.5],[-.72,-.1,.46,9.4,.7,-.3],[0,-.3,.72,12.6,0,0]],MY=[-.6,.72,-.72,.72,-.5];
+const P=[[.5,-.04,.68,0,.4,-.35],[-.68,0,.55,3.2,1.45,.2],[.7,0,.5,6.3,-.6,.5],[-.72,-.1,.46,9.4,.7,-.3],[.7,0,.5,12.6,.5,.4],[-.74,0,.5,15.8,-.4,-.3]],MY=[-.6,.72,-.72,.72,-.72,-.7],MK=[.33,.33,.33,.33,.33,.08];
 const SC=[...document.querySelectorAll('main>section')];let C=[],S=P[0].slice(),ex=0,ly=0;
 function meas(){C=SC.map(s=>s.offsetTop+s.offsetHeight/2)}
 function size(){rd.setPixelRatio(Math.min(devicePixelRatio,2));rd.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();meas()}
 addEventListener('resize',size);size();addEventListener('load',meas);
 (function fr(t){requestAnimationFrame(fr);const y=scrollY+innerHeight/2,mob=cam.aspect<.9;let i=0;while(i<C.length-1&&y>C[i+1])i++;const j=Math.min(i+1,C.length-1);let k=j===i?0:Math.min(1,Math.max(0,(y-C[i])/(C[j]-C[i])));k=k*k*(3-2*k);
-const T=P[i].map((v,n)=>v+(P[j][n]-v)*k);if(mob){T[0]*=.45;T[2]*=.33;T[1]=MY[i]+(MY[j]-MY[i])*k}
+const T=P[i].map((v,n)=>v+(P[j][n]-v)*k);if(mob){T[0]*=.45;T[2]*=MK[i]+(MK[j]-MK[i])*k;T[1]=MY[i]+(MY[j]-MY[i])*k}
 for(let n=0;n<6;n++)S[n]+=(T[n]-S[n])*.08;
 ex+=(scrollY-ly)*.004;ly=scrollY;ex*=.95;
 const hh=Math.tan(cam.fov*Math.PI/360)*10,hw=hh*cam.aspect;
