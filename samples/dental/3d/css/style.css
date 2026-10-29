@@ -117,3 +117,9 @@ input,select,textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transfor
 @keyframes rf{to{transform:translate(-50%,calc(-50% - 18px)) rotate(4deg)}}
 .btn.ghost:hover{background:var(--red);border-color:var(--red);color:#fff}
 @media(max-width:860px){.r1{right:-8%;bottom:9%;width:36vw}.r2{left:4%;bottom:8%}.r3{right:4%;top:6%}.rring{width:90vw}}
+
+/* menu open: header overlay ke upar, X dikhe */
+body.mo .top{z-index:60;color:#fff}body.mo .top::after{opacity:.2}
+body.mo .c,body.mo .pill,body.mo .srch{opacity:0;pointer-events:none}
+.mx{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--ink);border:0;border-radius:99px;padding:.9rem 1.6rem;font:700 .72rem var(--sans);letter-spacing:.16em;cursor:pointer}
+@media(max-width:860px){body.mo .r{display:none}}

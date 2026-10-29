@@ -58,6 +58,8 @@ $('#chatFab').onclick = () => openChat(!chat.classList.contains('open')); $('#ch
 /* ---------- 2. UI: menu, header theme, reveal, form ---------- */
 const toggleMenu = (o) => { $('#menu').classList.toggle('open', o); document.body.classList.toggle('mo', o); };
 $('#ham').onclick = $('#srch').onclick = () => toggleMenu(!$('#menu').classList.contains('open'));
+$('#mx').onclick = () => toggleMenu(false);
+addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
 $$('#menuNav a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
