@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>YOUR CLINIC — Dental Care</title>
+<meta name="description" content="Modern dental care designed around your comfort, confidence and long-term smile.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<canvas id="tooth" aria-hidden="true"></canvas>
+<div class="loader" id="loader">LOADING 3D…</div>
+
+<header class="top" id="top">
+  <div class="l"><button class="ham" id="ham" aria-label="Menu"><i></i><i></i></button><a href="#home" class="logo" id="logo"></a></div>
+  <nav class="c" id="nav"></nav>
+  <div class="r"><button class="srch" id="srch" aria-label="Search / menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button><a class="pill" href="#contact">BOOK NOW →</a></div>
+</header>
+<div class="menu" id="menu"><nav id="menuNav"></nav></div>
+
+<main>
+<section id="hero" class="hero" data-tooth="0.52,0,0.78,0.5,0.08" data-tooth-m="0,-0.34,0.5,0.5,0.08">
+  <div class="deco"><svg class="ring" viewBox="0 0 600 300"><ellipse cx="300" cy="150" rx="285" ry="110" fill="none" stroke="#D4FF3F" stroke-width="3" transform="rotate(-18 300 150)"/></svg><span class="ball b1"></span><span class="ball b2"></span></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow" data-c="hero.eyebrow"></p>
+    <h1 class="split big" data-c="hero.title"></h1>
+    <p class="lead rv" data-c="hero.description"></p>
+    <div class="cta rv"><a class="btn lime" href="#contact"><span data-c="hero.primaryCTA"></span> →</a><a class="btn ghost" href="#services"><span data-c="hero.secondaryCTA"></span> →</a></div>
+    <span class="vlab l1" data-c="hero.tag1"></span><span class="vlab l2" data-c="hero.est"></span>
+    <p class="strap" data-c="hero.tag2"></p>
+  </div>
+</section>
+
+<section id="about" class="about" data-tooth="0.58,0.02,0.5,2.1,0.2" data-tooth-m="0.55,0.1,0.3,2.1,0.2">
+  <div class="wrap grid2"><h2 class="split h2" data-c="about.title"></h2>
+  <div><p class="lead rv" data-c="about.text"></p><div class="stats" id="stats"></div></div></div>
+</section>
+
+<section id="services" class="services" data-tooth="0.78,0,0.36,3.6,-0.1" data-tooth-m="0.7,0.55,0.22,3.6,-0.1">
+  <div class="wrap"><p class="eyebrow">SERVICES</p><div id="svcList"></div></div>
+</section>
+
+<section id="why" class="why" data-tooth="-0.62,-0.05,0.5,5,-0.25" data-tooth-m="-0.6,0.62,0.26,5,-0.25">
+  <div class="wrap grid2 rev"><div></div><div><h2 class="split h2" data-c="why.title"></h2><ol class="feat" id="feat"></ol></div></div>
+</section>
+
+<section id="experience" class="exp" data-theme="dark" data-tooth="0.6,0,0.6,6.6,0.15" data-tooth-m="0.6,0.62,0.28,6.6,0.15">
+  <div class="wrap"><h2 class="split h2" data-c="experience.title"></h2><div class="expgrid" id="exp"></div></div>
+</section>
+
+<section id="testimonials" class="testi" data-tooth="-0.78,0.1,0.26,7.8,0" data-tooth-m="-0.72,0.7,0.2,7.8,0">
+  <div class="wrap"><h2 class="split h2" data-c="testimonials.title"></h2><div class="tgrid" id="tgrid"></div></div>
+</section>
+
+<section id="gallery" class="gal" data-tooth="0.8,0.1,0.22,9,0.1" data-tooth-m="0.75,0.7,0.2,9,0.1">
+  <div class="wrap"><h2 class="split h2" data-c="gallery.title"></h2><div class="ggrid" id="ggrid"></div></div>
+</section>
+
+<section id="cta" class="ctas" data-tooth="0,0.04,0.92,10.6,0" data-tooth-m="0,0.3,0.55,10.6,0">
+  <div class="wrap center"><h2 class="split huge" data-c="cta.title"></h2>
+  <div class="cta rv"><a class="btn lime xl" href="#contact"><span data-c="cta.primary"></span> →</a><a class="btn ghost" href="#contact"><span data-c="cta.secondary"></span> →</a></div></div>
+</section>
+
+<section id="contact" class="contact" data-tooth="0.82,0,0.3,12,0" data-tooth-m="0.75,0.7,0.2,12,0">
+  <div class="wrap grid2">
+    <div><p class="eyebrow">CONTACT</p><h2 class="h3" data-c="contact.name"></h2>
+      <ul class="info"><li data-c="contact.address"></li><li><a data-href="contact.phone" data-pre="tel:" data-c="contact.phone"></a></li><li><a data-href="contact.email" data-pre="mailto:" data-c="contact.email"></a></li></ul>
+      <div class="links"><a data-href="contact.maps">GOOGLE MAPS →</a><a data-href="contact.whatsapp">WHATSAPP →</a><a data-href="contact.instagram">INSTAGRAM →</a></div></div>
+    <form id="form" class="form"><p class="eyebrow">APPOINTMENT FORM</p>
+      <label>Name<input name="name" required></label><label>Phone<input name="phone" type="tel" required></label>
+      <label>Preferred Date<input name="date" type="date"></label><label>Service<select name="service" id="svcSel"></select></label>
+      <label>Message<textarea name="message" rows="3"></textarea></label>
+      <button class="btn lime" type="submit">REQUEST APPOINTMENT →</button><p class="ok" id="ok" hidden>Thank you! (Demo form — not connected yet.)</p></form>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="fl"><b data-c="businessName"></b><p data-c="footer.tagline"></p></div>
+  <nav><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><a href="#">PRIVACY</a></nav>
+  <nav><a data-href="contact.instagram">INSTAGRAM</a><a data-href="contact.facebook">FACEBOOK</a><a data-href="contact.whatsapp">WHATSAPP</a></nav>
+</div></footer>
+<script type="module" src="js/main.js"></script>
+</body></html>
