@@ -29,6 +29,32 @@ $('#tgrid').innerHTML = C.testimonials.items.map(t => `<blockquote class="rv"><q
 $('#ggrid').innerHTML = C.gallery.items.map(g => `<figure class="g"><img src="${g.src}" alt="${g.label}" loading="lazy" onerror="this.remove()"><span>${g.label}</span></figure>`).join('');
 $('#svcSel').innerHTML = C.services.map(s => `<option>${s.name}</option>`).join('');
 
+/* before/after, stars, map, chatbot */
+const BA = C.beforeAfter;
+$('#cmp').innerHTML = `<div class="ly"><img src="${BA.before}" alt="Before" loading="lazy" onerror="this.remove()"><span class="tag">BEFORE</span></div><div class="ly after" id="aft"><img src="${BA.after}" alt="After" loading="lazy" onerror="this.remove()"><span class="tag">AFTER</span></div><div class="bar" id="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Before after slider" id="rng">`;
+$('#rng').oninput = e => { const v = e.target.value; $('#aft').style.clipPath = `inset(0 0 0 ${v}%)`; $('#bar').style.left = v + '%'; };
+const words = ['Poor', 'Fair', 'Good', 'Very good', 'Excellent'];
+$('#stars').innerHTML = [1, 2, 3, 4, 5].map(n => `<button type="button" data-n="${n}" aria-label="${n} star">★</button>`).join('');
+$$('#stars button').forEach(b => b.onclick = () => { const n = +b.dataset.n; $('#ratingVal').value = n; $('#rate').textContent = `${n}/5 — ${words[n - 1].toUpperCase()}`; $$('#stars button').forEach((x, i) => x.classList.toggle('on', i < n)); });
+$('#fbForm').addEventListener('submit', async e => { e.preventDefault(); if (!$('#ratingVal').value) { $('#rate').textContent = 'PLEASE SELECT A RATING'; return; }
+  if (C.contact.formAction) { try { await fetch(C.contact.formAction, { method: 'POST', body: new FormData(e.target), headers: { Accept: 'application/json' } }); } catch (_) {} }
+  $('#fbOk').hidden = false; });
+$('#mapbox').innerHTML = C.map.embed ? `<iframe src="${C.map.embed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe>` : 'YOUR GOOGLE MAP HERE';
+const CB = C.chatbot, chat = $('#chat'), body = $('#chBody');
+$('#chName').textContent = CB.name;
+const say = (t, u) => { const d = document.createElement('div'); d.className = 'm' + (u ? ' u' : ''); d.textContent = t; body.append(d); body.scrollTop = body.scrollHeight; };
+const reply = async (txt) => {
+  say(txt, true); const low = txt.toLowerCase();
+  if (CB.endpoint) { try { const r = await (await fetch(CB.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: txt }) })).json(); return say(r.reply); } catch (_) {} }
+  const f = CB.faqs.find(x => x.keys.some(k => low.includes(k)) || x.q.toLowerCase() === low);
+  setTimeout(() => { say(f ? f.a : CB.fallback); if (f?.goto) setTimeout(() => location.hash = f.goto, 600); }, 450);
+};
+$('#chQ').innerHTML = CB.faqs.map((f, i) => `<button data-i="${i}">${f.q}</button>`).join('');
+$$('#chQ button').forEach(b => b.onclick = () => reply(CB.faqs[b.dataset.i].q));
+$('#chForm').onsubmit = e => { e.preventDefault(); const v = $('#chIn').value.trim(); if (v) { $('#chIn').value = ''; reply(v); } };
+const openChat = o => { chat.classList.toggle('open', o); if (o && !body.children.length) say(CB.greeting); };
+$('#chatFab').onclick = () => openChat(!chat.classList.contains('open')); $('#chX').onclick = () => openChat(false);
+
 /* ---------- 2. UI: menu, header theme, reveal, form ---------- */
 const toggleMenu = (o) => { $('#menu').classList.toggle('open', o); document.body.classList.toggle('mo', o); };
 $('#ham').onclick = $('#srch').onclick = () => toggleMenu(!$('#menu').classList.contains('open'));
@@ -97,7 +123,7 @@ async function initTooth() {
     model.traverse(o => { if (o.isMesh) { if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals(); o.material = mat; } });
   }
 
-  const cur = target().slice(); let vel = 0, lastY = scrollY, mx = 0, my = 0, tmx = 0, tmy = 0;
+  const orbit = $('#orbit'); const cur = target().slice(); let vel = 0, lastY = scrollY, mx = 0, my = 0, tmx = 0, tmy = 0;
   if (!reduced && !mobile()) addEventListener('pointermove', e => { tmx = e.clientX / innerWidth - .5; tmy = e.clientY / innerHeight - .5; }, { passive: true });
   const clock = new THREE.Clock();
 
@@ -112,6 +138,10 @@ async function initTooth() {
     pivot.rotation.y = cur[3] * (reduced ? .25 : 1) + Math.sin(t * .4) * .08 * fl + mx * .35 * fl;
     tilt.rotation.x = cur[4] + Math.sin(t * .55) * .04 * fl + my * .2 * fl;
     tilt.rotation.z = Math.sin(t * .35) * .03 * fl;
+    // lime orbit tooth ke saath chalta hai, hero se bahar jaate hi fade
+    const ow = Math.max(160, cur[2] * innerHeight * .98);
+    orbit.style.width = ow + 'px'; orbit.style.opacity = Math.max(0, 1 - scrollY / (innerHeight * .55));
+    orbit.style.transform = `translate(${innerWidth / 2 + cur[0] * innerWidth / 2 - ow / 2}px,${innerHeight / 2 + cur[1] * innerHeight / 2 - ow / 4}px)`;
     renderer.render(scene, cam);
   });
   canvas.classList.add('on'); $('#loader').classList.add('off');

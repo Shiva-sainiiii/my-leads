@@ -65,5 +65,19 @@ export const siteConfig = {
     maps: "YOUR GOOGLE MAPS LINK", whatsapp: "YOUR WHATSAPP LINK", instagram: "YOUR INSTAGRAM LINK", facebook: "YOUR FACEBOOK LINK",
     formAction: "" // optional endpoint (Formspree etc). Khali = demo success message
   },
+  beforeAfter: { title: "REAL\nRESULTS.", before: "assets/img/before.jpg", after: "assets/img/after.jpg", caption: "Placeholder — YOUR PATIENT case. Replace with real before / after photos." },
+  feedback: { title: "RATE YOUR\nVISIT.", text: "Tell YOUR CLINIC how we did. It takes ten seconds." },
+  map: { embed: "" }, // Google Maps > Share > Embed a map > src="..." wala URL yahan paste karo
+  chatbot: {
+    name: "YOUR CLINIC ASSISTANT", endpoint: "", // endpoint khali = scripted demo bot; baad me real AI API yahan jodo ({message} -> {reply})
+    greeting: "Hi! I'm the virtual assistant for YOUR CLINIC. How can I help?",
+    fallback: "Thanks for your question! Please call YOUR PHONE or use the appointment form and our team will help.",
+    faqs: [
+      { q: "Book an appointment", keys: ["book","appointment","visit","slot"], a: "You can book using the appointment form below — I'll take you there.", goto: "#contact" },
+      { q: "Our services", keys: ["service","treatment","implant","whiten","braces","clean"], a: "We offer general & cosmetic dentistry, implants, whitening, orthodontics and preventive care.", goto: "#services" },
+      { q: "Clinic timings", keys: ["time","timing","open","hour"], a: "YOUR TIMINGS — add clinic hours here." },
+      { q: "Location", keys: ["where","location","address","map"], a: "YOUR ADDRESS — see the map section below.", goto: "#map" }
+    ]
+  },
   footer: { tagline: "Dental care designed around your smile." }
 };
