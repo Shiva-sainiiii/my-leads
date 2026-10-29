@@ -106,7 +106,7 @@ async function initTooth() {
 
   scene.add(new THREE.AmbientLight(0xffffff, .45));
   const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 4, 5); scene.add(key);          // soft key
-  const rim = new THREE.DirectionalLight(0xcbb3e8, 3);   rim.position.set(-4, 2, -3); scene.add(rim);        // lavender rim
+  const rim = new THREE.DirectionalLight(0xb79ad8, 3);   rim.position.set(-4, 2, -3); scene.add(rim);        // lavender rim
   const fill = new THREE.DirectionalLight(0xd4ff3f, .35); fill.position.set(-3, -3, 2); scene.add(fill);     // chartreuse kick
 
   const resize = () => { renderer.setSize(innerWidth, innerHeight, false); cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); calcMids(); };
@@ -119,7 +119,7 @@ async function initTooth() {
   model.position.multiplyScalar(1 / size.y);
   tilt.add(model); pivot.add(tilt); scene.add(pivot);
   if (C.model.overrideMaterial) {
-    const mat = new THREE.MeshPhysicalMaterial({ color: 0xf6f2ee, roughness: .2, metalness: 0, clearcoat: 1, clearcoatRoughness: .08, sheen: 1, sheenColor: new THREE.Color(0xcbb3e8), sheenRoughness: .5, envMapIntensity: 1.15 });
+    const mat = new THREE.MeshPhysicalMaterial({ color: 0xf6f2ee, roughness: .2, metalness: 0, clearcoat: 1, clearcoatRoughness: .08, sheen: 1, sheenColor: new THREE.Color(0xb79ad8), sheenRoughness: .5, envMapIntensity: 1.15 });
     model.traverse(o => { if (o.isMesh) { if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals(); o.material = mat; } });
   }
 
@@ -139,7 +139,7 @@ async function initTooth() {
     tilt.rotation.x = cur[4] + Math.sin(t * .55) * .04 * fl + my * .2 * fl;
     tilt.rotation.z = Math.sin(t * .35) * .03 * fl;
     // lime orbit tooth ke saath chalta hai, hero se bahar jaate hi fade
-    const ow = Math.max(160, cur[2] * innerHeight * .98);
+    const ow = Math.max(160, cur[2] * innerHeight * .88);
     orbit.style.width = ow + 'px'; orbit.style.opacity = Math.max(0, 1 - scrollY / (innerHeight * .55));
     orbit.style.transform = `translate(${innerWidth / 2 + cur[0] * innerWidth / 2 - ow / 2}px,${innerHeight / 2 + cur[1] * innerHeight / 2 - ow / 4}px)`;
     renderer.render(scene, cam);

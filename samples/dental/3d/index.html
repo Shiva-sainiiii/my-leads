@@ -9,7 +9,7 @@
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head><body>
 <canvas id="tooth" aria-hidden="true"></canvas>
-<div class="orbit" id="orbit" aria-hidden="true"><svg viewBox="0 0 600 300"><ellipse cx="300" cy="150" rx="290" ry="100" fill="none" stroke="#D4FF3F" stroke-width="1.6" transform="rotate(-16 300 150)"/></svg><span class="ball b1"></span></div>
+<div class="orbit" id="orbit" aria-hidden="true"><svg viewBox="0 0 600 300"><ellipse cx="300" cy="150" rx="290" ry="100" fill="none" stroke="#D4FF3F" stroke-width="1.2" transform="rotate(-16 300 150)"/></svg><span class="ball b1"></span></div>
 <div class="loader" id="loader">LOADING 3D…</div>
 
 <header class="top" id="top">
@@ -20,7 +20,7 @@
 <div class="menu" id="menu"><nav id="menuNav"></nav></div>
 
 <main>
-<section id="hero" class="hero" data-tooth="0.52,0,0.67,0.5,0.08" data-tooth-m="0,-0.34,0.46,0.5,0.08">
+<section id="hero" class="hero" data-tooth="0.55,0,0.6,0.5,0.08" data-tooth-m="0.4,0.56,0.33,0.5,0.08">
   <div class="deco"><span class="ball b2"></span></div>
   <div class="wrap hero-in">
     <p class="eyebrow" data-c="hero.eyebrow"></p>
@@ -91,7 +91,7 @@
   <nav><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a><a href="#">PRIVACY</a></nav>
   <nav><a data-href="contact.instagram">INSTAGRAM</a><a data-href="contact.facebook">FACEBOOK</a><a data-href="contact.whatsapp">WHATSAPP</a></nav>
 </div></footer>
-<button class="chat-fab" id="chatFab" aria-label="Chat with us"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.2-4.4A8 8 0 1 1 21 12z"/></svg></button>
-<div class="chat" id="chat" aria-live="polite"><div class="ch-h"><b id="chName"></b><button id="chX" aria-label="Close">×</button></div><div class="ch-b" id="chBody"></div><div class="ch-q" id="chQ"></div><form class="ch-f" id="chForm"><input id="chIn" placeholder="Type your question…" autocomplete="off"><button aria-label="Send">→</button></form></div>
+<button class="chat-fab" id="chatFab" aria-label="Chat with us"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg><span>ASK AI</span><i class="dot"></i></button>
+<div class="chat" id="chat" aria-live="polite"><div class="ch-h"><div><b id="chName"></b><small><i class="dot"></i> AI ASSISTANT · ONLINE</small></div><button id="chX" aria-label="Close">×</button></div><div class="ch-b" id="chBody"></div><div class="ch-q" id="chQ"></div><form class="ch-f" id="chForm"><input id="chIn" placeholder="Type your question…" autocomplete="off"><button aria-label="Send">→</button></form></div>
 <script type="module" src="js/main.js"></script>
 </body></html>

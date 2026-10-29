@@ -1,4 +1,4 @@
-:root{--lav:#CBB3E8;--lime:#D4FF3F;--red:#E34234;--w:#fff;--off:#F8F7F4;--ink:#111;--mut:#5F5A66;
+:root{--lav:#B79AD8;--lime:#D4FF3F;--red:#E34234;--w:#fff;--off:#F8F7F4;--ink:#111;--mut:#5F5A66;
 --serif:'Bodoni Moda',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--pad:clamp(1.25rem,4vw,4rem)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -93,10 +93,18 @@ input,select,textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transfor
 .ch-f{display:flex;border-top:1px solid #eee}.ch-f input{flex:1;border:0;padding:.9rem 1rem;font-size:.9rem;outline:0;box-shadow:none}.ch-f button{border:0;background:var(--lime);padding:0 1.2rem;font-weight:700;cursor:pointer}
 @media(max-width:860px){
  .c,.pill,.srch{display:none}.top{grid-template-columns:1fr auto}.top::after{display:none}.r{display:none}
- .grid2,.contact .grid2{grid-template-columns:1fr;gap:2.5rem}.hero{align-items:flex-start;padding-top:6.5rem}.hero .big{font-size:clamp(2.7rem,14vw,4.6rem)}.hero .lead{max-width:30ch}
- .hero-in{min-height:calc(100svh - 9rem)}.vlab,.strap{display:none}.ring{top:55%;width:120vw;right:-30%}.b2{left:-6%;bottom:6%}
+ .grid2,.contact .grid2{grid-template-columns:1fr;gap:2.5rem}.hero{align-items:flex-start;padding-top:6.5rem}.hero .big{font-size:clamp(2.5rem,12.5vw,4.2rem)}.hero .cta .btn{width:auto;padding:.9rem 1.3rem}.hero .cta{flex-direction:column;align-items:flex-start;margin-top:1.4rem}.hero .lead{max-width:30ch}
+ .hero{min-height:88svh;padding-bottom:3rem}.hero-in{min-height:0}.vlab,.strap{display:none}.ring{top:55%;width:120vw;right:-30%}.b2{left:-6%;bottom:6%}
  .why .grid2>div:first-child{display:none}.expgrid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.tgrid blockquote:nth-child(n){margin-top:0}
  .ggrid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.g:nth-child(n){grid-column:auto;grid-row:auto}.g:nth-child(1){grid-column:1/3;grid-row:span 2}
  .svc p{max-height:5rem;opacity:1}.svc{grid-template-columns:2.5rem 1fr}.stats{gap:1.4rem}.cta .btn{width:100%;justify-content:center}.ctas{min-height:100svh}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.ln>span{transform:none}.rv{opacity:1;transform:none}.g{clip-path:none}}
+
+/* dark lavender pe contrast */
+.hero,.services,.testi,.ctas,.ba,.mapsec{--mut:#352d3f}
+.hero .eyebrow,.services .eyebrow,.ba .eyebrow,.mapsec .eyebrow,.testi cite{color:#8f1f14}
+.chat-fab{width:auto;height:52px;border-radius:99px;padding:0 1.1rem;gap:.5rem;display:flex;align-items:center;background:var(--ink);color:var(--lime);font-size:.7rem;letter-spacing:.16em;font-weight:700;font-family:var(--sans);position:fixed}
+.chat-fab .dot,.ch-h .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulse 1.8s infinite}.chat-fab .dot{position:absolute;top:-2px;right:6px;box-shadow:0 0 0 2px var(--ink)}
+.ch-h small{display:block;margin-top:.25rem;font-size:.58rem;color:var(--lime);letter-spacing:.14em}.ch-h b{letter-spacing:.14em}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(212,255,63,0)}0%{box-shadow:0 0 0 0 rgba(212,255,63,.6)}}
