@@ -84,7 +84,7 @@ input,select,textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transfor
 .cmp .ly.after{background:linear-gradient(135deg,var(--lav),#f3ecfb)}.cmp .bar{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--lime);pointer-events:none}.cmp .bar::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-weight:700}
 .cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;border:0;padding:0}.cap{margin-top:1rem;font-size:.8rem;color:var(--mut)}
 .fb{background:var(--off)}.stars{display:flex;gap:.4rem}.stars button{background:none;border:0;font-size:2.4rem;line-height:1;color:rgba(17,17,17,.2);cursor:pointer;transition:transform .2s,color .2s}.stars button.on{color:var(--red)}.stars button:hover{transform:scale(1.2) rotate(-6deg)}.rate{font-size:.7rem;letter-spacing:.2em;font-weight:700;color:var(--mut)}
-.mapsec{background:var(--lav);padding-bottom:0}.mapbox{height:clamp(320px,50vh,520px);border-radius:6px;overflow:hidden;background:var(--off);display:grid;place-items:center;font-size:.75rem;letter-spacing:.2em;font-weight:700;margin-bottom:clamp(3rem,6vw,5rem)}.mapbox iframe{width:100%;height:100%;border:0;filter:saturate(.85)}
+.mapsec{background:var(--lav);padding-bottom:clamp(3rem,6vw,5rem)}.mapbox{height:clamp(320px,50vh,520px);border-radius:6px;overflow:hidden;background:var(--off);display:grid;place-items:center;font-size:.75rem;letter-spacing:.2em;font-weight:700;margin-bottom:0}.mapbox iframe{width:100%;height:100%;border:0;filter:saturate(.85)}
 .chat-fab{position:fixed;right:1.2rem;bottom:1.2rem;z-index:58;width:58px;height:58px;border-radius:50%;border:0;background:var(--lime);color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(60,30,100,.5);transition:transform .3s}.chat-fab:hover{transform:scale(1.08)}
 .chat{position:fixed;right:1.2rem;bottom:5.2rem;z-index:58;width:min(360px,calc(100vw - 2rem));height:min(480px,70vh);background:#fff;border-radius:14px;box-shadow:0 30px 70px -20px rgba(40,20,80,.5);display:none;flex-direction:column;overflow:hidden}.chat.open{display:flex}
 .ch-h{background:var(--ink);color:#fff;padding:.9rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;letter-spacing:.16em}.ch-h button{background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer}
@@ -108,3 +108,12 @@ input,select,textarea{font:inherit;font-size:1rem;letter-spacing:0;text-transfor
 .chat-fab .dot,.ch-h .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulse 1.8s infinite}.chat-fab .dot{position:absolute;top:-2px;right:6px;box-shadow:0 0 0 2px var(--ink)}
 .ch-h small{display:block;margin-top:.25rem;font-size:.58rem;color:var(--lime);letter-spacing:.14em}.ch-h b{letter-spacing:.14em}
 @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(212,255,63,0)}0%{box-shadow:0 0 0 0 rgba(212,255,63,.6)}}
+
+/* tomato red glossy shapes (tooth ke peeche, reference jaisa) */
+.rball,.rring{position:absolute;z-index:0;pointer-events:none}
+.rball{border-radius:50%;aspect-ratio:1;background:radial-gradient(circle at 34% 28%,#ff9a8f,var(--red) 48%,#a81f14);box-shadow:0 30px 50px -20px rgba(120,20,10,.45);animation:fl 10s ease-in-out infinite}
+.r1{width:clamp(110px,17vw,250px);right:36%;bottom:7%}.r2{width:clamp(70px,9vw,140px);left:12%;bottom:14%;animation-delay:-4s}.r3{width:clamp(50px,6vw,90px);right:8%;top:12%;animation-delay:-2s}
+.rring{width:clamp(280px,50vw,740px);aspect-ratio:1;left:50%;top:50%;border-radius:50%;border:clamp(26px,4.5vw,64px) solid var(--red);box-shadow:inset 0 10px 16px rgba(255,255,255,.35),inset 0 -14px 22px rgba(90,10,5,.35),0 30px 50px -20px rgba(120,20,10,.4);transform:translate(-50%,-50%);animation:rf 9s ease-in-out infinite alternate}
+@keyframes rf{to{transform:translate(-50%,calc(-50% - 18px)) rotate(4deg)}}
+.btn.ghost:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(max-width:860px){.r1{right:-8%;bottom:9%;width:36vw}.r2{left:4%;bottom:8%}.r3{right:4%;top:6%}.rring{width:90vw}}
