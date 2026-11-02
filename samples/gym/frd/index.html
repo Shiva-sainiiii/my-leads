@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FRD Gym 24×7 — Rohtak</title>
+<title>Your Gym — Open 24×7 | Your City</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#030407;--fg:#e9edff;--mut:#9aa3c4;--h1:#D4FF24;--h2:#7da4ff;--a:#1558C9;--btn:#D4FF24;--btnfg:#030407;--card:rgba(21,88,201,.14);--line:rgba(255,255,255,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -47,7 +47,7 @@ p.lead{max-width:34ch;color:var(--mut);font-size:1.05rem}
 .rate{display:flex;gap:16px;flex-wrap:wrap}.rate .cd{flex:1 1 200px;text-align:center}.rate b{display:block;font:400 3.2rem/1 Anton,sans-serif;color:var(--h1)}.stars{color:var(--h1);letter-spacing:.2em;font-size:1.1rem}.rate small{display:block;letter-spacing:.2em;text-transform:uppercase;font-size:.68rem;color:var(--mut);margin-top:6px}
 #rv-list{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;margin-top:16px}#rv-list .cd{flex:0 0 min(320px,80%);scroll-snap-align:start}#rv-list:empty{display:none}#rv-list p{color:var(--fg);font-size:.95rem}#rv-list small{display:block;margin-top:10px;color:var(--mut);letter-spacing:.1em;font-weight:600}
 .eq{display:grid;gap:12px;margin-top:8px}.eq label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);display:grid;gap:6px}.eq input,.eq select{font:600 1rem Manrope,sans-serif;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 70%,transparent);color:var(--fg);width:100%}.eq input:focus,.eq select:focus{outline:2px solid var(--h1);outline-offset:1px}.eq .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.map{margin-top:22px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card)}.map iframe{display:block;width:100%;height:340px;border:0}:root[data-theme=dark] .map iframe{filter:invert(.92) hue-rotate(180deg) contrast(.9) saturate(.8)}.map .row{margin:0;padding:14px}
+.map{margin-top:22px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card)}.mapph{display:grid;place-items:center;height:280px;color:var(--mut);letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;background:repeating-linear-gradient(135deg,transparent 0 18px,rgba(128,128,160,.08) 18px 19px)}.map iframe{display:block;width:100%;height:340px;border:0}:root[data-theme=dark] .map iframe{filter:invert(.92) hue-rotate(180deg) contrast(.9) saturate(.8)}.map .row{margin:0;padding:14px}
 .dock{display:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--h1);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
@@ -58,26 +58,26 @@ footer{position:relative;z-index:2;padding:30px 6vw;font-size:.75rem;color:var(-
 body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}.grid>*{min-width:0}.cd h3{font-size:1.25rem;overflow-wrap:anywhere}.g4{gap:12px}.g4 .cd{padding:18px}.eq .two{grid-template-columns:1fr}.map iframe{height:280px}
 .dock{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:25;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}.dock a{text-align:center;padding:13px 6px;font-size:.72rem;letter-spacing:.1em}.box,.box.R{max-width:100%}.g4{grid-template-columns:1fr 1fr}.slash{width:50vw;opacity:.45}.sec{padding-top:100px}.grid{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.hd{padding-bottom:42vh}header .btn{display:none}}
 </style></head><body>
-<div id="ld">FRD</div>
-<div class="bg"><div class="ghost" id="gh">FRD</div><div class="slash" id="sl"></div></div>
+<div id="ld">GYM</div>
+<div class="bg"><div class="ghost" id="gh">GYM</div><div class="slash" id="sl"></div></div>
 <canvas id="gl"></canvas>
-<header><div class="logo"><b>■</b> FRD GYM</div><nav><a href="#floors">Floors</a><a href="#amenities">Amenities</a><a href="#plans">Plans</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav><button id="tg" aria-label="Toggle theme" title="Switch theme"><svg class="moon" viewBox="0 0 24 24"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><button id="mn" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path id="mnp" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn" href="tel:+919278160000">Join now</a></header>
+<header><div class="logo"><b>■</b> YOUR GYM</div><nav><a href="#floors">Floors</a><a href="#amenities">Amenities</a><a href="#plans">Plans</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav><button id="tg" aria-label="Toggle theme" title="Switch theme"><svg class="moon" viewBox="0 0 24 24"><path d="M21 14.5A9 9 0 0 1 9.5 3a9 9 0 1 0 11.5 11.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><button id="mn" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path id="mnp" d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="btn" href="tel:+15550100000">Join now</a></header>
 <main>
 <section class="sec hd" id="hero"><div class="box">
-<div class="tag rv">Rohtak · Open 24×7 · All year</div>
+<div class="tag rv">Your City · Open 24×7 · All year</div>
 <h1><span class="s1 rv" style="--d:.1s">Train</span><span class="s2 rv" style="--d:.25s">every</span><span class="s3 rv" style="--d:.4s">hour.</span></h1>
-<p class="lead rv" style="--d:.55s">Rohtak’s round-the-clock fitness destination: four floors, certified trainers and a door that never closes.</p>
-<div class="row rv" style="--d:.7s"><a class="btn" href="tel:+919278160000">Start today →</a><a class="btn ghostb" href="#floors">Take the tour</a></div>
-<div class="stats rv" style="--d:.85s"><div><b data-n="4.6" data-d="1">0</b><small>Google rating</small></div><div><b data-n="4.7" data-d="1">0</b><small>Justdial rating</small></div><div><b>24/7</b><small>Always open</small></div></div>
+<p class="lead rv" style="--d:.55s">Your city’s round-the-clock fitness destination: four floors, certified trainers and a door that never closes.</p>
+<div class="row rv" style="--d:.7s"><a class="btn" href="tel:+15550100000">Start today →</a><a class="btn ghostb" href="#floors">Take the tour</a></div>
+<div class="stats rv" style="--d:.85s"><div><b data-n="4.8" data-d="1">0</b><small>Google rating</small></div><div><b data-n="4.9" data-d="1">0</b><small>Member rating</small></div><div><b>24/7</b><small>Always open</small></div></div>
 </div></section>
 <div class="mq"><div><span>Cardio</span><span>Strength</span><span>CrossFit</span><span>Zumba</span><span>Power Yoga</span><span>TRX</span><span>Cardio</span><span>Strength</span><span>CrossFit</span><span>Zumba</span><span>Power Yoga</span><span>TRX</span></div></div>
 <section class="sec" id="floors"><div class="box R">
 <div class="tag rv">Explore our gym</div><h2 class="rv">Four floors. <em>One obsession.</em></h2>
 <div class="grid">
 <div class="cd rv"><div class="ph"><svg viewBox="0 0 24 24"><path d="M5 21V4h9v17M14 8h5v13M9 12v2"/></svg></div><i>00</i><h3>Ground</h3><p>Reception and lounge, your first checkpoint into the grind.</p></div>
-<div class="cd rv" style="--d:.1s"><div class="ph" style="--img:url(images/cardio.jpg)"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><i>01</i><h3>Cardio &amp; Studio</h3><p>Stamina floor with a wooden, mirrored studio for Zumba, aerobics and power yoga.</p></div>
-<div class="cd rv" style="--d:.2s"><div class="ph" style="--img:url(images/strength.jpg)"><svg viewBox="0 0 24 24"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg></div><i>02</i><h3>Strength</h3><p>Heavy iron, chest presses and rowers, with 2 certified trainers and 1 assistant on the floor.</p></div>
-<div class="cd rv" style="--d:.3s"><div class="ph" style="--img:url(images/functional.jpg)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><i>RT</i><h3>Rooftop Arena</h3><p>Open-air CrossFit on turf: functional rigs, tyre flips and pull-up bars.</p></div>
+<div class="cd rv" style="--d:.1s"><div class="ph" style="--img:url(https://images.unsplash.com/photo-1771586791190-97ed536c54af?auto=format&fit=crop&w=900&q=70)"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><i>01</i><h3>Cardio &amp; Studio</h3><p>Stamina floor with a wooden, mirrored studio for Zumba, aerobics and power yoga.</p></div>
+<div class="cd rv" style="--d:.2s"><div class="ph" style="--img:url(https://images.unsplash.com/photo-1620188467120-5042ed1eb5da?auto=format&fit=crop&w=900&q=70)"><svg viewBox="0 0 24 24"><path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/></svg></div><i>02</i><h3>Strength</h3><p>Heavy iron, chest presses and rowers, with 2 certified trainers and 1 assistant on the floor.</p></div>
+<div class="cd rv" style="--d:.3s"><div class="ph" style="--img:url(https://images.unsplash.com/photo-1513352098199-8ccf457b35a8?auto=format&fit=crop&w=900&q=70)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><i>RT</i><h3>Rooftop Arena</h3><p>Open-air CrossFit on turf: functional rigs, tyre flips and pull-up bars.</p></div>
 </div></div></section>
 <section class="sec" id="amenities"><div class="box">
 <div class="tag rv">Amenities</div><h2 class="rv">Everything <em>you need.</em></h2>
@@ -96,26 +96,26 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}.grid>*{min-wid
 <div class="cd best rv" style="--d:.3s"><small>1 YEAR · BEST VALUE</small><h3>Beast commitment</h3><p>Lowest monthly cost, discount coupons and locker.</p><div class="pr" data-k="beast"></div><a class="btn ghostb sm" data-plan="Beast commitment 1 year" href="#contact">Enquire</a></div>
 </div><p class="rv" style="color:var(--mut);font-size:.85rem;margin-top:18px">Prices change with offers. Tap Enquire or call the front desk for today's rate.</p></div></section>
 <section class="sec" id="reviews"><div class="box">
-<div class="tag rv">Trusted in Rohtak</div><h2 class="rv">Members <em>rate us.</em></h2>
-<div class="rate rv"><div class="cd"><b>4.6</b><div class="stars">★★★★★</div><small>Google rating</small></div><div class="cd"><b>4.7</b><div class="stars">★★★★★</div><small>Justdial rating</small></div></div>
+<div class="tag rv">Trusted in Your City</div><h2 class="rv">Members <em>rate us.</em></h2>
+<div class="rate rv"><div class="cd"><b>4.8</b><div class="stars">★★★★★</div><small>Google rating</small></div><div class="cd"><b>4.9</b><div class="stars">★★★★★</div><small>Member rating</small></div></div>
 <div id="rv-list"></div>
-<div class="row rv"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Read Google reviews</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.justdial.com/Rohtak/FRD-Gym-24x7">Justdial</a></div>
+<div class="row rv"><a class="btn" href="#contact">Read Google reviews</a></div>
 </div></section>
 <section class="sec" id="contact"><div class="box R">
 <div class="tag rv">Visit us</div><h2 class="rv">Come lift <em>with us.</em></h2>
-<p class="lead rv">Gali No. 1, Dev Colony, Delhi Road, opposite Chhotu Ram Polytechnic, Rohtak, Haryana 124001<br>Open 24 hours, 7 days a week<br>+91 92781 60000 · 01262-273333</p>
-<div class="row rv"><a class="btn" href="tel:+919278160000">Call now</a><a class="btn ghostb" href="https://wa.me/919278160000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Directions</a></div>
+<p class="lead rv">123 Your Street, Your City, Your State 00000<br>Open 24 hours, 7 days a week<br>+1 555 010 0000 · you@yourgym.com</p>
+<div class="row rv"><a class="btn" href="tel:+15550100000">Call now</a><a class="btn ghostb" href="https://wa.me/15550100000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="#contact">Directions</a></div>
 <form class="cd eq rv" id="eq"><h3>Book a free visit</h3>
 <label>Your name<input name="n" required autocomplete="name" placeholder="Name"></label>
 <div class="two"><label>Preferred time<select name="t"><option>Morning (5–10 am)</option><option>Afternoon (10 am–4 pm)</option><option>Evening (4–9 pm)</option><option>Late night (9 pm–5 am)</option></select></label>
 <label>Goal<select name="g"><option>weight loss</option><option>muscle gain</option><option>general fitness</option><option>CrossFit / Zumba / Yoga</option></select></label></div>
 <button type="submit">Send on WhatsApp →</button></form>
-<div class="map rv"><iframe title="FRD Gym 24x7 on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak+Haryana&output=embed"></iframe>
-<div class="row"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Get directions</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Open in Google Maps</a></div></div>
+<div class="map rv"><div class="mapph" role="img" aria-label="Map placeholder">Your Google Map appears here</div>
+<div class="row"><a class="btn" target="_blank" rel="noopener" href="#contact">Get directions</a></div></div>
 </div></section>
 </main>
-<nav class="dock" aria-label="Quick contact"><a class="btn" href="tel:+919278160000">Call</a><a class="btn ghostb" href="https://wa.me/919278160000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=FRD+Gym+24x7+Dev+Colony+Delhi+Road+Rohtak">Directions</a></nav>
-<footer>Demo concept for FRD Gym 24×7. 3D model “Metal dumbell” by <a href="https://sketchfab.com/borrealis">Borrealis</a>, CC BY 4.0.</footer>
+<nav class="dock" aria-label="Quick contact"><a class="btn" href="tel:+15550100000">Call</a><a class="btn ghostb" href="https://wa.me/15550100000">WhatsApp</a><a class="btn ghostb" target="_blank" rel="noopener" href="#contact">Directions</a></nav>
+<footer>Demo concept for Your Gym. Photos from Unsplash. 3D model “Metal dumbell” by <a href="https://sketchfab.com/borrealis">Borrealis</a>, CC BY 4.0.</footer>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
 <script>
@@ -128,10 +128,10 @@ document.querySelectorAll('[data-n]').forEach(el=>{const n=+el.dataset.n,d=+el.d
 // ===== EDIT ME: plan prices (e.g. trial:"1,500") and real member reviews =====
 const PRICES={trial:"",sprint:"",pack:"",beast:""};
 const REVIEWS=[]; // {t:"review text",n:"Name"}
-document.querySelectorAll('.pr').forEach(e=>{const v=PRICES[e.dataset.k];e.innerHTML=v?'₹'+v+' <small>/ plan</small>':'<small>Ask for today’s offer</small>'});
+document.querySelectorAll('.pr').forEach(e=>{const v=PRICES[e.dataset.k];e.innerHTML=v?'$'+v+' <small>/ plan</small>':'<small>Ask for today’s offer</small>'});
 $('#rv-list').innerHTML=REVIEWS.map(r=>`<div class="cd"><div class="stars">★★★★★</div><p>“${r.t}”</p><small>${r.n}</small></div>`).join('');
 document.querySelectorAll('[data-plan]').forEach(a=>a.onclick=()=>{const p=a.dataset.plan;$('#eq').dataset.plan=p});
-$('#eq').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),p=e.target.dataset.plan?` I’m interested in the ${e.target.dataset.plan} plan.`:'';open('https://wa.me/919278160000?text='+encodeURIComponent(`Hi FRD Gym, I’m ${f.get('n')}. I’d like to visit in the ${f.get('t')} for ${f.get('g')}.${p} Please share details.`),'_blank')};
+$('#eq').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),p=e.target.dataset.plan?` I’m interested in the ${e.target.dataset.plan} plan.`:'';open('https://wa.me/15550100000?text='+encodeURIComponent(`Hi Your Gym, I’m ${f.get('n')}. I’d like to visit in the ${f.get('t')} for ${f.get('g')}.${p} Please share details.`),'_blank')};
 const nv=$('header nav'),mn=$('#mn'),setM=o=>{nv.classList.toggle('open',o);mn.setAttribute('aria-expanded',o);$('#mnp').setAttribute('d',o?'M5 5l14 14M19 5L5 19':'M4 7h16M4 12h16M4 17h16');document.body.style.overflow=o?'hidden':''};
 mn.onclick=()=>setM(!nv.classList.contains('open'));nv.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setM(false)));
 let L1,L2,rd;
