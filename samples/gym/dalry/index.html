@@ -69,6 +69,11 @@
     #about, #fixtures { justify-content: flex-end; padding-bottom: 5rem; }
   }
   @media (min-width: 768px) {
+    /* Desktop hero: title scales with height too, so the ball (below it) only kisses the title's bottom edge */
+    h1.display { font-size: clamp(2.6rem, min(6.6vw, 13vh), 7rem); }
+    #home { padding-bottom: 2.5rem; }
+    #home .hero-foot { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    #home .ghost-btn { margin-top: 0; }
     section { padding-left: 4rem; padding-right: 4rem; }
     #nav { padding: 1.5rem 4rem; }
     #about, #fixtures { justify-content: center; }
@@ -152,7 +157,7 @@ const clubConfig = {
         <p class="eyebrow">${c.shortName} · ${c.location}</p>
         <h1 class="display">${line1}<br>${line2}</h1>
       </div>
-      <div data-reveal>
+      <div class="hero-foot" data-reveal>
         <p class="tagline">${c.heroTagline}</p>
         <a class="ghost-btn" href="#about">${c.heroCta} <span>→</span></a>
       </div>
@@ -334,7 +339,7 @@ loadModel();
    x/y in -1..1 (half viewport), sizes = fraction of smaller viewport side
    ============================================================ */
 const LAYOUT = {
-  desktop: { hero: 0.56, heroY: -0.12, aboutX: 0.5,  aboutY: 0,   about: 0.5,  fixX: -0.5,  fixY: 0,   fix: 0.55, footY: -0.12, foot: 0.4 },
+  desktop: { hero: 0.42, heroY: -0.18, aboutX: 0.5,  aboutY: 0,   about: 0.5,  fixX: -0.5,  fixY: 0,   fix: 0.55, footY: -0.12, foot: 0.4 },
   mobile:  { hero: 0.6,  heroY: -0.1,  aboutX: 0.28, aboutY: 0.5, about: 0.34, fixX: -0.28, fixY: 0.5, fix: 0.34, footY: -0.1,  foot: 0.35 }
 };
 
